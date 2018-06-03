@@ -14,7 +14,7 @@
     "test": "ospec"
   },
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 8.9.0"
   },
   "plugins": [
     "plugins/markdown"
