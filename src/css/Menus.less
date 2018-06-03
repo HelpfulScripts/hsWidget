@@ -1,0 +1,31 @@
+@import "Button.less"; 
+
+@MenuBgColor: #eee;
+@SelectBgColor: #fff;
+@ItemBorder: 0.5px solid white;
+@MenuHeight: 30px;
+
+.hs-menu { 
+    .hs-abstract-button-group;
+    box-sizing: content-box;
+    height: @MenuHeight;
+    .hs-layout { 
+        overflow:hidden; 
+        border-left: @ItemBorder;
+        border-right: @ItemBorder;
+        &:first-child { border-left: none; }
+        &:last-child { border-right: none; }
+    }
+    background-color: transparent; 
+    .hs-selectable {   // name menu item in hs-modules-title
+        overflow:hidden;
+        padding: 5px 0px 5px 10px;
+        background-color: @MenuBgColor;
+    }
+    .hs-selected {
+        background-color: @SelectBgColor; 
+        font-weight:bold;
+    }
+}
+
+

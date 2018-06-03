@@ -1,0 +1,25 @@
+{
+  "name": "hswidget",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "version": "2.0.0",
+  "keywords": [],
+  "description": "Helpful Scripts UI widgets",
+  "author": {
+    "name": "masterscripter",
+    "email": "helpfulscripts@gmail.com"
+  },
+  "scripts": {
+    "start": "grunt",
+    "test": "ospec"
+  },
+  "engines": {
+    "node": ">= 0.10.0"
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "dependencies": {
+    "mithril": "^1.1.4"
+  }
+}

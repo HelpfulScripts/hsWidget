@@ -1,0 +1,17 @@
+.hs-add-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1em;
+    &::before { content: '+'; }
+    &:hover { font-weight: bold; }
+}
+
+.hs-remove-button {
+    position: absolute;
+    top: -0.5em;
+    right: 0;
+    width: 1em;
+    &::before { content: '_'; }
+    &:hover { font-weight: bold; }
+}

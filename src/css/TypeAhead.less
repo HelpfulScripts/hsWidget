@@ -1,0 +1,38 @@
+
+.hs-form {
+    position: relative;
+}
+
+.hs-typeahead-input {
+    position: relative;
+    left: 5px;
+    right: 5px;
+    top: 0;
+    box-shadow: 0 0 5px 0px #ccc;
+    border: 1px solid #ccf;
+    border-radius: 4px;
+    padding: 4px;    
+    font-size: 16px;
+    &.hs-typeahead-value {
+        color:#66f;
+    }
+    &.hs-typeahead-placeholder {
+        color: #ccc;
+    }
+}
+
+.hs-typeahead-list {
+    position: absolute;
+    z-index: 9999;
+    left: 20px;
+    width: 200px;
+    border: 1px solid #aaf;
+    box-shadow: 0 0 5px 0px #ccc inset;
+    background-color: white;
+    div {
+        padding: 5px;
+        &:hover {
+            text-shadow: 0 0 3px #88f;
+        }
+    }
+}

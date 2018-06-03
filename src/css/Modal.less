@@ -1,0 +1,29 @@
+@ModalBgColor:   16;
+@ModalBackground: rgba(@ModalBgColor, @ModalBgColor, @ModalBgColor, 0.6);
+@ModalRadius:    10;
+
+.hs-modal-frame {
+}
+
+.hs-modal-background {
+    position: fixed;
+    left:0%;
+    right:0%;
+    top: 0%;
+    bottom:0%;
+    background-color: @ModalBackground;
+    z-index: 998;
+}
+
+.hs-modal-foreground {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color:white;
+    border-radius: unit(@ModalRadius, px); 
+    z-index: 999;
+    width: auto;
+    height: auto;
+}
