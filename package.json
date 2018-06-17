@@ -2,7 +2,7 @@
   "name": "hswidget",
   "main": "./index.js",
   "types": "./index.d.ts",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "keywords": [],
   "description": "Helpful Scripts UI widgets",
   "author": {
