@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonJS",
+    "rootDir": "./src",
+    "moduleResolution": "node",
+    "inlineSourceMap": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "declaration": true
+  },
+  "compileOnSave": true,
+  "include": [],  
+  "exclude": ["**/node_modules"]
+}

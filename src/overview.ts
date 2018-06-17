@@ -1,6 +1,9 @@
 /**
 # hsWidgets 
-Provides various UI widgets:
+Helpful Scripts UI widgets.  [Github page](https://github.com/HelpfulScripts/hsWidget)
+
+**hsWidget** Provides various UI widgets for use with mithril:
+
 
 | Widget | Description |
 |========|=============|
@@ -86,7 +89,7 @@ Provides various UI widgets:
  *    m('', Object.keys(hswidget.ButtonSymbols).map(
  *       (b) => m('.myCornerPositioned', [
  *          buttons[b]? m('.myCornerClicked', 'Yayy!!') : m('', b),
- *          m(hswidget.ToolbarButtons, { symbol:hswidget.ToolbarButtons.getSymbol(b), onclick:click(b) })
+ *          m(hswidget.ToolbarButton, { symbol:hswidget.ToolbarButton.getSymbol(b), onclick:click(b) })
  *       ])
  *    )),
  * ])});
