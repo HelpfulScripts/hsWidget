@@ -73,6 +73,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     //------ Add Task Configurations
     return {
         pkg: grunt.file.readJSON(dir+'/package.json'),
+        lib: lib,
         libPath: grunt.config.process(lib).toLowerCase(),
         banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
 				'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
@@ -136,7 +137,7 @@ module.exports = (grunt, dir, dependencies, type) => {
             },
             css: {
                 files: {
-                    '_dist/bin/<%= pkg.name %>.css': 'src/css/<%= pkg.name %>.less'
+                    '_dist/bin/<%= lib %>.css': 'src/css/<%= pkg.name %>.less'
                 }
             },
             example: {
