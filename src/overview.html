@@ -1,0 +1,195 @@
+
+                <html><style>body { overflow:hidden;}
+            h1 { font-family: Arial, sans-serif; font-size: 24px; color: #44a; }
+            p { margin:0; padding-top:5px; }
+            br  { margin:0; padding:0; }
+            .line { margin: 0 5px 0 0; padding-right: 5px; color:#999; background-color:#eef;  }
+            comment { color: #080;} module { color: #804;}
+            .listing { margin: 10px; border: 1px solid #ccc; 
+                    font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+                    font-size: 14px; line-height: 1.2em; 
+                    overflow:scroll;
+                    height:90%;
+            }
+            code { padding: 5px 0;}</style></html><body>
+                <h1>src/overview.ts</h1>
+                <div class='listing'><code><span id=1 class="line">&nbsp;&nbsp;&nbsp;1</span><comment>/**<br>
+<span id=2 class="line">&nbsp;&nbsp;&nbsp;2</span>#&nbsp;hsWidgets&nbsp;<br>
+<span id=3 class="line">&nbsp;&nbsp;&nbsp;3</span>Helpful&nbsp;Scripts&nbsp;UI&nbsp;widgets.&nbsp;&nbsp;[Github&nbsp;page](https://github.com/HelpfulScripts/hsWidget)<br>
+<span id=4 class="line">&nbsp;&nbsp;&nbsp;4</span><br>
+<span id=5 class="line">&nbsp;&nbsp;&nbsp;5</span>**hsWidget**&nbsp;Provides&nbsp;various&nbsp;UI&nbsp;widgets&nbsp;for&nbsp;use&nbsp;with&nbsp;mithril:<br>
+<span id=6 class="line">&nbsp;&nbsp;&nbsp;6</span><br>
+<span id=7 class="line">&nbsp;&nbsp;&nbsp;7</span><br>
+<span id=8 class="line">&nbsp;&nbsp;&nbsp;8</span>|&nbsp;Widget&nbsp;|&nbsp;Description&nbsp;|<br>
+<span id=9 class="line">&nbsp;&nbsp;&nbsp;9</span>|========|=============|<br>
+<span id=10 class="line">&nbsp;&nbsp;10</span>|&nbsp;&nbsp;&nbsp;{@link&nbsp;Menu.Menu&nbsp;Menu}&nbsp;|&nbsp;A&nbsp;group&nbsp;of&nbsp;horizontal&nbsp;menu&nbsp;items&nbsp;that&nbsp;can&nbsp;trigger&nbsp;actions&nbsp;|<br>
+<span id=11 class="line">&nbsp;&nbsp;11</span>|&nbsp;&nbsp;&nbsp;{@link&nbsp;Button.Button&nbsp;Button}&nbsp;|&nbsp;A&nbsp;simple&nbsp;button&nbsp;widget&nbsp;|<br>
+<span id=12 class="line">&nbsp;&nbsp;12</span>|&nbsp;&nbsp;&nbsp;{@link&nbsp;Collapsible&nbsp;Collapsible}&nbsp;|&nbsp;A&nbsp;panel&nbsp;that&nbsp;will&nbsp;expand&nbsp;znd&nbsp;collapse&nbsp;when&nbsp;the&nbsp;title&nbsp;is&nbsp;clicked&nbsp;|<br>
+<span id=13 class="line">&nbsp;&nbsp;13</span>|&nbsp;&nbsp;&nbsp;{@link&nbsp;Modal&nbsp;Modal}&nbsp;|&nbsp;A&nbsp;modal&nbsp;panel&nbsp;that&nbsp;will&nbsp;cover&nbsp;the&nbsp;entire&nbsp;window&nbsp;until&nbsp;released.&nbsp;|<br>
+<span id=14 class="line">&nbsp;&nbsp;14</span>|&nbsp;&nbsp;&nbsp;{@link&nbsp;AddRemove&nbsp;AddButton}&nbsp;|&nbsp;An&nbsp;inline&nbsp;`+`&nbsp;button&nbsp;that&nbsp;will&nbsp;open&nbsp;a&nbsp;form&nbsp;for&nbsp;adding&nbsp;new&nbsp;elements.&nbsp;|<br>
+<span id=15 class="line">&nbsp;&nbsp;15</span>|&nbsp;&nbsp;&nbsp;{@link&nbsp;AddRemove&nbsp;RemoveButton}&nbsp;|&nbsp;An&nbsp;inline&nbsp;`-`&nbsp;button&nbsp;that&nbsp;will&nbsp;remove&nbsp;an&nbsp;item.&nbsp;|<br>
+<span id=16 class="line">&nbsp;&nbsp;16</span>|&nbsp;&nbsp;&nbsp;{@link&nbsp;TypeAhead&nbsp;TypeAhead}&nbsp;|&nbsp;A&nbsp;TypeAhead&nbsp;search&nbsp;input&nbsp;form.&nbsp;|<br>
+<span id=17 class="line">&nbsp;&nbsp;17</span><br>
+<span id=18 class="line">&nbsp;&nbsp;18</span>&nbsp;*&nbsp;<example&nbsp;height=2050px><br>
+<span id=19 class="line">&nbsp;&nbsp;19</span>&nbsp;*&nbsp;<file&nbsp;name='script.js'><br>
+<span id=20 class="line">&nbsp;&nbsp;20</span>&nbsp;*&nbsp;const&nbsp;render&nbsp;=&nbsp;()&nbsp;=>&nbsp;m.mount(root,&nbsp;{view:&nbsp;()&nbsp;=>&nbsp;m('.hs-white',&nbsp;[<br>
+<span id=21 class="line">&nbsp;&nbsp;21</span>&nbsp;*&nbsp;<br>
+<span id=22 class="line">&nbsp;&nbsp;22</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h2.myGapButtons',&nbsp;'Buttons'),<br>
+<span id=23 class="line">&nbsp;&nbsp;23</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h4',&nbsp;`Please&nbsp;click:&nbsp;(${clicked}-times&nbsp;clicked)`),<br>
+<span id=24 class="line">&nbsp;&nbsp;24</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.Button,&nbsp;{&nbsp;desc:&nbsp;{<br>
+<span id=25 class="line">&nbsp;&nbsp;25</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name:&nbsp;'click&nbsp;me',<br>
+<span id=26 class="line">&nbsp;&nbsp;26</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;clicked:&nbsp;()&nbsp;=>&nbsp;clicked++<br>
+<span id=27 class="line">&nbsp;&nbsp;27</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;}}),<br>
+<span id=28 class="line">&nbsp;&nbsp;28</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h4',&nbsp;`Select&nbsp;Radio&nbsp;Station:&nbsp;${radio}`),<br>
+<span id=29 class="line">&nbsp;&nbsp;29</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.RadioButton,&nbsp;{&nbsp;desc:&nbsp;{<br>
+<span id=30 class="line">&nbsp;&nbsp;30</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items:&nbsp;['1st',&nbsp;'2nd','3rd'],<br>
+<span id=31 class="line">&nbsp;&nbsp;31</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;changed:&nbsp;(item)&nbsp;=>&nbsp;radio&nbsp;=&nbsp;item<br>
+<span id=32 class="line">&nbsp;&nbsp;32</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;}}),<br>
+<span id=33 class="line">&nbsp;&nbsp;33</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h4',&nbsp;`Please&nbsp;Toggle&nbsp;between&nbsp;1st,&nbsp;2nd,&nbsp;and&nbsp;3rd`),<br>
+<span id=34 class="line">&nbsp;&nbsp;34</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.ToggleButton,&nbsp;{&nbsp;desc:&nbsp;{<br>
+<span id=35 class="line">&nbsp;&nbsp;35</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items:&nbsp;['1st',&nbsp;'2nd','3rd'],<br>
+<span id=36 class="line">&nbsp;&nbsp;36</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;changed:&nbsp;(item)&nbsp;=>&nbsp;toggle&nbsp;=&nbsp;item<br>
+<span id=37 class="line">&nbsp;&nbsp;37</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;}}),<br>
+<span id=38 class="line">&nbsp;&nbsp;38</span>&nbsp;*&nbsp;<br>
+<span id=39 class="line">&nbsp;&nbsp;39</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h2.myGapMenus',&nbsp;'Menus'),<br>
+<span id=40 class="line">&nbsp;&nbsp;40</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h4',&nbsp;'Please&nbsp;select:'),<br>
+<span id=41 class="line">&nbsp;&nbsp;41</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.Menu,&nbsp;{&nbsp;css:&nbsp;'.myMenu',&nbsp;desc:&nbsp;{<br>
+<span id=42 class="line">&nbsp;&nbsp;42</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items:&nbsp;menuItems,<br>
+<span id=43 class="line">&nbsp;&nbsp;43</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;defaultItem:&nbsp;'Two',<br>
+<span id=44 class="line">&nbsp;&nbsp;44</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;changed:&nbsp;(item)&nbsp;=>&nbsp;theContent&nbsp;=&nbsp;content[menuItems.indexOf(item)]<br>
+<span id=45 class="line">&nbsp;&nbsp;45</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;}}),<br>
+<span id=46 class="line">&nbsp;&nbsp;46</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('myMenuMain',&nbsp;theContent),<br>
+<span id=47 class="line">&nbsp;&nbsp;47</span>&nbsp;*&nbsp;<br>
+<span id=48 class="line">&nbsp;&nbsp;48</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h2.myGapModal',&nbsp;'Modal&nbsp;Dialog&nbsp;Box'),<br>
+<span id=49 class="line">&nbsp;&nbsp;49</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h4',&nbsp;{onclick:()&nbsp;=>&nbsp;showModal&nbsp;=&nbsp;true&nbsp;},&nbsp;'Click&nbsp;me&nbsp;to&nbsp;open&nbsp;a&nbsp;modal&nbsp;box'),<br>
+<span id=50 class="line">&nbsp;&nbsp;50</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;showModal?&nbsp;m(hswidget.Modal,&nbsp;{<br>
+<span id=51 class="line">&nbsp;&nbsp;51</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;&nbsp;'300px',<br>
+<span id=52 class="line">&nbsp;&nbsp;52</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;'200px',<br>
+<span id=53 class="line">&nbsp;&nbsp;53</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;dismiss:&nbsp;()&nbsp;=>&nbsp;showModal&nbsp;=&nbsp;false,<br>
+<span id=54 class="line">&nbsp;&nbsp;54</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content:&nbsp;m('',&nbsp;'click&nbsp;on&nbsp;border&nbsp;or&nbsp;on&nbsp;the&nbsp;x&nbsp;to&nbsp;release')<br>
+<span id=55 class="line">&nbsp;&nbsp;55</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;})&nbsp;:&nbsp;undefined,<br>
+<span id=56 class="line">&nbsp;&nbsp;56</span>&nbsp;*&nbsp;<br>
+<span id=57 class="line">&nbsp;&nbsp;57</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h2.myGapCollapsibless',&nbsp;'Collapsibles'),<br>
+<span id=58 class="line">&nbsp;&nbsp;58</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.Collapsible,&nbsp;{&nbsp;css:'.myCollapsible',&nbsp;components:&nbsp;[<br>
+<span id=59 class="line">&nbsp;&nbsp;59</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m('.myTitle',&nbsp;'click&nbsp;me&nbsp;to&nbsp;toggle&nbsp;-&nbsp;no&nbsp;arrows'),&nbsp;content&nbsp;<br>
+<span id=60 class="line">&nbsp;&nbsp;60</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;]}),<br>
+<span id=61 class="line">&nbsp;&nbsp;61</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.Collapsible,&nbsp;{&nbsp;css:'.myCollapsible',&nbsp;preArrow:true,&nbsp;components:&nbsp;[<br>
+<span id=62 class="line">&nbsp;&nbsp;62</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m('.myTitle',&nbsp;'click&nbsp;me&nbsp;to&nbsp;toggle&nbsp;-&nbsp;left&nbsp;arrow'),&nbsp;content&nbsp;<br>
+<span id=63 class="line">&nbsp;&nbsp;63</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;]}),<br>
+<span id=64 class="line">&nbsp;&nbsp;64</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.Collapsible,&nbsp;{&nbsp;css:'.myCollapsible',&nbsp;postArrow:true,&nbsp;components:&nbsp;[<br>
+<span id=65 class="line">&nbsp;&nbsp;65</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m('.myTitle',&nbsp;'click&nbsp;me&nbsp;to&nbsp;toggle&nbsp;-&nbsp;right&nbsp;arrow'),&nbsp;content&nbsp;<br>
+<span id=66 class="line">&nbsp;&nbsp;66</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;]}),<br>
+<span id=67 class="line">&nbsp;&nbsp;67</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.Collapsible,&nbsp;{&nbsp;css:'.myCollapsible',&nbsp;preArrow:true,&nbsp;postArrow:true,&nbsp;components:&nbsp;[<br>
+<span id=68 class="line">&nbsp;&nbsp;68</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m('.myTitle',&nbsp;'click&nbsp;me&nbsp;to&nbsp;toggle&nbsp;-&nbsp;both&nbsp;arrows'),&nbsp;content<br>
+<span id=69 class="line">&nbsp;&nbsp;69</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;]}),<br>
+<span id=70 class="line">&nbsp;&nbsp;70</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('',&nbsp;'Background&nbsp;text,&nbsp;will&nbsp;be&nbsp;pushed&nbsp;down&nbsp;by&nbsp;the&nbsp;Collapsible'),<br>
+<span id=71 class="line">&nbsp;&nbsp;71</span>&nbsp;*&nbsp;<br>
+<span id=72 class="line">&nbsp;&nbsp;72</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h2.myGapTypeAhead',&nbsp;'Typeahead&nbsp;Search'),<br>
+<span id=73 class="line">&nbsp;&nbsp;73</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h4',&nbsp;'In-Memory&nbsp;List:&nbsp;'&nbsp;+&nbsp;hero.length?&nbsp;`Selected:&nbsp;${hero}`&nbsp;:&nbsp;'Search&nbsp;for&nbsp;a&nbsp;Superhero'),<br>
+<span id=74 class="line">&nbsp;&nbsp;74</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.TypeAhead,&nbsp;{&nbsp;<br>
+<span id=75 class="line">&nbsp;&nbsp;75</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder:&nbsp;'favorite&nbsp;hero',<br>
+<span id=76 class="line">&nbsp;&nbsp;76</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onsubmit:&nbsp;item&nbsp;=>&nbsp;hero&nbsp;=&nbsp;item,<br>
+<span id=77 class="line">&nbsp;&nbsp;77</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list:&nbsp;['Batman',&nbsp;'Superman',&nbsp;'Spiderman',&nbsp;'Hulk']<br>
+<span id=78 class="line">&nbsp;&nbsp;78</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;}),<br>
+<span id=79 class="line">&nbsp;&nbsp;79</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h4',&nbsp;`Remote&nbsp;List:&nbsp;${friend.length?&nbsp;'Selected:&nbsp;'+&nbsp;friend&nbsp;:&nbsp;'Search&nbsp;for&nbsp;a&nbsp;Friend'}`),<br>
+<span id=80 class="line">&nbsp;&nbsp;80</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.TypeAhead,&nbsp;{&nbsp;<br>
+<span id=81 class="line">&nbsp;&nbsp;81</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder:&nbsp;'best&nbsp;friend',<br>
+<span id=82 class="line">&nbsp;&nbsp;82</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onsubmit:&nbsp;item&nbsp;=>&nbsp;friend&nbsp;=&nbsp;item,<br>
+<span id=83 class="line">&nbsp;&nbsp;83</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;autofocus:&nbsp;true,<br>
+<span id=84 class="line">&nbsp;&nbsp;84</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list:&nbsp;'example/search.json'<br>
+<span id=85 class="line">&nbsp;&nbsp;85</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;}),<br>
+<span id=86 class="line">&nbsp;&nbsp;86</span>&nbsp;*<br>
+<span id=87 class="line">&nbsp;&nbsp;87</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h2.myGapCornerButtons',&nbsp;'Corner&nbsp;Buttons'),<br>
+<span id=88 class="line">&nbsp;&nbsp;88</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('h4',&nbsp;lastCornerButton),<br>
+<span id=89 class="line">&nbsp;&nbsp;89</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m('',&nbsp;Object.keys(hswidget.ButtonSymbols).map(<br>
+<span id=90 class="line">&nbsp;&nbsp;90</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(b)&nbsp;=>&nbsp;m('.myCornerPositioned',&nbsp;[<br>
+<span id=91 class="line">&nbsp;&nbsp;91</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buttons[b]?&nbsp;m('.myCornerClicked',&nbsp;'Yayy!!')&nbsp;:&nbsp;m('',&nbsp;b),<br>
+<span id=92 class="line">&nbsp;&nbsp;92</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.ToolbarButton,&nbsp;{&nbsp;symbol:hswidget.ToolbarButton.getSymbol(b),&nbsp;onclick:click(b)&nbsp;})<br>
+<span id=93 class="line">&nbsp;&nbsp;93</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;])<br>
+<span id=94 class="line">&nbsp;&nbsp;94</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;)),<br>
+<span id=95 class="line">&nbsp;&nbsp;95</span>&nbsp;*&nbsp;])});<br>
+<span id=96 class="line">&nbsp;&nbsp;96</span>&nbsp;*&nbsp;<br>
+<span id=97 class="line">&nbsp;&nbsp;97</span>&nbsp;*&nbsp;<br>
+<span id=98 class="line">&nbsp;&nbsp;98</span>&nbsp;*&nbsp;//--------------------------------------<br>
+<span id=99 class="line">&nbsp;&nbsp;99</span>&nbsp;*&nbsp;//&nbsp;supporting&nbsp;variables:<br>
+<span id=100 class="line">&nbsp;100</span>&nbsp;*&nbsp;const&nbsp;menuItems&nbsp;=&nbsp;['One',&nbsp;'Two',&nbsp;'Three'];<br>
+<span id=101 class="line">&nbsp;101</span>&nbsp;*&nbsp;const&nbsp;content&nbsp;&nbsp;&nbsp;=&nbsp;['1st',&nbsp;'2nd',&nbsp;'3rd'];<br>
+<span id=102 class="line">&nbsp;102</span>&nbsp;*&nbsp;let&nbsp;&nbsp;theContent&nbsp;=&nbsp;content[1];<br>
+<span id=103 class="line">&nbsp;103</span>&nbsp;*&nbsp;let&nbsp;clicked&nbsp;=&nbsp;0;<br>
+<span id=104 class="line">&nbsp;104</span>&nbsp;*&nbsp;let&nbsp;radio&nbsp;=&nbsp;'';<br>
+<span id=105 class="line">&nbsp;105</span>&nbsp;*&nbsp;let&nbsp;toggle&nbsp;=&nbsp;'';<br>
+<span id=106 class="line">&nbsp;106</span>&nbsp;*&nbsp;const&nbsp;buttons&nbsp;=&nbsp;{};<br>
+<span id=107 class="line">&nbsp;107</span>&nbsp;*&nbsp;let&nbsp;lastCornerButton&nbsp;=&nbsp;'';<br>
+<span id=108 class="line">&nbsp;108</span>&nbsp;*&nbsp;let&nbsp;showModal&nbsp;=&nbsp;false;<br>
+<span id=109 class="line">&nbsp;109</span>&nbsp;*&nbsp;let&nbsp;hero&nbsp;=&nbsp;'';<br>
+<span id=110 class="line">&nbsp;110</span>&nbsp;*&nbsp;let&nbsp;friend&nbsp;=&nbsp;'';<br>
+<span id=111 class="line">&nbsp;111</span>&nbsp;*&nbsp;<br>
+<span id=112 class="line">&nbsp;112</span>&nbsp;*&nbsp;const&nbsp;click&nbsp;=&nbsp;(button)&nbsp;=>&nbsp;()&nbsp;=>&nbsp;{<br>
+<span id=113 class="line">&nbsp;113</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;lastCornerButton&nbsp;=&nbsp;'';<br>
+<span id=114 class="line">&nbsp;114</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(hswidget.ButtonSymbols[button])&nbsp;{<br>
+<span id=115 class="line">&nbsp;115</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;lastCornerButton&nbsp;=&nbsp;m.trust(`last&nbsp;button&nbsp;pressed:&nbsp;${hswidget.ButtonSymbols[button].sym}`);<br>
+<span id=116 class="line">&nbsp;116</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;buttons[button]&nbsp;=&nbsp;true;<br>
+<span id=117 class="line">&nbsp;117</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;setTimeout(reset(button),&nbsp;800);<br>
+<span id=118 class="line">&nbsp;118</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=119 class="line">&nbsp;119</span>&nbsp;*&nbsp;};<br>
+<span id=120 class="line">&nbsp;120</span>&nbsp;*&nbsp;<br>
+<span id=121 class="line">&nbsp;121</span>&nbsp;*&nbsp;const&nbsp;reset&nbsp;=&nbsp;(button)&nbsp;=>&nbsp;()&nbsp;=>&nbsp;{<br>
+<span id=122 class="line">&nbsp;122</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;buttons[button]&nbsp;=&nbsp;false;<br>
+<span id=123 class="line">&nbsp;123</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m.redraw();<br>
+<span id=124 class="line">&nbsp;124</span>&nbsp;*&nbsp;}<br>
+<span id=125 class="line">&nbsp;125</span>&nbsp;*<br>
+<span id=126 class="line">&nbsp;126</span>&nbsp;*&nbsp;render();<br>
+<span id=127 class="line">&nbsp;127</span>&nbsp;*&nbsp;</file><br>
+<span id=128 class="line">&nbsp;128</span>&nbsp;*<br>
+<span id=129 class="line">&nbsp;129</span>&nbsp;*&nbsp;<file&nbsp;name='style.css'><br>
+<span id=130 class="line">&nbsp;130</span>&nbsp;*&nbsp;.myMenuMain&nbsp;{&nbsp;<br>
+<span id=131 class="line">&nbsp;131</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;border:1px&nbsp;solid&nbsp;#ddd;<br>
+<span id=132 class="line">&nbsp;132</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;border-top:&nbsp;0px&nbsp;solid&nbsp;#ddd;<br>
+<span id=133 class="line">&nbsp;133</span>&nbsp;*&nbsp;}&nbsp;<br>
+<span id=134 class="line">&nbsp;134</span>&nbsp;*&nbsp;.myMenu&nbsp;.hs-selectable&nbsp;{&nbsp;<br>
+<span id=135 class="line">&nbsp;135</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color:&nbsp;#eef;&nbsp;<br>
+<span id=136 class="line">&nbsp;136</span>&nbsp;*&nbsp;}<br>
+<span id=137 class="line">&nbsp;137</span>&nbsp;*&nbsp;.myMenu&nbsp;.hs-selected&nbsp;{&nbsp;<br>
+<span id=138 class="line">&nbsp;138</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color:&nbsp;#ddf;&nbsp;<br>
+<span id=139 class="line">&nbsp;139</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-width:0px;<br>
+<span id=140 class="line">&nbsp;140</span>&nbsp;*&nbsp;}<br>
+<span id=141 class="line">&nbsp;141</span>&nbsp;*&nbsp;.myCollapsible&nbsp;{<br>
+<span id=142 class="line">&nbsp;142</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-bottom:&nbsp;5px;<br>
+<span id=143 class="line">&nbsp;143</span>&nbsp;*&nbsp;}<br>
+<span id=144 class="line">&nbsp;144</span>&nbsp;*&nbsp;.myCollapsible&nbsp;.hs-collapsible-title&nbsp;{<br>
+<span id=145 class="line">&nbsp;145</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-weight:bold;<br>
+<span id=146 class="line">&nbsp;146</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding-left:&nbsp;3px;<br>
+<span id=147 class="line">&nbsp;147</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color:&nbsp;#eee;<br>
+<span id=148 class="line">&nbsp;148</span>&nbsp;*&nbsp;}<br>
+<span id=149 class="line">&nbsp;149</span>&nbsp;*&nbsp;.myCollapsible&nbsp;.hs-collapsible-expanded&nbsp;{<br>
+<span id=150 class="line">&nbsp;150</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-left:&nbsp;10px;<br>
+<span id=151 class="line">&nbsp;151</span>&nbsp;*&nbsp;}<br>
+<span id=152 class="line">&nbsp;152</span>&nbsp;*&nbsp;.myCornerClicked&nbsp;{&nbsp;background-color:&nbsp;#efe;&nbsp;}<br>
+<span id=153 class="line">&nbsp;153</span>&nbsp;*&nbsp;.myCornerPositioned&nbsp;{&nbsp;<br>
+<span id=154 class="line">&nbsp;154</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;position:&nbsp;relative;&nbsp;<br>
+<span id=155 class="line">&nbsp;155</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;display:&nbsp;inline-block;<br>
+<span id=156 class="line">&nbsp;156</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;box-sizing:&nbsp;border-box;<br>
+<span id=157 class="line">&nbsp;157</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color:&nbsp;#eee;&nbsp;<br>
+<span id=158 class="line">&nbsp;158</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text-align:&nbsp;center;<br>
+<span id=159 class="line">&nbsp;159</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-size:&nbsp;70%;<br>
+<span id=160 class="line">&nbsp;160</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin:&nbsp;&nbsp;2px;<br>
+<span id=161 class="line">&nbsp;161</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding-top:&nbsp;20px;<br>
+<span id=162 class="line">&nbsp;162</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height:&nbsp;50px;<br>
+<span id=163 class="line">&nbsp;163</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width:&nbsp;&nbsp;50px;<br>
+<span id=164 class="line">&nbsp;164</span>&nbsp;*&nbsp;}<br>
+<span id=165 class="line">&nbsp;165</span>&nbsp;*&nbsp;.hs-corner-button&nbsp;{&nbsp;color:&nbsp;#008;&nbsp;}<br>
+<span id=166 class="line">&nbsp;166</span>&nbsp;*&nbsp;<br>
+<span id=167 class="line">&nbsp;167</span>&nbsp;*&nbsp;.myGapButtons&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;margin-top:&nbsp;90px;&nbsp;}<br>
+<span id=168 class="line">&nbsp;168</span>&nbsp;*&nbsp;.myGapMenus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;margin-top:&nbsp;80px;&nbsp;}<br>
+<span id=169 class="line">&nbsp;169</span>&nbsp;*&nbsp;.myGapModal&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;margin-top:&nbsp;50px;&nbsp;}<br>
+<span id=170 class="line">&nbsp;170</span>&nbsp;*&nbsp;.myGapCollapsibless&nbsp;&nbsp;{&nbsp;margin-top:&nbsp;115px;&nbsp;}<br>
+<span id=171 class="line">&nbsp;171</span>&nbsp;*&nbsp;.myGapTypeAhead&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;margin-top:&nbsp;130px;&nbsp;}<br>
+<span id=172 class="line">&nbsp;172</span>&nbsp;*&nbsp;.myGapCornerButtons&nbsp;&nbsp;{&nbsp;margin-top:&nbsp;105px;&nbsp;}<br>
+<span id=173 class="line">&nbsp;173</span>&nbsp;*&nbsp;</file><br>
+<span id=174 class="line">&nbsp;174</span>&nbsp;*&nbsp;</example><br>
+<span id=175 class="line">&nbsp;175</span>*/</comment><br>
+<span id=176 class="line">&nbsp;176</span><br>
+<span id=177 class="line">&nbsp;177</span><comment>/**&nbsp;*/</comment><br>
+<span id=178 class="line">&nbsp;178</span><br></code></div>
+                </body>
+            
