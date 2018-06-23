@@ -101,6 +101,9 @@ module.exports = (grunt, dir, dependencies, type) => {
             htmlGH: { files: [
                 { expand:true, cwd: devPath,    // index.html and indexGH.html
                     src:['index.html', 'indexGH.html'], dest:'_dist/docs' 
+                },
+                { expand:true, cwd: devPath,    // index.html and indexGH.html
+                    src:['index.html', 'indexGH.html'], dest:'_dist/bin' 
                 }
             ]},
             example:{ expand:true, cwd: 'src/example', 
