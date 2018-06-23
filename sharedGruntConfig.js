@@ -196,7 +196,7 @@ module.exports = (grunt, dir, dependencies, type) => {
                     mode:   'modules',
                     name:   `${lib}`
                 },
-                src: ['src/**/*.ts', "!src/**/*.spec.ts"]
+                src: ['src/**/*.ts', '!src/**/*.*.ts', '!src/example/**/*'] // no specs, no example
             }
         },
 		jasmine_node: {
