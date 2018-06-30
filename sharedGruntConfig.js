@@ -231,7 +231,7 @@ module.exports = (grunt, dir, dependencies, type) => {
             appProd: { 
                 entry: './_dist/src/index.js',
                 output: {
-                    filename: `${lib}.js`,
+                    filename: `${lib}.min.js`,
                     path: path.resolve(dir, './_dist/bin')
                 },
                 plugins: [
@@ -314,7 +314,7 @@ module.exports = (grunt, dir, dependencies, type) => {
             case 'node':    buildProduct = buildTasks = buildTasks.concat(['build-es5']); 
                             break;
             case 'app':     buildProduct = buildTasks.concat(['build-jsMin', 'webpack:appProd']);
-                            buildTasks   = buildTasks.concat(['build-js', 'webpack:appDev']); 
+                            buildTasks   = buildTasks.concat(['build-js', 'webpack:appDev', 'webpack:appProd']); 
                             break;
             case 'util':    
             case 'lib': 

@@ -1,10 +1,11 @@
+if (!global['window']) {
+    global['window'] = require("mithril/test-utils/browserMock.js")();
+    global['document'] = window.document;
+}
+const o = require("mithril/ospec/ospec");
+const m = require("mithril");
 
-const hslayout = require('hslayout');
-const m = hslayout.m;
-const o = hslayout.o;
-
-const hsMenu = require("../src/Menu");
-const Menu = hsMenu.Menu;
+import { Menu } from './Menu';
 
 const left  = ['0%', '25%', '50%', '75%'];
 const right = ['75%', '50%', '25%', '0%'];

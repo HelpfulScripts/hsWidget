@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "commonJS",
+    "target": "es5",
+    "module": "AMD",
     "rootDir": "./src",
     "moduleResolution": "node",
     "inlineSourceMap": true,
@@ -12,5 +12,5 @@
   },
   "compileOnSave": true,
   "include": [],  
-  "exclude": ["**/node_modules"]
+  "exclude": []
 }

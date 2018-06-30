@@ -42,8 +42,7 @@ export class Modal {
             m('.hs-modal-background', { onclick: node.attrs.dismiss}, ''),
             m('.hs-modal-foreground', attrs, !node.attrs.content? 'modal pane' : [
                 node.attrs.content,
-//                m('.hs-modal-close', { onclick: node.attrs.dismiss }, m.trust('&times;')) 
-                m(ToolbarButton, { onclick: node.attrs.dismiss, symbol:ToolbarButton.getSymbol('cross') }) 
+                m(ToolbarButton, { onclick: node.attrs.dismiss, symbols:ToolbarButton.getSymbol('cross') }) 
             ])
         ]);
     }

@@ -3,51 +3,52 @@
  * creates a set of buttons at the corner of a positioned panel.
  * 
  * ### Profile
- * invoked as `m(ToolbarButtons, { <Attributes> })`
+ * invoked as `m(ToolbarButton, { <Attributes> })`
  * 
  * ### Attributes (node.attrs):
  * - `symbols: string | string[]` a symbol, or array of symbols 
  * - `onclick: ()=>void` a function that is called when the modal box is dismissed
  * 
  * ### Example
- * <example>
+ * <example height=450>
  * <file name='script.js'>
- * const buttons = {}
+ * const clicked = {}
  * const keys = Object.keys(hswidget.ButtonSymbols);
- * const symbols = [];
+ * const groupsOf4 = [];
  * let batch = [];
  * for (let i=0; i<keys.length; i++) {
  *    if (i % 4 === 0) {
  *       batch = []
- *       symbol.push(batch);
+ *       groupsOf4.push(batch);
  *    }
  *    batch.push(keys[i]);
  * }
  * 
  * m.mount(root, {view: () => m('', [
- *    m('', keys.map(
- *       (b) => m('.myPositioned', [
- *          buttons[b]? m('.myClicked', 'Yayy!!') : m('', b),
- *          m(hswidget.ToolbarButtons, { symbol:hswidget.ToolbarButtons.getSymbol(b), onclick:click(b) })
+ *    m('', keys.map(       // single symbols
+ *       bn => m('.myPositioned', [
+ *          clicked[bn]? m('.myClicked', 'Yayy!!') : m('', bn),
+ *          m(hswidget.ToolbarButton, { symbols:hswidget.ToolbarButton.getSymbol(bn), onclick:click(bn) })
  *       ])
  *    )), 
- *    m('', symbols.map(
- *       (batch) => m('.myPositioned', [
- *          m(hswidget.ToolbarButtons, { symbol:batch.map(b => hswidget.ToolbarButtons.getSymbol(b)), onclick:click(b) })
+ *    m('', groupsOf4.map(  // groups of 4 symbols
+ *       batch => m('.myPositioned', [
+ *          clicked[batch[0]]? m('.myClicked', 'Yayy!!') : m('', batch[0]),
+ *          m(hswidget.ToolbarButton, { symbols:batch.map(bt => hswidget.ToolbarButton.getSymbol(bt)), onclick:click(batch[0]) })
  *       ])
  *    ))
  * ])});
  * 
  * function click(button) {
  *      return () => {
- *          buttons[button] = true;
+ *          clicked[button] = true;
  *          setTimeout(reset(button), 800);
  *      }
  * }
  * 
  * function reset(button) {
  *      return () => {
- *          buttons[button] = false;
+ *          clicked[button] = false;
  *          m.redraw();
  *      }
  * }
@@ -64,7 +65,7 @@
  *      margin:  2px;
  *      padding-top: 20px;
  *      height: 50px;
- *      width:  50px;
+ *      width:  70px;
  * }
  * .hs-corner-button { color: #008; }
  * </file>
@@ -108,21 +109,21 @@ export const ButtonSymbols = {
 };
 
 export class ToolbarButton {
-    constructor(protected symbol='-') {}
+    constructor(protected symbols='-') {}
     static getSymbol(name:string) {
         return ButtonSymbols[name]? ButtonSymbols[name].sym : '';
     }
     view(node:Vnode) {
-        if (node.attrs.symbol.length) {
-            return node.attrs.symbol.map((sym:string) => 
-                m('.hs-corner-button', 
-                    { onclick: node.attrs.onclick }, 
-                    m.trust(sym))
+        if (typeof node.attrs.symbols === 'string') {
+            return m('.hs-corner-button', 
+                { onclick: node.attrs.onclick }, 
+                m.trust(node.attrs.symbols)
             );
         } else {
             return m('.hs-corner-button', 
-                { onclick: node.attrs.onclick }, 
-                m.trust(node.attrs.symbol));
+                    { onclick: node.attrs.onclick }, 
+                    node.attrs.symbols.map((sym:string) =>m.trust(sym))
+            );
         }
     }
 }
