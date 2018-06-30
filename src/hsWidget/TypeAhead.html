@@ -1,0 +1,150 @@
+
+                <html><style>body { overflow:hidden;}
+            h1 { font-family: Arial, sans-serif; font-size: 24px; color: #44a; }
+            p { margin:0; padding-top:5px; }
+            br  { margin:0; padding:0; }
+            .line { margin: 0 5px 0 0; padding-right: 5px; color:#999; background-color:#eef;  }
+            comment { color: #080;} module { color: #804;}
+            .listing { margin: 10px; border: 1px solid #ccc; 
+                    font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace;
+                    font-size: 14px; line-height: 1.2em; 
+                    overflow:scroll;
+                    height:90%;
+            }
+            code { padding: 5px 0;}</style></html><body>
+                <h1>src/TypeAhead.ts</h1>
+                <div class='listing'><code><span id=1 class="line">&nbsp;&nbsp;&nbsp;1</span><comment>/**<br>
+<span id=2 class="line">&nbsp;&nbsp;&nbsp;2</span>&nbsp;*&nbsp;#&nbsp;TypeAhead<br>
+<span id=3 class="line">&nbsp;&nbsp;&nbsp;3</span>&nbsp;*&nbsp;Provides&nbsp;a&nbsp;search&nbsp;box&nbsp;with&nbsp;a&nbsp;type-ahead&nbsp;dropdown&nbsp;to&nbsp;show&nbsp;valid&nbsp;options&nbsp;that&nbsp;match&nbsp;the&nbsp;current&nbsp;search&nbsp;input.<br>
+<span id=4 class="line">&nbsp;&nbsp;&nbsp;4</span>&nbsp;*&nbsp;<br>
+<span id=5 class="line">&nbsp;&nbsp;&nbsp;5</span>&nbsp;*&nbsp;###&nbsp;Profile<br>
+<span id=6 class="line">&nbsp;&nbsp;&nbsp;6</span>&nbsp;*&nbsp;invoked&nbsp;as&nbsp;`m(hswidget.TypeAhead,&nbsp;{&nbsp;<Attributes>&nbsp;});`<br>
+<span id=7 class="line">&nbsp;&nbsp;&nbsp;7</span>&nbsp;*&nbsp;<br>
+<span id=8 class="line">&nbsp;&nbsp;&nbsp;8</span>&nbsp;*&nbsp;###&nbsp;Attributes&nbsp;(node.attrs):<br>
+<span id=9 class="line">&nbsp;&nbsp;&nbsp;9</span>&nbsp;*&nbsp;-&nbsp;`list:&nbsp;string&nbsp;|&nbsp;string[]`&nbsp;the&nbsp;list&nbsp;to&nbsp;search&nbsp;in.&nbsp;If&nbsp;`list`&nbsp;is&nbsp;a&nbsp;string,&nbsp;it&nbsp;serves<br>
+<span id=10 class="line">&nbsp;&nbsp;10</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;as&nbsp;a&nbsp;URL&nbsp;to&nbsp;a&nbsp;`json`&nbsp;file&nbsp;containing&nbsp;an&nbsp;array&nbsp;of&nbsp;search&nbsp;terms.&nbsp;Else,&nbsp;if&nbsp;it&nbsp;is&nbsp;a&nbsp;<br>
+<span id=11 class="line">&nbsp;&nbsp;11</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;string[]&nbsp;it&nbsp;serves&nbsp;directly&nbsp;as&nbsp;an&nbsp;array&nbsp;of&nbsp;search&nbsp;terms<br>
+<span id=12 class="line">&nbsp;&nbsp;12</span>&nbsp;*&nbsp;-&nbsp;`placeholder:&nbsp;string`&nbsp;an&nbsp;indicator&nbsp;what&nbsp;to&nbsp;enter&nbsp;in&nbsp;the&nbsp;search&nbsp;box<br>
+<span id=13 class="line">&nbsp;&nbsp;13</span>&nbsp;*&nbsp;-&nbsp;`onsubmit:&nbsp;(term:string)&nbsp;=>&nbsp;void`&nbsp;&nbsp;a&nbsp;function&nbsp;to&nbsp;call&nbsp;when&nbsp;a&nbsp;term&nbsp;is&nbsp;submitted<br>
+<span id=14 class="line">&nbsp;&nbsp;14</span>&nbsp;*&nbsp;-&nbsp;`autofocus:&nbsp;boolean`&nbsp;whether&nbsp;the&nbsp;search&nbsp;box&nbsp;automatically&nbsp;gets&nbsp;the&nbsp;focus<br>
+<span id=15 class="line">&nbsp;&nbsp;15</span>&nbsp;*&nbsp;<br>
+<span id=16 class="line">&nbsp;&nbsp;16</span>&nbsp;*&nbsp;###&nbsp;Example<br>
+<span id=17 class="line">&nbsp;&nbsp;17</span>&nbsp;*&nbsp;<example><br>
+<span id=18 class="line">&nbsp;&nbsp;18</span>&nbsp;*&nbsp;<file&nbsp;name='script.js'><br>
+<span id=19 class="line">&nbsp;&nbsp;19</span>&nbsp;*&nbsp;let&nbsp;hero&nbsp;=&nbsp;'';<br>
+<span id=20 class="line">&nbsp;&nbsp;20</span>&nbsp;*&nbsp;let&nbsp;friend&nbsp;=&nbsp;'';<br>
+<span id=21 class="line">&nbsp;&nbsp;21</span>&nbsp;*&nbsp;m.mount(root,&nbsp;{view:&nbsp;()&nbsp;=>&nbsp;m('.hs-white',&nbsp;[<br>
+<span id=22 class="line">&nbsp;&nbsp;22</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m('h4',&nbsp;hero.length?&nbsp;`Selected:&nbsp;${hero}`&nbsp;:&nbsp;'Local&nbsp;List:&nbsp;Search&nbsp;for&nbsp;a&nbsp;Superhero'),<br>
+<span id=23 class="line">&nbsp;&nbsp;23</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.TypeAhead,&nbsp;{&nbsp;<br>
+<span id=24 class="line">&nbsp;&nbsp;24</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder:&nbsp;'favorite&nbsp;hero',<br>
+<span id=25 class="line">&nbsp;&nbsp;25</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onsubmit:&nbsp;item&nbsp;=>&nbsp;hero&nbsp;=&nbsp;item,<br>
+<span id=26 class="line">&nbsp;&nbsp;26</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list:&nbsp;['Batman',&nbsp;'Superman',&nbsp;'Spiderman',&nbsp;'Hulk']<br>
+<span id=27 class="line">&nbsp;&nbsp;27</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}),<br>
+<span id=28 class="line">&nbsp;&nbsp;28</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m('h4',&nbsp;friend.length?&nbsp;`Selected:&nbsp;${friend}`&nbsp;:&nbsp;'Remote&nbsp;List:&nbsp;Search&nbsp;for&nbsp;a&nbsp;Friend'),<br>
+<span id=29 class="line">&nbsp;&nbsp;29</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.TypeAhead,&nbsp;{&nbsp;<br>
+<span id=30 class="line">&nbsp;&nbsp;30</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder:&nbsp;'best&nbsp;friend',<br>
+<span id=31 class="line">&nbsp;&nbsp;31</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onsubmit:&nbsp;item&nbsp;=>&nbsp;friend&nbsp;=&nbsp;item,<br>
+<span id=32 class="line">&nbsp;&nbsp;32</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;autofocus:&nbsp;true,<br>
+<span id=33 class="line">&nbsp;&nbsp;33</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list:&nbsp;'example/search.json'<br>
+<span id=34 class="line">&nbsp;&nbsp;34</span>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;})<br>
+<span id=35 class="line">&nbsp;&nbsp;35</span>&nbsp;*&nbsp;&nbsp;&nbsp;])<br>
+<span id=36 class="line">&nbsp;&nbsp;36</span>&nbsp;*&nbsp;});<br>
+<span id=37 class="line">&nbsp;&nbsp;37</span>&nbsp;*&nbsp;</file><br>
+<span id=38 class="line">&nbsp;&nbsp;38</span>&nbsp;*&nbsp;</example><br>
+<span id=39 class="line">&nbsp;&nbsp;39</span>&nbsp;*&nbsp;<br>
+<span id=40 class="line">&nbsp;&nbsp;40</span>&nbsp;*/</comment><br>
+<span id=41 class="line">&nbsp;&nbsp;41</span><br>
+<span id=42 class="line">&nbsp;&nbsp;42</span>&nbsp;<comment>/**&nbsp;*/</comment><br>
+<span id=43 class="line">&nbsp;&nbsp;43</span>import&nbsp;{&nbsp;m,&nbsp;Vnode&nbsp;}&nbsp;from&nbsp;'hslayout';<br>
+<span id=44 class="line">&nbsp;&nbsp;44</span><br>
+<span id=45 class="line">&nbsp;&nbsp;45</span>//&nbsp;emphasize&nbsp;literal&nbsp;matches&nbsp;as&nbsp;*bold*&nbsp;in&nbsp;the&nbsp;drop&nbsp;down&nbsp;list<br>
+<span id=46 class="line">&nbsp;&nbsp;46</span>function&nbsp;emphasize(item:string,&nbsp;match:string)&nbsp;{<br>
+<span id=47 class="line">&nbsp;&nbsp;47</span>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;re&nbsp;=&nbsp;new&nbsp;RegExp(match,&nbsp;'gi');<br>
+<span id=48 class="line">&nbsp;&nbsp;48</span>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;decorations&nbsp;=&nbsp;item<br>
+<span id=49 class="line">&nbsp;&nbsp;49</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.replace(re,&nbsp;(m:string)&nbsp;=>&nbsp;`<b>${m}</b>`)<br>
+<span id=50 class="line">&nbsp;&nbsp;50</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.split('<')<br>
+<span id=51 class="line">&nbsp;&nbsp;51</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.map((s:string)&nbsp;=>&nbsp;{<br>
+<span id=52 class="line">&nbsp;&nbsp;52</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(s.startsWith('/b>'))&nbsp;{&nbsp;<br>
+<span id=53 class="line">&nbsp;&nbsp;53</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m('span',&nbsp;{name:item},&nbsp;s.slice(3));&nbsp;<br>
+<span id=54 class="line">&nbsp;&nbsp;54</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if&nbsp;(s.startsWith('b>'))&nbsp;{<br>
+<span id=55 class="line">&nbsp;&nbsp;55</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m('b',&nbsp;{name:item},&nbsp;s.slice(2));<br>
+<span id=56 class="line">&nbsp;&nbsp;56</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br>
+<span id=57 class="line">&nbsp;&nbsp;57</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m('span',&nbsp;{name:item},&nbsp;s);<br>
+<span id=58 class="line">&nbsp;&nbsp;58</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=59 class="line">&nbsp;&nbsp;59</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});<br>
+<span id=60 class="line">&nbsp;&nbsp;60</span>&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m('span',&nbsp;decorations);&nbsp;<br>
+<span id=61 class="line">&nbsp;&nbsp;61</span>}<br>
+<span id=62 class="line">&nbsp;&nbsp;62</span><br>
+<span id=63 class="line">&nbsp;&nbsp;63</span>class&nbsp;GetList&nbsp;{<br>
+<span id=64 class="line">&nbsp;&nbsp;64</span>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;list:string[]&nbsp;=&nbsp;[];<br>
+<span id=65 class="line">&nbsp;&nbsp;65</span>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;captureList(list:any[],&nbsp;map:(l:any[])=>string[])&nbsp;{<br>
+<span id=66 class="line">&nbsp;&nbsp;66</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.list&nbsp;=&nbsp;map?&nbsp;map(list)&nbsp;:&nbsp;list;<br>
+<span id=67 class="line">&nbsp;&nbsp;67</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=68 class="line">&nbsp;&nbsp;68</span>&nbsp;&nbsp;&nbsp;&nbsp;constructor(list:string|string[],&nbsp;map?:(item:any[])=>string[])&nbsp;{<br>
+<span id=69 class="line">&nbsp;&nbsp;69</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(typeof&nbsp;list&nbsp;===&nbsp;'string')&nbsp;{<br>
+<span id=70 class="line">&nbsp;&nbsp;70</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m.request({&nbsp;method:&nbsp;"GET",&nbsp;url:&nbsp;list&nbsp;})<br>
+<span id=71 class="line">&nbsp;&nbsp;71</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.then((data:any[])&nbsp;=>&nbsp;this.captureList(data,&nbsp;map));<br>
+<span id=72 class="line">&nbsp;&nbsp;72</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;{<br>
+<span id=73 class="line">&nbsp;&nbsp;73</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.captureList(list,&nbsp;map);<br>
+<span id=74 class="line">&nbsp;&nbsp;74</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=75 class="line">&nbsp;&nbsp;75</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=76 class="line">&nbsp;&nbsp;76</span>}<br>
+<span id=77 class="line">&nbsp;&nbsp;77</span><br>
+<span id=78 class="line">&nbsp;&nbsp;78</span>export&nbsp;class&nbsp;TypeAhead&nbsp;{<br>
+<span id=79 class="line">&nbsp;&nbsp;79</span>&nbsp;&nbsp;&nbsp;&nbsp;typeAheadList:string[]&nbsp;=&nbsp;[];<br>
+<span id=80 class="line">&nbsp;&nbsp;80</span>&nbsp;&nbsp;&nbsp;&nbsp;hidden&nbsp;=&nbsp;true;<br>
+<span id=81 class="line">&nbsp;&nbsp;81</span>&nbsp;&nbsp;&nbsp;&nbsp;value&nbsp;=&nbsp;'';<br>
+<span id=82 class="line">&nbsp;&nbsp;82</span>&nbsp;&nbsp;&nbsp;&nbsp;inputNode:any;<br>
+<span id=83 class="line">&nbsp;&nbsp;83</span>&nbsp;&nbsp;&nbsp;&nbsp;view(node:Vnode)&nbsp;{<br>
+<span id=84 class="line">&nbsp;&nbsp;84</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;gl&nbsp;=&nbsp;new&nbsp;GetList(node.attrs.list);<br>
+<span id=85 class="line">&nbsp;&nbsp;85</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;nosubmit&nbsp;=&nbsp;()&nbsp;=>&nbsp;console.log('no&nbsp;submit&nbsp;function&nbsp;defined');<br>
+<span id=86 class="line">&nbsp;&nbsp;86</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;submit&nbsp;=&nbsp;(v:string)&nbsp;=>&nbsp;node.attrs.onsubmit?&nbsp;node.attrs.onsubmit(v)&nbsp;:&nbsp;nosubmit();<br>
+<span id=87 class="line">&nbsp;&nbsp;87</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;select&nbsp;=&nbsp;(e:any)&nbsp;=>&nbsp;{&nbsp;if&nbsp;(e)&nbsp;{&nbsp;<br>
+<span id=88 class="line">&nbsp;&nbsp;88</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;submit(e.target.attributes.name.value);<br>
+<span id=89 class="line">&nbsp;&nbsp;89</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.inputNode.value&nbsp;=&nbsp;'';<br>
+<span id=90 class="line">&nbsp;&nbsp;90</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.hidden&nbsp;=&nbsp;true;<br>
+<span id=91 class="line">&nbsp;&nbsp;91</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}};<br>
+<span id=92 class="line">&nbsp;&nbsp;92</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;input&nbsp;=&nbsp;(e:any)&nbsp;=>&nbsp;{<br>
+<span id=93 class="line">&nbsp;&nbsp;93</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;n&nbsp;=&nbsp;this.inputNode&nbsp;=&nbsp;e.target;<br>
+<span id=94 class="line">&nbsp;&nbsp;94</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;input&nbsp;=&nbsp;this.value&nbsp;=&nbsp;n.value;<br>
+<span id=95 class="line">&nbsp;&nbsp;95</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;withinInput&nbsp;=&nbsp;new&nbsp;RegExp(`${input}`,&nbsp;'gi');<br>
+<span id=96 class="line">&nbsp;&nbsp;96</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;beginningOfInput&nbsp;=&nbsp;new&nbsp;RegExp(`^${input}`,&nbsp;'gi');<br>
+<span id=97 class="line">&nbsp;&nbsp;97</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.typeAheadList&nbsp;=&nbsp;gl.list.filter((l:string)&nbsp;=>&nbsp;l.match(withinInput));<br>
+<span id=98 class="line">&nbsp;&nbsp;98</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n.value&nbsp;=&nbsp;this.typeAheadList.filter((l:string)&nbsp;=>&nbsp;l.match(beginningOfInput))[0]&nbsp;||&nbsp;input;&nbsp;<br>
+<span id=99 class="line">&nbsp;&nbsp;99</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.hidden&nbsp;=&nbsp;n.value.length===0;&nbsp;<br>
+<span id=100 class="line">&nbsp;100</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let&nbsp;pos&nbsp;=&nbsp;input.length;<br>
+<span id=101 class="line">&nbsp;101</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n.setSelectionRange(pos,&nbsp;n.value.length);<br>
+<span id=102 class="line">&nbsp;102</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+<span id=103 class="line">&nbsp;103</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;keyPressed&nbsp;=&nbsp;(e:any)&nbsp;=>&nbsp;{<br>
+<span id=104 class="line">&nbsp;104</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;n&nbsp;=&nbsp;this.inputNode&nbsp;=&nbsp;e.target;<br>
+<span id=105 class="line">&nbsp;105</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(e.code&nbsp;===&nbsp;'Enter')&nbsp;{<br>
+<span id=106 class="line">&nbsp;106</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;submit(n.value);<br>
+<span id=107 class="line">&nbsp;107</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n.value&nbsp;=&nbsp;'';<br>
+<span id=108 class="line">&nbsp;108</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.hidden&nbsp;=&nbsp;true;<br>
+<span id=109 class="line">&nbsp;109</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;else&nbsp;if&nbsp;(e.code&nbsp;===&nbsp;'Backspace')&nbsp;{<br>
+<span id=110 class="line">&nbsp;110</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;input&nbsp;=&nbsp;n.firstChild.data;<br>
+<span id=111 class="line">&nbsp;111</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(input.length&nbsp;>&nbsp;0)&nbsp;{<br>
+<span id=112 class="line">&nbsp;112</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;n.value&nbsp;=&nbsp;input.slice(0);<br>
+<span id=113 class="line">&nbsp;113</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=114 class="line">&nbsp;114</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=115 class="line">&nbsp;115</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br>
+<span id=116 class="line">&nbsp;116</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;inputNode&nbsp;=&nbsp;m(`input.hs-typeahead-input${this.value?'.hs-typeahead-value'&nbsp;:&nbsp;'.hs-typeahead-placeholder'}`,&nbsp;<br>
+<span id=117 class="line">&nbsp;117</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+<span id=118 class="line">&nbsp;118</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contenteditable:true,<br>
+<span id=119 class="line">&nbsp;119</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder:&nbsp;&nbsp;&nbsp;&nbsp;node.attrs.placeholder,<br>
+<span id=120 class="line">&nbsp;120</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;autofocus:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.attrs.autofocus&nbsp;||&nbsp;true,<br>
+<span id=121 class="line">&nbsp;121</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onkeydown:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;keyPressed.bind(this),<br>
+<span id=122 class="line">&nbsp;122</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;oninput:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input.bind(this)<br>
+<span id=123 class="line">&nbsp;123</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;<br>
+<span id=124 class="line">&nbsp;124</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m.trust(this.value?this.value&nbsp;:&nbsp;node.attrs.placeholder));<br>
+<span id=125 class="line">&nbsp;125</span><br>
+<span id=126 class="line">&nbsp;126</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m('.hs-form',&nbsp;[<br>
+<span id=127 class="line">&nbsp;127</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;inputNode,&nbsp;<br>
+<span id=128 class="line">&nbsp;128</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.hidden?&nbsp;undefined&nbsp;:&nbsp;<br>
+<span id=129 class="line">&nbsp;129</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m('.hs-typeahead-list',&nbsp;this.typeAheadList.map((l:string)&nbsp;=>&nbsp;<br>
+<span id=130 class="line">&nbsp;130</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m('',&nbsp;{&nbsp;onclick:&nbsp;select.bind(this)&nbsp;},&nbsp;emphasize(l,&nbsp;this.value))))<br>
+<span id=131 class="line">&nbsp;131</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);<br>
+<span id=132 class="line">&nbsp;132</span>&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+<span id=133 class="line">&nbsp;133</span>}<br></code></div>
+                </body>
+            

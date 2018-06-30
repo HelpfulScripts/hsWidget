@@ -3659,7 +3659,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 			"comment": {
 				"shortText": "# Toolbar Button\ncreates a set of buttons at the corner of a positioned panel.",
-				"text": "### Profile\ninvoked as `m(ToolbarButtons, { <Attributes> })`\n\n### Attributes (node.attrs):\n- `symbols: string | string[]` a symbol, or array of symbols\n- `onclick: ()=>void` a function that is called when the modal box is dismissed\n\n### Example\n<example>\n<file name='script.js'>\nconst buttons = {}\nconst keys = Object.keys(hswidget.ButtonSymbols);\nconst symbols = [];\nlet batch = [];\nfor (let i=0; i<keys.length; i++) {\n   if (i % 4 === 0) {\n      batch = []\n      symbol.push(batch);\n   }\n   batch.push(keys[i]);\n}\n\nm.mount(root, {view: () => m('', [\n   m('', keys.map(\n      (b) => m('.myPositioned', [\n         buttons[b]? m('.myClicked', 'Yayy!!') : m('', b),\n         m(hswidget.ToolbarButtons, { symbol:hswidget.ToolbarButtons.getSymbol(b), onclick:click(b) })\n      ])\n   )),\n   m('', symbols.map(\n      (batch) => m('.myPositioned', [\n         m(hswidget.ToolbarButtons, { symbol:batch.map(b => hswidget.ToolbarButtons.getSymbol(b)), onclick:click(b) })\n      ])\n   ))\n])});\n\nfunction click(button) {\n     return () => {\n         buttons[button] = true;\n         setTimeout(reset(button), 800);\n     }\n}\n\nfunction reset(button) {\n     return () => {\n         buttons[button] = false;\n         m.redraw();\n     }\n}\n</file>\n<file name='style.css'>\n.myClicked { background-color: #efe; }\n.myPositioned {\n     position: relative;\n     display: inline-block;\n     box-sizing: border-box;\n     background-color: #fff;\n     text-align: center;\n     font-size: 70%;\n     margin:  2px;\n     padding-top: 20px;\n     height: 50px;\n     width:  50px;\n}\n.hs-corner-button { color: #008; }\n</file>\n</example>\n"
+				"text": "### Profile\ninvoked as `m(ToolbarButton, { <Attributes> })`\n\n### Attributes (node.attrs):\n- `symbols: string | string[]` a symbol, or array of symbols\n- `onclick: ()=>void` a function that is called when the modal box is dismissed\n\n### Example\n<example height=450>\n<file name='script.js'>\nconst clicked = {}\nconst keys = Object.keys(hswidget.ButtonSymbols);\nconst groupsOf4 = [];\nlet batch = [];\nfor (let i=0; i<keys.length; i++) {\n   if (i % 4 === 0) {\n      batch = []\n      groupsOf4.push(batch);\n   }\n   batch.push(keys[i]);\n}\n\nm.mount(root, {view: () => m('', [\n   m('', keys.map(       // single symbols\n      bn => m('.myPositioned', [\n         clicked[bn]? m('.myClicked', 'Yayy!!') : m('', bn),\n         m(hswidget.ToolbarButton, { symbols:hswidget.ToolbarButton.getSymbol(bn), onclick:click(bn) })\n      ])\n   )),\n   m('', groupsOf4.map(  // groups of 4 symbols\n      batch => m('.myPositioned', [\n         clicked[batch[0]]? m('.myClicked', 'Yayy!!') : m('', batch[0]),\n         m(hswidget.ToolbarButton, { symbols:batch.map(bt => hswidget.ToolbarButton.getSymbol(bt)), onclick:click(batch[0]) })\n      ])\n   ))\n])});\n\nfunction click(button) {\n     return () => {\n         clicked[button] = true;\n         setTimeout(reset(button), 800);\n     }\n}\n\nfunction reset(button) {\n     return () => {\n         clicked[button] = false;\n         m.redraw();\n     }\n}\n</file>\n<file name='style.css'>\n.myClicked { background-color: #efe; }\n.myPositioned {\n     position: relative;\n     display: inline-block;\n     box-sizing: border-box;\n     background-color: #fff;\n     text-align: center;\n     font-size: 70%;\n     margin:  2px;\n     padding-top: 20px;\n     height: 50px;\n     width:  70px;\n}\n.hs-corner-button { color: #008; }\n</file>\n</example>\n"
 			},
 			"children": [
 				{
@@ -3689,7 +3689,7 @@
 									"parameters": [
 										{
 											"id": 194,
-											"name": "symbol",
+											"name": "symbols",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
@@ -3710,14 +3710,14 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 110,
+									"line": 111,
 									"character": 28
 								}
 							]
 						},
 						{
 							"id": 192,
-							"name": "symbol",
+							"name": "symbols",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
@@ -3728,8 +3728,8 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 111,
-									"character": 32
+									"line": 112,
+									"character": 33
 								}
 							],
 							"type": {
@@ -3774,7 +3774,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 115,
+									"line": 116,
 									"character": 8
 								}
 							]
@@ -3817,7 +3817,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 112,
+									"line": 113,
 									"character": 20
 								}
 							]
@@ -3850,7 +3850,7 @@
 					"sources": [
 						{
 							"fileName": "ToolbarButton.ts",
-							"line": 110,
+							"line": 111,
 							"character": 26
 						}
 					]
@@ -3885,7 +3885,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 105,
+											"line": 106,
 											"character": 21
 										}
 									],
@@ -3908,7 +3908,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 105,
+									"line": 106,
 									"character": 9
 								}
 							],
@@ -3937,7 +3937,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 103,
+											"line": 104,
 											"character": 21
 										}
 									],
@@ -3960,7 +3960,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 103,
+									"line": 104,
 									"character": 10
 								}
 							],
@@ -3989,7 +3989,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 78,
+											"line": 79,
 											"character": 21
 										}
 									],
@@ -4012,7 +4012,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 78,
+									"line": 79,
 									"character": 9
 								}
 							],
@@ -4041,7 +4041,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 94,
+											"line": 95,
 											"character": 21
 										}
 									],
@@ -4064,7 +4064,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 94,
+									"line": 95,
 									"character": 10
 								}
 							],
@@ -4093,7 +4093,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 81,
+											"line": 82,
 											"character": 21
 										}
 									],
@@ -4116,7 +4116,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 81,
+									"line": 82,
 									"character": 9
 								}
 							],
@@ -4145,7 +4145,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 82,
+											"line": 83,
 											"character": 21
 										}
 									],
@@ -4168,7 +4168,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 82,
+									"line": 83,
 									"character": 10
 								}
 							],
@@ -4197,7 +4197,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 90,
+											"line": 91,
 											"character": 21
 										}
 									],
@@ -4220,7 +4220,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 90,
+									"line": 91,
 									"character": 8
 								}
 							],
@@ -4249,7 +4249,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 88,
+											"line": 89,
 											"character": 21
 										}
 									],
@@ -4272,7 +4272,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 88,
+									"line": 89,
 									"character": 11
 								}
 							],
@@ -4301,7 +4301,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 101,
+											"line": 102,
 											"character": 21
 										}
 									],
@@ -4324,7 +4324,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 101,
+									"line": 102,
 									"character": 12
 								}
 							],
@@ -4353,7 +4353,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 95,
+											"line": 96,
 											"character": 21
 										}
 									],
@@ -4376,7 +4376,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 95,
+									"line": 96,
 									"character": 9
 								}
 							],
@@ -4405,7 +4405,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 96,
+											"line": 97,
 											"character": 21
 										}
 									],
@@ -4428,7 +4428,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 96,
+									"line": 97,
 									"character": 14
 								}
 							],
@@ -4457,7 +4457,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 107,
+											"line": 108,
 											"character": 21
 										}
 									],
@@ -4480,7 +4480,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 107,
+									"line": 108,
 									"character": 7
 								}
 							],
@@ -4509,7 +4509,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 104,
+											"line": 105,
 											"character": 21
 										}
 									],
@@ -4532,7 +4532,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 104,
+									"line": 105,
 									"character": 9
 								}
 							],
@@ -4561,7 +4561,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 91,
+											"line": 92,
 											"character": 21
 										}
 									],
@@ -4584,7 +4584,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 91,
+									"line": 92,
 									"character": 10
 								}
 							],
@@ -4613,7 +4613,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 83,
+											"line": 84,
 											"character": 21
 										}
 									],
@@ -4636,7 +4636,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 83,
+									"line": 84,
 									"character": 8
 								}
 							],
@@ -4665,7 +4665,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 85,
+											"line": 86,
 											"character": 21
 										}
 									],
@@ -4688,7 +4688,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 85,
+									"line": 86,
 									"character": 11
 								}
 							],
@@ -4717,7 +4717,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 99,
+											"line": 100,
 											"character": 21
 										}
 									],
@@ -4740,7 +4740,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 99,
+									"line": 100,
 									"character": 10
 								}
 							],
@@ -4769,7 +4769,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 79,
+											"line": 80,
 											"character": 21
 										}
 									],
@@ -4792,7 +4792,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 79,
+									"line": 80,
 									"character": 9
 								}
 							],
@@ -4821,7 +4821,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 98,
+											"line": 99,
 											"character": 21
 										}
 									],
@@ -4844,7 +4844,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 98,
+									"line": 99,
 									"character": 5
 								}
 							],
@@ -4873,7 +4873,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 97,
+											"line": 98,
 											"character": 21
 										}
 									],
@@ -4896,7 +4896,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 97,
+									"line": 98,
 									"character": 10
 								}
 							],
@@ -4925,7 +4925,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 80,
+											"line": 81,
 											"character": 21
 										}
 									],
@@ -4948,7 +4948,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 80,
+									"line": 81,
 									"character": 8
 								}
 							],
@@ -4977,7 +4977,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 92,
+											"line": 93,
 											"character": 21
 										}
 									],
@@ -5000,7 +5000,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 92,
+									"line": 93,
 									"character": 10
 								}
 							],
@@ -5029,7 +5029,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 84,
+											"line": 85,
 											"character": 21
 										}
 									],
@@ -5052,7 +5052,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 84,
+									"line": 85,
 									"character": 9
 								}
 							],
@@ -5081,7 +5081,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 86,
+											"line": 87,
 											"character": 21
 										}
 									],
@@ -5104,7 +5104,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 86,
+									"line": 87,
 									"character": 12
 								}
 							],
@@ -5133,7 +5133,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 106,
+											"line": 107,
 											"character": 21
 										}
 									],
@@ -5156,7 +5156,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 106,
+									"line": 107,
 									"character": 9
 								}
 							],
@@ -5185,7 +5185,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 100,
+											"line": 101,
 											"character": 21
 										}
 									],
@@ -5208,7 +5208,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 100,
+									"line": 101,
 									"character": 7
 								}
 							],
@@ -5237,7 +5237,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 93,
+											"line": 94,
 											"character": 21
 										}
 									],
@@ -5260,7 +5260,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 93,
+									"line": 94,
 									"character": 10
 								}
 							],
@@ -5289,7 +5289,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 89,
+											"line": 90,
 											"character": 21
 										}
 									],
@@ -5312,7 +5312,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 89,
+									"line": 90,
 									"character": 6
 								}
 							],
@@ -5341,7 +5341,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 87,
+											"line": 88,
 											"character": 21
 										}
 									],
@@ -5364,7 +5364,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 87,
+									"line": 88,
 									"character": 9
 								}
 							],
@@ -5393,7 +5393,7 @@
 									"sources": [
 										{
 											"fileName": "ToolbarButton.ts",
-											"line": 102,
+											"line": 103,
 											"character": 21
 										}
 									],
@@ -5416,7 +5416,7 @@
 							"sources": [
 								{
 									"fileName": "ToolbarButton.ts",
-									"line": 102,
+									"line": 103,
 									"character": 14
 								}
 							],
@@ -5467,7 +5467,7 @@
 					"sources": [
 						{
 							"fileName": "ToolbarButton.ts",
-							"line": 77,
+							"line": 78,
 							"character": 26
 						}
 					],
@@ -6033,23 +6033,6 @@
 			]
 		},
 		{
-			"id": 297,
-			"name": "\"example/start\"",
-			"kind": 1,
-			"kindString": "External module",
-			"flags": {
-				"isExported": true
-			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsWidget/src/example/start.ts",
-			"sources": [
-				{
-					"fileName": "example/start.ts",
-					"line": 1,
-					"character": 0
-				}
-			]
-		},
-		{
 			"id": 296,
 			"name": "\"index\"",
 			"kind": 1,
@@ -6075,7 +6058,7 @@
 			]
 		},
 		{
-			"id": 298,
+			"id": 297,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -6085,7 +6068,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/node.js/ts6/dev/hsLibs/mithril/hsWidget/src/overview.ts",
 			"comment": {
 				"shortText": "# hsWidgets\nHelpful Scripts UI widgets.  [Github page](https://github.com/HelpfulScripts/hsWidget)",
-				"text": "*hsWidget** Provides various UI widgets for use with mithril:\n\n\n| Widget | Description |\n|========|=============|\n| &nbsp; {@link Menu.Menu Menu} | A group of horizontal menu items that can trigger actions |\n| &nbsp; {@link Button.Button Button} | A simple button widget |\n| &nbsp; {@link Collapsible Collapsible} | A panel that will expand znd collapse when the title is clicked |\n| &nbsp; {@link Modal Modal} | A modal panel that will cover the entire window until released. |\n| &nbsp; {@link AddRemove AddButton} | An inline `+` button that will open a form for adding new elements. |\n| &nbsp; {@link AddRemove RemoveButton} | An inline `-` button that will remove an item. |\n| &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |\n\n<example height=2050px>\n<file name='script.js'>\nconst render = () => m.mount(root, {view: () => m('.hs-white', [\n\n   m('h2.myGapButtons', 'Buttons'),\n   m('h4', `Please click: (${clicked}-times clicked)`),\n   m(hswidget.Button, { desc: {\n       name: 'click me',\n       clicked: () => clicked++\n   }}),\n   m('h4', `Select Radio Station: ${radio}`),\n   m(hswidget.RadioButton, { desc: {\n       items: ['1st', '2nd','3rd'],\n       changed: (item) => radio = item\n   }}),\n   m('h4', `Please Toggle between 1st, 2nd, and 3rd`),\n   m(hswidget.ToggleButton, { desc: {\n       items: ['1st', '2nd','3rd'],\n       changed: (item) => toggle = item\n   }}),\n\n   m('h2.myGapMenus', 'Menus'),\n   m('h4', 'Please select:'),\n   m(hswidget.Menu, { css: '.myMenu', desc: {\n      items: menuItems,\n      defaultItem: 'Two',\n      changed: (item) => theContent = content[menuItems.indexOf(item)]\n   }}),\n   m('myMenuMain', theContent),\n\n   m('h2.myGapModal', 'Modal Dialog Box'),\n   m('h4', {onclick:() => showModal = true }, 'Click me to open a modal box'),\n   showModal? m(hswidget.Modal, {\n      width:  '300px',\n      height: '200px',\n      dismiss: () => showModal = false,\n      content: m('', 'click on border or on the x to release')\n   }) : undefined,\n\n   m('h2.myGapCollapsibless', 'Collapsibles'),\n   m(hswidget.Collapsible, { css:'.myCollapsible', components: [\n      m('.myTitle', 'click me to toggle - no arrows'), content\n   ]}),\n   m(hswidget.Collapsible, { css:'.myCollapsible', preArrow:true, components: [\n      m('.myTitle', 'click me to toggle - left arrow'), content\n   ]}),\n   m(hswidget.Collapsible, { css:'.myCollapsible', postArrow:true, components: [\n      m('.myTitle', 'click me to toggle - right arrow'), content\n   ]}),\n   m(hswidget.Collapsible, { css:'.myCollapsible', preArrow:true, postArrow:true, components: [\n      m('.myTitle', 'click me to toggle - both arrows'), content\n   ]}),\n   m('', 'Background text, will be pushed down by the Collapsible'),\n\n   m('h2.myGapTypeAhead', 'Typeahead Search'),\n   m('h4', 'In-Memory List: ' + hero.length? `Selected: ${hero}` : 'Search for a Superhero'),\n   m(hswidget.TypeAhead, {\n      placeholder: 'favorite hero',\n      onsubmit: item => hero = item,\n      list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n   }),\n   m('h4', `Remote List: ${friend.length? 'Selected: '+ friend : 'Search for a Friend'}`),\n   m(hswidget.TypeAhead, {\n      placeholder: 'best friend',\n      onsubmit: item => friend = item,\n      autofocus: true,\n      list: 'example/search.json'\n   }),\n\n   m('h2.myGapCornerButtons', 'Corner Buttons'),\n   m('h4', lastCornerButton),\n   m('', Object.keys(hswidget.ButtonSymbols).map(\n      (b) => m('.myCornerPositioned', [\n         buttons[b]? m('.myCornerClicked', 'Yayy!!') : m('', b),\n         m(hswidget.ToolbarButton, { symbol:hswidget.ToolbarButton.getSymbol(b), onclick:click(b) })\n      ])\n   )),\n])});\n\n\n//--------------------------------------\n// supporting variables:\nconst menuItems = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\nlet  theContent = content[1];\nlet clicked = 0;\nlet radio = '';\nlet toggle = '';\nconst buttons = {};\nlet lastCornerButton = '';\nlet showModal = false;\nlet hero = '';\nlet friend = '';\n\nconst click = (button) => () => {\n   lastCornerButton = '';\n   if (hswidget.ButtonSymbols[button]) {\n      lastCornerButton = m.trust(`last button pressed: ${hswidget.ButtonSymbols[button].sym}`);\n      buttons[button] = true;\n      setTimeout(reset(button), 800);\n   }\n};\n\nconst reset = (button) => () => {\n   buttons[button] = false;\n   m.redraw();\n}\n\nrender();\n</file>\n\n<file name='style.css'>\n.myMenuMain {\n   border:1px solid #ddd;\n   border-top: 0px solid #ddd;\n}\n.myMenu .hs-selectable {\n    background-color: #eef;\n}\n.myMenu .hs-selected {\n    background-color: #ddf;\n    border-width:0px;\n}\n.myCollapsible {\n    margin-bottom: 5px;\n}\n.myCollapsible .hs-collapsible-title {\n    font-weight:bold;\n    padding-left: 3px;\n    background-color: #eee;\n}\n.myCollapsible .hs-collapsible-expanded {\n    margin-left: 10px;\n}\n.myCornerClicked { background-color: #efe; }\n.myCornerPositioned {\n     position: relative;\n     display: inline-block;\n     box-sizing: border-box;\n     background-color: #eee;\n     text-align: center;\n     font-size: 70%;\n     margin:  2px;\n     padding-top: 20px;\n     height: 50px;\n     width:  50px;\n}\n.hs-corner-button { color: #008; }\n\n.myGapButtons        { margin-top: 90px; }\n.myGapMenus          { margin-top: 80px; }\n.myGapModal          { margin-top: 50px; }\n.myGapCollapsibless  { margin-top: 115px; }\n.myGapTypeAhead      { margin-top: 130px; }\n.myGapCornerButtons  { margin-top: 105px; }\n</file>\n</example>\n"
+				"text": "*hsWidget** Provides various UI widgets for use with mithril:\n\n\n| Widget | Description |\n|========|=============|\n| &nbsp; {@link Menu.Menu Menu} | A group of horizontal menu items that can trigger actions |\n| &nbsp; {@link Button.Button Button} | A simple button widget |\n| &nbsp; {@link Collapsible Collapsible} | A panel that will expand znd collapse when the title is clicked |\n| &nbsp; {@link Modal Modal} | A modal panel that will cover the entire window until released. |\n| &nbsp; {@link AddRemove AddButton} | An inline `+` button that will open a form for adding new elements. |\n| &nbsp; {@link AddRemove RemoveButton} | An inline `-` button that will remove an item. |\n| &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |\n\n<example height=2300px>\n<file name='script.js'>\nconst render = () => m.mount(root, {view: () =>\n   m('.hs-white', m(hslayout.Layout, {\n     rows:['100px', '280px', '200px', '210px', '320px', '320px'], content: [m('',''),\n\n   // Buttons:\n   m('',[\n     m('h2', 'Buttons'),\n     m('h4', `Please click: (${clicked}-times clicked)`),\n     m(hswidget.Button, { desc: { name: 'click me', clicked: () => clicked++ }}),\n     m('h4', `Select Radio Station: ${radio}`),\n     m(hswidget.RadioButton, { desc: {\n       items: ['1st', '2nd','3rd'], changed: (item) => radio = item\n     }}),\n     m('h4', `Please Toggle between 1st, 2nd, and 3rd`),\n     m(hswidget.ToggleButton, { desc: {\n       items: ['1st', '2nd','3rd'], changed: (item) => toggle = item\n     }}),\n   ]),\n\n   // Menus:\n   m('',[\n     m('h2', 'Menus'),\n     m('h4', 'Please select:'),\n     m(hswidget.Menu, { css: '.myMenu', desc: {\n      items: menuItems,  defaultItem: 'Two',\n      changed: (item) => theContent = content[menuItems.indexOf(item)]\n     }}),\n     m('myMenuMain', theContent),\n   ]),\n\n   // Modal Dialog Box:\n   m('',[\n     m('h2.myGapModal', 'Modal Dialog Box'),\n     m('h4', {onclick:() => showModal = true }, 'Click me to open a modal box'),\n     showModal? m(hswidget.Modal, {\n         width:  '300px',\n         height: '200px',\n         dismiss: () => showModal = false,\n         content: m('', 'click on border or on the x to release')\n     }) : undefined,\n   ]),\n\n   // Collapsibles:\n   m('',[\n     m('h2', 'Collapsibles'),\n     m(hswidget.Collapsible, { css:'.myCollapsible', components: [\n         m('.myTitle', 'click me to toggle - no arrows'), content\n     ]}),\n     m(hswidget.Collapsible, { css:'.myCollapsible', preArrow:true, components: [\n         m('.myTitle', 'click me to toggle - left arrow'), content\n     ]}),\n     m(hswidget.Collapsible, { css:'.myCollapsible', postArrow:true, components: [\n         m('.myTitle', 'click me to toggle - right arrow'), content\n     ]}),\n     m(hswidget.Collapsible, { css:'.myCollapsible', preArrow:true, postArrow:true, components: [\n         m('.myTitle', 'click me to toggle - both arrows'), content\n     ]}),\n     m('', 'Background text, will be pushed down by the Collapsible')\n   ]),\n\n   // Typeahead Search:\n   m('',[\n     m('h2.myGapTypeAhead', 'Typeahead Search'),\n     m('h4', 'In-Memory List: ' + hero.length? `Selected: ${hero}` : 'Search for a Superhero'),\n     m(hswidget.TypeAhead, {\n         placeholder: 'favorite hero',\n         onsubmit: item => hero = item,\n         list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n     }),\n     m('h4', `Remote List: ${friend.length? 'Selected: '+ friend : 'Search for a Friend'}`),\n     m(hswidget.TypeAhead, {\n         placeholder: 'best friend',\n         onsubmit: item => friend = item,\n         autofocus: true,\n         list: 'example/search.json'\n     })\n   ]),\n\n   // Corner Buttons:\n   m('',[\n     m('h2.myGapCornerButtons', 'Corner Buttons'),\n     m('h4', lastCornerButton),\n     m('', Object.keys(hswidget.ButtonSymbols).map(\n         b => m('.myCornerPositioned', [\n             btnClicked[b]? m('.myCornerClicked', 'Yayy!!') : m('', b),\n             m(hswidget.ToolbarButton, {\n                 symbols:hswidget.ToolbarButton.getSymbol(b), onclick:click(b)\n             })\n         ])\n     ))\n   ])\n]}))});\n\n\n//--------------------------------------\n// supporting variables:\nconst menuItems = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\nlet  theContent = content[1];\nlet clicked = 0;\nlet radio = '';\nlet toggle = '';\nconst btnClicked = {};\nlet lastCornerButton = '';\nlet showModal = false;\nlet hero = '';\nlet friend = '';\n\nconst click = (button) => () => {\n   lastCornerButton = '';\n   if (hswidget.ButtonSymbols[button]) {\n      lastCornerButton = m.trust(`last button pressed: ${hswidget.ButtonSymbols[button].sym}`);\n      btnClicked[button] = true;\n      setTimeout(reset(button), 800);\n   }\n};\n\nconst reset = (button) => () => {\n   btnClicked[button] = false;\n   m.redraw();\n}\n\nrender();\n</file>\n\n<file name='style.css'>\n.myMenuMain {\n   border:1px solid #ddd;\n   border-top: 0px solid #ddd;\n}\n.myMenu .hs-selectable {\n    background-color: #eef;\n}\n.myMenu .hs-selected {\n    background-color: #ddf;\n    border-width:0px;\n}\n.myCollapsible {\n    margin-bottom: 5px;\n}\n.myCollapsible .hs-collapsible-title {\n    font-weight:bold;\n    padding-left: 3px;\n    background-color: #eee;\n}\n.myCollapsible .hs-collapsible-expanded {\n    margin-left: 10px;\n}\n.myCornerClicked { background-color: #efe; }\n.myCornerPositioned {\n     position: relative;\n     display: inline-block;\n     box-sizing: border-box;\n     background-color: #eee;\n     text-align: center;\n     font-size: 70%;\n     margin:  2px;\n     padding-top: 20px;\n     height: 50px;\n     width:  50px;\n}\n.hs-corner-button { color: #008; }\n\n</file>\n</example>\n"
 			},
 			"sources": [
 				{
@@ -6111,9 +6094,8 @@
 				87,
 				189,
 				267,
-				297,
 				296,
-				298
+				297
 			]
 		}
 	]
