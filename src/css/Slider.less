@@ -1,0 +1,48 @@
+.hs-slider {
+    display:block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    .hs-slider-slot {
+        position: absolute;
+        height: 10px;
+        left:   10px;
+        right:  10px;
+        margin-top:    10px;
+        margin-bottom: 20px;
+        .hs-slider-markers {
+            position: absolute;
+            top:  0;
+            left: 0px;
+            right: 2px;
+            .hs-slider-marker {
+                position: absolute;
+                height: 5px;
+                width:  0px;
+                top: 10px;
+                border: 1px solid #aaa;
+                .hs-slider-label {
+                    margin-top: 5px;
+                    position: absolute;
+                    text-align: center;
+                    transform: translateX(-50%);
+                }
+            }
+        }
+    }
+}
+
+.hs-slider-slot.hs-simple-slider-slot {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.hs-slider-marker.hs-simple-slider-marker {
+    border: 1px solid #f88;
+}
+
+.hs-slider-label.hs-simple-slider-label {
+    font-size: 10px;
+}
