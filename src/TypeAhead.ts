@@ -77,17 +77,21 @@ class GetList {
 
 export class TypeAhead {
     typeAheadList:string[] = [];
-    hidden = true;
+    hidePopdown = true;
     value = '';
     inputNode:any;
     view(node:Vnode) {
         const gl = new GetList(node.attrs.list);
         const nosubmit = () => console.log('no submit function defined');
-        const submit = (v:string) => node.attrs.onsubmit? node.attrs.onsubmit(v) : nosubmit();
+        const submit = (v:string) => {
+//          this.inputNode.value = '';
+            this.inputNode.setSelectionRange(0, this.inputNode.value.length);
+            this.hidePopdown = true;
+            return node.attrs.onsubmit? node.attrs.onsubmit(v) : nosubmit();
+        };
         const select = (e:any) => { if (e) { 
+            this.inputNode.value = e.target.attributes.name.value;
             submit(e.target.attributes.name.value);
-            this.inputNode.value = '';
-            this.hidden = true;
         }};
         const input = (e:any) => {
             const n = this.inputNode = e.target;
@@ -96,7 +100,7 @@ export class TypeAhead {
             const beginningOfInput = new RegExp(`^${input}`, 'gi');
             this.typeAheadList = gl.list.filter((l:string) => l.match(withinInput));
             n.value = this.typeAheadList.filter((l:string) => l.match(beginningOfInput))[0] || input; 
-            this.hidden = n.value.length===0; 
+            this.hidePopdown = n.value.length===0; 
             let pos = input.length;
             n.setSelectionRange(pos, n.value.length);
         };
@@ -104,8 +108,6 @@ export class TypeAhead {
             const n = this.inputNode = e.target;
             if (e.code === 'Enter') {
                 submit(n.value);
-                n.value = '';
-                 this.hidden = true;
             } else if (e.code === 'Backspace') {
                 const input = n.firstChild.data;
                 if (input.length > 0) {
@@ -125,7 +127,7 @@ export class TypeAhead {
 
         return m('.hs-form', [
             inputNode, 
-            this.hidden? undefined : 
+            this.hidePopdown? undefined : 
                 m('.hs-typeahead-list', this.typeAheadList.map((l:string) => 
                     m('', { onclick: select.bind(this) }, emphasize(l, this.value))))
         ]);
