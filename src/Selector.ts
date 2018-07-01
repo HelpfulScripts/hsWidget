@@ -3,8 +3,8 @@
  * Creates a Selector with several Selectables.
  * The `updateSelected` property determines how selecting an item affects 
  * the `isSelected` status of all other items. Preconfigured options are
- * -&nbsp; {@link Selector.oneOfItems oneOfItems}
- * -&nbsp; {@link Selector.anyItems   anyItems}
+ * -&nbsp; {@link Selector.oneOfItems oneOfItems} allows only one selection at a time
+ * -&nbsp; {@link Selector.anyItems   anyItems} allows mutliple selections
  * 
  * 
  * ### Invocation
@@ -61,7 +61,7 @@ export type selectFn = (items:{string:SelectableDesc}, title:string) => void;
  * called to update selection after the item with title `title` was selected.
  * `oneOfItems` ensures that `title` will be selected and all others deselected
  */
-export function oneOfItems(items:{string:SelectableDesc}, title:string) {
+export function oneOfItems(items:{string:SelectableDesc}, title:string):void {
     Object.keys(this.items).forEach((key:string) => { 
         this.items[key].isSelected = (key===title); 
     });
@@ -71,7 +71,7 @@ export function oneOfItems(items:{string:SelectableDesc}, title:string) {
  * called to update selection after the item with title `title` was selected.
  * `anyItems` ensures that `title` will be selected independant of all others
  */
-export function anyItems(items:{string:SelectableDesc}, title:string) {
+export function anyItems(items:{string:SelectableDesc}, title:string):void {
     this.items[title].isSelected = !this.items[title].isSelected; 
 }
 
