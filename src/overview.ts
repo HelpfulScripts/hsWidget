@@ -15,22 +15,22 @@ Helpful Scripts UI widgets.  [Github page](https://github.com/HelpfulScripts/hsW
 | &nbsp; {@link AddRemove RemoveButton} | An inline `-` button that will remove an item. |
 | &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |
 
- * <example height=2300px>
+ * <example height=2380px>
  * <file name='script.js'>
  * const render = () => m.mount(root, {view: () => 
  *    m('.hs-white', m(hslayout.Layout, {
- *      rows:['100px', '280px', '200px', '210px', '320px', '320px'], content: [m('',''),
+ *      rows:['100px', '280px', '200px', '210px', '340px', '320px'], content: [m('',''),
  * 
  *    // Buttons:
  *    m('',[
  *      m('h2', 'Buttons'),
- *      m('h4', `Please click: (${clicked}-times clicked)`),
+ *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button'), `: Please click: (${clicked}-times clicked)`]),
  *      m(hswidget.Button, { desc: { name: 'click me', clicked: () => clicked++ }}),
- *      m('h4', `Select Radio Station: ${radio}`),
+ *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.RadioButton.RadioButton'}, 'RadioButton'), `: Select Station: ${radio}`]),
  *      m(hswidget.RadioButton, { desc: {
  *        items: ['1st', '2nd','3rd'], changed: (item) => radio = item
  *      }}),
- *      m('h4', `Please Toggle between 1st, 2nd, and 3rd`),
+ *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToggleButton.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),
  *      m(hswidget.ToggleButton, { desc: {
  *        items: ['1st', '2nd','3rd'], changed: (item) => toggle = item
  *      }}),
@@ -39,7 +39,7 @@ Helpful Scripts UI widgets.  [Github page](https://github.com/HelpfulScripts/hsW
  *    // Menus:
  *    m('',[
  *      m('h2', 'Menus'),
- *      m('h4', 'Please select:'),
+ *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.Menu'}, 'Menu'), `: Please select:`]),
  *      m(hswidget.Menu, { css: '.myMenu', desc: {
  *       items: menuItems,  defaultItem: 'Two',
  *       changed: (item) => theContent = content[menuItems.indexOf(item)]
@@ -50,7 +50,7 @@ Helpful Scripts UI widgets.  [Github page](https://github.com/HelpfulScripts/hsW
  *    // Modal Dialog Box:
  *    m('',[
  *      m('h2.myGapModal', 'Modal Dialog Box'),
- *      m('h4', {onclick:() => showModal = true }, 'Click me to open a modal box'),
+ *      m('h4', {onclick:() => showModal = true }, [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box`]),
  *      showModal? m(hswidget.Modal, {
  *          width:  '300px',
  *          height: '200px',
@@ -62,6 +62,7 @@ Helpful Scripts UI widgets.  [Github page](https://github.com/HelpfulScripts/hsW
  *    // Collapsibles:
  *    m('',[
  *      m('h2', 'Collapsibles'),
+ *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Collapsible.Collapsible'}, 'Collapsible'), ': ']),
  *      m(hswidget.Collapsible, { css:'.myCollapsible', components: [
  *          m('.myTitle', 'click me to toggle - no arrows'), content 
  *      ]}),
@@ -80,13 +81,13 @@ Helpful Scripts UI widgets.  [Github page](https://github.com/HelpfulScripts/hsW
  *    // Typeahead Search:
  *    m('',[
  *      m('h2.myGapTypeAhead', 'Typeahead Search'),
- *      m('h4', 'In-Memory List: ' + hero.length? `Selected: ${hero}` : 'Search for a Superhero'),
+ *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: In-Memory List: ${hero.length? 'Selected1: ' + hero : 'Search for a Superhero'}`]),
  *      m(hswidget.TypeAhead, { 
  *          placeholder: 'favorite hero',
  *          onsubmit: item => hero = item,
  *          list: ['Batman', 'Superman', 'Spiderman', 'Hulk']
  *      }),
- *      m('h4', `Remote List: ${friend.length? 'Selected: '+ friend : 'Search for a Friend'}`),
+ *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: Remote List: ${friend.length? 'Selected2: '+ friend : 'Search for a Friend'}`]),
  *      m(hswidget.TypeAhead, { 
  *          placeholder: 'best friend',
  *          onsubmit: item => friend = item,
@@ -98,7 +99,9 @@ Helpful Scripts UI widgets.  [Github page](https://github.com/HelpfulScripts/hsW
  *    // Corner Buttons:
  *    m('',[
  *      m('h2.myGapCornerButtons', 'Corner Buttons'),
- *      m('h4', lastCornerButton),
+ *      //m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ButtonSymbols'}, 'ButtonSymbols'), ', ', 
+ *      //         m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ToolbarButton'}, 'ToolbarButton'), ': ',
+ *      //         lastCornerButton]),
  *      m('', Object.keys(hswidget.ButtonSymbols).map(
  *          b => m('.myCornerPositioned', [
  *              btnClicked[b]? m('.myCornerClicked', 'Yayy!!') : m('', b),
