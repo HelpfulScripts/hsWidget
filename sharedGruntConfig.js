@@ -36,7 +36,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.registerTask('stage', [`${(type === 'app')? 'copy:app2NPM': 'copy:lib2NPM'}`]);
     
     //------ Add Test Tasks
-    grunt.registerTask('ospec', () => { require('child_process').spawnSync('npm', ['run ospec'], {stdio: 'inherit'}); });
+    grunt.registerTask('ospec', () => { require('child_process').spawnSync('./node_modules/mithril/ospec/bin/ospec', {stdio: 'inherit'}); });
     if (type === 'node') { 
         grunt.loadNpmTasks('grunt-jasmine-node-coverage');
         grunt.registerTask('test', ['clean:test', 'copy:test', 'build-specES5', 'jasmine_node' ]); }
