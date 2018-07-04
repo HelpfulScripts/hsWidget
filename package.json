@@ -10,8 +10,8 @@
     "email": "helpfulscripts@gmail.com"
   },
   "scripts": {
-    "start": "grunt",
-    "test": "ospec"
+    "build": "grunt travis",
+    "test": "grunt test"
   },
   "engines": {
     "node": ">= 8.9.0"
@@ -19,8 +19,27 @@
   "plugins": [
     "plugins/markdown"
   ],
-  "dependencies": {
-    "mithril": "^1.1.4",
+  "devDependencies": {
+    "@types/node": "^7.0.66",
+    "grunt": "^1.0.3",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-ts": "^6.0.0-beta.19",
+    "grunt-tslint": "^4.0.1",
+    "grunt-typedoc": "^0.2.4",
+    "grunt-webpack": "^3.1.2",
+    "mithril": "^1.1.6",
+    "tslint": "^4.5.1",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.9.2",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^3.12.0",
     "hslayout": "^2.0.0"
+  },
+  "dependencies": {
   }
 }
