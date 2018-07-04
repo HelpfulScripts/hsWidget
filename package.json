@@ -1,10 +1,13 @@
 {
-    "name": "hswidget",
+    "name": "hslayout",
     "main": "./index.js",
     "types": "./index.d.ts",
-    "version": "2.1.1",
-    "keywords": [],
-    "description": "Helpful Scripts UI widgets",
+    "version": "2.1.0",
+    "keywords": [
+      "layout",
+      "UI"
+    ],
+    "description": "Helpful Scripts UI layout utility",
     "author": {
       "name": "masterscripter",
       "email": "helpfulscripts@gmail.com"
@@ -16,7 +19,7 @@
     "license": "MIT",
     "repository": {
       "type": "git",
-      "url": "https://github.com/HelpfulScripts/hsWidget.git"
+      "url": "https://github.com/HelpfulScripts/hsLayout.git"
     },
     "engines": {
       "node": ">= 8.9.0"
