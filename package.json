@@ -13,6 +13,11 @@
     "build": "grunt travis",
     "test": "grunt test"
   },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HelpfulScripts/hsWidget.git"
+  },
   "engines": {
     "node": ">= 8.9.0"
   },
@@ -31,10 +36,12 @@
     "grunt-ts": "^6.0.0-beta.19",
     "grunt-tslint": "^4.0.1",
     "grunt-typedoc": "^0.2.4",
-    "mithril": "^1.1.6",
+    "grunt-webpack": "^3.1.2",
     "tslint": "^4.5.1",
     "typedoc": "^0.11.1",
     "typescript": "^2.9.2",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack": "^4.14.0",
     "hslayout": "^2.0.0"
   },
   "dependencies": {
