@@ -99,11 +99,11 @@
   overflow: hidden;
   height: 0%;
   max-height: 0%;
+  transition: max-height 0.5s ease-in-out;
 }
 .hs-collapsible-expanded .hs-collapsible-content {
   height: auto;
   max-height: 100%;
-  transition: all 0.3s ease-in-out;
 }
 .hs-dropover {
   position: relative;
@@ -352,5 +352,64 @@
 }
 .hs-typeahead-list div:hover {
   text-shadow: 0 0 3px #88f;
+}
+.hs-label {
+  position: relative;
+  margin: 0px;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: middle;
+  margin-left: 5px;
+  margin-right: 5px;
+  line-height: 30px;
+}
+.hs-slider {
+  display: block;
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 40px;
+}
+.hs-slider .hs-slider-slot {
+  position: absolute;
+  height: 10px;
+  left: 10px;
+  right: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-color: #eee;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.hs-slider .hs-slider-slot .hs-slider-markers {
+  position: absolute;
+  top: 0;
+  left: 0px;
+  right: 2px;
+}
+.hs-slider .hs-slider-slot .hs-slider-markers .hs-slider-marker {
+  position: absolute;
+  height: 5px;
+  width: 0px;
+  top: 10px;
+  border: 1px solid #aaa;
+}
+.hs-slider .hs-slider-slot .hs-slider-markers .hs-slider-marker .hs-slider-label {
+  font-size: 10px;
+  margin-top: 5px;
+  position: absolute;
+  text-align: center;
+  transform: translateX(-50%);
+}
+.hs-slider .hs-slider-slot .hs-slider-handle {
+  top: 5px;
+  position: absolute;
+  border: 1px solid #aaa;
+  border-radius: 10px;
+  height: 20px;
+  width: 20px;
+  transform: translate(-50%, -50%);
+  background-color: #88f;
 }
 /*# sourceMappingURL=_dist/bin/hsWidget.css.map */

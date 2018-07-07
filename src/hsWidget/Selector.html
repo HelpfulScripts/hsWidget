@@ -18,8 +18,8 @@
 <span id=3 class="line">&nbsp;&nbsp;&nbsp;3</span>&nbsp;*&nbsp;Creates&nbsp;a&nbsp;Selector&nbsp;with&nbsp;several&nbsp;Selectables.<br>
 <span id=4 class="line">&nbsp;&nbsp;&nbsp;4</span>&nbsp;*&nbsp;The&nbsp;`updateSelected`&nbsp;property&nbsp;determines&nbsp;how&nbsp;selecting&nbsp;an&nbsp;item&nbsp;affects&nbsp;<br>
 <span id=5 class="line">&nbsp;&nbsp;&nbsp;5</span>&nbsp;*&nbsp;the&nbsp;`isSelected`&nbsp;status&nbsp;of&nbsp;all&nbsp;other&nbsp;items.&nbsp;Preconfigured&nbsp;options&nbsp;are<br>
-<span id=6 class="line">&nbsp;&nbsp;&nbsp;6</span>&nbsp;*&nbsp;-&nbsp;&nbsp;{@link&nbsp;Selector.oneOfItems&nbsp;oneOfItems}<br>
-<span id=7 class="line">&nbsp;&nbsp;&nbsp;7</span>&nbsp;*&nbsp;-&nbsp;&nbsp;{@link&nbsp;Selector.anyItems&nbsp;&nbsp;&nbsp;anyItems}<br>
+<span id=6 class="line">&nbsp;&nbsp;&nbsp;6</span>&nbsp;*&nbsp;-&nbsp;&nbsp;{@link&nbsp;Selector.oneOfItems&nbsp;oneOfItems}&nbsp;allows&nbsp;only&nbsp;one&nbsp;selection&nbsp;at&nbsp;a&nbsp;time<br>
+<span id=7 class="line">&nbsp;&nbsp;&nbsp;7</span>&nbsp;*&nbsp;-&nbsp;&nbsp;{@link&nbsp;Selector.anyItems&nbsp;&nbsp;&nbsp;anyItems}&nbsp;allows&nbsp;mutliple&nbsp;selections<br>
 <span id=8 class="line">&nbsp;&nbsp;&nbsp;8</span>&nbsp;*&nbsp;<br>
 <span id=9 class="line">&nbsp;&nbsp;&nbsp;9</span>&nbsp;*&nbsp;<br>
 <span id=10 class="line">&nbsp;&nbsp;10</span>&nbsp;*&nbsp;###&nbsp;Invocation<br>
@@ -76,7 +76,7 @@
 <span id=61 class="line">&nbsp;&nbsp;61</span>&nbsp;*&nbsp;called&nbsp;to&nbsp;update&nbsp;selection&nbsp;after&nbsp;the&nbsp;item&nbsp;with&nbsp;title&nbsp;`title`&nbsp;was&nbsp;selected.<br>
 <span id=62 class="line">&nbsp;&nbsp;62</span>&nbsp;*&nbsp;`oneOfItems`&nbsp;ensures&nbsp;that&nbsp;`title`&nbsp;will&nbsp;be&nbsp;selected&nbsp;and&nbsp;all&nbsp;others&nbsp;deselected<br>
 <span id=63 class="line">&nbsp;&nbsp;63</span>&nbsp;*/</comment><br>
-<span id=64 class="line">&nbsp;&nbsp;64</span>export&nbsp;function&nbsp;oneOfItems(items:{string:SelectableDesc},&nbsp;title:string)&nbsp;{<br>
+<span id=64 class="line">&nbsp;&nbsp;64</span>export&nbsp;function&nbsp;oneOfItems(items:{string:SelectableDesc},&nbsp;title:string):void&nbsp;{<br>
 <span id=65 class="line">&nbsp;&nbsp;65</span>&nbsp;&nbsp;&nbsp;&nbsp;Object.keys(this.items).forEach((key:string)&nbsp;=>&nbsp;{&nbsp;<br>
 <span id=66 class="line">&nbsp;&nbsp;66</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.items[key].isSelected&nbsp;=&nbsp;(key===title);&nbsp;<br>
 <span id=67 class="line">&nbsp;&nbsp;67</span>&nbsp;&nbsp;&nbsp;&nbsp;});<br>
@@ -86,7 +86,7 @@
 <span id=71 class="line">&nbsp;&nbsp;71</span>&nbsp;*&nbsp;called&nbsp;to&nbsp;update&nbsp;selection&nbsp;after&nbsp;the&nbsp;item&nbsp;with&nbsp;title&nbsp;`title`&nbsp;was&nbsp;selected.<br>
 <span id=72 class="line">&nbsp;&nbsp;72</span>&nbsp;*&nbsp;`anyItems`&nbsp;ensures&nbsp;that&nbsp;`title`&nbsp;will&nbsp;be&nbsp;selected&nbsp;independant&nbsp;of&nbsp;all&nbsp;others<br>
 <span id=73 class="line">&nbsp;&nbsp;73</span>&nbsp;*/</comment><br>
-<span id=74 class="line">&nbsp;&nbsp;74</span>export&nbsp;function&nbsp;anyItems(items:{string:SelectableDesc},&nbsp;title:string)&nbsp;{<br>
+<span id=74 class="line">&nbsp;&nbsp;74</span>export&nbsp;function&nbsp;anyItems(items:{string:SelectableDesc},&nbsp;title:string):void&nbsp;{<br>
 <span id=75 class="line">&nbsp;&nbsp;75</span>&nbsp;&nbsp;&nbsp;&nbsp;this.items[title].isSelected&nbsp;=&nbsp;!this.items[title].isSelected;&nbsp;<br>
 <span id=76 class="line">&nbsp;&nbsp;76</span>}<br>
 <span id=77 class="line">&nbsp;&nbsp;77</span><br>
