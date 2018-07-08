@@ -251,6 +251,7 @@ module.exports = (grunt, dir, dependencies, type) => {
                 entry: './_dist/src/index.js',
                 output: {
                     filename: `${lib}.min.js`,
+                    chunkFilename: '[name].bundle.js',
                     path: path.resolve(dir, './_dist/bin')
                 },
                 plugins: [
