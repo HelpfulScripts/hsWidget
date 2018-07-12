@@ -167,6 +167,7 @@ module.exports = (grunt, dir, dependencies, type) => {
                 inlineSourceMap: true,
                 removeComments: true,
                 noImplicitAny: true,
+                declaration: true,
                 suppressImplicitAnyIndexErrors: true
             },
             src : {
