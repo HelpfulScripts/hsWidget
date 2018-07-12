@@ -209,6 +209,7 @@ module.exports = (grunt, dir, dependencies, type) => {
                 stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
             },
             appProd: { 
+                mode: 'production',
                 entry: './_dist/src/index.js',
                 output: {
                     filename: `${lib}.min.js`,
@@ -225,6 +226,7 @@ module.exports = (grunt, dir, dependencies, type) => {
                 ]
             },
             appDev: {
+                mode: 'development',
                 entry: './_dist/src/index.js',
                 devtool: "inline-source-map",
                 output: {
