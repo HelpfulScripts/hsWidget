@@ -37,12 +37,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     
     //------ Add Test Tasks
     grunt.registerTask('ospec', () => { require('child_process').spawnSync('./node_modules/mithril/ospec/bin/ospec', {stdio: 'inherit'}); });
-    if (type === 'node') { 
-        grunt.loadNpmTasks('grunt-jasmine-node-coverage');
-        grunt.registerTask('test', ['clean:test', 'copy:test', 'build-specES5', 'jasmine_node' ]); }
-    else { 
-        grunt.registerTask('test', ['clean:test', 'copy:test', 'build-spec', 'ospec']); 
-    }
+    grunt.registerTask('test', ['clean:test', 'copy:test', 'build-spec', 'ospec']); 
     
     //------ Add Build Tasks
     grunt.registerTask('build-html',    ['copy:buildHTML']);
@@ -50,9 +45,7 @@ module.exports = (grunt, dir, dependencies, type) => {
     grunt.registerTask('build-example', ['clean:example', 'copy:example', 'ts:example', 'less:example', 'webpack:exampleDev']);
     grunt.registerTask('build-js',      ['tslint:src', 'ts:src']);
     grunt.registerTask('build-jsMin',   ['ts:srcMin']);
-    grunt.registerTask('build-es5',     ['tslint:src', 'ts:srcES5']);
     grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
-    grunt.registerTask('build-specES5', ['tslint:spec', 'ts:testES5']);    
 
     registerBuildTasks(type);
    
@@ -168,7 +161,7 @@ module.exports = (grunt, dir, dependencies, type) => {
         ts: {
             options: {
                 target: "es6",
-                module: "es6",
+                module: "CommonJS",
                 rootDir: "./src",
                 moduleResolution: "node",
                 inlineSourceMap: true,
@@ -177,14 +170,6 @@ module.exports = (grunt, dir, dependencies, type) => {
                 suppressImplicitAnyIndexErrors: true
             },
             src : {
-                outDir:     "_dist/src",
-                src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/example/*.ts"],
-            },
-            srcES5 : {
-                options: {
-                    target: 'es5',                 // target javascript language. [es3 | es5 (grunt-ts default) | es6]
-                    module: 'CommonJS',            // target javascript module style. [amd (default) | commonjs]    
-                },
                 outDir:     "_dist/src",
                 src: ["src/**/*.ts", "!src/**/*.spec.ts", "!src/example/*.ts"],
             },
@@ -198,14 +183,12 @@ module.exports = (grunt, dir, dependencies, type) => {
             },
             test : {
                 options: {
-                    target: 'es6',                 
-                    module: 'CommonJS',           
                     allowJs: true,
                     declaration: false,
                     rootDir: "./"
                 },
                 outDir:     "_dist/tests",
-                src: ["src/**/*.spec.ts", "node_modules/hslayout/**/*.js"],
+                src: ["src/**/*.spec.ts"],
             }
         },
         typedoc: { 
@@ -221,28 +204,6 @@ module.exports = (grunt, dir, dependencies, type) => {
                 src: ['src/**/*.ts', '!src/**/*.*.ts', '!src/example/**/*'] // no specs, no example
             }
         },
-		jasmine_node: {
-			options: { forceExit: true },
-			all: {
-				options: {
-                    projectRoot: '_dist/tests',
-					coverage: {
-						reportDir: '_dist/docs/tests',
-                        relativize: true,
-						includeAllSources: true,
-						report: ['html']
-					},
-					jasmine: {
-						spec_dir: '',
-						spec_files: [
-						    '_dist/tests/*.spec.js'
-						]
-					}
-				},
-				src: ['_dist/tests/**/*.js'] 
-			}
-		},
-
         webpack: {
             options: {
                 stats: !process.env.NODE_ENV || process.env.NODE_ENV === 'development'
@@ -271,16 +232,6 @@ module.exports = (grunt, dir, dependencies, type) => {
                     path: path.resolve(dir, './_dist/bin')
                 }
             },
-/*
-            exampleDev: { 
-                entry: './_dist/example/start.js',
-                devtool: "inline-source-map",
-                output: {
-                    filename: `${lib}.js`,
-                    path: path.resolve(dir, '_dist/example')
-                }
-            },
-*/            
             test: {
                 entry: './_dist/bin/index.js',
                 output: {
@@ -331,11 +282,10 @@ module.exports = (grunt, dir, dependencies, type) => {
         let buildTasks = ['clean:dist', 'build-html', 'build-css', /*'build-example',*/ 'copy:bin', 'copy:example'];
         let buildProduct;
         switch (type) {
-            case 'node':    buildProduct = buildTasks = buildTasks.concat(['build-es5']); 
-                            break;
             case 'app':     buildProduct = buildTasks.concat(['build-jsMin', 'webpack:appProd']);
                             buildTasks   = buildTasks.concat(['build-js', 'webpack:appDev', 'webpack:appProd']); 
                             break;
+            case 'node': 
             case 'util':    
             case 'lib': 
             default:        buildProduct = buildTasks.concat(['build-jsMin', 'copy:libStage']);
