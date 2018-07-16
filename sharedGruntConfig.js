@@ -281,7 +281,7 @@ module.exports = (grunt, dir, dependencies, type) => {
 		}
     }
 
-    function registerBuildTasks(type) {
+    function registerBuildTasks(type) { 
         let buildTasks = ['clean:dist', 'build-html', 'build-css', /*'build-example',*/ 'copy:bin', 'copy:example'];
         let buildProduct;
         switch (type) {
