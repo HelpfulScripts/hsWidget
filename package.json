@@ -2,11 +2,11 @@
   "name": "hswidget",
   "main": "./index.js",
   "types": "./index.d.ts",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "keywords": [
-      "UI",
-      "widgets",
-      "es6"
+    "UI",
+    "widgets",
+    "es6"
   ],
   "description": "Helpful Scripts UI widgets",
   "homepage": "https://helpfulscripts.github.io/hsWidgets/indexGH.html#!/api/hsWidgets/0",
@@ -51,5 +51,5 @@
   "dependencies": {
     "mithril": "^1.1.6",
     "hslayout": "^2.0.0"
-}
+  }
 }
