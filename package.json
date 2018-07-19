@@ -3,8 +3,13 @@
   "main": "./index.js",
   "types": "./index.d.ts",
   "version": "2.2.0",
-  "keywords": [],
+  "keywords": [
+      "UI",
+      "widgets",
+      "es6"
+  ],
   "description": "Helpful Scripts UI widgets",
+  "homepage": "https://helpfulscripts.github.io/hsWidgets/indexGH.html#!/api/hsWidgets/0",
   "author": {
     "name": "masterscripter",
     "email": "helpfulscripts@gmail.com"
@@ -42,7 +47,9 @@
     "typescript": "^2.9.2",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.14.0",
-    "hslayout": "^2.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "mithril": "^1.1.6",
+    "hslayout": "^2.0.0"
+}
 }
