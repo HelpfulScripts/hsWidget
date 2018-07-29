@@ -1,0 +1,6915 @@
+{
+	"id": 0,
+	"name": "hsWidget",
+	"kind": 0,
+	"flags": {},
+	"children": [
+		{
+			"id": 1,
+			"name": "\"AddRemove\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/AddRemove.ts",
+			"comment": {
+				"shortText": "# AddRemove Buttons\nAdds `+` and `-` buttons to add or remove items from a list.",
+				"text": "### Profile\ninvoked as\n```\n m('div', [\n     m('div', 'main content row'),\n     m(AddButton, { onclick:<addFunction> })\n ]),\n```\n\n### Attributes (node.attrs):\n- `onclick`: function to call when button is pressed\n"
+			},
+			"children": [
+				{
+					"id": 2,
+					"name": "AddButton",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 3,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 4,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 5,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Vnode"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "AddRemove.ts",
+									"line": 22,
+									"character": 8
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								3
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "AddRemove.ts",
+							"line": 21,
+							"character": 22
+						}
+					]
+				},
+				{
+					"id": 6,
+					"name": "RemoveButton",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 7,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 8,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 9,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Vnode"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "AddRemove.ts",
+									"line": 28,
+									"character": 8
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								7
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "AddRemove.ts",
+							"line": 27,
+							"character": 25
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						2,
+						6
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "AddRemove.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 110,
+			"name": "\"Button\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Button.ts",
+			"comment": {
+				"shortText": "# Button Widget\nA simple button widget",
+				"text": "### Profile\ninvoked as `m(Button, {name:<string>, onclick:<function>});`\n\n### Attributes (node.attrs):\n- `onclick:() => void` function to execute when button is clicked\n- `name: string` name to show as button text\n- `css: string` css class to assign to button tag\n- `style: string` style string to apply to button tag\n\n### Example\n<example>\n<file name='script.js'>\nlet clicked = 0;\n\nm.mount(root, {view: () => m('.hs-white', [\n   m('h4', 'Please click:'),\n   m(hswidget.Button, { desc: {\n       name: 'click me',\n       clicked: () => clicked++\n   }}),\n])});\n</file>\n</example>\n\n"
+			},
+			"children": [
+				{
+					"id": 111,
+					"name": "Button",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "# Button Widget\nA simple button widget",
+						"text": "### Profile\ninvoked as `m(Button, {name:<string>, onclick:<function>});`\n\n### Attributes (node.attrs):\nattribtues as defined in {@link ToggleButton.ToggleButton `ToggleButton`},\nexcept for `items` and `changed`, which are replaced by\n- `name: string` name to show as button text (in lieu of `items`)\n- `clicked:() => void` function to execute when button is clicked\n"
+					},
+					"children": [
+						{
+							"id": 115,
+							"name": "selectedItem",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isProtected": true
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 91,
+									"character": 26
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.selectedItem",
+								"id": 46
+							}
+						},
+						{
+							"id": 120,
+							"name": "checkSelectedItem",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 121,
+									"name": "checkSelectedItem",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "ensures that `selectedItem` is defined and is a string"
+									},
+									"parameters": [
+										{
+											"id": 122,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.checkSelectedItem",
+										"id": 54
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 105,
+									"character": 21
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.checkSelectedItem",
+								"id": 54
+							}
+						},
+						{
+							"id": 116,
+							"name": "init",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 117,
+									"name": "init",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 118,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 119,
+											"name": "updateSelected",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "selectFn",
+												"id": 65
+											},
+											"defaultValue": " oneOfItems"
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "SelectorDesc",
+										"id": 11
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.init",
+										"id": 50
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 96,
+									"character": 8
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.init",
+								"id": 50
+							}
+						},
+						{
+							"id": 123,
+							"name": "internalStateUpdate",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 124,
+									"name": "internalStateUpdate",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 125,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 126,
+											"name": "item",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.internalStateUpdate",
+										"id": 57
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 115,
+									"character": 23
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.internalStateUpdate",
+								"id": 57
+							}
+						},
+						{
+							"id": 127,
+							"name": "renderItem",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 128,
+									"name": "renderItem",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 129,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 130,
+											"name": "i",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.renderItem",
+										"id": 61
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 121,
+									"character": 14
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.renderItem",
+								"id": 61
+							}
+						},
+						{
+							"id": 112,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 113,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 114,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									},
+									"overwrites": {
+										"type": "reference",
+										"name": "ToggleButton.view",
+										"id": 91
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Button.ts",
+									"line": 49,
+									"character": 8
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"name": "ToggleButton.view",
+								"id": 91
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								115
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								120,
+								116,
+								123,
+								127,
+								112
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Button.ts",
+							"line": 48,
+							"character": 19
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"name": "ToggleButton",
+							"id": 88
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						111
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "Button.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 131,
+			"name": "\"Collapsible\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Collapsible.ts",
+			"comment": {
+				"shortText": "# Collapsible Widget\nreturns a Vnode that can be toggled to expand and contract by clicking on the first `component`.",
+				"text": "### Invocation\ninvoked as\n```\nm(Collapsible, { css:<string>, isExpanded:true, components:[\n    m('div', 'the title'),\n    ['body item1', 'body item2', 'body item3']\n]})\n```\n\n### Attributes (node.attrs):\n- `css`: optional; the css class to assign to the entire Collapsible div\n- `isExpanded`: optional; boolean indicating if the Collapsible is initially expanded\n- `components`: array of two components:\n    - `component[0]` is the title of the Collapsible. This will remain visible and can be clicked\n      on to expand or contract the remaining components\n    - `component[1]` an array of Vnodes that will be collapsed or expanded.\n\n### Example\n<example>\n<file name='script.js'>\nm.mount(root, {view: () => m('.hs-white', [\n   m(hswidget.Collapsible, { css:'.myExample', components: [\n      m('.myTitle', 'click me to toggle'), [\n         m('.myItem', 'body item1'),\n         m('.myItem', 'body item2'),\n         m('.myItem', 'body item3')\n      ]\n   ]}),\n   m('', 'This is a background text that will be pushed down by the Collapsible')\n])});\n</file>\n<file name='style.css'>\ndiv { margin-top: 5px; }\n.myTitle {\n   display: inline-block;\n   border-radius: 0px 4px;\n   padding: 1px;\n   border-bottom: 1px solid blue;\n   width: auto;\n}\n</file>\n</example>\n"
+			},
+			"children": [
+				{
+					"id": 132,
+					"name": "Collapsible",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 133,
+							"name": "expanded",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "Collapsible.ts",
+									"line": 53,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"defaultValue": "false"
+						},
+						{
+							"id": 134,
+							"name": "toggle",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 135,
+									"name": "toggle",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Collapsible.ts",
+									"line": 54,
+									"character": 10
+								}
+							]
+						},
+						{
+							"id": 136,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 137,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 138,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Collapsible.ts",
+									"line": 57,
+									"character": 8
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								133
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								134,
+								136
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Collapsible.ts",
+							"line": 52,
+							"character": 24
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						132
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "Collapsible.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 189,
+			"name": "\"Label\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Label.ts",
+			"comment": {
+				"shortText": "# Label Widget\nShows a text label",
+				"text": "### Profile\ninvoked as `m(Label, {text:<string>});`\n\n### Attributes (node.attrs):\n- `name: string` name to show as button text\n- `css: string` css class to assign to button tag\n- `style: string` style string to apply to button tag\n\n### Example\n<example>\n<file name='script.js'>\nm.mount(root, {view: () => m(hswidget.Label, {\n     css: '.myLabel',\n     style: 'text-align: right;',\n     text: 'This is a <b>label</b>'\n})});\n</file>\n<file name='style.css'>\n.myLabel {\n   background-color: white;\n   margin: 5px;\n}\n</file>\n</example>\n\n"
+			},
+			"children": [
+				{
+					"id": 190,
+					"name": "Label",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "# Label\nA text label",
+						"text": "### Profile\ninvoked as `m(Label, {text:<string>});`\n\n### Attributes (node.attrs):\n- `text?: string` the label text;\n"
+					},
+					"children": [
+						{
+							"id": 191,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 192,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 193,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Vnode"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Label.ts",
+									"line": 46,
+									"character": 8
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								191
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Label.ts",
+							"line": 45,
+							"character": 18
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						190
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "Label.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 164,
+			"name": "\"Menu\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
+			"comment": {
+				"shortText": "# Menu Widget\nCreates a simple menu with several items.",
+				"text": "### Profile\ninvoked as `m(Menu, { desc:<MenuDesc> })`\n\n### Attributes (node.attrs):\n- `desc:` {@link Menu.MenuDesc MenuDesc}\n    - `items: string[]`                  the items on the menu\n    - `changed: (item:string) => void`   called when item clicked\n    - `defaultItem?: number|string`      the currently selected item, by index or name\n    - `itemCSS?: string[]`               css to apply to items;\n- `css?: string`                         css class to assign to button group\n- `style?: string`                       style string to apply to button tag\n- `size?: string | string[]`             sizes to layout menu items;\n\n### Example\n<example>\n<file name='script.js'>\nconst items = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\nlet  theContent = content[1];\n\nm.mount(root, {view: () => m(hslayout.Layout, {\n    rows:[\"30px\", \"fill\"],\n    content:[\n        m(hswidget.Menu, {desc: {\n            items: items,\n            defaultItem: 'Two',\n            changed: item =>\n               theContent = content[items.indexOf(item)]\n        }}),\n        m(hslayout.Layout, { css:'myMain', content: theContent })\n    ]\n})});\n\n</file>\n<file name='style.css'>\n.myMain {\n   border:1px solid #ddd;\n   border-top: 0px solid #ddd;\n}\n.hs-selectable {\n    background-color: #f4f4e8;\n}\n.hs-selected {\n    background-color: #eed;\n    border-width:0px;\n}\n</file>\n</example>\n"
+			},
+			"children": [
+				{
+					"id": 165,
+					"name": "Menu",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "Creates a simple menu with several items, as configured by the desc:SelectorDesc object passed as a parameter."
+					},
+					"children": [
+						{
+							"id": 173,
+							"name": "selectedItem",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isProtected": true
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 91,
+									"character": 26
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.selectedItem",
+								"id": 46
+							}
+						},
+						{
+							"id": 178,
+							"name": "checkSelectedItem",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 179,
+									"name": "checkSelectedItem",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "ensures that `selectedItem` is defined and is a string"
+									},
+									"parameters": [
+										{
+											"id": 180,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.checkSelectedItem",
+										"id": 54
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 105,
+									"character": 21
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.checkSelectedItem",
+								"id": 54
+							}
+						},
+						{
+							"id": 174,
+							"name": "init",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 175,
+									"name": "init",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 176,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 177,
+											"name": "updateSelected",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "selectFn",
+												"id": 65
+											},
+											"defaultValue": " oneOfItems"
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "SelectorDesc",
+										"id": 11
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.init",
+										"id": 50
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 96,
+									"character": 8
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.init",
+								"id": 50
+							}
+						},
+						{
+							"id": 181,
+							"name": "internalStateUpdate",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 182,
+									"name": "internalStateUpdate",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 183,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 184,
+											"name": "item",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.internalStateUpdate",
+										"id": 57
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 115,
+									"character": 23
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.internalStateUpdate",
+								"id": 57
+							}
+						},
+						{
+							"id": 185,
+							"name": "renderItem",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 186,
+									"name": "renderItem",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 187,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 188,
+											"name": "i",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.renderItem",
+										"id": 61
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 121,
+									"character": 14
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.renderItem",
+								"id": 61
+							}
+						},
+						{
+							"id": 166,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 167,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 168,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Vnode"
+									},
+									"overwrites": {
+										"type": "reference",
+										"name": "RadioButton.view",
+										"id": 145
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Menu.ts",
+									"line": 64,
+									"character": 8
+								}
+							],
+							"overwrites": {
+								"type": "reference",
+								"name": "RadioButton.view",
+								"id": 145
+							}
+						},
+						{
+							"id": 169,
+							"name": "viewGroup",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 170,
+									"name": "viewGroup",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 171,
+											"name": "css",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 172,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "RadioButton.viewGroup",
+										"id": 141
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "RadioButton.ts",
+									"line": 58,
+									"character": 13
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "RadioButton.viewGroup",
+								"id": 141
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								173
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								178,
+								174,
+								181,
+								185,
+								166,
+								169
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Menu.ts",
+							"line": 63,
+							"character": 17
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"name": "RadioButton",
+							"id": 140
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						165
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "Menu.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 304,
+			"name": "\"Modal\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
+			"comment": {
+				"shortText": "# Modal Widget\nreturns a Vnode that covers the entire window.",
+				"text": "### Profile\ninvoked as `m(Modal, { <Attributes> })`\n\n### Attributes (node.attrs):\n- `width?:  string` the `px` or `%` of the window width to use, or 'auto' if omitted.\n- `height?: string` the `px` or `%` of the window height to use, or 'auto' if omitted.\n- `content: Vnode` the mithril node to show as content of the modal\n- `dismiss: ()=>void` a function that is called when the modal box is dismissed\n\n### Example\n<example>\n<file name='script.js'>\nlet showModal = false;\nm.mount(root, {view: () => m('.hs-white', [\n     m('h4', {onclick:() => showModal = true }, 'click me'),\n     showModal? m(hswidget.Modal, {\n         width:  '300px',\n         height: '200px',\n         dismiss: () => showModal = false,\n         content: m('', 'click border to release')\n     }) : undefined\n   ])\n});\n</file>\n</example>\n"
+			},
+			"children": [
+				{
+					"id": 305,
+					"name": "Modal",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 306,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 307,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 308,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Modal.ts",
+									"line": 37,
+									"character": 8
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								306
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Modal.ts",
+							"line": 36,
+							"character": 18
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						305
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "Modal.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 139,
+			"name": "\"RadioButton\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/RadioButton.ts",
+			"comment": {
+				"shortText": "# Button Widget\nA simple button widget",
+				"text": "### Profile\ninvoked as `m(Button, {name:<string>, onclick:<function>});`\n\n### Attributes (node.attrs):\n- `onclick:() => void` function to execute when button is clicked\n- `name: string` name to show as button text\n- `css: string` css class to assign to button tag\n- `style: string` style string to apply to button tag\n\n### Example\n<example>\n<file name='script.js'>\nlet clicked = 0;\nlet radio = '';\nlet toggle = '';\n\nm.mount(root, {view: () => m('.hs-white', [\n   m('h4', `Select Radio Station: ${radio}`),\n   m(hswidget.RadioButtons, { desc: {\n       items: ['1st', '2nd','3rd'],\n       changed: (item) => radio = item\n   }})\n])});\n</file>\n</example>\n\n"
+			},
+			"children": [
+				{
+					"id": 140,
+					"name": "RadioButton",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "# Radio Button Widget\nA group of buttons with one or none selected",
+						"text": "### Profile\ninvoked as `m(RadioButton, {desc: { items:[<string>], changed:<function>}});`\n\n### Attributes (node.attrs):\n- `desc:` see {@link Selector.SelectorDesc SelectorDesc}\n    - `changed:(item:string) => void`    function to execute when button is selected\n    - `selectedItem?: number|string`     the currently selected item, by index or name\n    - `items: string[]`                  names to individual buttons to show\n    - `itemCss?:string[]`                css to apply to each item;\n- `css?: string`                         css class to assign to button group\n- `style?: string`                       style string to apply to button tag\n- `size?: string | string[]`             sizes to layout menu items;\n"
+					},
+					"children": [
+						{
+							"id": 148,
+							"name": "selectedItem",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isProtected": true
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 91,
+									"character": 26
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.selectedItem",
+								"id": 46
+							}
+						},
+						{
+							"id": 153,
+							"name": "checkSelectedItem",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 154,
+									"name": "checkSelectedItem",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "ensures that `selectedItem` is defined and is a string"
+									},
+									"parameters": [
+										{
+											"id": 155,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.checkSelectedItem",
+										"id": 54
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 105,
+									"character": 21
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.checkSelectedItem",
+								"id": 54
+							}
+						},
+						{
+							"id": 149,
+							"name": "init",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 150,
+									"name": "init",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 151,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 152,
+											"name": "updateSelected",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "selectFn",
+												"id": 65
+											},
+											"defaultValue": " oneOfItems"
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "SelectorDesc",
+										"id": 11
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.init",
+										"id": 50
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 96,
+									"character": 8
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.init",
+								"id": 50
+							}
+						},
+						{
+							"id": 156,
+							"name": "internalStateUpdate",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 157,
+									"name": "internalStateUpdate",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 158,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 159,
+											"name": "item",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.internalStateUpdate",
+										"id": 57
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 115,
+									"character": 23
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.internalStateUpdate",
+								"id": 57
+							}
+						},
+						{
+							"id": 160,
+							"name": "renderItem",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 161,
+									"name": "renderItem",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 162,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 163,
+											"name": "i",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.renderItem",
+										"id": 61
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 121,
+									"character": 14
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.renderItem",
+								"id": 61
+							}
+						},
+						{
+							"id": 145,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 146,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 147,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Vnode"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "RadioButton.ts",
+									"line": 69,
+									"character": 8
+								}
+							]
+						},
+						{
+							"id": 141,
+							"name": "viewGroup",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 142,
+									"name": "viewGroup",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 143,
+											"name": "css",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										},
+										{
+											"id": 144,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "RadioButton.ts",
+									"line": 58,
+									"character": 13
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								148
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								153,
+								149,
+								156,
+								160,
+								145,
+								141
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "RadioButton.ts",
+							"line": 57,
+							"character": 24
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"name": "Selector",
+							"id": 44
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"name": "Menu",
+							"id": 165
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						140
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "RadioButton.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 10,
+			"name": "\"Selector\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
+			"comment": {
+				"shortText": "# Abstract Selector\nCreates a Selector with several Selectables.\nThe `updateSelected` property determines how selecting an item affects\nthe `isSelected` status of all other items. Preconfigured options are\n-&nbsp; {@link Selector.oneOfItems oneOfItems} allows only one selection at a time\n-&nbsp; {@link Selector.anyItems   anyItems} allows mutliple selections",
+				"text": "### Invocation\nimplementation dependant\n\n### Attributes (node.attrs):\n- desc: {@link Selector.SelectorDesc SelectorDesc}\n    - items: string[];                // the items on the selector\n    - defaultItem?: number|string;    // the initial selected item, by index or name\n    - changed: (item:string) => void; // called when selection changed\n    - itemCss?:string[];              // css to apply to items;\n"
+			},
+			"children": [
+				{
+					"id": 44,
+					"name": "Selector",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true,
+						"isAbstract": true
+					},
+					"comment": {
+						"shortText": "Creates a simple menu with several items, as configured by the desc:SelectorDesc object passed as a parameter."
+					},
+					"children": [
+						{
+							"id": 47,
+							"name": "items",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "instance variable, keeping a list of menu items and a `select` function for tracking which item is selected."
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 94,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 48,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"children": [
+										{
+											"id": 49,
+											"name": "string",
+											"kind": 32,
+											"kindString": "Variable",
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "Selector.ts",
+													"line": 94,
+													"character": 28
+												}
+											],
+											"type": {
+												"type": "reference",
+												"name": "SelectableDesc",
+												"id": 27
+											}
+										}
+									],
+									"groups": [
+										{
+											"title": "Variables",
+											"kind": 32,
+											"children": [
+												49
+											]
+										}
+									]
+								}
+							},
+							"defaultValue": " <{string:SelectableDesc}>{}"
+						},
+						{
+							"id": 46,
+							"name": "selectedItem",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isProtected": true
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 91,
+									"character": 26
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 45,
+							"name": "updateSelected",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "determines which function to use to updatye selections after events.\nPre-configured function include:\n- oneOfItems: default; only one item of the set can be selected at a time\n- anyItem: each item can individually be selected. Pressing an item again will deselect it."
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 89,
+									"character": 26
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "selectFn",
+								"id": 65
+							},
+							"defaultValue": " [oneOfItems, anyItems][0]"
+						},
+						{
+							"id": 54,
+							"name": "checkSelectedItem",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 55,
+									"name": "checkSelectedItem",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "ensures that `selectedItem` is defined and is a string"
+									},
+									"parameters": [
+										{
+											"id": 56,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 105,
+									"character": 21
+								}
+							]
+						},
+						{
+							"id": 50,
+							"name": "init",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 51,
+									"name": "init",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 52,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 53,
+											"name": "updateSelected",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "selectFn",
+												"id": 65
+											},
+											"defaultValue": " oneOfItems"
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "SelectorDesc",
+										"id": 11
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 96,
+									"character": 8
+								}
+							]
+						},
+						{
+							"id": 57,
+							"name": "internalStateUpdate",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 58,
+									"name": "internalStateUpdate",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 59,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 60,
+											"name": "item",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 115,
+									"character": 23
+								}
+							]
+						},
+						{
+							"id": 61,
+							"name": "renderItem",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 62,
+									"name": "renderItem",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 63,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 64,
+											"name": "i",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 121,
+									"character": 14
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								47,
+								46,
+								45
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								54,
+								50,
+								57,
+								61
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Selector.ts",
+							"line": 82,
+							"character": 30
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"name": "ToggleButton",
+							"id": 88
+						},
+						{
+							"type": "reference",
+							"name": "RadioButton",
+							"id": 140
+						}
+					]
+				},
+				{
+					"id": 27,
+					"name": "SelectableDesc",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "interface of the parameter passed to a `Selectable`"
+					},
+					"children": [
+						{
+							"id": 32,
+							"name": "clicked",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "the function to call if this item is clicked"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 51,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 33,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 34,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 35,
+													"name": "item",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "Selector.ts",
+											"line": 51,
+											"character": 13
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 30,
+							"name": "css",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "optional css class to use"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 47,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 29,
+							"name": "isSelected",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "the item's select status"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 45,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 36,
+							"name": "mouseDown",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "the function to call if this item receives a mouseDown event"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 53,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 37,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 38,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 39,
+													"name": "item",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "Selector.ts",
+											"line": 53,
+											"character": 15
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 40,
+							"name": "mouseUp",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "the function to call if this item receives a mouseUp event"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 55,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 41,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 42,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 43,
+													"name": "item",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "Selector.ts",
+											"line": 55,
+											"character": 13
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 31,
+							"name": "style",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "optional style string to apply"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 49,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 28,
+							"name": "title",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "the item's title"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 43,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								32,
+								30,
+								29,
+								36,
+								40,
+								31,
+								28
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Selector.ts",
+							"line": 41,
+							"character": 31
+						}
+					]
+				},
+				{
+					"id": 11,
+					"name": "SelectorDesc",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "passed into Menu from the calling application"
+					},
+					"children": [
+						{
+							"id": 15,
+							"name": "changed",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "the function to call when the selection changes"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 33,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 16,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 17,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 18,
+													"name": "item",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "Selector.ts",
+											"line": 33,
+											"character": 12
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 14,
+							"name": "defaultItem",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "the initial selected item"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 31,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
+							}
+						},
+						{
+							"id": 13,
+							"name": "itemCss",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "optional array of css styles; each will be applied to the respective item"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 29,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 12,
+							"name": "items",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "the items on the menu"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 27,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 19,
+							"name": "mouseDown",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "the function to call if this item receives a mouseDown event"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 35,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 20,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 21,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 22,
+													"name": "item",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "Selector.ts",
+											"line": 35,
+											"character": 15
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 23,
+							"name": "mouseUp",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "the function to call if this item receives a mouseUp event"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 37,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 24,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 25,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 26,
+													"name": "item",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "Selector.ts",
+											"line": 37,
+											"character": 13
+										}
+									]
+								}
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								15,
+								14,
+								13,
+								12,
+								19,
+								23
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Selector.ts",
+							"line": 25,
+							"character": 29
+						}
+					]
+				},
+				{
+					"id": 65,
+					"name": "selectFn",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "Selector.ts",
+							"line": 58,
+							"character": 20
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 66,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 67,
+									"name": "__call",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 68,
+											"name": "items",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 69,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"children": [
+														{
+															"id": 70,
+															"name": "string",
+															"kind": 32,
+															"kindString": "Variable",
+															"flags": {},
+															"sources": [
+																{
+																	"fileName": "Selector.ts",
+																	"line": 58,
+																	"character": 37
+																}
+															],
+															"type": {
+																"type": "reference",
+																"name": "SelectableDesc",
+																"id": 27
+															}
+														}
+													],
+													"groups": [
+														{
+															"title": "Variables",
+															"kind": 32,
+															"children": [
+																70
+															]
+														}
+													],
+													"sources": [
+														{
+															"fileName": "Selector.ts",
+															"line": 58,
+															"character": 30
+														}
+													]
+												}
+											}
+										},
+										{
+											"id": 71,
+											"name": "title",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 58,
+									"character": 22
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 78,
+					"name": "anyItems",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 79,
+							"name": "anyItems",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "called to update selection after the item with title `title` was selected.\n`anyItems` ensures that `title` will be selected independant of all others"
+							},
+							"parameters": [
+								{
+									"id": 80,
+									"name": "items",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 81,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 82,
+													"name": "string",
+													"kind": 32,
+													"kindString": "Variable",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "Selector.ts",
+															"line": 74,
+															"character": 38
+														}
+													],
+													"type": {
+														"type": "reference",
+														"name": "SelectableDesc",
+														"id": 27
+													}
+												}
+											],
+											"groups": [
+												{
+													"title": "Variables",
+													"kind": 32,
+													"children": [
+														82
+													]
+												}
+											],
+											"sources": [
+												{
+													"fileName": "Selector.ts",
+													"line": 74,
+													"character": 31
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 83,
+									"name": "title",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Selector.ts",
+							"line": 74,
+							"character": 24
+						}
+					]
+				},
+				{
+					"id": 72,
+					"name": "oneOfItems",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 73,
+							"name": "oneOfItems",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "called to update selection after the item with title `title` was selected.\n`oneOfItems` ensures that `title` will be selected and all others deselected"
+							},
+							"parameters": [
+								{
+									"id": 74,
+									"name": "items",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 75,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"children": [
+												{
+													"id": 76,
+													"name": "string",
+													"kind": 32,
+													"kindString": "Variable",
+													"flags": {},
+													"sources": [
+														{
+															"fileName": "Selector.ts",
+															"line": 64,
+															"character": 40
+														}
+													],
+													"type": {
+														"type": "reference",
+														"name": "SelectableDesc",
+														"id": 27
+													}
+												}
+											],
+											"groups": [
+												{
+													"title": "Variables",
+													"kind": 32,
+													"children": [
+														76
+													]
+												}
+											],
+											"sources": [
+												{
+													"fileName": "Selector.ts",
+													"line": 64,
+													"character": 33
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 77,
+									"name": "title",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "void"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Selector.ts",
+							"line": 64,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 84,
+					"name": "selectable",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 85,
+							"name": "selectable",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "Creates a Selectable as part of the `Selector`,\nas configured by the desc:SelectableDesc object passed as a parameter.\nSelectables can be in one of two states, selected or not selected.",
+								"returns": "an `.hs-selectable` node\n"
+							},
+							"parameters": [
+								{
+									"id": 86,
+									"name": "childDesc",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "SelectableDesc",
+										"id": 27
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Selector.ts",
+							"line": 149,
+							"character": 26
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						44
+					]
+				},
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						27,
+						11
+					]
+				},
+				{
+					"title": "Type aliases",
+					"kind": 4194304,
+					"children": [
+						65
+					]
+				},
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						78,
+						72,
+						84
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "Selector.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 194,
+			"name": "\"Slider\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
+			"comment": {
+				"shortText": "# Slider Widget\nShows a slider that can select a continuous or nominal value out of a range",
+				"text": "### Profile\ninvoked as `m(Slider, {\n     range: [number,number] | string[],\n     onchange: (v:number|string) => void\n});`\n\n### Attributes (node.attrs):\n- `onchange:(v:number|string) => void` function to execute when the slider has changed\n- `range: [number,number] | string[]` range of values the slider can have; either continuous or nomninal\n- `css: string` css class to assign to button tag\n\n### Example\n<example>\n<file name='script.js'>\nlet clicked = 0;\nlet radio = '';\nlet toggle = '';\n\nlet nom;\nlet con;\n\nm.mount(root, {view: () => m('', [\n  m('h4', `Nominal Slider: ${nom}`),\n  m(hswidget.Slider, {\n     range: ['one', 'two', 'three'],\n     onchange: v => nom=v\n  }),\n  m('h4', `Continuous Slider: ${con}`),\n  m(hswidget.Slider, {\n     range: [0, 100],\n     onchange: v => con=Math.floor(v*10)/10\n  })\n])});\n</file>\n</example>\n"
+			},
+			"children": [
+				{
+					"id": 195,
+					"name": "Slider",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "# Slider Widget\nShows a slider that can select a continuous or nominal value out of a range",
+						"text": "### Profile\ninvoked as `m(Slider, {\n     range: [number,number] | string[],\n     onchange: (v:number|string) => void\n});`\n\n### Attributes (node.attrs):\n- `onchange:(v:number|string) => void` function to execute when the slider has changed\n- `range: [number,number] | string[]` range of values the slider can have; either continuous or nomninal\n- `css: string` css class to assign to button tag\n"
+					},
+					"children": [
+						{
+							"id": 196,
+							"name": "onchange",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "Slider.ts",
+									"line": 64,
+									"character": 20
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 197,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 198,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 199,
+													"name": "value",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "union",
+														"types": [
+															{
+																"type": "intrinsic",
+																"name": "string"
+															},
+															{
+																"type": "intrinsic",
+																"name": "number"
+															}
+														]
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "Slider.ts",
+											"line": 64,
+											"character": 21
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 200,
+							"name": "range",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "Slider.ts",
+									"line": 65,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "union",
+									"types": [
+										{
+											"type": "intrinsic",
+											"name": "string"
+										},
+										{
+											"type": "intrinsic",
+											"name": "number"
+										}
+									]
+								}
+							},
+							"defaultValue": " <SliderRange>[]"
+						},
+						{
+							"id": 201,
+							"name": "value",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "Slider.ts",
+									"line": 66,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"defaultValue": "0.5"
+						},
+						{
+							"id": 205,
+							"name": "mousedown",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 206,
+									"name": "mousedown",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 207,
+											"name": "e",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Slider.ts",
+									"line": 71,
+									"character": 21
+								}
+							]
+						},
+						{
+							"id": 208,
+							"name": "mousemove",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 209,
+									"name": "mousemove",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 210,
+											"name": "e",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Slider.ts",
+									"line": 75,
+									"character": 21
+								}
+							]
+						},
+						{
+							"id": 211,
+							"name": "mouseup",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 212,
+									"name": "mouseup",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 213,
+											"name": "e",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Slider.ts",
+									"line": 83,
+									"character": 19
+								}
+							]
+						},
+						{
+							"id": 214,
+							"name": "notify",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 215,
+									"name": "notify",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 216,
+											"name": "value",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "number"
+													},
+													{
+														"type": "intrinsic",
+														"name": "string"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Slider.ts",
+									"line": 89,
+									"character": 18
+								}
+							]
+						},
+						{
+							"id": 224,
+							"name": "renderLabel",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"signatures": [
+								{
+									"id": 225,
+									"name": "renderLabel",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 226,
+											"name": "value",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "number"
+													},
+													{
+														"type": "intrinsic",
+														"name": "string"
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Vnode"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Slider.ts",
+									"line": 114,
+									"character": 22
+								}
+							]
+						},
+						{
+							"id": 219,
+							"name": "renderMarker",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"signatures": [
+								{
+									"id": 220,
+									"name": "renderMarker",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 221,
+											"name": "value",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "number"
+													},
+													{
+														"type": "intrinsic",
+														"name": "string"
+													}
+												]
+											}
+										},
+										{
+											"id": 222,
+											"name": "i",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										},
+										{
+											"id": 223,
+											"name": "markers",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SliderRange",
+												"id": 230
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Vnode"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Slider.ts",
+									"line": 108,
+									"character": 23
+								}
+							]
+						},
+						{
+							"id": 217,
+							"name": "renderSlider",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true,
+								"isPublic": true
+							},
+							"signatures": [
+								{
+									"id": 218,
+									"name": "renderSlider",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"name": "Vnode"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Slider.ts",
+									"line": 102,
+									"character": 23
+								}
+							]
+						},
+						{
+							"id": 227,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 228,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 229,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Vnode"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Slider.ts",
+									"line": 117,
+									"character": 8
+								}
+							]
+						},
+						{
+							"id": 202,
+							"name": "pos",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 203,
+									"name": "mouse",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "Slider.ts",
+											"line": 68,
+											"character": 13
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									},
+									"defaultValue": " -1"
+								},
+								{
+									"id": 204,
+									"name": "slider",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "Slider.ts",
+											"line": 69,
+											"character": 14
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									},
+									"defaultValue": "0"
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										203,
+										204
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Slider.ts",
+									"line": 67,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								196,
+								200,
+								201
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								205,
+								208,
+								211,
+								214,
+								224,
+								219,
+								217,
+								227
+							]
+						},
+						{
+							"title": "Object literals",
+							"kind": 2097152,
+							"children": [
+								202
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Slider.ts",
+							"line": 63,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 230,
+					"name": "SliderRange",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "Slider.ts",
+							"line": 46,
+							"character": 16
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Array",
+						"typeArguments": [
+							{
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						]
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						195
+					]
+				},
+				{
+					"title": "Type aliases",
+					"kind": 4194304,
+					"children": [
+						230
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "Slider.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 87,
+			"name": "\"ToggleButton\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToggleButton.ts",
+			"comment": {
+				"shortText": "# Button Widget\nA simple button widget",
+				"text": "### Profile\ninvoked as `m(Button, {name:<string>, onclick:<function>});`\n\n### Attributes (node.attrs):\n- `onclick:() => void` function to execute when button is clicked\n- `name: string` name to show as button text\n- `css: string` css class to assign to button tag\n- `style: string` style string to apply to button tag\n\n### Example\n<example>\n<file name='script.js'>\nlet clicked = 0;\nlet radio = '';\nlet toggle = '';\n\nm.mount(root, {view: () => m('.hs-white', [\n   m('h4', `Please Toggle: (currently ${toggle})`),\n   m(hswidget.ToggleButton, { desc: {\n       items: ['1st', '2nd','3rd'],\n       changed: (item) => toggle = item\n   }})\n])});\n</file>\n</example>\n\n"
+			},
+			"children": [
+				{
+					"id": 88,
+					"name": "ToggleButton",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "# ToggleButton Widget\nA button widget that toggle through a set of items, or states and\nshows the current state as button title",
+						"text": "### Profile\ninvoked as `m(ToggleButton, {desc: { items:[<string>], changed:<function>}});`\n\n### Attributes (node.attrs):\n- `desc:` see {@link Selector.SelectorDesc SelectorDesc}\n    - `changed:(item:string) => void` function to execute when button is selected\n    - `selectedItem?: number|string` the currently selected item, by index or name\n    - `items: string[]` names of individual states to toggle through\n    - `itemCss?:string[]` css to apply to each item;\n- `css?: string` css class to assign to button group\n- `style?: string` style string to apply to button tag\n"
+					},
+					"children": [
+						{
+							"id": 90,
+							"name": "mouseDown",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "ToggleButton.ts",
+									"line": 57,
+									"character": 21
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"defaultValue": "\"\""
+						},
+						{
+							"id": 94,
+							"name": "selectedItem",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isProtected": true
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 91,
+									"character": 26
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.selectedItem",
+								"id": 46
+							}
+						},
+						{
+							"id": 89,
+							"name": "toggleIndex",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "ToggleButton.ts",
+									"line": 56,
+									"character": 23
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"defaultValue": " -1"
+						},
+						{
+							"id": 99,
+							"name": "checkSelectedItem",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 100,
+									"name": "checkSelectedItem",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"comment": {
+										"shortText": "ensures that `selectedItem` is defined and is a string"
+									},
+									"parameters": [
+										{
+											"id": 101,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.checkSelectedItem",
+										"id": 54
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 105,
+									"character": 21
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.checkSelectedItem",
+								"id": 54
+							}
+						},
+						{
+							"id": 95,
+							"name": "init",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 96,
+									"name": "init",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 97,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 98,
+											"name": "updateSelected",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "selectFn",
+												"id": 65
+											},
+											"defaultValue": " oneOfItems"
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "SelectorDesc",
+										"id": 11
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.init",
+										"id": 50
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 96,
+									"character": 8
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.init",
+								"id": 50
+							}
+						},
+						{
+							"id": 102,
+							"name": "internalStateUpdate",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 103,
+									"name": "internalStateUpdate",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 104,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 105,
+											"name": "item",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.internalStateUpdate",
+										"id": 57
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 115,
+									"character": 23
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.internalStateUpdate",
+								"id": 57
+							}
+						},
+						{
+							"id": 106,
+							"name": "renderItem",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 107,
+									"name": "renderItem",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 108,
+											"name": "desc",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "SelectorDesc",
+												"id": 11
+											}
+										},
+										{
+											"id": 109,
+											"name": "i",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									},
+									"inheritedFrom": {
+										"type": "reference",
+										"name": "Selector.renderItem",
+										"id": 61
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 121,
+									"character": 14
+								}
+							],
+							"inheritedFrom": {
+								"type": "reference",
+								"name": "Selector.renderItem",
+								"id": 61
+							}
+						},
+						{
+							"id": 91,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 92,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 93,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "Vnode"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToggleButton.ts",
+									"line": 58,
+									"character": 8
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								90,
+								94,
+								89
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								99,
+								95,
+								102,
+								106,
+								91
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "ToggleButton.ts",
+							"line": 55,
+							"character": 25
+						}
+					],
+					"extendedTypes": [
+						{
+							"type": "reference",
+							"name": "Selector",
+							"id": 44
+						}
+					],
+					"extendedBy": [
+						{
+							"type": "reference",
+							"name": "Button",
+							"id": 111
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						88
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "ToggleButton.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 231,
+			"name": "\"ToolbarButton\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
+			"comment": {
+				"shortText": "# Toolbar Button\ncreates a set of buttons at the corner of a positioned panel.",
+				"text": "### Profile\ninvoked as `m(ToolbarButton, { <Attributes> })`\n\n### Attributes (node.attrs):\n- `symbols: string | string[]` a symbol, or array of symbols\n- `onclick: ()=>void` a function that is called when the modal box is dismissed\n\n### Example\n<example height=450>\n<file name='script.js'>\nconst clicked = {}\nconst keys = Object.keys(hswidget.ButtonSymbols);\nconst groupsOf4 = [];\nlet batch = [];\nfor (let i=0; i<keys.length; i++) {\n   if (i % 4 === 0) {\n      batch = []\n      groupsOf4.push(batch);\n   }\n   batch.push(keys[i]);\n}\n\nm.mount(root, {view: () => m('', [\n   m('', keys.map(       // single symbols\n      bn => m('.myPositioned', [\n         clicked[bn]? m('.myClicked', 'Yayy!!') : m('', bn),\n         m(hswidget.ToolbarButton, { symbols:hswidget.ToolbarButton.getSymbol(bn), onclick:click(bn) })\n      ])\n   )),\n   m('', groupsOf4.map(  // groups of 4 symbols\n      batch => m('.myPositioned', [\n         clicked[batch[0]]? m('.myClicked', 'Yayy!!') : m('', batch[0]),\n         m(hswidget.ToolbarButton, { symbols:batch.map(bt => hswidget.ToolbarButton.getSymbol(bt)), onclick:click(batch[0]) })\n      ])\n   ))\n])});\n\nfunction click(button) {\n     return () => {\n         clicked[button] = true;\n         setTimeout(reset(button), 800);\n     }\n}\n\nfunction reset(button) {\n     return () => {\n         clicked[button] = false;\n         m.redraw();\n     }\n}\n</file>\n<file name='style.css'>\n.myClicked { background-color: #efe; }\n.myPositioned {\n     position: relative;\n     display: inline-block;\n     box-sizing: border-box;\n     background-color: #fff;\n     text-align: center;\n     font-size: 70%;\n     margin:  2px;\n     padding-top: 20px;\n     height: 50px;\n     width:  70px;\n}\n.hs-corner-button { color: #008; }\n</file>\n</example>\n"
+			},
+			"children": [
+				{
+					"id": 232,
+					"name": "ToolbarButton",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 233,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 235,
+									"name": "new ToolbarButton",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 236,
+											"name": "symbols",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											},
+											"defaultValue": "\"-\""
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "ToolbarButton",
+										"id": 232
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 111,
+									"character": 28
+								}
+							]
+						},
+						{
+							"id": 234,
+							"name": "symbols",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isConstructorProperty": true,
+								"isExported": true,
+								"isProtected": true
+							},
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 112,
+									"character": 33
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 240,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 241,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 242,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 116,
+									"character": 8
+								}
+							]
+						},
+						{
+							"id": 237,
+							"name": "getSymbol",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isStatic": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 238,
+									"name": "getSymbol",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 239,
+											"name": "name",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 113,
+									"character": 20
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								233
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								234
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								240,
+								237
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "ToolbarButton.ts",
+							"line": 111,
+							"character": 26
+						}
+					]
+				},
+				{
+					"id": 243,
+					"name": "ButtonSymbols",
+					"kind": 2097152,
+					"kindString": "Object literal",
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
+					"children": [
+						{
+							"id": 298,
+							"name": "again",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 299,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 106,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&#8635;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										299
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 106,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 294,
+							"name": "bullet",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 295,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 104,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&bull;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										295
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 104,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 244,
+							"name": "cross",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 245,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 79,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&times;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										245
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 79,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 276,
+							"name": "dArrow",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 277,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 95,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&darr;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										277
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 95,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 250,
+							"name": "dLeft",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 251,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 82,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&laquo;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										251
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 82,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 252,
+							"name": "dRight",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 253,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 83,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&raquo;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										253
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 83,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 268,
+							"name": "down",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 269,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 91,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&or;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										269
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 91,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 264,
+							"name": "downTri",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 265,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 89,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&dtrif;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										265
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 89,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 290,
+							"name": "ellipsis",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 291,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 102,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&hellip;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										291
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 102,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 278,
+							"name": "empty",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 279,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 96,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&#9675;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										279
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 96,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 280,
+							"name": "emptySlash",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 281,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 97,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&empty;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										281
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 97,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 302,
+							"name": "end",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 303,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 108,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&#8690;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										303
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 108,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 296,
+							"name": "enter",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 297,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 105,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&crarr;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										297
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 105,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 270,
+							"name": "lArrow",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 271,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 92,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&larr;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										271
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 92,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 254,
+							"name": "left",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 255,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 84,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&lsaquo;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										255
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 84,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 258,
+							"name": "leftTri",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 259,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 86,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&ltrif;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										259
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 86,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 286,
+							"name": "lines3",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 287,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 100,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&equiv;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										287
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 100,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 246,
+							"name": "minus",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 247,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 80,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&minus;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										247
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 80,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 284,
+							"name": "o",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 285,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 99,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&omicron;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										285
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 99,
+									"character": 5
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 282,
+							"name": "oSlash",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 283,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 98,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&oslash;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										283
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 98,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 248,
+							"name": "plus",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 249,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 81,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"+\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										249
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 81,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 272,
+							"name": "rArrow",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 273,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 93,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&rarr;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										273
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 93,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 256,
+							"name": "right",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 257,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 85,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&rsaquo;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										257
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 85,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 260,
+							"name": "rightTri",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 261,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 87,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&rtrif;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										261
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 87,
+									"character": 12
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 300,
+							"name": "start",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 301,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 107,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&#8689;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										301
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 107,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 288,
+							"name": "sum",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 289,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 101,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&Sigma;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										289
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 101,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 274,
+							"name": "uArrow",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 275,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 94,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&uarr;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										275
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 94,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 266,
+							"name": "up",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 267,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 90,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&and;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										267
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 90,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 262,
+							"name": "upTri",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 263,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 88,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&utrif;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										263
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 88,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						},
+						{
+							"id": 292,
+							"name": "vertEllips",
+							"kind": 2097152,
+							"kindString": "Object literal",
+							"flags": {
+								"isExported": true
+							},
+							"children": [
+								{
+									"id": 293,
+									"name": "sym",
+									"kind": 32,
+									"kindString": "Variable",
+									"flags": {
+										"isExported": true
+									},
+									"sources": [
+										{
+											"fileName": "ToolbarButton.ts",
+											"line": 103,
+											"character": 21
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									},
+									"defaultValue": "\"&#8285;\""
+								}
+							],
+							"groups": [
+								{
+									"title": "Variables",
+									"kind": 32,
+									"children": [
+										293
+									]
+								}
+							],
+							"sources": [
+								{
+									"fileName": "ToolbarButton.ts",
+									"line": 103,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "object"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Object literals",
+							"kind": 2097152,
+							"children": [
+								298,
+								294,
+								244,
+								276,
+								250,
+								252,
+								268,
+								264,
+								290,
+								278,
+								280,
+								302,
+								296,
+								270,
+								254,
+								258,
+								286,
+								246,
+								284,
+								282,
+								248,
+								272,
+								256,
+								260,
+								300,
+								288,
+								274,
+								266,
+								262,
+								292
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "ToolbarButton.ts",
+							"line": 78,
+							"character": 26
+						}
+					],
+					"type": {
+						"type": "intrinsic",
+						"name": "object"
+					}
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						232
+					]
+				},
+				{
+					"title": "Object literals",
+					"kind": 2097152,
+					"children": [
+						243
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "ToolbarButton.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 309,
+			"name": "\"TypeAhead\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
+			"comment": {
+				"shortText": "# TypeAhead\nProvides a search box with a type-ahead dropdown to show valid options that match the current search input.",
+				"text": "### Profile\ninvoked as `m(hswidget.TypeAhead, { <Attributes> });`\n\n### Attributes (node.attrs):\n- `list: string | string[]` the list to search in. If `list` is a string, it serves\n   as a URL to a `json` file containing an array of search terms. Else, if it is a\n   string[] it serves directly as an array of search terms\n- `placeholder: string` an indicator what to enter in the search box\n- `onsubmit: (term:string) => void`  a function to call when a term is submitted\n- `autofocus: boolean` whether the search box automatically gets the focus\n\n### Example\n<example>\n<file name='script.js'>\nlet hero = '';\nlet friend = '';\nm.mount(root, {view: () => m('.hs-white', [\n     m('h4', hero.length? `Selected: ${hero}` : 'Local List: Search for a Superhero'),\n     m(hswidget.TypeAhead, {\n        placeholder: 'favorite hero',\n        onsubmit: item => hero = item,\n        list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n     }),\n     m('h4', friend.length? `Selected: ${friend}` : 'Remote List: Search for a Friend'),\n     m(hswidget.TypeAhead, {\n        placeholder: 'best friend',\n        onsubmit: item => friend = item,\n        autofocus: true,\n        list: 'example/search.json'\n     })\n  ])\n});\n</file>\n</example>\n\n"
+			},
+			"children": [
+				{
+					"id": 310,
+					"name": "GetList",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {},
+					"children": [
+						{
+							"id": 319,
+							"name": "constructor",
+							"kind": 512,
+							"kindString": "Constructor",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 320,
+									"name": "new GetList",
+									"kind": 16384,
+									"kindString": "Constructor signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 321,
+											"name": "list",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "array",
+														"elementType": {
+															"type": "intrinsic",
+															"name": "string"
+														}
+													}
+												]
+											}
+										},
+										{
+											"id": 322,
+											"name": "map",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isOptional": true
+											},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 323,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"signatures": [
+														{
+															"id": 324,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {},
+															"parameters": [
+																{
+																	"id": 325,
+																	"name": "item",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {},
+																	"type": {
+																		"type": "array",
+																		"elementType": {
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	}
+																}
+															],
+															"type": {
+																"type": "array",
+																"elementType": {
+																	"type": "intrinsic",
+																	"name": "string"
+																}
+															}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "TypeAhead.ts",
+															"line": 68,
+															"character": 43
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"name": "GetList",
+										"id": 310
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "TypeAhead.ts",
+									"line": 67,
+									"character": 5
+								}
+							]
+						},
+						{
+							"id": 311,
+							"name": "list",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPublic": true
+							},
+							"sources": [
+								{
+									"fileName": "TypeAhead.ts",
+									"line": 64,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							},
+							"defaultValue": " []"
+						},
+						{
+							"id": 312,
+							"name": "captureList",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPrivate": true
+							},
+							"signatures": [
+								{
+									"id": 313,
+									"name": "captureList",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 314,
+											"name": "list",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "any"
+												}
+											}
+										},
+										{
+											"id": 315,
+											"name": "map",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reflection",
+												"declaration": {
+													"id": 316,
+													"name": "__type",
+													"kind": 65536,
+													"kindString": "Type literal",
+													"flags": {},
+													"signatures": [
+														{
+															"id": 317,
+															"name": "__call",
+															"kind": 4096,
+															"kindString": "Call signature",
+															"flags": {},
+															"parameters": [
+																{
+																	"id": 318,
+																	"name": "l",
+																	"kind": 32768,
+																	"kindString": "Parameter",
+																	"flags": {},
+																	"type": {
+																		"type": "array",
+																		"elementType": {
+																			"type": "intrinsic",
+																			"name": "any"
+																		}
+																	}
+																}
+															],
+															"type": {
+																"type": "array",
+																"elementType": {
+																	"type": "intrinsic",
+																	"name": "string"
+																}
+															}
+														}
+													],
+													"sources": [
+														{
+															"fileName": "TypeAhead.ts",
+															"line": 65,
+															"character": 40
+														}
+													]
+												}
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "TypeAhead.ts",
+									"line": 65,
+									"character": 23
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Constructors",
+							"kind": 512,
+							"children": [
+								319
+							]
+						},
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								311
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								312
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "TypeAhead.ts",
+							"line": 63,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 326,
+					"name": "TypeAhead",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 328,
+							"name": "hidePopdown",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "TypeAhead.ts",
+									"line": 80,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"defaultValue": "true"
+						},
+						{
+							"id": 330,
+							"name": "inputNode",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "TypeAhead.ts",
+									"line": 82,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						},
+						{
+							"id": 327,
+							"name": "typeAheadList",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "TypeAhead.ts",
+									"line": 79,
+									"character": 17
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							},
+							"defaultValue": " []"
+						},
+						{
+							"id": 329,
+							"name": "value",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "TypeAhead.ts",
+									"line": 81,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"defaultValue": "\"\""
+						},
+						{
+							"id": 331,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 332,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 333,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "TypeAhead.ts",
+									"line": 83,
+									"character": 8
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								328,
+								330,
+								327,
+								329
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								331
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "TypeAhead.ts",
+							"line": 78,
+							"character": 22
+						}
+					]
+				},
+				{
+					"id": 334,
+					"name": "emphasize",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 335,
+							"name": "emphasize",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 336,
+									"name": "item",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								},
+								{
+									"id": 337,
+									"name": "match",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "any"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "TypeAhead.ts",
+							"line": 46,
+							"character": 18
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						310,
+						326
+					]
+				},
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						334
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "TypeAhead.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 338,
+			"name": "\"index\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/index.ts",
+			"comment": {
+				"tags": [
+					{
+						"tag": "description",
+						"text": "hsWidgets: Library of UI screen elements.\n"
+					}
+				]
+			},
+			"sources": [
+				{
+					"fileName": "index.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 339,
+			"name": "\"overview\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/overview.ts",
+			"comment": {
+				"shortText": "# hsWidgets\nHelpful Scripts UI widgets.  [Github page](https://github.com/HelpfulScripts/hsWidget)",
+				"text": "*hsWidget** Provides various UI widgets for use with mithril:\n\n\n| Widget | Description |\n|========|=============|\n| &nbsp; {@link Menu.Menu Menu} | A group of horizontal menu items that can trigger actions |\n| &nbsp; {@link Button.Button Button} | A simple button widget |\n| &nbsp; {@link Collapsible Collapsible} | A panel that will expand znd collapse when the title is clicked |\n| &nbsp; {@link Modal Modal} | A modal panel that will cover the entire window until released. |\n| &nbsp; {@link AddRemove AddButton} | An inline `+` button that will open a form for adding new elements. |\n| &nbsp; {@link AddRemove RemoveButton} | An inline `-` button that will remove an item. |\n| &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |\n\n<example height=2380px>\n<file name='script.js'>\nconst render = () => m.mount(root, {view: () =>\n   m('.hs-white', m(hslayout.Layout, {\n     rows:['100px', '280px', '200px', '210px', '340px', '320px'], content: [m('',''),\n\n   // Buttons:\n   m('',[\n     m('h2', 'Buttons'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button'), `: Please click: (${clicked}-times clicked)`]),\n     m(hswidget.Button, { desc: { name: 'click me', clicked: () => clicked++ }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.RadioButton.RadioButton'}, 'RadioButton'), `: Select Station: ${radio}`]),\n     m(hswidget.RadioButton, { desc: {\n       items: ['1st', '2nd','3rd'], changed: (item) => radio = item\n     }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToggleButton.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),\n     m(hswidget.ToggleButton, { desc: {\n       items: ['1st', '2nd','3rd'], changed: (item) => toggle = item\n     }}),\n   ]),\n\n   // Menus:\n   m('',[\n     m('h2', 'Menus'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.Menu'}, 'Menu'), `: Please select:`]),\n     m(hswidget.Menu, { css: '.myMenu', desc: {\n      items: menuItems,  defaultItem: 'Two',\n      changed: (item) => theContent = content[menuItems.indexOf(item)]\n     }}),\n     m('myMenuMain', theContent),\n   ]),\n\n   // Modal Dialog Box:\n   m('',[\n     m('h2.myGapModal', 'Modal Dialog Box'),\n     m('h4', {onclick:() => showModal = true }, [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box`]),\n     showModal? m(hswidget.Modal, {\n         width:  '300px',\n         height: '200px',\n         dismiss: () => showModal = false,\n         content: m('', 'click on border or on the x to release')\n     }) : undefined,\n   ]),\n\n   // Collapsibles:\n   m('',[\n     m('h2', 'Collapsibles'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Collapsible.Collapsible'}, 'Collapsible'), ': ']),\n     m(hswidget.Collapsible, { css:'.myCollapsible', components: [\n         m('.myTitle', 'click me to toggle - no arrows'), content\n     ]}),\n     m(hswidget.Collapsible, { css:'.myCollapsible', preArrow:true, components: [\n         m('.myTitle', 'click me to toggle - left arrow'), content\n     ]}),\n     m(hswidget.Collapsible, { css:'.myCollapsible', postArrow:true, components: [\n         m('.myTitle', 'click me to toggle - right arrow'), content\n     ]}),\n     m(hswidget.Collapsible, { css:'.myCollapsible', preArrow:true, postArrow:true, components: [\n         m('.myTitle', 'click me to toggle - both arrows'), content\n     ]}),\n     m('', 'Background text, will be pushed down by the Collapsible')\n   ]),\n\n   // Typeahead Search:\n   m('',[\n     m('h2.myGapTypeAhead', 'Typeahead Search'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: In-Memory List: ${hero.length? 'Selected1: ' + hero : 'Search for a Superhero'}`]),\n     m(hswidget.TypeAhead, {\n         placeholder: 'favorite hero',\n         onsubmit: item => hero = item,\n         list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n     }),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: Remote List: ${friend.length? 'Selected2: '+ friend : 'Search for a Friend'}`]),\n     m(hswidget.TypeAhead, {\n         placeholder: 'best friend',\n         onsubmit: item => friend = item,\n         autofocus: true,\n         list: 'example/search.json'\n     })\n   ]),\n\n   // Corner Buttons:\n   m('',[\n     m('h2.myGapCornerButtons', 'Corner Buttons'),\n     //m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ButtonSymbols'}, 'ButtonSymbols'), ', ',\n     //         m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ToolbarButton'}, 'ToolbarButton'), ': ',\n     //         lastCornerButton]),\n     m('', Object.keys(hswidget.ButtonSymbols).map(\n         b => m('.myCornerPositioned', [\n             btnClicked[b]? m('.myCornerClicked', 'Yayy!!') : m('', b),\n             m(hswidget.ToolbarButton, {\n                 symbols:hswidget.ToolbarButton.getSymbol(b), onclick:click(b)\n             })\n         ])\n     ))\n   ])\n]}))});\n\n\n//--------------------------------------\n// supporting variables:\nconst menuItems = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\nlet  theContent = content[1];\nlet clicked = 0;\nlet radio = '';\nlet toggle = '';\nconst btnClicked = {};\nlet lastCornerButton = '';\nlet showModal = false;\nlet hero = '';\nlet friend = '';\n\nconst click = (button) => () => {\n   lastCornerButton = '';\n   if (hswidget.ButtonSymbols[button]) {\n      lastCornerButton = m.trust(`last button pressed: ${hswidget.ButtonSymbols[button].sym}`);\n      btnClicked[button] = true;\n      setTimeout(reset(button), 800);\n   }\n};\n\nconst reset = (button) => () => {\n   btnClicked[button] = false;\n   m.redraw();\n}\n\nrender();\n</file>\n\n<file name='style.css'>\n.myMenuMain {\n   border:1px solid #ddd;\n   border-top: 0px solid #ddd;\n}\n.myMenu .hs-selectable {\n    background-color: #eef;\n}\n.myMenu .hs-selected {\n    background-color: #ddf;\n    border-width:0px;\n}\n.myCollapsible {\n    margin-bottom: 5px;\n}\n.myCollapsible .hs-collapsible-title {\n    font-weight:bold;\n    padding-left: 3px;\n    background-color: #eee;\n}\n.myCollapsible .hs-collapsible-expanded {\n    margin-left: 10px;\n}\n.myCornerClicked { background-color: #efe; }\n.myCornerPositioned {\n     position: relative;\n     display: inline-block;\n     box-sizing: border-box;\n     background-color: #eee;\n     text-align: center;\n     font-size: 70%;\n     margin:  2px;\n     padding-top: 20px;\n     height: 50px;\n     width:  50px;\n}\n.hs-corner-button { color: #008; }\n\n</file>\n</example>\n"
+			},
+			"sources": [
+				{
+					"fileName": "overview.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		}
+	],
+	"groups": [
+		{
+			"title": "External modules",
+			"kind": 1,
+			"children": [
+				1,
+				110,
+				131,
+				189,
+				164,
+				304,
+				139,
+				10,
+				194,
+				87,
+				231,
+				309,
+				338,
+				339
+			]
+		}
+	]
+}
