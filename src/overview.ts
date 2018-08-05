@@ -1,6 +1,9 @@
 /**
 # hsWidgets 
-Helpful Scripts UI widgets.  [Github page](https://github.com/HelpfulScripts/hsWidget)
+Helpful Scripts UI widgets.  
+[`[Github page]`](https://github.com/HelpfulScripts/hsWidget)
+[`[Coverage Info]`](./data/src/hsWidget/coverage/)
+___
 
 **hsWidget** Provides various UI widgets for use with mithril:
 
