@@ -1,10 +1,12 @@
-import {o, m} from 'hslayout';
+import { m } from 'hslayout';
 
 import { Menu } from './Menu';
 
 const left  = ['0%', '25%', '50%', '75%'];
 const right = ['75%', '50%', '25%', '0%'];
 const title = ['1a', '2a', '3a', '4a'];
+
+const root = window.document.createElement("div");
 
 describe('hsMenu', () => {
     let menu:any;
@@ -14,8 +16,8 @@ describe('hsMenu', () => {
             items: title,
             changed: (item:string) => { console.log('selected'); }
         };
-        m.mount(o.root, {view: () => m(Menu, { desc: md }) }); 
-        menu = o.root.childNodes[0]; // class: hs-menu
+        m.mount(root, {view: () => m(Menu, { desc: md }) }); 
+        menu = root.childNodes[0]; // class: hs-menu
         const layout = menu.childNodes[0];
         cn = layout.childNodes;
         resolve();
