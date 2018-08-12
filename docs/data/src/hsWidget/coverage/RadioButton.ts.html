@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">91.67% </span>
+        <span class="strong">41.67% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>11/12</span>
+        <span class='fraction'>5/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>0/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">66.67% </span>
+        <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>2/3</span>
+        <span class='fraction'>0/3</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">91.67% </span>
+        <span class="strong">41.67% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>11/12</span>
+        <span class='fraction'>5/12</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line high'></div>
+  <div class='status-line low'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -175,14 +175,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">16x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -245,15 +245,15 @@ import { SelectorDesc } from './Selector';
  * - `size?: string | string[]`             sizes to layout menu items; 
  */
 export class RadioButton extends Selector {
-    viewGroup(css:string, node: Vnode) {
-        const desc:SelectorDesc = this.init(node.attrs.desc, oneOfItems);
-        node.attrs.desc = undefined;
-        css = `${css} ${node.attrs.css || ''}`;
-        const style = node.attrs.style || '';
+<span class="fstat-no" title="function not covered" >    viewGroup</span>(css:string, node: Vnode) {
+        const desc:SelectorDesc = <span class="cstat-no" title="statement not covered" >this.init(node.attrs.desc, oneOfItems);</span>
+<span class="cstat-no" title="statement not covered" >        node.attrs.desc = undefined;</span>
+<span class="cstat-no" title="statement not covered" >        css = `${css} ${node.attrs.css || ''}`;</span>
+        const style = <span class="cstat-no" title="statement not covered" >node.attrs.style || '';</span>
 &nbsp;
-        return m(css, {style:style}, m(Layout, {
+<span class="cstat-no" title="statement not covered" >        return m(css, {style:style}, m(Layout, {</span>
             columns: [],
-            content: desc.items.map((l:string, i:number) =&gt; this.renderItem(desc, i))
+            content: desc.items.map(<span class="fstat-no" title="function not covered" >(l</span>:string, i:number) =&gt; <span class="cstat-no" title="statement not covered" >this.renderItem(desc, i))</span>
         }));
     }
 <span class="fstat-no" title="function not covered" >    view</span>(node: Vnode): Vnode { <span class="cstat-no" title="statement not covered" >return this.viewGroup('.hs-radio-buttons', node); </span>}
