@@ -53,13 +53,15 @@ ___
  *    // Modal Dialog Box:
  *    m('',[
  *      m('h2.myGapModal', 'Modal Dialog Box'),
- *      m('h4', {onclick:() => showModal = true }, [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box`]),
- *      showModal? m(hswidget.Modal, {
+ *      m('h4', {onclick:() => trigger() }, 
+ *          [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box (previous dismissals:${dismissals})`]),
+ *      m(hswidget.Modal, {
  *          width:  '300px',
  *          height: '200px',
- *          dismiss: () => showModal = false,
+ *          setTrigger: (t) => trigger = t,
+ *          dismiss: () => dismissals++,
  *          content: m('', 'click on border or on the x to release')
- *      }) : undefined,
+ *      })
  *    ]),
  * 
  *    // Collapsibles:
@@ -127,7 +129,8 @@ ___
  * let toggle = '';
  * const btnClicked = {};
  * let lastCornerButton = '';
- * let showModal = false;
+ * let dismissals = 0;
+ * let trigger;
  * let hero = '';
  * let friend = '';
  * 
