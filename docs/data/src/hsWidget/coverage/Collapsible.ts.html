@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">15.38% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/13</span>
+        <span class='fraction'>15/15</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">93.75% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/14</span>
+        <span class='fraction'>15/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">15.38% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/13</span>
+        <span class='fraction'>15/15</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -121,7 +121,9 @@
 <a name='L73'></a><a href='#L73'>73</a>
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -173,26 +175,28 @@
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -247,27 +251,29 @@
  /** */
 import { m, Vnode } from 'hslayout';
 &nbsp;
-<span class="fstat-no" title="function not covered" >export class Collapsible {</span>
-<span class="cstat-no" title="statement not covered" >    expanded = false;</span>
-<span class="fstat-no" title="function not covered" >    toggle</span>() {
-<span class="cstat-no" title="statement not covered" >        this.expanded = !this.expanded;</span>
+export class Collapsible {
+    initial = true;
+    expanded = false;
+    toggle() {
+        this.expanded = !this.expanded;
+        this.initial = false;
     }
-<span class="fstat-no" title="function not covered" >    view</span>(node:Vnode) {
-        const css        = <span class="cstat-no" title="statement not covered" >node.attrs.css;</span>
-        const components = <span class="cstat-no" title="statement not covered" >node.attrs.components;</span>
-        const preArrow   = <span class="cstat-no" title="statement not covered" >node.attrs.preArrow;</span>
-        const postArrow  = <span class="cstat-no" title="statement not covered" >node.attrs.postArrow;</span>
-<span class="cstat-no" title="statement not covered" >        if (node.attrs.isExpanded!==undefined) {</span>
-<span class="cstat-no" title="statement not covered" >            this.expanded = node.attrs.isExpanded;</span>
+    view(node:Vnode) {
+        const css        = node.attrs.css;
+        const components = node.attrs.components;
+        const preArrow   = node.attrs.preArrow;
+        const postArrow  = node.attrs.postArrow;
+        if (this.initial &amp;&amp; node.attrs.isExpanded!==undefined) {
+            this.expanded = node.attrs.isExpanded;
         }
-        const expCSS = <span class="cstat-no" title="statement not covered" >this.expanded?'hs-collapsible-expanded':'';</span>
-<span class="cstat-no" title="statement not covered" >        return m(`.hs-collapsible ${css} ${expCSS}`, { onclick:this.toggle.bind(this)}, [</span>
+        const expCSS = this.expanded?'hs-collapsible-expanded':'';
+        return m(`.hs-collapsible ${css} ${expCSS}`, { onclick:this.toggle.bind(this)}, [
             m('.hs-collapsible-title',[
                 !preArrow? m('') : m(`.hs-collapsible-pre .hs-collapsible-arrow-${this.expanded?'down' : 'right'}`),
                 components[0],
                 !postArrow? m('') : m(`.hs-collapsible-post .hs-collapsible-arrow-${this.expanded?'down' : 'left'}`),
             ]),
-            components[1]? m('.hs-collapsible-content', components[1].map(<span class="fstat-no" title="function not covered" >(c</span>:any) =&gt;<span class="cstat-no" title="statement not covered" >m('',c))</span>) : undefined
+            components[1]? m('.hs-collapsible-content', components[1].map((c:any) =&gt;m('',c))) : <span class="branch-1 cbranch-no" title="branch not covered" >undefined</span>
         ]);
     }
 }

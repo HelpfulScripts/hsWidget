@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>2/6</span>
+        <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>3/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/1</span>
+        <span class='fraction'>1/1</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>2/6</span>
+        <span class='fraction'>6/6</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -145,10 +145,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -197,11 +197,11 @@ import { m, Vnode }     from 'hslayout';
  * - `text?: string` the label text; 
  */
 export class Label {
-<span class="fstat-no" title="function not covered" >    view</span>(node: Vnode): Vnode { 
-        const css = <span class="cstat-no" title="statement not covered" >node.attrs.css || '';</span>
-        const style = <span class="cstat-no" title="statement not covered" >node.attrs.style || '';</span>
-        const text  = <span class="cstat-no" title="statement not covered" >node.attrs.text || 'unspecified';</span>
-<span class="cstat-no" title="statement not covered" >        return m(`.hs-label ${css}`, { style:style }, m.trust(text)); </span>
+    view(node: Vnode): Vnode { 
+        const css = node.attrs.css || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+        const style = node.attrs.style || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+        const text  = node.attrs.text || <span class="branch-1 cbranch-no" title="branch not covered" >'unspecified';</span>
+        return m(`.hs-label ${css}`, { style:style }, m.trust(text)); 
     }
 }
 &nbsp;

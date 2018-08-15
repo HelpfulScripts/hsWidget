@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">16.67% </span>
+        <span class="strong">91.67% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/24</span>
+        <span class='fraction'>22/24</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/8</span>
+        <span class='fraction'>6/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">60% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>3/5</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">20% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/20</span>
+        <span class='fraction'>20/20</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -182,29 +182,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -262,30 +262,30 @@ import { oneOfItems }   from './Selector';
  * - `css?: string` css class to assign to button group
  * - `style?: string` style string to apply to button tag
  */
-<span class="fstat-no" title="function not covered" >export class ToggleButton extends Selector {</span>
-    private <span class="cstat-no" title="statement not covered" >toggleIndex = -1;</span>
-    private <span class="cstat-no" title="statement not covered" >mouseDown = '';</span>
-<span class="fstat-no" title="function not covered" >    view</span>(node: Vnode): Vnode {
-        const desc = <span class="cstat-no" title="statement not covered" >this.init(node.attrs.desc, oneOfItems);</span>
-<span class="cstat-no" title="statement not covered" >        node.attrs.desc = undefined;</span>
-        const css = <span class="cstat-no" title="statement not covered" >node.attrs.css || '';</span>
-        const style = <span class="cstat-no" title="statement not covered" >node.attrs.style || '';</span>
+export class ToggleButton extends Selector {
+    private toggleIndex = -1;
+    private mouseDown = '';
+    view(node: Vnode): Vnode {
+        const desc = this.init(node.attrs.desc, oneOfItems);
+        node.attrs.desc = undefined;
+        const css = node.attrs.css || '';
+        const style = node.attrs.style || '';
 &nbsp;
         // insert click update into passed click function
-        const parentChanged = <span class="cstat-no" title="statement not covered" >desc.changed;</span>
-<span class="cstat-no" title="statement not covered" >        desc.changed = (<span class="fstat-no" title="function not covered" >(i</span>tem:string) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            this.toggleIndex = (this.toggleIndex+1) % desc.items.length;</span>
-<span class="cstat-no" title="statement not covered" >            item = desc.items[this.toggleIndex];</span>
-<span class="cstat-no" title="statement not covered" >            this.internalStateUpdate(desc, item);</span>
-<span class="cstat-no" title="statement not covered" >            if (parentChanged) { <span class="cstat-no" title="statement not covered" >parentChanged(item); </span>}</span>
+        const parentChanged = desc.changed;
+        desc.changed = ((item:string) =&gt; {
+            this.toggleIndex = (this.toggleIndex+1) % desc.items.length;
+            item = desc.items[this.toggleIndex];
+            this.internalStateUpdate(desc, item);
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (parentChanged) { parentChanged(item); }
         });
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        if (this.toggleIndex&lt;0) { <span class="cstat-no" title="statement not covered" >this.toggleIndex = 0; </span>}</span>
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (this.toggleIndex&lt;0) { this.toggleIndex = 0; }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        desc.mouseDown = <span class="fstat-no" title="function not covered" >() </span>=&gt; <span class="cstat-no" title="statement not covered" >this.mouseDown = '.hs-button-pressed';</span></span>
-<span class="cstat-no" title="statement not covered" >        desc.mouseUp   = <span class="fstat-no" title="function not covered" >() </span>=&gt; <span class="cstat-no" title="statement not covered" >this.mouseDown = '';</span></span>
+        desc.mouseDown = <span class="fstat-no" title="function not covered" >() </span>=&gt; <span class="cstat-no" title="statement not covered" >this.mouseDown = '.hs-button-pressed';</span>
+        desc.mouseUp   = <span class="fstat-no" title="function not covered" >() </span>=&gt; <span class="cstat-no" title="statement not covered" >this.mouseDown = '';</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >        return m(`.hs-toggle-button${css}${this.mouseDown}`, { style:style}, m('span', </span>
+        return m(`.hs-toggle-button${css}${this.mouseDown}`, { style:style}, m('span', 
             this.renderItem(desc, this.toggleIndex)
         ));
     }
