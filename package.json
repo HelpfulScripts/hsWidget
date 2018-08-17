@@ -31,7 +31,7 @@
   ],
   "devDependencies": {
     "@types/node": "^7.0.66",
-    "@types/mithril": "^7.0.66",
+    "@types/mithril": "^1.1.12",
     "grunt": "^1.0.3",
     "grunt-contrib-clean": "^1.0.0",
     "grunt-contrib-concat": "^1.0.1",
