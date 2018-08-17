@@ -1,7 +1,8 @@
 hsWidget 
 ========
 [![npm version](https://badge.fury.io/js/hswidget.svg)](https://badge.fury.io/js/hswidget) 
-[![Build status](https://ci.appveyor.com/api/projects/status/vi1ykc6pd2yo7mb3?svg=true)](https://ci.appveyor.com/project/HelpfulScripts/hswidget)
+[![Build Status](https://travis-ci.org/HelpfulScripts/hsWidget.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsWidget)
+[![Coverage Status](https://coveralls.io/repos/github/HelpfulScripts/hsWidget/badge.svg?branch=master)](https://coveralls.io/github/HelpfulScripts/hsWidget?branch=master)
 [![Built with Grunt](https://cdn.gruntjs.com/builtwith.svg)](https://gruntjs.com/) 
 [![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hswidget)
 
