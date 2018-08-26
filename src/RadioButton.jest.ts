@@ -1,6 +1,6 @@
 import * as hswidget from './';
 import { m }    from 'hslayout';
-// import { Log }  from 'hsnode'; const log = Log('Button.jest');
+// import { newLog }  from 'hsnode'; const log = newLog('Button.jest');
 
 window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
 const mq = require('mithril-query');
