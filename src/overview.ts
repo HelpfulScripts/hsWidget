@@ -22,7 +22,7 @@ ___
  * <file name='script.js'>
  * const render = () => m.mount(root, {view: () => 
  *    m('.hs-white', m(hslayout.Layout, {
- *      rows:['100px', '280px', '200px', '230px', '340px', '320px', '320px'], content: [m('',''),
+ *      rows:['100px', '280px', '210px', '250px', '340px', '320px', '300px'], content: [m('',''),
  * 
  *    // Buttons:
  *    m('',[
