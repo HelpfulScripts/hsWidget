@@ -18,11 +18,11 @@ ___
 | &nbsp; {@link AddRemove RemoveButton} | An inline `-` button that will remove an item. |
 | &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |
 
- * <example height=2380px>
+ * <example height=2700px>
  * <file name='script.js'>
  * const render = () => m.mount(root, {view: () => 
  *    m('.hs-white', m(hslayout.Layout, {
- *      rows:['100px', '280px', '200px', '210px', '340px', '320px'], content: [m('',''),
+ *      rows:['100px', '280px', '200px', '230px', '340px', '320px', '320px'], content: [m('',''),
  * 
  *    // Buttons:
  *    m('',[
@@ -115,6 +115,20 @@ ___
  *              })
  *          ])
  *      ))
+ *    ]),
+ * 
+ *    // Slider:
+ *    m('',[
+ *      m('h4', `Nominal Slider: ${nom}`),
+ *      m(hswidget.Slider, { 
+ *          range: ['one', 'two', 'three'],
+ *          onchange: v => nom=v
+ *      }),
+ *      m('h4', `Continuous Slider: ${con}`),
+ *      m(hswidget.Slider, {
+ *          range: [0, 100],
+ *          onchange: v => con=Math.floor(v*10)/10
+ *      })
  *    ])
  * ]}))});
  * 
@@ -133,6 +147,7 @@ ___
  * let trigger;
  * let hero = '';
  * let friend = '';
+ * let nom, con;
  * 
  * const click = (button) => () => {
  *    lastCornerButton = '';
