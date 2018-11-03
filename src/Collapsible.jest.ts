@@ -2,10 +2,10 @@ import * as hswidget from './';
 import { m }    from 'hslayout';
 
 window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
-const mq = require('mithril-query');
+const mq:any = require('mithril-query');
 
 const content   = ['1st', '2nd', '3rd'];
-let out;
+let out:any;
 
 describe('Collapsible', () => {
     describe('no arrows', () => {
