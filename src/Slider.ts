@@ -83,7 +83,6 @@ export class Slider {
         e.preventDefault();
         const slotWidth = e.currentTarget.lastChild.clientWidth;
         this.value = (e.clientX - this.pos.mouse) / slotWidth + this.pos.slider;
-console.log(`value: cx=${e.clientX} ox=${this.pos.mouse} sw=${slotWidth} hw=${this.pos.slider} v=${this.value} `);            
         return this.notify();
     }
     private mousedown(e:any) { 
@@ -94,7 +93,6 @@ console.log(`value: cx=${e.clientX} ox=${this.pos.mouse} sw=${slotWidth} hw=${th
             const handleWidth = e.currentTarget.lastChild.lastChild.clientWidth;
             this.pos.mouse -= handleWidth/2;
             this.value = (e.offsetX - handleWidth/2 + offset) / slotWidth; 
-console.log(`down: cx=${e.clientX} ox=${e.offsetX} sw=${slotWidth} hw=${handleWidth} o=${offset} v=${this.value} `);            
         }
         this.pos.slider = this.value;
         this.getValue(e);
