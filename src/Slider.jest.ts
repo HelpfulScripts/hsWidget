@@ -1,13 +1,8 @@
-import { Slider } from './Slider';
-import { m }    from 'hslayout';
-
-window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
-const mq = require('mithril-query');
+global.window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
 
 const handle = { 
     className: 'hs-slider-handle',
     clientWidth:20,
-    offsetLeft:50,
     parentNode:null
 };
 
@@ -28,7 +23,7 @@ const slider = {
 handle.parentNode = slot;
 slot.parentNode = slider;
 
-const event = {
+const myEvent = {
     clientX: 315,
     offsetX: 100,
     currentTarget: slider,
@@ -39,7 +34,12 @@ const event = {
 let evtResult;
 
 describe('sliders', () => {
+    const Slider = require('./Slider').Slider;
+    const mq = require('mithril-query');
+    const m = require("mithril");
+
     describe('continuous', () => {
+        // const sl = {view: () => };
         const out = mq(m(Slider, {
             id:'mySlider1',
             range: [0, 100],
@@ -51,20 +51,29 @@ describe('sliders', () => {
             out.should.have('.hs-slider>.hs-slider-slot>.hs-slider-marker');
         });
         it('reacts to mousedown', () => {
-            out.mousedown('.hs-slider', event);
-            expect(evtResult).toBe(22.5);
+            myEvent.clientX = 210;
+            myEvent.offsetX = 120;
+            out.trigger('.hs-slider', 'onmousedown', myEvent);
+            expect(evtResult).toBe(27.5);
         });
         it('reacts to mousemove', () => {
-            event.clientX = 700;
-            out.trigger('.hs-slider', 'onmousemove', event);
+            myEvent.clientX = 210;
+            myEvent.offsetX = 120;
+            out.trigger('.hs-slider', 'onmousedown', myEvent);
+            myEvent.clientX = 700;
+            out.trigger('.hs-slider', 'onmousemove', myEvent);
             expect(evtResult).toBe(100);
         });
         it('reacts to mouseout', () => {
-            event.offsetX = 20;
-            out.mousedown('.hs-slider', event);
-            event.clientX = -100;
-            out.trigger('.hs-slider', 'onmouseout', event);
-            expect(evtResult).toBe(0);
+            myEvent.clientX = 210;
+            myEvent.offsetX = 120;
+            out.trigger('.hs-slider', 'onmousedown', myEvent);
+            myEvent.clientX = 250;
+            out.trigger('.hs-slider', 'onmouseout', myEvent);
+            expect(evtResult).toBe(37.5);
+            myEvent.clientX = 700;
+            out.trigger('.hs-slider', 'onmousemove', myEvent);
+            expect(evtResult).toBe(37.5);
         });
     });
 
@@ -80,13 +89,19 @@ describe('sliders', () => {
             out.should.have('.hs-slider>.hs-slider-slot>.hs-slider-marker');
         });
         it('reacts to mousedown', () => {
-            event.clientX = 40;
-            out.mousedown('.hs-slider', event);
+            myEvent.clientX = 210;
+            myEvent.offsetX = 120;
+            out.mousedown('.hs-slider', myEvent);
+            expect(evtResult).toBe('two');
+        });
+        it('reacts to mousemove', () => {
+            myEvent.clientX = 190;
+            out.trigger('.hs-slider', 'onmousemove', myEvent);
             expect(evtResult).toBe('one');
         });
         it('reacts to mousemove', () => {
-            event.clientX = 400;
-            out.trigger('.hs-slider', 'onmousemove', event);
+            myEvent.clientX = 410;
+            out.trigger('.hs-slider', 'onmousemove', myEvent);
             expect(evtResult).toBe('three');
         });
     });

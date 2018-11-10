@@ -53,7 +53,7 @@
  */
 
  /** */
-import { Vnode }        from 'hslayout';
+import { Vnode }        from './mithril';
 import { RadioButton }  from './RadioButton';
 
 

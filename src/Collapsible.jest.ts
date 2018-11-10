@@ -1,69 +1,53 @@
-import * as hswidget from './';
-import { m }    from 'hslayout';
+// import * as hswidget from './';
+// import { m }    from 'hslayout';
+// const $ = require('jquery');
 
-window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
-const mq:any = require('mithril-query');
+// window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
+// const mq:any = require('mithril-query');
+global.window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
 
 const content   = ['1st', '2nd', '3rd'];
-let out:any;
 
 describe('Collapsible', () => {
+    const Collapsible = require('./').Collapsible;
+    const mq = require('mithril-query');
+    const m = require("mithril");
+    
     describe('no arrows', () => {
-        beforeAll(() => {
-            out = mq(m(hswidget.Collapsible, { 
-                css:'.myCollapsible', 
-                isExpanded: false,
-                components: [m('.myTitle', 'click me to toggle - both arrows'), content]
-            }));
-        });
+        const out = mq(m(Collapsible, { 
+            css:'.myCollapsible', 
+            isExpanded: false,
+            components: [m('.myTitle', 'click me to toggle - no arrows'), content]
+        })); 
         it ('should have DOM structure', () => {
-            out.should.have('.hs-collapsible.myCollapsible');
-            out.should.not.have('.hs-collapsible.myCollapsible.hs-collapsible-expanded');
-            out.should.have('.hs-collapsible>.hs-collapsible-title');
-            out.should.have('.hs-collapsible>.hs-collapsible-title>div');
-            out.should.not.have('.hs-collapsible>.hs-collapsible-title>.hs-collapsible-pre');
-            out.should.not.have('.hs-collapsible>.hs-collapsible-title>.hs-collapsible-arrow-right');
-            out.should.have('.hs-collapsible>.hs-collapsible-title>.myTitle');
-            out.should.have('.hs-collapsible>.hs-collapsible-title>div');
-            out.should.not.have('.hs-collapsible>.hs-collapsible-title>.hs-collapsible-post');
-            out.should.not.have('.hs-collapsible>.hs-collapsible-title>.hs-collapsible-arrow-left');
-            out.should.have('.hs-collapsible>.hs-collapsible-content');
+            out.should.have('.myTitle');
+            out.should.have('.myCollapsible');
+            out.should.not.have('.hs-collapsible-expanded');
+            out.should.contain('click me to toggle - no arrows');
         });
-        it('should click', () => {
-            out.click('.myCollapsible', null, false);
-            out.should.have('.hs-collapsible.myCollapsible.hs-collapsible-expanded');
-            out.should.have('.hs-collapsible>.hs-collapsible-title>div');
-            out.should.have('.hs-collapsible>.hs-collapsible-title>div');
-            out.should.not.have('.hs-collapsible>.hs-collapsible-title>.hs-collapsible-pre');
-            out.should.not.have('.hs-collapsible>.hs-collapsible-title>.hs-collapsible-arrow-down');
-            out.should.not.have('.hs-collapsible>.hs-collapsible-title>.hs-collapsible-post');
-            out.should.not.have('.hs-collapsible>.hs-collapsible-title>.hs-collapsible-arrow-down');
+        it ('should not have arrows', () => {
+            out.should.not.have('.hs-collapsible-arror-right');
+            out.should.not.have('.hs-collapsible-arror-left');
+        });
+        it ('should respond to click', () => {
+            out.click('.myCollapsible'); 
+            out.should.have('.hs-collapsible-expanded');
         });
     });
     describe('double arrows', () => {
-        beforeAll(() => {
-            out = mq(m(hswidget.Collapsible, { 
-                css:'.myCollapsible', 
-                preArrow:true, 
-                postArrow:true, 
-                isExpanded: false,
-                components: [m('.myTitle', 'click me to toggle - both arrows'), content]
-            }));
-        });
+        const out = mq(m(Collapsible, { 
+            css:'.myCollapsible', 
+            preArrow:true, 
+            postArrow:true, 
+            isExpanded: false,
+            components: [m('.myTitle', 'click me to toggle - both arrows'), content]
+        })); 
+        
         it ('should have DOM structure', () => {
-            out.should.have('.hs-collapsible.myCollapsible');
-            out.should.not.have('.hs-collapsible.myCollapsible.hs-collapsible-expanded');
-            out.should.have('.hs-collapsible>.hs-collapsible-title');
-            out.should.have('.hs-collapsible>.hs-collapsible-title>.hs-collapsible-pre.hs-collapsible-arrow-right');
-            out.should.have('.hs-collapsible>.hs-collapsible-title>.myTitle');
-            out.should.have('.hs-collapsible>.hs-collapsible-title>.hs-collapsible-post.hs-collapsible-arrow-left');
-            out.should.have('.hs-collapsible>.hs-collapsible-content');
-        });
-        it('should click', () => {
-            out.click('.myCollapsible', null, false);
-            out.should.have('.hs-collapsible.myCollapsible.hs-collapsible-expanded');
-            out.should.have('.hs-collapsible>.hs-collapsible-title>.hs-collapsible-pre.hs-collapsible-arrow-down');
-            out.should.have('.hs-collapsible>.hs-collapsible-title>.hs-collapsible-post.hs-collapsible-arrow-down');
+            out.should.have('.myTitle');
+            out.should.not.have('.hs-collapsible-expanded');
+            out.should.have('.hs-collapsible-arrow-right');
+            out.should.have('.hs-collapsible-arrow-left');
         });
     });
 });

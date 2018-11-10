@@ -17,12 +17,13 @@ ___
 | &nbsp; {@link AddRemove AddButton} | An inline `+` button that will open a form for adding new elements. |
 | &nbsp; {@link AddRemove RemoveButton} | An inline `-` button that will remove an item. |
 | &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |
+| &nbsp; {@link Slider Slider} | A simple nominal or continuous slider. |
 
  * <example height=2700px>
  * <file name='script.js'>
  * const render = () => m.mount(root, {view: () => 
  *    m('.hs-white', m(hslayout.Layout, {
- *      rows:['100px', '280px', '210px', '250px', '340px', '320px', '300px'], content: [m('',''),
+ *      rows:['100px', '280px', '210px', '250px', '340px', '320px', '340px'], content: [m('',''),
  * 
  *    // Buttons:
  *    m('',[
@@ -117,8 +118,12 @@ ___
  *      ))
  *    ]),
  * 
+ * 
+ * 
+ * 
  *    // Slider:
  *    m('',[
+ *      m('h2.mySliders', 'Sliders'),
  *      m('h4', `Nominal Slider: ${nom}`),
  *      m(hswidget.Slider, { 
  *          range: ['one', 'two', 'three'],

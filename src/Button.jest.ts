@@ -1,11 +1,13 @@
-import * as hswidget from './';
-import { m }    from 'hslayout';
+// import * as hswidget from './';
+// import { m }    from 'hslayout';
 
-window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
+global.window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
+const Button = require('./').Button;
 const mq = require('mithril-query');
+const m = require("mithril");
 
 let clicked=0;
-const out = mq(m(hswidget.Button, { desc: { 
+const out = mq(m(Button, { desc: { 
     name: 'click me', 
     clicked: () => clicked++ 
 }}));

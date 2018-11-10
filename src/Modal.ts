@@ -37,23 +37,25 @@
 import { m, Vnode}  from 'hslayout'; 
 import { ToolbarButton } from './ToolbarButton';
 
-export class Modal {
-    id = Math.floor(Math.random()*1000);
-    showModal = false;
+export class Modal {    
+    oninit(node:Vnode) {
+        node.state.id = Math.floor(Math.random()*1000);
+        node.state.showModal = false;
+    }
     view(node:Vnode) {
-        const showModal = () => this.showModal;
+        const showModal = () => node.state.showModal;
         const trigger = () => {
-            this.showModal = true;
+            node.state.showModal = true;
             m.redraw();
         };
         const dismiss = () => {
-            this.showModal = false;
+            node.state.showModal = false;
             if (node.attrs.dismiss) { node.attrs.dismiss(); }
         };
         const w = node.attrs.width  || 'auto';
         const h = node.attrs.height || 'auto';
         const attrs = { style: `width:${w}; height:${h};`};
-        if (node.attrs.setTrigger) { node.attrs.setTrigger(trigger.bind(this)); }
+        if (node.attrs.setTrigger) { node.attrs.setTrigger(trigger); }
         else { console.log(`required attribute function 'setTrigger' is not defined`); }
         return !showModal()? m('span') : m('.hs-modal-frame', [
             m('.hs-modal-background', { onclick: dismiss}, ''),

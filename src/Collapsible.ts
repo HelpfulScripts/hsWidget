@@ -50,28 +50,32 @@
 import { m, Vnode } from 'hslayout';
 
 export class Collapsible {
-    initial = true;
-    expanded = false;
-    toggle() {
-        this.expanded = !this.expanded;
-        this.initial = false;
+    oninit(node:Vnode) {
+        node.state = {
+            initial: true,
+            expanded: false,
+            toggle: () => {
+                node.state.expanded = !node.state.expanded;
+                node.state.initial = false;
+            }
+        };
     }
     view(node:Vnode) {
         const css        = node.attrs.css;
         const components = node.attrs.components;
         const preArrow   = node.attrs.preArrow;
         const postArrow  = node.attrs.postArrow;
-        if (this.initial && node.attrs.isExpanded!==undefined) {
-            this.expanded = node.attrs.isExpanded;
+        if (node.state.initial && node.attrs.isExpanded!==undefined) {
+            node.state.expanded = node.attrs.isExpanded;
         }
-        const expCSS = this.expanded?'hs-collapsible-expanded':'';
-        return m(`.hs-collapsible ${css} ${expCSS}`, { onclick:this.toggle.bind(this)}, [
+        const expCSS = node.state.expanded?'hs-collapsible-expanded':'';
+        return m(`.hs-collapsible ${css}`, { onclick:node.state.toggle}, [
             m('.hs-collapsible-title',[
-                !preArrow? m('') : m(`.hs-collapsible-pre .hs-collapsible-arrow-${this.expanded?'down' : 'right'}`),
+                !preArrow? m('') : m(`.hs-collapsible-pre .hs-collapsible-arrow-${node.state.expanded?'down' : 'right'}`),
                 components[0],
-                !postArrow? m('') : m(`.hs-collapsible-post .hs-collapsible-arrow-${this.expanded?'down' : 'left'}`),
+                !postArrow? m('') : m(`.hs-collapsible-post .hs-collapsible-arrow-${node.state.expanded?'down' : 'left'}`),
             ]),
-            components[1]? m('.hs-collapsible-content', components[1].map((c:any) =>m('',c))) : undefined
+            components[1]? m(`.hs-collapsible-content ${expCSS}`, components[1].map((c:any) =>m('',c))) : undefined
         ]);
     }
 }

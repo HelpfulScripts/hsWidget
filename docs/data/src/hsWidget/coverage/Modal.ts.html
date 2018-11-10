@@ -112,7 +112,9 @@
 <a name='L64'></a><a href='#L64'>64</a>
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
-<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -152,8 +154,10 @@
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -217,23 +221,25 @@
 import { m, Vnode}  from 'hslayout'; 
 import { ToolbarButton } from './ToolbarButton';
 &nbsp;
-export class Modal {
-    id = Math.floor(Math.random()*1000);
-    showModal = false;
+export class Modal {    
+    oninit(node:Vnode) {
+        node.state.id = Math.floor(Math.random()*1000);
+        node.state.showModal = false;
+    }
     view(node:Vnode) {
-        const showModal = () =&gt; this.showModal;
+        const showModal = () =&gt; node.state.showModal;
         const trigger = () =&gt; {
-            this.showModal = true;
+            node.state.showModal = true;
             m.redraw();
         };
         const dismiss = () =&gt; {
-            this.showModal = false;
+            node.state.showModal = false;
             <span class="missing-if-branch" title="else path not taken" >E</span>if (node.attrs.dismiss) { node.attrs.dismiss(); }
         };
         const w = node.attrs.width  || <span class="branch-1 cbranch-no" title="branch not covered" >'auto';</span>
         const h = node.attrs.height || <span class="branch-1 cbranch-no" title="branch not covered" >'auto';</span>
         const attrs = { style: `width:${w}; height:${h};`};
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (node.attrs.setTrigger) { node.attrs.setTrigger(trigger.bind(this)); }
+        <span class="missing-if-branch" title="else path not taken" >E</span>if (node.attrs.setTrigger) { node.attrs.setTrigger(trigger); }
         else { <span class="cstat-no" title="statement not covered" >console.log(`required attribute function 'setTrigger' is not defined`); </span>}
         return !showModal()? m('span') : m('.hs-modal-frame', [
             m('.hs-modal-background', { onclick: dismiss}, ''),
