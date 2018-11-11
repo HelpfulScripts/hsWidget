@@ -91,8 +91,8 @@
 <p id=68 class="line"><span>&nbsp;&nbsp;68</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;desc.changed&nbsp;=&nbsp;((item:string)&nbsp;=>&nbsp;{</p>
 <p id=69 class="line"><span>&nbsp;&nbsp;69</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.state.toggleIndex&nbsp;=&nbsp;(node.state.toggleIndex+1)&nbsp;%&nbsp;desc.items.length;</p>
 <p id=70 class="line"><span>&nbsp;&nbsp;70</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item&nbsp;=&nbsp;desc.items[node.state.toggleIndex];</p>
-<p id=71 class="line"><span>&nbsp;&nbsp;71</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selector.internalStateUpdate(node,&nbsp;item);</p>
-<p id=72 class="line"><span>&nbsp;&nbsp;72</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(parentChanged)&nbsp;{&nbsp;parentChanged(item);&nbsp;}</p>
+<p id=71 class="line"><span>&nbsp;&nbsp;71</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.state.updateSelected(node.state.items,&nbsp;item);&nbsp;<comment>//&nbsp;internal&nbsp;state&nbsp;update</comment></p>
+<p id=72 class="line"><span>&nbsp;&nbsp;72</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(parentChanged)&nbsp;{&nbsp;parentChanged(item);&nbsp;}</p>
 <p id=73 class="line"><span>&nbsp;&nbsp;73</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</p>
 <p id=74 class="line"><span>&nbsp;&nbsp;74</span></p>
 <p id=75 class="line"><span>&nbsp;&nbsp;75</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(node.state.toggleIndex<0)&nbsp;{&nbsp;node.state.toggleIndex&nbsp;=&nbsp;0;&nbsp;}</p>

@@ -5,182 +5,7 @@
 	"flags": {},
 	"children": [
 		{
-			"id": 1,
-			"name": "\"AddRemove\"",
-			"kind": 1,
-			"kindString": "External module",
-			"flags": {
-				"isExported": true
-			},
-			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/AddRemove.ts",
-			"comment": {
-				"shortText": "# AddRemove Buttons\nAdds `+` and `-` buttons to add or remove items from a list.",
-				"text": "### Profile\ninvoked as\n```\n m('div', [\n     m('div', 'main content row'),\n     m(AddButton, { onclick:<addFunction> })\n ]),\n```\n\n### Attributes (node.attrs):\n- `onclick`: function to call when button is pressed\n"
-			},
-			"children": [
-				{
-					"id": 2,
-					"name": "AddButton",
-					"kind": 128,
-					"kindString": "Class",
-					"flags": {
-						"isExported": true
-					},
-					"children": [
-						{
-							"id": 3,
-							"name": "view",
-							"kind": 2048,
-							"kindString": "Method",
-							"flags": {
-								"isExported": true
-							},
-							"signatures": [
-								{
-									"id": 4,
-									"name": "view",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {},
-									"parameters": [
-										{
-											"id": 5,
-											"name": "node",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"name": "Vnode",
-												"id": 138
-											}
-										}
-									],
-									"type": {
-										"type": "reference",
-										"name": "Vnode",
-										"id": 138
-									}
-								}
-							],
-							"sources": [
-								{
-									"fileName": "AddRemove.ts",
-									"line": 22,
-									"character": 8
-								}
-							]
-						}
-					],
-					"groups": [
-						{
-							"title": "Methods",
-							"kind": 2048,
-							"children": [
-								3
-							]
-						}
-					],
-					"sources": [
-						{
-							"fileName": "AddRemove.ts",
-							"line": 21,
-							"character": 22
-						}
-					]
-				},
-				{
-					"id": 6,
-					"name": "RemoveButton",
-					"kind": 128,
-					"kindString": "Class",
-					"flags": {
-						"isExported": true
-					},
-					"children": [
-						{
-							"id": 7,
-							"name": "view",
-							"kind": 2048,
-							"kindString": "Method",
-							"flags": {
-								"isExported": true
-							},
-							"signatures": [
-								{
-									"id": 8,
-									"name": "view",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {},
-									"parameters": [
-										{
-											"id": 9,
-											"name": "node",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"name": "Vnode",
-												"id": 138
-											}
-										}
-									],
-									"type": {
-										"type": "reference",
-										"name": "Vnode",
-										"id": 138
-									}
-								}
-							],
-							"sources": [
-								{
-									"fileName": "AddRemove.ts",
-									"line": 28,
-									"character": 8
-								}
-							]
-						}
-					],
-					"groups": [
-						{
-							"title": "Methods",
-							"kind": 2048,
-							"children": [
-								7
-							]
-						}
-					],
-					"sources": [
-						{
-							"fileName": "AddRemove.ts",
-							"line": 27,
-							"character": 25
-						}
-					]
-				}
-			],
-			"groups": [
-				{
-					"title": "Classes",
-					"kind": 128,
-					"children": [
-						2,
-						6
-					]
-				}
-			],
-			"sources": [
-				{
-					"fileName": "AddRemove.ts",
-					"line": 1,
-					"character": 0
-				}
-			]
-		},
-		{
-			"id": 107,
+			"id": 84,
 			"name": "\"Button\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -194,7 +19,7 @@
 			},
 			"children": [
 				{
-					"id": 108,
+					"id": 85,
 					"name": "Button",
 					"kind": 128,
 					"kindString": "Class",
@@ -207,7 +32,7 @@
 					},
 					"children": [
 						{
-							"id": 109,
+							"id": 86,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -216,14 +41,14 @@
 							},
 							"signatures": [
 								{
-									"id": 110,
+									"id": 87,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 111,
+											"id": 88,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -231,7 +56,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -242,7 +67,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "ToggleButton.oninit",
-										"id": 88
+										"id": 69
 									}
 								}
 							],
@@ -256,11 +81,11 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "ToggleButton.oninit",
-								"id": 88
+								"id": 69
 							}
 						},
 						{
-							"id": 112,
+							"id": 89,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -269,14 +94,14 @@
 							},
 							"signatures": [
 								{
-									"id": 113,
+									"id": 90,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 114,
+											"id": 91,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -284,24 +109,24 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									},
 									"overwrites": {
 										"type": "reference",
 										"name": "Selector.view",
-										"id": 61
+										"id": 48
 									},
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "ToggleButton.view",
-										"id": 91
+										"id": 72
 									}
 								}
 							],
@@ -315,16 +140,16 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "Selector.view",
-								"id": 61
+								"id": 48
 							},
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "ToggleButton.view",
-								"id": 91
+								"id": 72
 							}
 						},
 						{
-							"id": 115,
+							"id": 92,
 							"name": "init",
 							"kind": 2048,
 							"kindString": "Method",
@@ -334,14 +159,14 @@
 							},
 							"signatures": [
 								{
-									"id": 116,
+									"id": 93,
 									"name": "init",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 117,
+											"id": 94,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -349,11 +174,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										},
 										{
-											"id": 118,
+											"id": 95,
 											"name": "updateSelected",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -361,7 +186,7 @@
 											"type": {
 												"type": "reference",
 												"name": "selectFn",
-												"id": 64
+												"id": 51
 											},
 											"defaultValue": " oneOfItems"
 										}
@@ -369,98 +194,30 @@
 									"type": {
 										"type": "reference",
 										"name": "SelectorDesc",
-										"id": 11
+										"id": 2
 									},
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "Selector.init",
-										"id": 48
+										"id": 39
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 106,
+									"line": 115,
 									"character": 15
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "Selector.init",
-								"id": 48
+								"id": 39
 							}
 						},
 						{
-							"id": 119,
-							"name": "internalStateUpdate",
-							"kind": 2048,
-							"kindString": "Method",
-							"flags": {
-								"isStatic": true,
-								"isExported": true
-							},
-							"signatures": [
-								{
-									"id": 120,
-									"name": "internalStateUpdate",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {},
-									"comment": {
-										"shortText": "ensures that `selectedItem` is defined and is a string"
-									},
-									"parameters": [
-										{
-											"id": 121,
-											"name": "node",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"name": "Vnode",
-												"id": 138
-											}
-										},
-										{
-											"id": 122,
-											"name": "item",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "intrinsic",
-												"name": "string"
-											}
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "void"
-									},
-									"inheritedFrom": {
-										"type": "reference",
-										"name": "Selector.internalStateUpdate",
-										"id": 52
-									}
-								}
-							],
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 126,
-									"character": 30
-								}
-							],
-							"inheritedFrom": {
-								"type": "reference",
-								"name": "Selector.internalStateUpdate",
-								"id": 52
-							}
-						},
-						{
-							"id": 123,
+							"id": 96,
 							"name": "renderItem",
 							"kind": 2048,
 							"kindString": "Method",
@@ -470,7 +227,7 @@
 							},
 							"signatures": [
 								{
-									"id": 124,
+									"id": 97,
 									"name": "renderItem",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -480,7 +237,7 @@
 									},
 									"parameters": [
 										{
-											"id": 125,
+											"id": 98,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -491,11 +248,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										},
 										{
-											"id": 126,
+											"id": 99,
 											"name": "desc",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -506,11 +263,11 @@
 											"type": {
 												"type": "reference",
 												"name": "SelectorDesc",
-												"id": 11
+												"id": 2
 											}
 										},
 										{
-											"id": 127,
+											"id": 100,
 											"name": "i",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -531,21 +288,21 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "Selector.renderItem",
-										"id": 56
+										"id": 43
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 138,
+									"line": 129,
 									"character": 21
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "Selector.renderItem",
-								"id": 56
+								"id": 43
 							}
 						}
 					],
@@ -554,11 +311,10 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								109,
-								112,
-								115,
-								119,
-								123
+								86,
+								89,
+								92,
+								96
 							]
 						}
 					],
@@ -573,7 +329,7 @@
 						{
 							"type": "reference",
 							"name": "ToggleButton",
-							"id": 87
+							"id": 68
 						}
 					]
 				}
@@ -583,7 +339,7 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						108
+						85
 					]
 				}
 			],
@@ -596,7 +352,7 @@
 			]
 		},
 		{
-			"id": 128,
+			"id": 101,
 			"name": "\"Collapsible\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -610,7 +366,7 @@
 			},
 			"children": [
 				{
-					"id": 129,
+					"id": 102,
 					"name": "Collapsible",
 					"kind": 128,
 					"kindString": "Class",
@@ -619,7 +375,7 @@
 					},
 					"children": [
 						{
-							"id": 130,
+							"id": 103,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -628,14 +384,14 @@
 							},
 							"signatures": [
 								{
-									"id": 131,
+									"id": 104,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 132,
+											"id": 105,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -643,7 +399,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -662,7 +418,7 @@
 							]
 						},
 						{
-							"id": 133,
+							"id": 106,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -671,14 +427,14 @@
 							},
 							"signatures": [
 								{
-									"id": 134,
+									"id": 107,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 135,
+											"id": 108,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -686,7 +442,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -710,8 +466,8 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								130,
-								133
+								103,
+								106
 							]
 						}
 					],
@@ -729,7 +485,7 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						129
+						102
 					]
 				}
 			],
@@ -742,7 +498,7 @@
 			]
 		},
 		{
-			"id": 189,
+			"id": 154,
 			"name": "\"Label\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -756,7 +512,7 @@
 			},
 			"children": [
 				{
-					"id": 190,
+					"id": 155,
 					"name": "Label",
 					"kind": 128,
 					"kindString": "Class",
@@ -769,7 +525,7 @@
 					},
 					"children": [
 						{
-							"id": 191,
+							"id": 156,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -778,14 +534,14 @@
 							},
 							"signatures": [
 								{
-									"id": 192,
+									"id": 157,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 193,
+											"id": 158,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -793,14 +549,14 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									}
 								}
 							],
@@ -818,7 +574,7 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								191
+								156
 							]
 						}
 					],
@@ -836,7 +592,7 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						190
+						155
 					]
 				}
 			],
@@ -849,7 +605,7 @@
 			]
 		},
 		{
-			"id": 164,
+			"id": 133,
 			"name": "\"Menu\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -863,7 +619,7 @@
 			},
 			"children": [
 				{
-					"id": 165,
+					"id": 134,
 					"name": "Menu",
 					"kind": 128,
 					"kindString": "Class",
@@ -875,7 +631,7 @@
 					},
 					"children": [
 						{
-							"id": 169,
+							"id": 138,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -884,14 +640,14 @@
 							},
 							"signatures": [
 								{
-									"id": 170,
+									"id": 139,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 171,
+											"id": 140,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -899,7 +655,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -910,12 +666,12 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "Selector.oninit",
-										"id": 45
+										"id": 36
 									},
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "RadioButton.oninit",
-										"id": 141
+										"id": 114
 									}
 								}
 							],
@@ -929,16 +685,16 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "Selector.oninit",
-								"id": 45
+								"id": 36
 							},
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "RadioButton.oninit",
-								"id": 141
+								"id": 114
 							}
 						},
 						{
-							"id": 166,
+							"id": 135,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -947,14 +703,14 @@
 							},
 							"signatures": [
 								{
-									"id": 167,
+									"id": 136,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 168,
+											"id": 137,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -962,19 +718,19 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									},
 									"overwrites": {
 										"type": "reference",
 										"name": "RadioButton.view",
-										"id": 148
+										"id": 121
 									}
 								}
 							],
@@ -988,11 +744,11 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "RadioButton.view",
-								"id": 148
+								"id": 121
 							}
 						},
 						{
-							"id": 176,
+							"id": 145,
 							"name": "init",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1002,14 +758,14 @@
 							},
 							"signatures": [
 								{
-									"id": 177,
+									"id": 146,
 									"name": "init",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 178,
+											"id": 147,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1017,11 +773,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										},
 										{
-											"id": 179,
+											"id": 148,
 											"name": "updateSelected",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1029,7 +785,7 @@
 											"type": {
 												"type": "reference",
 												"name": "selectFn",
-												"id": 64
+												"id": 51
 											},
 											"defaultValue": " oneOfItems"
 										}
@@ -1037,98 +793,30 @@
 									"type": {
 										"type": "reference",
 										"name": "SelectorDesc",
-										"id": 11
+										"id": 2
 									},
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "Selector.init",
-										"id": 48
+										"id": 39
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 106,
+									"line": 115,
 									"character": 15
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "Selector.init",
-								"id": 48
+								"id": 39
 							}
 						},
 						{
-							"id": 180,
-							"name": "internalStateUpdate",
-							"kind": 2048,
-							"kindString": "Method",
-							"flags": {
-								"isStatic": true,
-								"isExported": true
-							},
-							"signatures": [
-								{
-									"id": 181,
-									"name": "internalStateUpdate",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {},
-									"comment": {
-										"shortText": "ensures that `selectedItem` is defined and is a string"
-									},
-									"parameters": [
-										{
-											"id": 182,
-											"name": "node",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"name": "Vnode",
-												"id": 138
-											}
-										},
-										{
-											"id": 183,
-											"name": "item",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "intrinsic",
-												"name": "string"
-											}
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "void"
-									},
-									"inheritedFrom": {
-										"type": "reference",
-										"name": "Selector.internalStateUpdate",
-										"id": 52
-									}
-								}
-							],
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 126,
-									"character": 30
-								}
-							],
-							"inheritedFrom": {
-								"type": "reference",
-								"name": "Selector.internalStateUpdate",
-								"id": 52
-							}
-						},
-						{
-							"id": 184,
+							"id": 149,
 							"name": "renderItem",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1138,7 +826,7 @@
 							},
 							"signatures": [
 								{
-									"id": 185,
+									"id": 150,
 									"name": "renderItem",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1148,7 +836,7 @@
 									},
 									"parameters": [
 										{
-											"id": 186,
+											"id": 151,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1159,11 +847,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										},
 										{
-											"id": 187,
+											"id": 152,
 											"name": "desc",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1174,11 +862,11 @@
 											"type": {
 												"type": "reference",
 												"name": "SelectorDesc",
-												"id": 11
+												"id": 2
 											}
 										},
 										{
-											"id": 188,
+											"id": 153,
 											"name": "i",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1199,25 +887,25 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "Selector.renderItem",
-										"id": 56
+										"id": 43
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 138,
+									"line": 129,
 									"character": 21
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "Selector.renderItem",
-								"id": 56
+								"id": 43
 							}
 						},
 						{
-							"id": 172,
+							"id": 141,
 							"name": "viewGroup",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1227,14 +915,14 @@
 							},
 							"signatures": [
 								{
-									"id": 173,
+									"id": 142,
 									"name": "viewGroup",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 174,
+											"id": 143,
 											"name": "css",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1245,7 +933,7 @@
 											}
 										},
 										{
-											"id": 175,
+											"id": 144,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1253,7 +941,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -1264,7 +952,7 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "RadioButton.viewGroup",
-										"id": 144
+										"id": 117
 									}
 								}
 							],
@@ -1278,7 +966,7 @@
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "RadioButton.viewGroup",
-								"id": 144
+								"id": 117
 							}
 						}
 					],
@@ -1287,12 +975,11 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								169,
-								166,
-								176,
-								180,
-								184,
-								172
+								138,
+								135,
+								145,
+								149,
+								141
 							]
 						}
 					],
@@ -1307,7 +994,7 @@
 						{
 							"type": "reference",
 							"name": "RadioButton",
-							"id": 140
+							"id": 113
 						}
 					]
 				}
@@ -1317,7 +1004,7 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						165
+						134
 					]
 				}
 			],
@@ -1330,7 +1017,7 @@
 			]
 		},
 		{
-			"id": 338,
+			"id": 299,
 			"name": "\"Modal\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -1344,7 +1031,7 @@
 			},
 			"children": [
 				{
-					"id": 339,
+					"id": 300,
 					"name": "Modal",
 					"kind": 128,
 					"kindString": "Class",
@@ -1353,7 +1040,7 @@
 					},
 					"children": [
 						{
-							"id": 340,
+							"id": 301,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1362,14 +1049,14 @@
 							},
 							"signatures": [
 								{
-									"id": 341,
+									"id": 302,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 342,
+											"id": 303,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1377,7 +1064,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -1396,7 +1083,7 @@
 							]
 						},
 						{
-							"id": 343,
+							"id": 304,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1405,14 +1092,14 @@
 							},
 							"signatures": [
 								{
-									"id": 344,
+									"id": 305,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 345,
+											"id": 306,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1420,7 +1107,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -1444,8 +1131,8 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								340,
-								343
+								301,
+								304
 							]
 						}
 					],
@@ -1463,7 +1150,7 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						339
+						300
 					]
 				}
 			],
@@ -1476,7 +1163,7 @@
 			]
 		},
 		{
-			"id": 240,
+			"id": 205,
 			"name": "\"OptionsButton\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -1490,7 +1177,7 @@
 			},
 			"children": [
 				{
-					"id": 241,
+					"id": 206,
 					"name": "OptionsButton",
 					"kind": 128,
 					"kindString": "Class",
@@ -1503,7 +1190,7 @@
 					},
 					"children": [
 						{
-							"id": 249,
+							"id": 214,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1512,14 +1199,14 @@
 							},
 							"signatures": [
 								{
-									"id": 250,
+									"id": 215,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 251,
+											"id": 216,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1527,7 +1214,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -1538,25 +1225,25 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "Selector.oninit",
-										"id": 45
+										"id": 36
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 87,
+									"line": 92,
 									"character": 10
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "Selector.oninit",
-								"id": 45
+								"id": 36
 							}
 						},
 						{
-							"id": 246,
+							"id": 211,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1565,14 +1252,14 @@
 							},
 							"signatures": [
 								{
-									"id": 247,
+									"id": 212,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 248,
+											"id": 213,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1580,19 +1267,19 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									},
 									"overwrites": {
 										"type": "reference",
 										"name": "Selector.view",
-										"id": 61
+										"id": 48
 									}
 								}
 							],
@@ -1606,11 +1293,11 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "Selector.view",
-								"id": 61
+								"id": 48
 							}
 						},
 						{
-							"id": 252,
+							"id": 217,
 							"name": "init",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1620,14 +1307,14 @@
 							},
 							"signatures": [
 								{
-									"id": 253,
+									"id": 218,
 									"name": "init",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 254,
+											"id": 219,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1635,11 +1322,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										},
 										{
-											"id": 255,
+											"id": 220,
 											"name": "updateSelected",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1647,7 +1334,7 @@
 											"type": {
 												"type": "reference",
 												"name": "selectFn",
-												"id": 64
+												"id": 51
 											},
 											"defaultValue": " oneOfItems"
 										}
@@ -1655,98 +1342,30 @@
 									"type": {
 										"type": "reference",
 										"name": "SelectorDesc",
-										"id": 11
+										"id": 2
 									},
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "Selector.init",
-										"id": 48
+										"id": 39
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 106,
+									"line": 115,
 									"character": 15
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "Selector.init",
-								"id": 48
+								"id": 39
 							}
 						},
 						{
-							"id": 256,
-							"name": "internalStateUpdate",
-							"kind": 2048,
-							"kindString": "Method",
-							"flags": {
-								"isStatic": true,
-								"isExported": true
-							},
-							"signatures": [
-								{
-									"id": 257,
-									"name": "internalStateUpdate",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {},
-									"comment": {
-										"shortText": "ensures that `selectedItem` is defined and is a string"
-									},
-									"parameters": [
-										{
-											"id": 258,
-											"name": "node",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"name": "Vnode",
-												"id": 138
-											}
-										},
-										{
-											"id": 259,
-											"name": "item",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "intrinsic",
-												"name": "string"
-											}
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "void"
-									},
-									"inheritedFrom": {
-										"type": "reference",
-										"name": "Selector.internalStateUpdate",
-										"id": 52
-									}
-								}
-							],
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 126,
-									"character": 30
-								}
-							],
-							"inheritedFrom": {
-								"type": "reference",
-								"name": "Selector.internalStateUpdate",
-								"id": 52
-							}
-						},
-						{
-							"id": 260,
+							"id": 221,
 							"name": "renderItem",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1756,7 +1375,7 @@
 							},
 							"signatures": [
 								{
-									"id": 261,
+									"id": 222,
 									"name": "renderItem",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -1766,7 +1385,7 @@
 									},
 									"parameters": [
 										{
-											"id": 262,
+											"id": 223,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1777,11 +1396,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										},
 										{
-											"id": 263,
+											"id": 224,
 											"name": "desc",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1792,11 +1411,11 @@
 											"type": {
 												"type": "reference",
 												"name": "SelectorDesc",
-												"id": 11
+												"id": 2
 											}
 										},
 										{
-											"id": 264,
+											"id": 225,
 											"name": "i",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1817,25 +1436,25 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "Selector.renderItem",
-										"id": 56
+										"id": 43
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 138,
+									"line": 129,
 									"character": 21
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "Selector.renderItem",
-								"id": 56
+								"id": 43
 							}
 						},
 						{
-							"id": 242,
+							"id": 207,
 							"name": "viewGroup",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1845,14 +1464,14 @@
 							},
 							"signatures": [
 								{
-									"id": 243,
+									"id": 208,
 									"name": "viewGroup",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 244,
+											"id": 209,
 											"name": "css",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1863,7 +1482,7 @@
 											}
 										},
 										{
-											"id": 245,
+											"id": 210,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1871,7 +1490,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -1895,12 +1514,11 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								249,
-								246,
-								252,
-								256,
-								260,
-								242
+								214,
+								211,
+								217,
+								221,
+								207
 							]
 						}
 					],
@@ -1915,7 +1533,7 @@
 						{
 							"type": "reference",
 							"name": "Selector",
-							"id": 44
+							"id": 35
 						}
 					]
 				}
@@ -1925,7 +1543,7 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						241
+						206
 					]
 				}
 			],
@@ -1938,7 +1556,7 @@
 			]
 		},
 		{
-			"id": 139,
+			"id": 112,
 			"name": "\"RadioButton\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -1952,7 +1570,7 @@
 			},
 			"children": [
 				{
-					"id": 140,
+					"id": 113,
 					"name": "RadioButton",
 					"kind": 128,
 					"kindString": "Class",
@@ -1965,7 +1583,7 @@
 					},
 					"children": [
 						{
-							"id": 141,
+							"id": 114,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -1974,14 +1592,14 @@
 							},
 							"signatures": [
 								{
-									"id": 142,
+									"id": 115,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 143,
+											"id": 116,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -1989,7 +1607,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -2000,7 +1618,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "Selector.oninit",
-										"id": 45
+										"id": 36
 									}
 								}
 							],
@@ -2014,11 +1632,11 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "Selector.oninit",
-								"id": 45
+								"id": 36
 							}
 						},
 						{
-							"id": 148,
+							"id": 121,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2027,14 +1645,14 @@
 							},
 							"signatures": [
 								{
-									"id": 149,
+									"id": 122,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 150,
+											"id": 123,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2042,19 +1660,19 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									},
 									"overwrites": {
 										"type": "reference",
 										"name": "Selector.view",
-										"id": 61
+										"id": 48
 									}
 								}
 							],
@@ -2068,11 +1686,11 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "Selector.view",
-								"id": 61
+								"id": 48
 							}
 						},
 						{
-							"id": 151,
+							"id": 124,
 							"name": "init",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2082,14 +1700,14 @@
 							},
 							"signatures": [
 								{
-									"id": 152,
+									"id": 125,
 									"name": "init",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 153,
+											"id": 126,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2097,11 +1715,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										},
 										{
-											"id": 154,
+											"id": 127,
 											"name": "updateSelected",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2109,7 +1727,7 @@
 											"type": {
 												"type": "reference",
 												"name": "selectFn",
-												"id": 64
+												"id": 51
 											},
 											"defaultValue": " oneOfItems"
 										}
@@ -2117,98 +1735,30 @@
 									"type": {
 										"type": "reference",
 										"name": "SelectorDesc",
-										"id": 11
+										"id": 2
 									},
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "Selector.init",
-										"id": 48
+										"id": 39
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 106,
+									"line": 115,
 									"character": 15
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "Selector.init",
-								"id": 48
+								"id": 39
 							}
 						},
 						{
-							"id": 155,
-							"name": "internalStateUpdate",
-							"kind": 2048,
-							"kindString": "Method",
-							"flags": {
-								"isStatic": true,
-								"isExported": true
-							},
-							"signatures": [
-								{
-									"id": 156,
-									"name": "internalStateUpdate",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {},
-									"comment": {
-										"shortText": "ensures that `selectedItem` is defined and is a string"
-									},
-									"parameters": [
-										{
-											"id": 157,
-											"name": "node",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"name": "Vnode",
-												"id": 138
-											}
-										},
-										{
-											"id": 158,
-											"name": "item",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "intrinsic",
-												"name": "string"
-											}
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "void"
-									},
-									"inheritedFrom": {
-										"type": "reference",
-										"name": "Selector.internalStateUpdate",
-										"id": 52
-									}
-								}
-							],
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 126,
-									"character": 30
-								}
-							],
-							"inheritedFrom": {
-								"type": "reference",
-								"name": "Selector.internalStateUpdate",
-								"id": 52
-							}
-						},
-						{
-							"id": 159,
+							"id": 128,
 							"name": "renderItem",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2218,7 +1768,7 @@
 							},
 							"signatures": [
 								{
-									"id": 160,
+									"id": 129,
 									"name": "renderItem",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -2228,7 +1778,7 @@
 									},
 									"parameters": [
 										{
-											"id": 161,
+											"id": 130,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2239,11 +1789,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										},
 										{
-											"id": 162,
+											"id": 131,
 											"name": "desc",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2254,11 +1804,11 @@
 											"type": {
 												"type": "reference",
 												"name": "SelectorDesc",
-												"id": 11
+												"id": 2
 											}
 										},
 										{
-											"id": 163,
+											"id": 132,
 											"name": "i",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2279,25 +1829,25 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "Selector.renderItem",
-										"id": 56
+										"id": 43
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 138,
+									"line": 129,
 									"character": 21
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "Selector.renderItem",
-								"id": 56
+								"id": 43
 							}
 						},
 						{
-							"id": 144,
+							"id": 117,
 							"name": "viewGroup",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2307,14 +1857,14 @@
 							},
 							"signatures": [
 								{
-									"id": 145,
+									"id": 118,
 									"name": "viewGroup",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 146,
+											"id": 119,
 											"name": "css",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2325,7 +1875,7 @@
 											}
 										},
 										{
-											"id": 147,
+											"id": 120,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2333,7 +1883,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -2357,12 +1907,11 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								141,
-								148,
-								151,
-								155,
-								159,
-								144
+								114,
+								121,
+								124,
+								128,
+								117
 							]
 						}
 					],
@@ -2377,14 +1926,14 @@
 						{
 							"type": "reference",
 							"name": "Selector",
-							"id": 44
+							"id": 35
 						}
 					],
 					"extendedBy": [
 						{
 							"type": "reference",
 							"name": "Menu",
-							"id": 165
+							"id": 134
 						}
 					]
 				}
@@ -2394,7 +1943,7 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						140
+						113
 					]
 				}
 			],
@@ -2407,7 +1956,7 @@
 			]
 		},
 		{
-			"id": 10,
+			"id": 1,
 			"name": "\"Selector\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -2421,7 +1970,7 @@
 			},
 			"children": [
 				{
-					"id": 44,
+					"id": 35,
 					"name": "Selector",
 					"kind": 128,
 					"kindString": "Class",
@@ -2434,7 +1983,7 @@
 					},
 					"children": [
 						{
-							"id": 45,
+							"id": 36,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2443,14 +1992,14 @@
 							},
 							"signatures": [
 								{
-									"id": 46,
+									"id": 37,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 47,
+											"id": 38,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2458,7 +2007,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -2471,13 +2020,13 @@
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 87,
+									"line": 92,
 									"character": 10
 								}
 							]
 						},
 						{
-							"id": 61,
+							"id": 48,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2487,53 +2036,8 @@
 							},
 							"signatures": [
 								{
-									"id": 62,
-									"name": "view",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {},
-									"parameters": [
-										{
-											"id": 63,
-											"name": "node",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"name": "Vnode",
-												"id": 138
-											}
-										}
-									],
-									"type": {
-										"type": "reference",
-										"name": "Vnode",
-										"id": 138
-									}
-								}
-							],
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 159,
-									"character": 17
-								}
-							]
-						},
-						{
-							"id": 48,
-							"name": "init",
-							"kind": 2048,
-							"kindString": "Method",
-							"flags": {
-								"isStatic": true,
-								"isExported": true
-							},
-							"signatures": [
-								{
 									"id": 49,
-									"name": "init",
+									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
@@ -2547,41 +2051,28 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
-										},
-										{
-											"id": 51,
-											"name": "updateSelected",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"name": "selectFn",
-												"id": 64
-											},
-											"defaultValue": " oneOfItems"
 										}
 									],
 									"type": {
 										"type": "reference",
-										"name": "SelectorDesc",
-										"id": 11
+										"name": "Vnode",
+										"id": 111
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 106,
-									"character": 15
+									"line": 150,
+									"character": 17
 								}
 							]
 						},
 						{
-							"id": 52,
-							"name": "internalStateUpdate",
+							"id": 39,
+							"name": "init",
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
@@ -2590,17 +2081,14 @@
 							},
 							"signatures": [
 								{
-									"id": 53,
-									"name": "internalStateUpdate",
+									"id": 40,
+									"name": "init",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
-									"comment": {
-										"shortText": "ensures that `selectedItem` is defined and is a string"
-									},
 									"parameters": [
 										{
-											"id": 54,
+											"id": 41,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2608,37 +2096,40 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										},
 										{
-											"id": 55,
-											"name": "item",
+											"id": 42,
+											"name": "updateSelected",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
-												"type": "intrinsic",
-												"name": "string"
-											}
+												"type": "reference",
+												"name": "selectFn",
+												"id": 51
+											},
+											"defaultValue": " oneOfItems"
 										}
 									],
 									"type": {
-										"type": "intrinsic",
-										"name": "void"
+										"type": "reference",
+										"name": "SelectorDesc",
+										"id": 2
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 126,
-									"character": 30
+									"line": 115,
+									"character": 15
 								}
 							]
 						},
 						{
-							"id": 56,
+							"id": 43,
 							"name": "renderItem",
 							"kind": 2048,
 							"kindString": "Method",
@@ -2648,7 +2139,7 @@
 							},
 							"signatures": [
 								{
-									"id": 57,
+									"id": 44,
 									"name": "renderItem",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -2658,7 +2149,7 @@
 									},
 									"parameters": [
 										{
-											"id": 58,
+											"id": 45,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2669,11 +2160,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										},
 										{
-											"id": 59,
+											"id": 46,
 											"name": "desc",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2684,11 +2175,11 @@
 											"type": {
 												"type": "reference",
 												"name": "SelectorDesc",
-												"id": 11
+												"id": 2
 											}
 										},
 										{
-											"id": 60,
+											"id": 47,
 											"name": "i",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -2711,7 +2202,7 @@
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 138,
+									"line": 129,
 									"character": 21
 								}
 							]
@@ -2722,18 +2213,17 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								45,
-								61,
+								36,
 								48,
-								52,
-								56
+								39,
+								43
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "Selector.ts",
-							"line": 86,
+							"line": 91,
 							"character": 30
 						}
 					],
@@ -2741,22 +2231,22 @@
 						{
 							"type": "reference",
 							"name": "ToggleButton",
-							"id": 87
+							"id": 68
 						},
 						{
 							"type": "reference",
 							"name": "RadioButton",
-							"id": 140
+							"id": 113
 						},
 						{
 							"type": "reference",
 							"name": "OptionsButton",
-							"id": 241
+							"id": 206
 						}
 					]
 				},
 				{
-					"id": 27,
+					"id": 18,
 					"name": "SelectableDesc",
 					"kind": 256,
 					"kindString": "Interface",
@@ -2768,7 +2258,7 @@
 					},
 					"children": [
 						{
-							"id": 32,
+							"id": 23,
 							"name": "clicked",
 							"kind": 1024,
 							"kindString": "Property",
@@ -2783,536 +2273,6 @@
 								{
 									"fileName": "Selector.ts",
 									"line": 51,
-									"character": 11
-								}
-							],
-							"type": {
-								"type": "reflection",
-								"declaration": {
-									"id": 33,
-									"name": "__type",
-									"kind": 65536,
-									"kindString": "Type literal",
-									"flags": {},
-									"signatures": [
-										{
-											"id": 34,
-											"name": "__call",
-											"kind": 4096,
-											"kindString": "Call signature",
-											"flags": {},
-											"parameters": [
-												{
-													"id": 35,
-													"name": "item",
-													"kind": 32768,
-													"kindString": "Parameter",
-													"flags": {},
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												}
-											],
-											"type": {
-												"type": "intrinsic",
-												"name": "void"
-											}
-										}
-									],
-									"sources": [
-										{
-											"fileName": "Selector.ts",
-											"line": 51,
-											"character": 13
-										}
-									]
-								}
-							}
-						},
-						{
-							"id": 30,
-							"name": "css",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true,
-								"isOptional": true
-							},
-							"comment": {
-								"shortText": "optional css class to use"
-							},
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 47,
-									"character": 7
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "string"
-							}
-						},
-						{
-							"id": 29,
-							"name": "isSelected",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true
-							},
-							"comment": {
-								"shortText": "the item's select status"
-							},
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 45,
-									"character": 14
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "boolean"
-							}
-						},
-						{
-							"id": 36,
-							"name": "mouseDown",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true,
-								"isOptional": true
-							},
-							"comment": {
-								"shortText": "the function to call if this item receives a mouseDown event"
-							},
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 53,
-									"character": 13
-								}
-							],
-							"type": {
-								"type": "reflection",
-								"declaration": {
-									"id": 37,
-									"name": "__type",
-									"kind": 65536,
-									"kindString": "Type literal",
-									"flags": {},
-									"signatures": [
-										{
-											"id": 38,
-											"name": "__call",
-											"kind": 4096,
-											"kindString": "Call signature",
-											"flags": {},
-											"parameters": [
-												{
-													"id": 39,
-													"name": "item",
-													"kind": 32768,
-													"kindString": "Parameter",
-													"flags": {},
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												}
-											],
-											"type": {
-												"type": "intrinsic",
-												"name": "void"
-											}
-										}
-									],
-									"sources": [
-										{
-											"fileName": "Selector.ts",
-											"line": 53,
-											"character": 15
-										}
-									]
-								}
-							}
-						},
-						{
-							"id": 40,
-							"name": "mouseUp",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true,
-								"isOptional": true
-							},
-							"comment": {
-								"shortText": "the function to call if this item receives a mouseUp event"
-							},
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 55,
-									"character": 11
-								}
-							],
-							"type": {
-								"type": "reflection",
-								"declaration": {
-									"id": 41,
-									"name": "__type",
-									"kind": 65536,
-									"kindString": "Type literal",
-									"flags": {},
-									"signatures": [
-										{
-											"id": 42,
-											"name": "__call",
-											"kind": 4096,
-											"kindString": "Call signature",
-											"flags": {},
-											"parameters": [
-												{
-													"id": 43,
-													"name": "item",
-													"kind": 32768,
-													"kindString": "Parameter",
-													"flags": {},
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												}
-											],
-											"type": {
-												"type": "intrinsic",
-												"name": "void"
-											}
-										}
-									],
-									"sources": [
-										{
-											"fileName": "Selector.ts",
-											"line": 55,
-											"character": 13
-										}
-									]
-								}
-							}
-						},
-						{
-							"id": 31,
-							"name": "style",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true,
-								"isOptional": true
-							},
-							"comment": {
-								"shortText": "optional style string to apply"
-							},
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 49,
-									"character": 9
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "string"
-							}
-						},
-						{
-							"id": 28,
-							"name": "title",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true
-							},
-							"comment": {
-								"shortText": "the item's title"
-							},
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 43,
-									"character": 9
-								}
-							],
-							"type": {
-								"type": "intrinsic",
-								"name": "string"
-							}
-						}
-					],
-					"groups": [
-						{
-							"title": "Properties",
-							"kind": 1024,
-							"children": [
-								32,
-								30,
-								29,
-								36,
-								40,
-								31,
-								28
-							]
-						}
-					],
-					"sources": [
-						{
-							"fileName": "Selector.ts",
-							"line": 41,
-							"character": 31
-						}
-					]
-				},
-				{
-					"id": 11,
-					"name": "SelectorDesc",
-					"kind": 256,
-					"kindString": "Interface",
-					"flags": {
-						"isExported": true
-					},
-					"comment": {
-						"shortText": "passed into Menu from the calling application"
-					},
-					"children": [
-						{
-							"id": 15,
-							"name": "changed",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true
-							},
-							"comment": {
-								"shortText": "the function to call when the selection changes"
-							},
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 33,
-									"character": 11
-								}
-							],
-							"type": {
-								"type": "reflection",
-								"declaration": {
-									"id": 16,
-									"name": "__type",
-									"kind": 65536,
-									"kindString": "Type literal",
-									"flags": {},
-									"signatures": [
-										{
-											"id": 17,
-											"name": "__call",
-											"kind": 4096,
-											"kindString": "Call signature",
-											"flags": {},
-											"parameters": [
-												{
-													"id": 18,
-													"name": "item",
-													"kind": 32768,
-													"kindString": "Parameter",
-													"flags": {},
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												}
-											],
-											"type": {
-												"type": "intrinsic",
-												"name": "void"
-											}
-										}
-									],
-									"sources": [
-										{
-											"fileName": "Selector.ts",
-											"line": 33,
-											"character": 12
-										}
-									]
-								}
-							}
-						},
-						{
-							"id": 14,
-							"name": "defaultItem",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true,
-								"isOptional": true
-							},
-							"comment": {
-								"shortText": "the initial selected item"
-							},
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 31,
-									"character": 15
-								}
-							],
-							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "intrinsic",
-										"name": "string"
-									},
-									{
-										"type": "intrinsic",
-										"name": "number"
-									}
-								]
-							}
-						},
-						{
-							"id": 13,
-							"name": "itemCss",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true,
-								"isOptional": true
-							},
-							"comment": {
-								"shortText": "optional array of css styles; each will be applied to the respective item"
-							},
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 29,
-									"character": 11
-								}
-							],
-							"type": {
-								"type": "array",
-								"elementType": {
-									"type": "intrinsic",
-									"name": "string"
-								}
-							}
-						},
-						{
-							"id": 12,
-							"name": "items",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true
-							},
-							"comment": {
-								"shortText": "the items on the menu"
-							},
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 27,
-									"character": 9
-								}
-							],
-							"type": {
-								"type": "array",
-								"elementType": {
-									"type": "intrinsic",
-									"name": "string"
-								}
-							}
-						},
-						{
-							"id": 19,
-							"name": "mouseDown",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true,
-								"isOptional": true
-							},
-							"comment": {
-								"shortText": "the function to call if this item receives a mouseDown event"
-							},
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 35,
-									"character": 13
-								}
-							],
-							"type": {
-								"type": "reflection",
-								"declaration": {
-									"id": 20,
-									"name": "__type",
-									"kind": 65536,
-									"kindString": "Type literal",
-									"flags": {},
-									"signatures": [
-										{
-											"id": 21,
-											"name": "__call",
-											"kind": 4096,
-											"kindString": "Call signature",
-											"flags": {},
-											"parameters": [
-												{
-													"id": 22,
-													"name": "item",
-													"kind": 32768,
-													"kindString": "Parameter",
-													"flags": {},
-													"type": {
-														"type": "intrinsic",
-														"name": "string"
-													}
-												}
-											],
-											"type": {
-												"type": "intrinsic",
-												"name": "void"
-											}
-										}
-									],
-									"sources": [
-										{
-											"fileName": "Selector.ts",
-											"line": 35,
-											"character": 15
-										}
-									]
-								}
-							}
-						},
-						{
-							"id": 23,
-							"name": "mouseUp",
-							"kind": 1024,
-							"kindString": "Property",
-							"flags": {
-								"isExported": true,
-								"isOptional": true
-							},
-							"comment": {
-								"shortText": "the function to call if this item receives a mouseUp event"
-							},
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 37,
 									"character": 11
 								}
 							],
@@ -3353,6 +2313,536 @@
 									"sources": [
 										{
 											"fileName": "Selector.ts",
+											"line": 51,
+											"character": 13
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 21,
+							"name": "css",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "optional css class to use"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 47,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 20,
+							"name": "isSelected",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "the item's select status"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 45,
+									"character": 14
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							}
+						},
+						{
+							"id": 27,
+							"name": "mouseDown",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "the function to call if this item receives a mouseDown event"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 53,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 28,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 29,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 30,
+													"name": "item",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "Selector.ts",
+											"line": 53,
+											"character": 15
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 31,
+							"name": "mouseUp",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "the function to call if this item receives a mouseUp event"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 55,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 32,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 33,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 34,
+													"name": "item",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "Selector.ts",
+											"line": 55,
+											"character": 13
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 22,
+							"name": "style",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "optional style string to apply"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 49,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 19,
+							"name": "title",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "the item's title"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 43,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								23,
+								21,
+								20,
+								27,
+								31,
+								22,
+								19
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "Selector.ts",
+							"line": 41,
+							"character": 31
+						}
+					]
+				},
+				{
+					"id": 2,
+					"name": "SelectorDesc",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "passed into Menu from the calling application"
+					},
+					"children": [
+						{
+							"id": 6,
+							"name": "changed",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "the function to call when the selection changes"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 33,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 7,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 8,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 9,
+													"name": "item",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "Selector.ts",
+											"line": 33,
+											"character": 12
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 5,
+							"name": "defaultItem",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "the initial selected item"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 31,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "intrinsic",
+										"name": "number"
+									}
+								]
+							}
+						},
+						{
+							"id": 4,
+							"name": "itemCss",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "optional array of css styles; each will be applied to the respective item"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 29,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 3,
+							"name": "items",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "the items on the menu"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 27,
+									"character": 9
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "intrinsic",
+									"name": "string"
+								}
+							}
+						},
+						{
+							"id": 10,
+							"name": "mouseDown",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "the function to call if this item receives a mouseDown event"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 35,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 11,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 12,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 13,
+													"name": "item",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "Selector.ts",
+											"line": 35,
+											"character": 15
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 14,
+							"name": "mouseUp",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"comment": {
+								"shortText": "the function to call if this item receives a mouseUp event"
+							},
+							"sources": [
+								{
+									"fileName": "Selector.ts",
+									"line": 37,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 15,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 16,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 17,
+													"name": "item",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "Selector.ts",
 											"line": 37,
 											"character": 13
 										}
@@ -3366,12 +2856,12 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								15,
-								14,
-								13,
-								12,
-								19,
-								23
+								6,
+								5,
+								4,
+								3,
+								10,
+								14
 							]
 						}
 					],
@@ -3384,92 +2874,68 @@
 					]
 				},
 				{
-					"id": 64,
+					"id": 51,
 					"name": "selectFn",
 					"kind": 4194304,
 					"kindString": "Type alias",
 					"flags": {
 						"isExported": true
 					},
+					"comment": {
+						"shortText": "a function used to notify listeners of a selection event.",
+						"tags": [
+							{
+								"tag": "param",
+								"text": "the list of selectable items",
+								"param": "items"
+							},
+							{
+								"tag": "param",
+								"text": "the name of the current selection\n",
+								"param": "title"
+							}
+						]
+					},
 					"sources": [
 						{
 							"fileName": "Selector.ts",
-							"line": 58,
+							"line": 63,
 							"character": 20
 						}
 					],
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 65,
+							"id": 52,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 66,
+									"id": 53,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 67,
+											"id": 54,
 											"name": "items",
 											"kind": 32768,
 											"kindString": "Parameter",
 											"flags": {},
 											"type": {
-												"type": "reflection",
-												"declaration": {
-													"id": 68,
-													"name": "__type",
-													"kind": 65536,
-													"kindString": "Type literal",
-													"flags": {},
-													"children": [
-														{
-															"id": 69,
-															"name": "string",
-															"kind": 32,
-															"kindString": "Variable",
-															"flags": {},
-															"sources": [
-																{
-																	"fileName": "Selector.ts",
-																	"line": 58,
-																	"character": 37
-																}
-															],
-															"type": {
-																"type": "reference",
-																"name": "SelectableDesc",
-																"id": 27
-															}
-														}
-													],
-													"groups": [
-														{
-															"title": "Variables",
-															"kind": 32,
-															"children": [
-																69
-															]
-														}
-													],
-													"sources": [
-														{
-															"fileName": "Selector.ts",
-															"line": 58,
-															"character": 30
-														}
-													]
+												"type": "array",
+												"elementType": {
+													"type": "reference",
+													"name": "SelectableDesc",
+													"id": 18
 												}
 											}
 										},
 										{
-											"id": 70,
+											"id": 55,
 											"name": "title",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3489,7 +2955,7 @@
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 58,
+									"line": 63,
 									"character": 22
 								}
 							]
@@ -3497,7 +2963,7 @@
 					}
 				},
 				{
-					"id": 77,
+					"id": 60,
 					"name": "anyItems",
 					"kind": 64,
 					"kindString": "Function",
@@ -3506,7 +2972,7 @@
 					},
 					"signatures": [
 						{
-							"id": 78,
+							"id": 61,
 							"name": "anyItems",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3516,61 +2982,22 @@
 							},
 							"parameters": [
 								{
-									"id": 79,
+									"id": 62,
 									"name": "items",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "reflection",
-										"declaration": {
-											"id": 80,
-											"name": "__type",
-											"kind": 65536,
-											"kindString": "Type literal",
-											"flags": {},
-											"children": [
-												{
-													"id": 81,
-													"name": "string",
-													"kind": 32,
-													"kindString": "Variable",
-													"flags": {},
-													"sources": [
-														{
-															"fileName": "Selector.ts",
-															"line": 74,
-															"character": 38
-														}
-													],
-													"type": {
-														"type": "reference",
-														"name": "SelectableDesc",
-														"id": 27
-													}
-												}
-											],
-											"groups": [
-												{
-													"title": "Variables",
-													"kind": 32,
-													"children": [
-														81
-													]
-												}
-											],
-											"sources": [
-												{
-													"fileName": "Selector.ts",
-													"line": 74,
-													"character": 31
-												}
-											]
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"name": "SelectableDesc",
+											"id": 18
 										}
 									}
 								},
 								{
-									"id": 82,
+									"id": 63,
 									"name": "title",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3590,13 +3017,13 @@
 					"sources": [
 						{
 							"fileName": "Selector.ts",
-							"line": 74,
+							"line": 79,
 							"character": 24
 						}
 					]
 				},
 				{
-					"id": 71,
+					"id": 56,
 					"name": "oneOfItems",
 					"kind": 64,
 					"kindString": "Function",
@@ -3605,7 +3032,7 @@
 					},
 					"signatures": [
 						{
-							"id": 72,
+							"id": 57,
 							"name": "oneOfItems",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -3615,61 +3042,22 @@
 							},
 							"parameters": [
 								{
-									"id": 73,
+									"id": 58,
 									"name": "items",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
-										"type": "reflection",
-										"declaration": {
-											"id": 74,
-											"name": "__type",
-											"kind": 65536,
-											"kindString": "Type literal",
-											"flags": {},
-											"children": [
-												{
-													"id": 75,
-													"name": "string",
-													"kind": 32,
-													"kindString": "Variable",
-													"flags": {},
-													"sources": [
-														{
-															"fileName": "Selector.ts",
-															"line": 64,
-															"character": 40
-														}
-													],
-													"type": {
-														"type": "reference",
-														"name": "SelectableDesc",
-														"id": 27
-													}
-												}
-											],
-											"groups": [
-												{
-													"title": "Variables",
-													"kind": 32,
-													"children": [
-														75
-													]
-												}
-											],
-											"sources": [
-												{
-													"fileName": "Selector.ts",
-													"line": 64,
-													"character": 33
-												}
-											]
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"name": "SelectableDesc",
+											"id": 18
 										}
 									}
 								},
 								{
-									"id": 76,
+									"id": 59,
 									"name": "title",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3689,14 +3077,14 @@
 					"sources": [
 						{
 							"fileName": "Selector.ts",
-							"line": 64,
+							"line": 69,
 							"character": 26
 						}
 					]
 				},
 				{
-					"id": 83,
-					"name": "selectable",
+					"id": 64,
+					"name": "renderSelectable",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {
@@ -3704,8 +3092,8 @@
 					},
 					"signatures": [
 						{
-							"id": 84,
-							"name": "selectable",
+							"id": 65,
+							"name": "renderSelectable",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
@@ -3715,15 +3103,15 @@
 							},
 							"parameters": [
 								{
-									"id": 85,
-									"name": "childDesc",
+									"id": 66,
+									"name": "d",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
 										"name": "SelectableDesc",
-										"id": 27
+										"id": 18
 									}
 								}
 							],
@@ -3736,8 +3124,8 @@
 					"sources": [
 						{
 							"fileName": "Selector.ts",
-							"line": 168,
-							"character": 26
+							"line": 159,
+							"character": 32
 						}
 					]
 				}
@@ -3747,31 +3135,31 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						44
+						35
 					]
 				},
 				{
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						27,
-						11
+						18,
+						2
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						64
+						51
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						77,
-						71,
-						83
+						60,
+						56,
+						64
 					]
 				}
 			],
@@ -3784,7 +3172,7 @@
 			]
 		},
 		{
-			"id": 194,
+			"id": 159,
 			"name": "\"Slider\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -3798,7 +3186,7 @@
 			},
 			"children": [
 				{
-					"id": 195,
+					"id": 160,
 					"name": "Slider",
 					"kind": 128,
 					"kindString": "Class",
@@ -3811,7 +3199,7 @@
 					},
 					"children": [
 						{
-							"id": 196,
+							"id": 161,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3820,14 +3208,14 @@
 							},
 							"signatures": [
 								{
-									"id": 197,
+									"id": 162,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 198,
+											"id": 163,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3835,7 +3223,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -3854,7 +3242,7 @@
 							]
 						},
 						{
-							"id": 199,
+							"id": 164,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -3863,14 +3251,14 @@
 							},
 							"signatures": [
 								{
-									"id": 200,
+									"id": 165,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 201,
+											"id": 166,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -3878,14 +3266,14 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									}
 								}
 							],
@@ -3903,8 +3291,8 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								196,
-								199
+								161,
+								164
 							]
 						}
 					],
@@ -3917,7 +3305,7 @@
 					]
 				},
 				{
-					"id": 202,
+					"id": 167,
 					"name": "SliderRange",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -3950,21 +3338,21 @@
 					}
 				},
 				{
-					"id": 214,
+					"id": 179,
 					"name": "getTargetOffset",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 215,
+							"id": 180,
 							"name": "getTargetOffset",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 216,
+									"id": 181,
 									"name": "e",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -3990,21 +3378,21 @@
 					]
 				},
 				{
-					"id": 217,
+					"id": 182,
 					"name": "getValue",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 218,
+							"id": 183,
 							"name": "getValue",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 219,
+									"id": 184,
 									"name": "e",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4015,7 +3403,7 @@
 									}
 								},
 								{
-									"id": 220,
+									"id": 185,
 									"name": "node",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4023,7 +3411,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									}
 								}
 							],
@@ -4042,21 +3430,21 @@
 					]
 				},
 				{
-					"id": 221,
+					"id": 186,
 					"name": "mousedown",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 222,
+							"id": 187,
 							"name": "mousedown",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 223,
+									"id": 188,
 									"name": "e",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4067,7 +3455,7 @@
 									}
 								},
 								{
-									"id": 224,
+									"id": 189,
 									"name": "node",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4075,7 +3463,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									}
 								}
 							],
@@ -4094,21 +3482,21 @@
 					]
 				},
 				{
-					"id": 225,
+					"id": 190,
 					"name": "mousemove",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 226,
+							"id": 191,
 							"name": "mousemove",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 227,
+									"id": 192,
 									"name": "e",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4119,7 +3507,7 @@
 									}
 								},
 								{
-									"id": 228,
+									"id": 193,
 									"name": "node",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4127,7 +3515,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									}
 								}
 							],
@@ -4146,21 +3534,21 @@
 					]
 				},
 				{
-					"id": 233,
+					"id": 198,
 					"name": "mouseout",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 234,
+							"id": 199,
 							"name": "mouseout",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 235,
+									"id": 200,
 									"name": "e",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4171,7 +3559,7 @@
 									}
 								},
 								{
-									"id": 236,
+									"id": 201,
 									"name": "node",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4179,7 +3567,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									}
 								}
 							],
@@ -4198,21 +3586,21 @@
 					]
 				},
 				{
-					"id": 229,
+					"id": 194,
 					"name": "mouseup",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 230,
+							"id": 195,
 							"name": "mouseup",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 231,
+									"id": 196,
 									"name": "e",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4223,7 +3611,7 @@
 									}
 								},
 								{
-									"id": 232,
+									"id": 197,
 									"name": "node",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4231,7 +3619,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									}
 								}
 							],
@@ -4250,21 +3638,21 @@
 					]
 				},
 				{
-					"id": 237,
+					"id": 202,
 					"name": "notify",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 238,
+							"id": 203,
 							"name": "notify",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 239,
+									"id": 204,
 									"name": "node",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4272,7 +3660,7 @@
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									}
 								}
 							],
@@ -4291,21 +3679,21 @@
 					]
 				},
 				{
-					"id": 211,
+					"id": 176,
 					"name": "renderLabel",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 212,
+							"id": 177,
 							"name": "renderLabel",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 213,
+									"id": 178,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4328,7 +3716,7 @@
 							"type": {
 								"type": "reference",
 								"name": "Vnode",
-								"id": 138
+								"id": 111
 							}
 						}
 					],
@@ -4341,21 +3729,21 @@
 					]
 				},
 				{
-					"id": 206,
+					"id": 171,
 					"name": "renderMarker",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 207,
+							"id": 172,
 							"name": "renderMarker",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 208,
+									"id": 173,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4375,7 +3763,7 @@
 									}
 								},
 								{
-									"id": 209,
+									"id": 174,
 									"name": "i",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4386,7 +3774,7 @@
 									}
 								},
 								{
-									"id": 210,
+									"id": 175,
 									"name": "markers",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4394,14 +3782,14 @@
 									"type": {
 										"type": "reference",
 										"name": "SliderRange",
-										"id": 202
+										"id": 167
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
 								"name": "Vnode",
-								"id": 138
+								"id": 111
 							}
 						}
 					],
@@ -4414,21 +3802,21 @@
 					]
 				},
 				{
-					"id": 203,
+					"id": 168,
 					"name": "renderSlider",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 204,
+							"id": 169,
 							"name": "renderSlider",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 205,
+									"id": 170,
 									"name": "node",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -4436,14 +3824,14 @@
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									}
 								}
 							],
 							"type": {
 								"type": "reference",
 								"name": "Vnode",
-								"id": 138
+								"id": 111
 							}
 						}
 					],
@@ -4461,30 +3849,30 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						195
+						160
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						202
+						167
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						214,
-						217,
-						221,
-						225,
-						233,
-						229,
-						237,
-						211,
-						206,
-						203
+						179,
+						182,
+						186,
+						190,
+						198,
+						194,
+						202,
+						176,
+						171,
+						168
 					]
 				}
 			],
@@ -4497,7 +3885,7 @@
 			]
 		},
 		{
-			"id": 86,
+			"id": 67,
 			"name": "\"ToggleButton\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -4511,7 +3899,7 @@
 			},
 			"children": [
 				{
-					"id": 87,
+					"id": 68,
 					"name": "ToggleButton",
 					"kind": 128,
 					"kindString": "Class",
@@ -4524,7 +3912,7 @@
 					},
 					"children": [
 						{
-							"id": 88,
+							"id": 69,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4533,14 +3921,14 @@
 							},
 							"signatures": [
 								{
-									"id": 89,
+									"id": 70,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 90,
+											"id": 71,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4548,7 +3936,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -4559,7 +3947,7 @@
 									"overwrites": {
 										"type": "reference",
 										"name": "Selector.oninit",
-										"id": 45
+										"id": 36
 									}
 								}
 							],
@@ -4573,11 +3961,11 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "Selector.oninit",
-								"id": 45
+								"id": 36
 							}
 						},
 						{
-							"id": 91,
+							"id": 72,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4586,14 +3974,14 @@
 							},
 							"signatures": [
 								{
-									"id": 92,
+									"id": 73,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 93,
+											"id": 74,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4601,19 +3989,19 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
 									"type": {
 										"type": "reference",
 										"name": "Vnode",
-										"id": 138
+										"id": 111
 									},
 									"overwrites": {
 										"type": "reference",
 										"name": "Selector.view",
-										"id": 61
+										"id": 48
 									}
 								}
 							],
@@ -4627,11 +4015,11 @@
 							"overwrites": {
 								"type": "reference",
 								"name": "Selector.view",
-								"id": 61
+								"id": 48
 							}
 						},
 						{
-							"id": 94,
+							"id": 75,
 							"name": "init",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4641,14 +4029,14 @@
 							},
 							"signatures": [
 								{
-									"id": 95,
+									"id": 76,
 									"name": "init",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 96,
+											"id": 77,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4656,11 +4044,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										},
 										{
-											"id": 97,
+											"id": 78,
 											"name": "updateSelected",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4668,7 +4056,7 @@
 											"type": {
 												"type": "reference",
 												"name": "selectFn",
-												"id": 64
+												"id": 51
 											},
 											"defaultValue": " oneOfItems"
 										}
@@ -4676,98 +4064,30 @@
 									"type": {
 										"type": "reference",
 										"name": "SelectorDesc",
-										"id": 11
+										"id": 2
 									},
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "Selector.init",
-										"id": 48
+										"id": 39
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 106,
+									"line": 115,
 									"character": 15
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "Selector.init",
-								"id": 48
+								"id": 39
 							}
 						},
 						{
-							"id": 98,
-							"name": "internalStateUpdate",
-							"kind": 2048,
-							"kindString": "Method",
-							"flags": {
-								"isStatic": true,
-								"isExported": true
-							},
-							"signatures": [
-								{
-									"id": 99,
-									"name": "internalStateUpdate",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {},
-									"comment": {
-										"shortText": "ensures that `selectedItem` is defined and is a string"
-									},
-									"parameters": [
-										{
-											"id": 100,
-											"name": "node",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "reference",
-												"name": "Vnode",
-												"id": 138
-											}
-										},
-										{
-											"id": 101,
-											"name": "item",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "intrinsic",
-												"name": "string"
-											}
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "void"
-									},
-									"inheritedFrom": {
-										"type": "reference",
-										"name": "Selector.internalStateUpdate",
-										"id": 52
-									}
-								}
-							],
-							"sources": [
-								{
-									"fileName": "Selector.ts",
-									"line": 126,
-									"character": 30
-								}
-							],
-							"inheritedFrom": {
-								"type": "reference",
-								"name": "Selector.internalStateUpdate",
-								"id": 52
-							}
-						},
-						{
-							"id": 102,
+							"id": 79,
 							"name": "renderItem",
 							"kind": 2048,
 							"kindString": "Method",
@@ -4777,7 +4097,7 @@
 							},
 							"signatures": [
 								{
-									"id": 103,
+									"id": 80,
 									"name": "renderItem",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -4787,7 +4107,7 @@
 									},
 									"parameters": [
 										{
-											"id": 104,
+											"id": 81,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4798,11 +4118,11 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										},
 										{
-											"id": 105,
+											"id": 82,
 											"name": "desc",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4813,11 +4133,11 @@
 											"type": {
 												"type": "reference",
 												"name": "SelectorDesc",
-												"id": 11
+												"id": 2
 											}
 										},
 										{
-											"id": 106,
+											"id": 83,
 											"name": "i",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4838,21 +4158,21 @@
 									"inheritedFrom": {
 										"type": "reference",
 										"name": "Selector.renderItem",
-										"id": 56
+										"id": 43
 									}
 								}
 							],
 							"sources": [
 								{
 									"fileName": "Selector.ts",
-									"line": 138,
+									"line": 129,
 									"character": 21
 								}
 							],
 							"inheritedFrom": {
 								"type": "reference",
 								"name": "Selector.renderItem",
-								"id": 56
+								"id": 43
 							}
 						}
 					],
@@ -4861,11 +4181,10 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								88,
-								91,
-								94,
-								98,
-								102
+								69,
+								72,
+								75,
+								79
 							]
 						}
 					],
@@ -4880,14 +4199,14 @@
 						{
 							"type": "reference",
 							"name": "Selector",
-							"id": 44
+							"id": 35
 						}
 					],
 					"extendedBy": [
 						{
 							"type": "reference",
 							"name": "Button",
-							"id": 108
+							"id": 85
 						}
 					]
 				}
@@ -4897,7 +4216,7 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						87
+						68
 					]
 				}
 			],
@@ -4910,7 +4229,7 @@
 			]
 		},
 		{
-			"id": 265,
+			"id": 226,
 			"name": "\"ToolbarButton\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -4924,7 +4243,7 @@
 			},
 			"children": [
 				{
-					"id": 266,
+					"id": 227,
 					"name": "ToolbarButton",
 					"kind": 128,
 					"kindString": "Class",
@@ -4933,7 +4252,7 @@
 					},
 					"children": [
 						{
-							"id": 267,
+							"id": 228,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
@@ -4942,14 +4261,14 @@
 							},
 							"signatures": [
 								{
-									"id": 269,
+									"id": 230,
 									"name": "new ToolbarButton",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 270,
+											"id": 231,
 											"name": "symbols",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -4964,7 +4283,7 @@
 									"type": {
 										"type": "reference",
 										"name": "ToolbarButton",
-										"id": 266
+										"id": 227
 									}
 								}
 							],
@@ -4977,7 +4296,7 @@
 							]
 						},
 						{
-							"id": 268,
+							"id": 229,
 							"name": "symbols",
 							"kind": 1024,
 							"kindString": "Property",
@@ -4999,7 +4318,7 @@
 							}
 						},
 						{
-							"id": 274,
+							"id": 235,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5008,14 +4327,14 @@
 							},
 							"signatures": [
 								{
-									"id": 275,
+									"id": 236,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 276,
+											"id": 237,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5023,7 +4342,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -5042,7 +4361,7 @@
 							]
 						},
 						{
-							"id": 271,
+							"id": 232,
 							"name": "getSymbol",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5052,14 +4371,14 @@
 							},
 							"signatures": [
 								{
-									"id": 272,
+									"id": 233,
 									"name": "getSymbol",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 273,
+											"id": 234,
 											"name": "name",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5090,22 +4409,22 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								267
+								228
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								268
+								229
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								274,
-								271
+								235,
+								232
 							]
 						}
 					],
@@ -5118,7 +4437,7 @@
 					]
 				},
 				{
-					"id": 277,
+					"id": 238,
 					"name": "ButtonSymbols",
 					"kind": 2097152,
 					"kindString": "Object literal",
@@ -5128,7 +4447,7 @@
 					},
 					"children": [
 						{
-							"id": 332,
+							"id": 293,
 							"name": "again",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5137,7 +4456,7 @@
 							},
 							"children": [
 								{
-									"id": 333,
+									"id": 294,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5163,7 +4482,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										333
+										294
 									]
 								}
 							],
@@ -5180,7 +4499,7 @@
 							}
 						},
 						{
-							"id": 328,
+							"id": 289,
 							"name": "bullet",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5189,7 +4508,7 @@
 							},
 							"children": [
 								{
-									"id": 329,
+									"id": 290,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5215,7 +4534,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										329
+										290
 									]
 								}
 							],
@@ -5232,7 +4551,7 @@
 							}
 						},
 						{
-							"id": 278,
+							"id": 239,
 							"name": "cross",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5241,7 +4560,7 @@
 							},
 							"children": [
 								{
-									"id": 279,
+									"id": 240,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5267,7 +4586,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										279
+										240
 									]
 								}
 							],
@@ -5284,7 +4603,7 @@
 							}
 						},
 						{
-							"id": 310,
+							"id": 271,
 							"name": "dArrow",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5293,7 +4612,7 @@
 							},
 							"children": [
 								{
-									"id": 311,
+									"id": 272,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5319,7 +4638,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										311
+										272
 									]
 								}
 							],
@@ -5336,7 +4655,7 @@
 							}
 						},
 						{
-							"id": 284,
+							"id": 245,
 							"name": "dLeft",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5345,7 +4664,7 @@
 							},
 							"children": [
 								{
-									"id": 285,
+									"id": 246,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5371,7 +4690,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										285
+										246
 									]
 								}
 							],
@@ -5388,7 +4707,7 @@
 							}
 						},
 						{
-							"id": 286,
+							"id": 247,
 							"name": "dRight",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5397,7 +4716,7 @@
 							},
 							"children": [
 								{
-									"id": 287,
+									"id": 248,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5423,7 +4742,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										287
+										248
 									]
 								}
 							],
@@ -5440,7 +4759,7 @@
 							}
 						},
 						{
-							"id": 302,
+							"id": 263,
 							"name": "down",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5449,7 +4768,7 @@
 							},
 							"children": [
 								{
-									"id": 303,
+									"id": 264,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5475,7 +4794,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										303
+										264
 									]
 								}
 							],
@@ -5492,7 +4811,7 @@
 							}
 						},
 						{
-							"id": 298,
+							"id": 259,
 							"name": "downTri",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5501,7 +4820,7 @@
 							},
 							"children": [
 								{
-									"id": 299,
+									"id": 260,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5527,7 +4846,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										299
+										260
 									]
 								}
 							],
@@ -5544,7 +4863,7 @@
 							}
 						},
 						{
-							"id": 324,
+							"id": 285,
 							"name": "ellipsis",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5553,7 +4872,7 @@
 							},
 							"children": [
 								{
-									"id": 325,
+									"id": 286,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5579,7 +4898,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										325
+										286
 									]
 								}
 							],
@@ -5596,7 +4915,7 @@
 							}
 						},
 						{
-							"id": 312,
+							"id": 273,
 							"name": "empty",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5605,7 +4924,7 @@
 							},
 							"children": [
 								{
-									"id": 313,
+									"id": 274,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5631,7 +4950,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										313
+										274
 									]
 								}
 							],
@@ -5648,7 +4967,7 @@
 							}
 						},
 						{
-							"id": 314,
+							"id": 275,
 							"name": "emptySlash",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5657,7 +4976,7 @@
 							},
 							"children": [
 								{
-									"id": 315,
+									"id": 276,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5683,7 +5002,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										315
+										276
 									]
 								}
 							],
@@ -5700,7 +5019,7 @@
 							}
 						},
 						{
-							"id": 336,
+							"id": 297,
 							"name": "end",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5709,7 +5028,7 @@
 							},
 							"children": [
 								{
-									"id": 337,
+									"id": 298,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5735,7 +5054,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										337
+										298
 									]
 								}
 							],
@@ -5752,7 +5071,7 @@
 							}
 						},
 						{
-							"id": 330,
+							"id": 291,
 							"name": "enter",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5761,7 +5080,7 @@
 							},
 							"children": [
 								{
-									"id": 331,
+									"id": 292,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5787,7 +5106,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										331
+										292
 									]
 								}
 							],
@@ -5804,7 +5123,7 @@
 							}
 						},
 						{
-							"id": 304,
+							"id": 265,
 							"name": "lArrow",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5813,7 +5132,7 @@
 							},
 							"children": [
 								{
-									"id": 305,
+									"id": 266,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5839,7 +5158,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										305
+										266
 									]
 								}
 							],
@@ -5856,7 +5175,7 @@
 							}
 						},
 						{
-							"id": 288,
+							"id": 249,
 							"name": "left",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5865,7 +5184,7 @@
 							},
 							"children": [
 								{
-									"id": 289,
+									"id": 250,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5891,7 +5210,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										289
+										250
 									]
 								}
 							],
@@ -5908,7 +5227,7 @@
 							}
 						},
 						{
-							"id": 292,
+							"id": 253,
 							"name": "leftTri",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5917,7 +5236,7 @@
 							},
 							"children": [
 								{
-									"id": 293,
+									"id": 254,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5943,7 +5262,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										293
+										254
 									]
 								}
 							],
@@ -5960,7 +5279,7 @@
 							}
 						},
 						{
-							"id": 320,
+							"id": 281,
 							"name": "lines3",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -5969,7 +5288,7 @@
 							},
 							"children": [
 								{
-									"id": 321,
+									"id": 282,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -5995,7 +5314,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										321
+										282
 									]
 								}
 							],
@@ -6012,7 +5331,7 @@
 							}
 						},
 						{
-							"id": 280,
+							"id": 241,
 							"name": "minus",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6021,7 +5340,7 @@
 							},
 							"children": [
 								{
-									"id": 281,
+									"id": 242,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6047,7 +5366,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										281
+										242
 									]
 								}
 							],
@@ -6064,7 +5383,7 @@
 							}
 						},
 						{
-							"id": 318,
+							"id": 279,
 							"name": "o",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6073,7 +5392,7 @@
 							},
 							"children": [
 								{
-									"id": 319,
+									"id": 280,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6099,7 +5418,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										319
+										280
 									]
 								}
 							],
@@ -6116,7 +5435,7 @@
 							}
 						},
 						{
-							"id": 316,
+							"id": 277,
 							"name": "oSlash",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6125,7 +5444,7 @@
 							},
 							"children": [
 								{
-									"id": 317,
+									"id": 278,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6151,7 +5470,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										317
+										278
 									]
 								}
 							],
@@ -6168,7 +5487,7 @@
 							}
 						},
 						{
-							"id": 282,
+							"id": 243,
 							"name": "plus",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6177,7 +5496,7 @@
 							},
 							"children": [
 								{
-									"id": 283,
+									"id": 244,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6203,7 +5522,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										283
+										244
 									]
 								}
 							],
@@ -6220,7 +5539,7 @@
 							}
 						},
 						{
-							"id": 306,
+							"id": 267,
 							"name": "rArrow",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6229,7 +5548,7 @@
 							},
 							"children": [
 								{
-									"id": 307,
+									"id": 268,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6255,7 +5574,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										307
+										268
 									]
 								}
 							],
@@ -6272,7 +5591,7 @@
 							}
 						},
 						{
-							"id": 290,
+							"id": 251,
 							"name": "right",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6281,7 +5600,7 @@
 							},
 							"children": [
 								{
-									"id": 291,
+									"id": 252,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6307,7 +5626,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										291
+										252
 									]
 								}
 							],
@@ -6324,7 +5643,7 @@
 							}
 						},
 						{
-							"id": 294,
+							"id": 255,
 							"name": "rightTri",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6333,7 +5652,7 @@
 							},
 							"children": [
 								{
-									"id": 295,
+									"id": 256,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6359,7 +5678,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										295
+										256
 									]
 								}
 							],
@@ -6376,7 +5695,7 @@
 							}
 						},
 						{
-							"id": 334,
+							"id": 295,
 							"name": "start",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6385,7 +5704,7 @@
 							},
 							"children": [
 								{
-									"id": 335,
+									"id": 296,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6411,7 +5730,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										335
+										296
 									]
 								}
 							],
@@ -6428,7 +5747,7 @@
 							}
 						},
 						{
-							"id": 322,
+							"id": 283,
 							"name": "sum",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6437,7 +5756,7 @@
 							},
 							"children": [
 								{
-									"id": 323,
+									"id": 284,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6463,7 +5782,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										323
+										284
 									]
 								}
 							],
@@ -6480,7 +5799,7 @@
 							}
 						},
 						{
-							"id": 308,
+							"id": 269,
 							"name": "uArrow",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6489,7 +5808,7 @@
 							},
 							"children": [
 								{
-									"id": 309,
+									"id": 270,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6515,7 +5834,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										309
+										270
 									]
 								}
 							],
@@ -6532,7 +5851,7 @@
 							}
 						},
 						{
-							"id": 300,
+							"id": 261,
 							"name": "up",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6541,7 +5860,7 @@
 							},
 							"children": [
 								{
-									"id": 301,
+									"id": 262,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6567,7 +5886,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										301
+										262
 									]
 								}
 							],
@@ -6584,7 +5903,7 @@
 							}
 						},
 						{
-							"id": 296,
+							"id": 257,
 							"name": "upTri",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6593,7 +5912,7 @@
 							},
 							"children": [
 								{
-									"id": 297,
+									"id": 258,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6619,7 +5938,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										297
+										258
 									]
 								}
 							],
@@ -6636,7 +5955,7 @@
 							}
 						},
 						{
-							"id": 326,
+							"id": 287,
 							"name": "vertEllips",
 							"kind": 2097152,
 							"kindString": "Object literal",
@@ -6645,7 +5964,7 @@
 							},
 							"children": [
 								{
-									"id": 327,
+									"id": 288,
 									"name": "sym",
 									"kind": 32,
 									"kindString": "Variable",
@@ -6671,7 +5990,7 @@
 									"title": "Variables",
 									"kind": 32,
 									"children": [
-										327
+										288
 									]
 								}
 							],
@@ -6693,36 +6012,36 @@
 							"title": "Object literals",
 							"kind": 2097152,
 							"children": [
-								332,
-								328,
-								278,
-								310,
-								284,
-								286,
-								302,
-								298,
-								324,
-								312,
-								314,
-								336,
-								330,
-								304,
-								288,
-								292,
-								320,
-								280,
-								318,
-								316,
-								282,
-								306,
-								290,
-								294,
-								334,
-								322,
-								308,
-								300,
-								296,
-								326
+								293,
+								289,
+								239,
+								271,
+								245,
+								247,
+								263,
+								259,
+								285,
+								273,
+								275,
+								297,
+								291,
+								265,
+								249,
+								253,
+								281,
+								241,
+								279,
+								277,
+								243,
+								267,
+								251,
+								255,
+								295,
+								283,
+								269,
+								261,
+								257,
+								287
 							]
 						}
 					],
@@ -6744,14 +6063,14 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						266
+						227
 					]
 				},
 				{
 					"title": "Object literals",
 					"kind": 2097152,
 					"children": [
-						277
+						238
 					]
 				}
 			],
@@ -6764,7 +6083,7 @@
 			]
 		},
 		{
-			"id": 346,
+			"id": 307,
 			"name": "\"TypeAhead\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -6778,28 +6097,28 @@
 			},
 			"children": [
 				{
-					"id": 347,
+					"id": 308,
 					"name": "GetList",
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {},
 					"children": [
 						{
-							"id": 356,
+							"id": 317,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 357,
+									"id": 318,
 									"name": "new GetList",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 358,
+											"id": 319,
 											"name": "list",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6822,7 +6141,7 @@
 											}
 										},
 										{
-											"id": 359,
+											"id": 320,
 											"name": "map",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6832,21 +6151,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 360,
+													"id": 321,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 361,
+															"id": 322,
 															"name": "__call",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 362,
+																	"id": 323,
 																	"name": "item",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -6883,7 +6202,7 @@
 									"type": {
 										"type": "reference",
 										"name": "GetList",
-										"id": 347
+										"id": 308
 									}
 								}
 							],
@@ -6896,7 +6215,7 @@
 							]
 						},
 						{
-							"id": 348,
+							"id": 309,
 							"name": "list",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6920,7 +6239,7 @@
 							"defaultValue": " []"
 						},
 						{
-							"id": 349,
+							"id": 310,
 							"name": "captureList",
 							"kind": 2048,
 							"kindString": "Method",
@@ -6929,14 +6248,14 @@
 							},
 							"signatures": [
 								{
-									"id": 350,
+									"id": 311,
 									"name": "captureList",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 351,
+											"id": 312,
 											"name": "list",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6950,7 +6269,7 @@
 											}
 										},
 										{
-											"id": 352,
+											"id": 313,
 											"name": "map",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6958,21 +6277,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 353,
+													"id": 314,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 354,
+															"id": 315,
 															"name": "__call",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 355,
+																	"id": 316,
 																	"name": "l",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -7026,21 +6345,21 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								356
+								317
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								348
+								309
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								349
+								310
 							]
 						}
 					],
@@ -7053,7 +6372,7 @@
 					]
 				},
 				{
-					"id": 363,
+					"id": 324,
 					"name": "TypeAhead",
 					"kind": 128,
 					"kindString": "Class",
@@ -7062,7 +6381,7 @@
 					},
 					"children": [
 						{
-							"id": 365,
+							"id": 326,
 							"name": "hidePopdown",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7083,7 +6402,7 @@
 							"defaultValue": "true"
 						},
 						{
-							"id": 367,
+							"id": 328,
 							"name": "inputNode",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7103,7 +6422,7 @@
 							}
 						},
 						{
-							"id": 364,
+							"id": 325,
 							"name": "typeAheadList",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7127,7 +6446,7 @@
 							"defaultValue": " []"
 						},
 						{
-							"id": 366,
+							"id": 327,
 							"name": "value",
 							"kind": 1024,
 							"kindString": "Property",
@@ -7148,7 +6467,7 @@
 							"defaultValue": "\"\""
 						},
 						{
-							"id": 368,
+							"id": 329,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -7157,14 +6476,14 @@
 							},
 							"signatures": [
 								{
-									"id": 369,
+									"id": 330,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 370,
+											"id": 331,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7172,7 +6491,7 @@
 											"type": {
 												"type": "reference",
 												"name": "Vnode",
-												"id": 138
+												"id": 111
 											}
 										}
 									],
@@ -7196,17 +6515,17 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								365,
-								367,
-								364,
-								366
+								326,
+								328,
+								325,
+								327
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								368
+								329
 							]
 						}
 					],
@@ -7219,21 +6538,21 @@
 					]
 				},
 				{
-					"id": 371,
+					"id": 332,
 					"name": "emphasize",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 372,
+							"id": 333,
 							"name": "emphasize",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 373,
+									"id": 334,
 									"name": "item",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7244,7 +6563,7 @@
 									}
 								},
 								{
-									"id": 374,
+									"id": 335,
 									"name": "match",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7275,15 +6594,15 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						347,
-						363
+						308,
+						324
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						371
+						332
 					]
 				}
 			],
@@ -7296,7 +6615,7 @@
 			]
 		},
 		{
-			"id": 375,
+			"id": 336,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -7321,7 +6640,7 @@
 			]
 		},
 		{
-			"id": 136,
+			"id": 109,
 			"name": "\"mithril\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -7334,7 +6653,7 @@
 			},
 			"children": [
 				{
-					"id": 138,
+					"id": 111,
 					"name": "Vnode",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -7357,7 +6676,7 @@
 					}
 				},
 				{
-					"id": 137,
+					"id": 110,
 					"name": "m",
 					"kind": 32,
 					"kindString": "Variable",
@@ -7387,14 +6706,14 @@
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						138
+						111
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						137
+						110
 					]
 				}
 			],
@@ -7407,7 +6726,7 @@
 			]
 		},
 		{
-			"id": 376,
+			"id": 337,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -7417,7 +6736,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/overview.ts",
 			"comment": {
 				"shortText": "# hsWidgets\nHelpful Scripts UI widgets.\n[`[Github page]`](https://github.com/HelpfulScripts/hsWidget)\n[`[Coverage Info]`](./data/src/hsWidget/coverage/)\n___",
-				"text": "*hsWidget** Provides various UI widgets for use with mithril:\n\n\n| Widget | Description |\n|========|=============|\n| &nbsp; {@link Menu.Menu Menu} | A group of horizontal menu items that can trigger actions |\n| &nbsp; {@link Button.Button Button} | A simple button widget |\n| &nbsp; {@link ToggleButton.ToggleButton ToggleButton} | A button widget that toggleds through a number of items |\n| &nbsp; {@link RadioButton.RadioButton RadioButton} | A radio button group widget: one selected at a time |\n| &nbsp; {@link OptionsButton.OptionsButton OptionsButton} | An options button group widget: independently selected |\n| &nbsp; {@link Collapsible Collapsible} | A panel that will expand znd collapse when the title is clicked |\n| &nbsp; {@link Modal Modal} | A modal panel that will cover the entire window until released. |\n| &nbsp; {@link AddRemove AddButton} | An inline `+` button that will open a form for adding new elements. |\n| &nbsp; {@link AddRemove RemoveButton} | An inline `-` button that will remove an item. |\n| &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |\n| &nbsp; {@link Slider Slider} | A simple nominal or continuous slider. |\n\n<example height=2700px>\n<file name='script.js'>\nconst render = () => m.mount(root, {view: () =>\n   m('.hs-white', m(hslayout.Layout, {\n     rows:['100px', '340px', '210px', '250px', '340px', '320px', '340px'], content: [m('',''),\n\n   // Buttons:\n   m('',[\n     m('h2', 'Buttons'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button'), `: Please click: (${clicked}-times clicked)`]),\n     m(hswidget.Button, { desc: { name: 'click me', clicked: () => clicked++ }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.RadioButton.RadioButton'}, 'RadioButton'), `: Select Station: ${radio}`]),\n     m(hswidget.RadioButton, { desc: {\n       items: ['1st', '2nd','3rd'], changed: (item) => radio = item\n     }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.OptionsButton.OptionsButton'}, 'OptionsButton'), `: Select Option: ${option}`]),\n     m(hswidget.OptionsButton, { desc: {\n       items: ['1st', '2nd','3rd'], changed: (item) => option = item\n     }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToggleButton.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),\n     m(hswidget.ToggleButton, { desc: {\n       items: ['1st', '2nd','3rd'], changed: (item) => toggle = item\n     }}),\n   ]),\n\n   // Menus:\n   m('',[\n     m('h2', 'Menus'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.Menu'}, 'Menu'), `: Please select:`]),\n     m(hswidget.Menu, { css: '.myMenu', desc: {\n      items: menuItems,  defaultItem: 'Two',\n      changed: (item) => theContent = content[menuItems.indexOf(item)]\n     }}),\n     m('myMenuMain', theContent),\n   ]),\n\n   // Modal Dialog Box:\n   m('',[\n     m('h2.myGapModal', 'Modal Dialog Box'),\n     m('h4', {onclick:() => trigger() },\n         [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box (previous dismissals: ${dismissals})`]),\n     m(hswidget.Modal, {\n         width:  '300px',\n         height: '200px',\n         setTrigger: (t) => trigger = t,\n         dismiss: () => dismissals++,\n         content: m('', 'click on border or on the x to release')\n     })\n   ]),\n\n   // Collapsibles:\n   m('',[\n     m('h2', 'Collapsibles'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Collapsible.Collapsible'}, 'Collapsible'), ': ']),\n     m(hswidget.Collapsible, { css:'.myCollapsible', components: [\n         m('.myTitle', 'click me to toggle - no arrows'), content\n     ]}),\n     m(hswidget.Collapsible, { css:'.myCollapsible', preArrow:true, components: [\n         m('.myTitle', 'click me to toggle - left arrow'), content\n     ]}),\n     m(hswidget.Collapsible, { css:'.myCollapsible', postArrow:true, components: [\n         m('.myTitle', 'click me to toggle - right arrow'), content\n     ]}),\n     m(hswidget.Collapsible, { css:'.myCollapsible', preArrow:true, postArrow:true, components: [\n         m('.myTitle', 'click me to toggle - both arrows'), content\n     ]}),\n     m('', 'Background text, will be pushed down by the Collapsible')\n   ]),\n\n   // Typeahead Search:\n   m('',[\n     m('h2.myGapTypeAhead', 'Typeahead Search'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: In-Memory List: ${hero.length? 'Selected1: ' + hero : 'Search for a Superhero'}`]),\n     m(hswidget.TypeAhead, {\n         placeholder: 'favorite hero',\n         onsubmit: item => hero = item,\n         list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n     }),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: Remote List: ${friend.length? 'Selected2: '+ friend : 'Search for a Friend'}`]),\n     m(hswidget.TypeAhead, {\n         placeholder: 'best friend',\n         onsubmit: item => friend = item,\n         autofocus: true,\n         list: 'example/search.json'\n     })\n   ]),\n\n   // Corner Buttons:\n   m('',[\n     m('h2.myGapCornerButtons', 'Corner Buttons'),\n     //m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ButtonSymbols'}, 'ButtonSymbols'), ', ',\n     //         m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ToolbarButton'}, 'ToolbarButton'), ': ',\n     //         lastCornerButton]),\n     m('', Object.keys(hswidget.ButtonSymbols).map(\n         b => m('.myCornerPositioned', [\n             btnClicked[b]? m('.myCornerClicked', 'Yayy!!') : m('', b),\n             m(hswidget.ToolbarButton, {\n                 symbols:hswidget.ToolbarButton.getSymbol(b), onclick:click(b)\n             })\n         ])\n     ))\n   ]),\n\n\n\n\n   // Slider:\n   m('',[\n     m('h2.mySliders', 'Sliders'),\n     m('h4', `Nominal Slider: ${nom}`),\n     m(hswidget.Slider, {\n         range: ['one', 'two', 'three'],\n         onchange: v => nom=v\n     }),\n     m('h4', `Continuous Slider: ${con}`),\n     m(hswidget.Slider, {\n         range: [0, 100],\n         onchange: v => con=Math.floor(v*10)/10\n     })\n   ])\n]}))});\n\n\n//--------------------------------------\n// supporting variables:\nconst menuItems = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\nlet  theContent = content[1];\nlet clicked = 0;\nlet radio = '';\nlet option = '';\nlet toggle = '';\nconst btnClicked = {};\nlet lastCornerButton = '';\nlet dismissals = 0;\nlet trigger;\nlet hero = '';\nlet friend = '';\nlet nom, con;\n\nconst click = (button) => () => {\n   lastCornerButton = '';\n   if (hswidget.ButtonSymbols[button]) {\n      lastCornerButton = m.trust(`last button pressed: ${hswidget.ButtonSymbols[button].sym}`);\n      btnClicked[button] = true;\n      setTimeout(reset(button), 800);\n   }\n};\n\nconst reset = (button) => () => {\n   btnClicked[button] = false;\n   m.redraw();\n}\n\nrender();\n</file>\n\n<file name='style.css'>\n.myMenuMain {\n   border:1px solid #ddd;\n   border-top: 0px solid #ddd;\n}\n.myMenu .hs-selectable {\n    background-color: #eef;\n}\n.myMenu .hs-selected {\n    background-color: #ddf;\n    border-width:0px;\n}\n.myCollapsible {\n    margin-bottom: 5px;\n}\n.myCollapsible .hs-collapsible-title {\n    font-weight:bold;\n    padding-left: 3px;\n    background-color: #eee;\n}\n.myCollapsible .hs-collapsible-expanded {\n    margin-left: 10px;\n}\n.myCornerClicked { background-color: #efe; }\n.myCornerPositioned {\n     position: relative;\n     display: inline-block;\n     box-sizing: border-box;\n     background-color: #eee;\n     text-align: center;\n     font-size: 70%;\n     margin:  2px;\n     padding-top: 20px;\n     height: 50px;\n     width:  50px;\n}\n.hs-corner-button { color: #008; }\n\n</file>\n</example>\n"
+				"text": "*hsWidget** Provides various UI widgets for use with mithril:\n\n\n| Widget | Description |\n|========|=============|\n| &nbsp; {@link Menu.Menu Menu} | A group of horizontal menu items that can trigger actions |\n| &nbsp; {@link Button.Button Button} | A simple button widget |\n| &nbsp; {@link ToggleButton.ToggleButton ToggleButton} | A button widget that toggleds through a number of items |\n| &nbsp; {@link RadioButton.RadioButton RadioButton} | A radio button group widget: one selected at a time |\n| &nbsp; {@link OptionsButton.OptionsButton OptionsButton} | An options button group widget: independently selected |\n| &nbsp; {@link Collapsible Collapsible} | A panel that will expand znd collapse when the title is clicked |\n| &nbsp; {@link Modal Modal} | A modal panel that will cover the entire window until released. |\n| &nbsp; {@link AddRemove AddButton} | An inline `+` button that will open a form for adding new elements. |\n| &nbsp; {@link AddRemove RemoveButton} | An inline `-` button that will remove an item. |\n| &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |\n| &nbsp; {@link Slider Slider} | A simple nominal or continuous slider. |\n\n<example height=2700px>\n<file name='script.js'>\nconst render = () => m.mount(root, {view: () =>\n   m('.hs-white', m(hslayout.Layout, {\n     rows:['100px', '360px', '210px', '250px', '340px', '320px', '340px'], content: [m('',''),\n\n   // Buttons:\n   m('',[\n     m('h2', 'Buttons'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button'), `: Please click: (${clicked}-times clicked)`]),\n     m(hswidget.Button, { desc: { name: 'click me', clicked: () => clicked++ }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.RadioButton.RadioButton'}, 'RadioButton'), `: Select Station: ${radio}`]),\n     m(hswidget.RadioButton, { desc: {\n       items: ['1st', '2nd','3rd'], changed: (item) => radio = item\n     }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.OptionsButton.OptionsButton'}, 'OptionsButton'), `: Select Option: ${option}`]),\n     m(hswidget.OptionsButton, { desc: {\n       items: ['1st', '2nd','3rd'], changed: (item) => option = item\n     }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToggleButton.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),\n     m(hswidget.ToggleButton, { desc: {\n       items: ['1st', '2nd','3rd'], changed: (item) => toggle = item\n     }}),\n   ]),\n\n   // Menus:\n   m('',[\n     m('h2', 'Menus'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.Menu'}, 'Menu'), `: Please select:`]),\n     m(hswidget.Menu, { css: '.myMenu', desc: {\n      items: menuItems,  defaultItem: 'Two',\n      changed: (item) => theContent = content[menuItems.indexOf(item)]\n     }}),\n     m('myMenuMain', theContent),\n   ]),\n\n   // Modal Dialog Box:\n   m('',[\n     m('h2.myGapModal', 'Modal Dialog Box'),\n     m('h4', {onclick:() => trigger() },\n         [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box (previous dismissals: ${dismissals})`]),\n     m(hswidget.Modal, {\n         width:  '300px',\n         height: '200px',\n         setTrigger: (t) => trigger = t,\n         dismiss: () => dismissals++,\n         content: m('', 'click on border or on the x to release')\n     })\n   ]),\n\n   // Collapsibles:\n   m('',[\n     m('h2', 'Collapsibles'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Collapsible.Collapsible'}, 'Collapsible'), ': ']),\n     m(hswidget.Collapsible, { css:'.myCollapsible', components: [\n         m('.myTitle', 'click me to toggle - no arrows'), content\n     ]}),\n     m(hswidget.Collapsible, { css:'.myCollapsible', preArrow:true, components: [\n         m('.myTitle', 'click me to toggle - left arrow'), content\n     ]}),\n     m(hswidget.Collapsible, { css:'.myCollapsible', postArrow:true, components: [\n         m('.myTitle', 'click me to toggle - right arrow'), content\n     ]}),\n     m(hswidget.Collapsible, { css:'.myCollapsible', preArrow:true, postArrow:true, components: [\n         m('.myTitle', 'click me to toggle - both arrows'), content\n     ]}),\n     m('', 'Background text, will be pushed down by the Collapsible')\n   ]),\n\n   // Typeahead Search:\n   m('',[\n     m('h2.myGapTypeAhead', 'Typeahead Search'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: In-Memory List: ${hero.length? 'Selected1: ' + hero : 'Search for a Superhero'}`]),\n     m(hswidget.TypeAhead, {\n         placeholder: 'favorite hero',\n         onsubmit: item => hero = item,\n         list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n     }),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: Remote List: ${friend.length? 'Selected2: '+ friend : 'Search for a Friend'}`]),\n     m(hswidget.TypeAhead, {\n         placeholder: 'best friend',\n         onsubmit: item => friend = item,\n         autofocus: true,\n         list: 'example/search.json'\n     })\n   ]),\n\n   // Corner Buttons:\n   m('',[\n     m('h2.myGapCornerButtons', 'Corner Buttons'),\n     //m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ButtonSymbols'}, 'ButtonSymbols'), ', ',\n     //         m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ToolbarButton'}, 'ToolbarButton'), ': ',\n     //         lastCornerButton]),\n     m('', Object.keys(hswidget.ButtonSymbols).map(\n         b => m('.myCornerPositioned', [\n             btnClicked[b]? m('.myCornerClicked', 'Yayy!!') : m('', b),\n             m(hswidget.ToolbarButton, {\n                 symbols:hswidget.ToolbarButton.getSymbol(b), onclick:click(b)\n             })\n         ])\n     ))\n   ]),\n\n\n\n\n   // Slider:\n   m('',[\n     m('h2.mySliders', 'Sliders'),\n     m('h4', `Nominal Slider: ${nom}`),\n     m(hswidget.Slider, {\n         range: ['one', 'two', 'three'],\n         onchange: v => nom=v\n     }),\n     m('h4', `Continuous Slider: ${con}`),\n     m(hswidget.Slider, {\n         range: [0, 100],\n         onchange: v => con=Math.floor(v*10)/10\n     })\n   ])\n]}))});\n\n\n//--------------------------------------\n// supporting variables:\nconst menuItems = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\nlet  theContent = content[1];\nlet clicked = 0;\nlet radio = '';\nlet option = '';\nlet toggle = '';\nlet added  = 0;\nlet removed  = 0;\nconst btnClicked = {};\nlet lastCornerButton = '';\nlet dismissals = 0;\nlet trigger;\nlet hero = '';\nlet friend = '';\nlet nom, con;\n\nconst click = (button) => () => {\n   lastCornerButton = '';\n   if (hswidget.ButtonSymbols[button]) {\n      lastCornerButton = m.trust(`last button pressed: ${hswidget.ButtonSymbols[button].sym}`);\n      btnClicked[button] = true;\n      setTimeout(reset(button), 800);\n   }\n};\n\nconst reset = (button) => () => {\n   btnClicked[button] = false;\n   m.redraw();\n}\n\nrender();\n</file>\n\n<file name='style.css'>\n.myMenuMain {\n   border:1px solid #ddd;\n   border-top: 0px solid #ddd;\n}\n.myMenu .hs-selectable {\n    background-color: #eef;\n}\n.myMenu .hs-selected {\n    background-color: #ddf;\n    border-width:0px;\n}\n.myCollapsible {\n    margin-bottom: 5px;\n}\n.myCollapsible .hs-collapsible-title {\n    font-weight:bold;\n    padding-left: 3px;\n    background-color: #eee;\n}\n.myCollapsible .hs-collapsible-expanded {\n    margin-left: 10px;\n}\n.myCornerClicked { background-color: #efe; }\n.myCornerPositioned {\n     position: relative;\n     display: inline-block;\n     box-sizing: border-box;\n     background-color: #eee;\n     text-align: center;\n     font-size: 70%;\n     margin:  2px;\n     padding-top: 20px;\n     height: 50px;\n     width:  50px;\n}\n.hs-corner-button { color: #008; }\n\n.hs-radio-buttons>.hs-column-layout>.hs-layout { border-color: transparent}\n\n</file>\n</example>\n"
 			},
 			"sources": [
 				{
@@ -7433,22 +6752,21 @@
 			"title": "External modules",
 			"kind": 1,
 			"children": [
+				84,
+				101,
+				154,
+				133,
+				299,
+				205,
+				112,
 				1,
-				107,
-				128,
-				189,
-				164,
-				338,
-				240,
-				139,
-				10,
-				194,
-				86,
-				265,
-				346,
-				375,
-				136,
-				376
+				159,
+				67,
+				226,
+				307,
+				336,
+				109,
+				337
 			]
 		}
 	]

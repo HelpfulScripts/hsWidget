@@ -6,7 +6,7 @@ const mq = require('mithril-query');
 
 let radio = '';
 const out = mq(m(hswidget.RadioButton, { desc: {
-    items: ['1st', '2nd','3rd'], changed: (item:string) => radio = item
+    items: ['1st', '2nd','3rd'], clicked: (item:string) => radio = item
 }}));
 
 describe('RadioButton', () => {

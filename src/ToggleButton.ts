@@ -22,7 +22,7 @@
  *    m('h4', `Please Toggle: (currently ${toggle})`),
  *    m(hswidget.ToggleButton, { desc: {
  *        items: ['1st', '2nd','3rd'],
- *        changed: (item) => toggle = item
+ *        clicked: (item) => toggle = item
  *    }})
  * ])});
  * </file>
@@ -33,7 +33,6 @@
 /** */
 import { m, Vnode }     from 'hslayout';
 import { Selector }     from './Selector';
-import { oneOfItems }   from './Selector';
 
 /**
  * # ToggleButton Widget
@@ -41,11 +40,11 @@ import { oneOfItems }   from './Selector';
  * shows the current state as button title
  * 
  * ### Profile
- * invoked as `m(ToggleButton, {desc: { items:[<string>], changed:<function>}});`
+ * invoked as `m(ToggleButton, {desc: { items:[<string>], clicked:<function>}});`
  * 
  * ### Attributes (node.attrs):
  * - `desc:` see {@link Selector.SelectorDesc SelectorDesc}
- *     - `changed:(item:string) => void` function to execute when button is selected
+ *     - `clicked:(item:string) => void` function to execute when button is selected
  *     - `selectedItem?: number|string` the currently selected item, by index or name
  *     - `items: string[]` names of individual states to toggle through
  *     - `itemCss?:string[]` css to apply to each item;
@@ -56,29 +55,29 @@ export class ToggleButton extends Selector {
     oninit(node:Vnode) {
         super.oninit(node);
         node.state.toggleIndex = -1;
-        node.state.mouseDown = '';
+        node.state.mouseDownCSS = '';
+        node.state.mouseDown = () => node.state.mouseDownCSS = '.hs-button-pressed';
+        node.state.mouseUp   = () => node.state.mouseDownCSS = '';
     }
     view(node: Vnode): Vnode {
-        const desc = Selector.init(node, oneOfItems);
+        const desc = node.state.desc;
         const css = node.attrs.css || '';
         const style = node.attrs.style || '';
 
         // insert click update into passed click function
-        const parentChanged = desc.changed;
-        desc.changed = ((item:string) => {
+        const parentChanged = desc.clicked;
+        desc.clicked = ((item:string) => {
             node.state.toggleIndex = (node.state.toggleIndex+1) % desc.items.length;
             item = desc.items[node.state.toggleIndex];
-            Selector.internalStateUpdate(node, item);
+            node.state.updateSelected(node.state.items, item); // internal state update
             if (parentChanged) { parentChanged(item); }
         });
 
         if (node.state.toggleIndex<0) { node.state.toggleIndex = 0; }
 
-        desc.mouseDown = () => node.state.mouseDown = '.hs-button-pressed';
-        desc.mouseUp   = () => node.state.mouseDown = '';
 
-        return m(`.hs-toggle-button${css}${node.state.mouseDown}`, { style:style}, m('span', 
-            Selector.renderItem(node, desc, node.state.toggleIndex)
+        return m(`.hs-toggle-button${css}${node.state.mouseDownCSS}`, { style:style}, m('span', 
+            Selector.renderItem(node, node.state.toggleIndex)
         ));
     }
 }

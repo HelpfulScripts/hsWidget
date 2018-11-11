@@ -26,7 +26,7 @@ ___
  * <file name='script.js'>
  * const render = () => m.mount(root, {view: () => 
  *    m('.hs-white', m(hslayout.Layout, {
- *      rows:['100px', '340px', '210px', '250px', '340px', '320px', '340px'], content: [m('',''),
+ *      rows:['100px', '360px', '210px', '250px', '340px', '320px', '340px'], content: [m('',''),
  * 
  *    // Buttons:
  *    m('',[
@@ -35,15 +35,15 @@ ___
  *      m(hswidget.Button, { desc: { name: 'click me', clicked: () => clicked++ }}),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.RadioButton.RadioButton'}, 'RadioButton'), `: Select Station: ${radio}`]),
  *      m(hswidget.RadioButton, { desc: {
- *        items: ['1st', '2nd','3rd'], changed: (item) => radio = item
+ *        items: ['1st', '2nd','3rd'], clicked: (item) => radio = item
  *      }}),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.OptionsButton.OptionsButton'}, 'OptionsButton'), `: Select Option: ${option}`]),
  *      m(hswidget.OptionsButton, { desc: {
- *        items: ['1st', '2nd','3rd'], changed: (item) => option = item
+ *        items: ['1st', '2nd','3rd'], clicked: (item) => option = item
  *      }}),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToggleButton.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),
  *      m(hswidget.ToggleButton, { desc: {
- *        items: ['1st', '2nd','3rd'], changed: (item) => toggle = item
+ *        items: ['1st', '2nd','3rd'], clicked: (item) => toggle = item
  *      }}),
  *    ]),
  * 
@@ -53,7 +53,7 @@ ___
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.Menu'}, 'Menu'), `: Please select:`]),
  *      m(hswidget.Menu, { css: '.myMenu', desc: {
  *       items: menuItems,  defaultItem: 'Two',
- *       changed: (item) => theContent = content[menuItems.indexOf(item)]
+ *       clicked: (item) => theContent = content[menuItems.indexOf(item)]
  *      }}),
  *      m('myMenuMain', theContent),
  *    ]),
@@ -154,6 +154,8 @@ ___
  * let radio = '';
  * let option = '';
  * let toggle = '';
+ * let added  = 0;
+ * let removed  = 0;
  * const btnClicked = {};
  * let lastCornerButton = '';
  * let dismissals = 0;
@@ -216,6 +218,8 @@ ___
  *      width:  50px;
  * }
  * .hs-corner-button { color: #008; }
+ * 
+ * .hs-radio-buttons>.hs-column-layout>.hs-layout { border-color: transparent}
  * 
  * </file>
  * </example>

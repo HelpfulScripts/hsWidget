@@ -13,7 +13,7 @@ describe('hsMenu', () => {
     beforeEach(() => new Promise((resolve)=>{
         const md = { 
             items: title,
-            changed: (item:string) => { console.log('selected'); }
+            clicked: (item:string) => { console.log('selected'); }
         };
         m.mount(root, {view: () => m(Menu, { desc: md }) }); 
         menu = root.childNodes[0]; // class: hs-menu

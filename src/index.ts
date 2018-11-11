@@ -15,8 +15,6 @@ export { OptionsButton }from './OptionsButton';
 export { ToggleButton } from './ToggleButton'; 
 export { ToolbarButton} from './ToolbarButton'; 
 export { ButtonSymbols} from './ToolbarButton';          
-export { AddButton }    from './AddRemove'; 
-export { RemoveButton } from './AddRemove'; 
 export { Collapsible }  from './Collapsible'; 
 export { Modal }        from './Modal'; 
 export { TypeAhead }    from './TypeAhead'; 

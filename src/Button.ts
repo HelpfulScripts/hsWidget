@@ -41,7 +41,7 @@ import { ToggleButton } from './ToggleButton';
  * 
  * ### Attributes (node.attrs):
  * attribtues as defined in {@link ToggleButton.ToggleButton `ToggleButton`}, 
- * except for `items` and `changed`, which are replaced by 
+ * except for `items`, which are replaced by 
  * - `name: string` name to show as button text (in lieu of `items`)
  * - `clicked:() => void` function to execute when button is clicked
  */
@@ -49,7 +49,6 @@ export class Button extends ToggleButton {
     oninit(node: Vnode) {
         const desc = node.attrs.desc;
         desc.items = [desc.name || 'button'];
-        desc.changed = desc.clicked;
         super.oninit(node);
     }
     // view(node: Vnode) {

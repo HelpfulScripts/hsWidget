@@ -8,7 +8,7 @@
  * ### Attributes (node.attrs):
  * - `desc:` {@link Menu.MenuDesc MenuDesc}
  *     - `items: string[]`                  the items on the menu
- *     - `changed: (item:string) => void`   called when item clicked
+ *     - `clicked: (item:string) => void`   called when item clicked
  *     - `defaultItem?: number|string`      the currently selected item, by index or name
  *     - `itemCSS?: string[]`               css to apply to items;
  * - `css?: string`                         css class to assign to button group
@@ -28,7 +28,7 @@
  *         m(hswidget.Menu, {desc: {
  *             items: items,
  *             defaultItem: 'Two',
- *             changed: item => 
+ *             clicked: item => 
  *                theContent = content[items.indexOf(item)]
  *         }}),
  *         m(hslayout.Layout, { css:'myMain', content: theContent })

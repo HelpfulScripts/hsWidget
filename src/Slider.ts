@@ -9,7 +9,7 @@
  * });`
  * 
  * ### Attributes (node.attrs):
- * - `onchange:(v:number|string) => void` function to execute when the slider has changed
+ * - `onchange:(v:number|string) => void` function to execute when the slider has clicked
  * - `range: [number,number] | string[]` range of values the slider can have; either continuous or nomninal
  * - `css: string` css class to assign to button tag
  * 
