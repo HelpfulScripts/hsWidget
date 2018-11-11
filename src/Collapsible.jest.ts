@@ -1,10 +1,4 @@
-// import * as hswidget from './';
-// import { m }    from 'hslayout';
-// const $ = require('jquery');
-
-// window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
-// const mq:any = require('mithril-query');
-global.window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
+window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
 
 const content   = ['1st', '2nd', '3rd'];
 

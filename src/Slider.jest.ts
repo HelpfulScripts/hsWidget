@@ -3,7 +3,7 @@ window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mith
 const handle = { 
     className: 'hs-slider-handle',
     clientWidth:20,
-    parentNode:null
+    parentNode:<any>null
 };
 
 const slot = {
@@ -11,7 +11,7 @@ const slot = {
     clientWidth: 400,
     offsetLeft:10,
     lastChild: handle,
-    parentNode: null
+    parentNode: <any>null
 };
 
 const slider = {
@@ -28,10 +28,10 @@ const myEvent = {
     offsetX: 100,
     currentTarget: slider,
     target: slider,
-    stopPropagation: () => null,
-    preventDefault: () => null
+    stopPropagation: ():void => {},
+    preventDefault: ():void => {}
 };
-let evtResult;
+let evtResult:any;
 
 describe('sliders', () => {
     const Slider = require('./Slider').Slider;
@@ -43,7 +43,7 @@ describe('sliders', () => {
         const out = mq(m(Slider, {
             id:'mySlider1',
             range: [0, 100],
-            onchange: v => evtResult = v
+            onchange: (v:any) => evtResult = v
         }));
         it('renders', () => {
             out.should.have('.hs-slider');
@@ -81,7 +81,7 @@ describe('sliders', () => {
         const out = mq(m(Slider, {
             id:'mySlider1',
             range: ['one', 'two', 'three'],
-            onchange: v => evtResult = v
+            onchange: (v:any) => evtResult = v
         }));
         it('renders', () => {
             out.should.have('.hs-slider');
