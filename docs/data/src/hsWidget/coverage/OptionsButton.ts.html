@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Code coverage report for RadioButton.ts</title>
+    <title>Code coverage report for OptionsButton.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -16,13 +16,13 @@
 <div class='wrapper'>
   <div class='pad1'>
     <h1>
-      <a href="index.html">hsWidget: All files</a> RadioButton.ts
+      <a href="index.html">hsWidget: All files</a> OptionsButton.ts
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>13/13</span>
+        <span class='fraction'>11/11</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>3/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>13/13</span>
+        <span class='fraction'>11/11</span>
       </div>
     </div>
     <p class="quiet">
@@ -113,13 +113,7 @@
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a>
-<a name='L69'></a><a href='#L69'>69</a>
-<a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a>
-<a name='L73'></a><a href='#L73'>73</a>
-<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,12 +144,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -174,11 +166,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">12x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -186,18 +174,18 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
+<span class="cline-any cline-yes">15x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * # Radio Button Widget
- * A simple radio button widget, allowing one button to be pressed at a time
+ * # Options Button Widget
+ * A simple options button widget, allowing any button to be pressed indpendently of others.
  * 
  * ### Profile
- * invoked as `m(RadioButton, {name:&lt;string&gt;, onclick:&lt;function&gt;});`
+ * invoked as `m(OptionsButton, {name:&lt;string&gt;, onclick:&lt;function&gt;});`
  * 
  * ### Attributes (node.attrs):
  * - `onclick:() =&gt; void` function to execute when button is clicked
@@ -208,15 +196,13 @@
  * ### Example
  * &lt;example&gt;
  * &lt;file name='script.js'&gt;
- * let clicked = 0;
- * let radio = '';
- * let toggle = '';
+ * let option = '';
  * 
  * m.mount(root, {view: () =&gt; m('.hs-white', [
- *    m('h4', `Select Radio Station: ${radio}`),
- *    m(hswidget.RadioButtons, { desc: {
+ *    m('h4', `Select Option: ${option}`),
+ *    m(hswidget.OptionsButtons, { desc: {
  *        items: ['1st', '2nd','3rd'],
- *        changed: (item) =&gt; radio = item
+ *        changed: (item) =&gt; option = item
  *    }})
  * ])});
  * &lt;/file&gt;
@@ -228,15 +214,15 @@
 import { m, Vnode }     from 'hslayout';
 import { Layout }       from 'hslayout';
 import { Selector }     from './Selector';
-import { oneOfItems }   from './Selector';
+import { anyItems }     from './Selector';
 import { SelectorDesc } from './Selector';
 &nbsp;
 /**
- * # Radio Button Widget
- * A group of buttons with one or none selected
+ * # Options Button Widget
+ * A group of buttons with one or more selected
  * 
  * ### Profile
- * invoked as `m(RadioButton, {desc: { items:[&lt;string&gt;], changed:&lt;function&gt;}});`
+ * invoked as `m(OptionsButton, {desc: { items:[&lt;string&gt;], changed:&lt;function&gt;}});`
  * 
  * ### Attributes (node.attrs):
  * - `desc:` see {@link Selector.SelectorDesc SelectorDesc}
@@ -247,13 +233,9 @@ import { SelectorDesc } from './Selector';
  * - `css?: string`                         css class to assign to button group
  * - `style?: string`                       style string to apply to button tag
  */
-export class RadioButton extends Selector {
-    oninit(node:Vnode) {
-        super.oninit(node);
-        Selector.init(node, oneOfItems);
-    }
+export class OptionsButton extends Selector {
     static viewGroup(css:string, node: Vnode) {
-        const desc:SelectorDesc = node.attrs.desc;
+        const desc:SelectorDesc = Selector.init(node, anyItems);
         css = `${css} ${node.attrs.css || ''}`;
         const style = node.attrs.style || '';
 &nbsp;
@@ -262,7 +244,7 @@ export class RadioButton extends Selector {
             content: desc.items.map((l:string, i:number) =&gt; Selector.renderItem(node, desc, i))
         }));
     }
-    view(node: Vnode): Vnode { return RadioButton.viewGroup('.hs-radio-buttons', node); }
+    view(node: Vnode): Vnode { return OptionsButton.viewGroup('.hs-options-buttons', node); }
 }
 &nbsp;
 &nbsp;</pre></td></tr>

@@ -61,5 +61,5 @@ import { RadioButton }  from './RadioButton';
  * Creates a simple menu with several items, as configured by the desc:SelectorDesc object passed as a parameter. 
  */
 export class Menu extends RadioButton {
-    view(node: Vnode): Vnode { return this.viewGroup('.hs-menu', node); }
+    view(node: Vnode): Vnode { return RadioButton.viewGroup('.hs-menu', node); }
 };

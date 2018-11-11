@@ -1,5 +1,9 @@
 import * as widgets from './';
+// import { m } from "../mithril";
 
-test('dummy test', ()=>{
-    expect(widgets).toBeDefined();
+
+describe('Selector', () => {
+    it('should exist', () => {
+        expect(widgets).toBeDefined();
+    });
 });

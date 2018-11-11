@@ -22,7 +22,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>12/12</span>
+        <span class='fraction'>13/13</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -32,12 +32,12 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/3</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>12/12</span>
+        <span class='fraction'>13/13</span>
       </div>
     </div>
     <p class="quiet">
@@ -117,7 +117,9 @@
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
 <a name='L71'></a><a href='#L71'>71</a>
-<a name='L72'></a><a href='#L72'>72</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -150,10 +152,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -172,10 +174,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
@@ -189,11 +193,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
- * # Button Widget
- * A simple button widget
+ * # Radio Button Widget
+ * A simple radio button widget, allowing one button to be pressed at a time
  * 
  * ### Profile
- * invoked as `m(Button, {name:&lt;string&gt;, onclick:&lt;function&gt;});`
+ * invoked as `m(RadioButton, {name:&lt;string&gt;, onclick:&lt;function&gt;});`
  * 
  * ### Attributes (node.attrs):
  * - `onclick:() =&gt; void` function to execute when button is clicked
@@ -242,21 +246,23 @@ import { SelectorDesc } from './Selector';
  *     - `itemCss?:string[]`                css to apply to each item;
  * - `css?: string`                         css class to assign to button group
  * - `style?: string`                       style string to apply to button tag
- * - `size?: string | string[]`             sizes to layout menu items; 
  */
 export class RadioButton extends Selector {
-    viewGroup(css:string, node: Vnode) {
-        const desc:SelectorDesc = this.init(node.attrs.desc, oneOfItems);
-        node.attrs.desc = undefined;
+    oninit(node:Vnode) {
+        super.oninit(node);
+        Selector.init(node, oneOfItems);
+    }
+    static viewGroup(css:string, node: Vnode) {
+        const desc:SelectorDesc = node.attrs.desc;
         css = `${css} ${node.attrs.css || ''}`;
         const style = node.attrs.style || '';
 &nbsp;
         return m(css, {style:style}, m(Layout, {
             columns: [],
-            content: desc.items.map((l:string, i:number) =&gt; this.renderItem(desc, i))
+            content: desc.items.map((l:string, i:number) =&gt; Selector.renderItem(node, desc, i))
         }));
     }
-    view(node: Vnode): Vnode { return this.viewGroup('.hs-radio-buttons', node); }
+    view(node: Vnode): Vnode { return RadioButton.viewGroup('.hs-radio-buttons', node); }
 }
 &nbsp;
 &nbsp;</pre></td></tr>

@@ -23,7 +23,7 @@ describe('hsMenu', () => {
     }));
 
     describe('Menu', () => {
-        test('creation', ()=> expect(menu).not.toBe(undefined));
+        test('creation', ()=> expect(menu).toBeDefined());
         test('is menu', ()=> expect(menu.className.indexOf('hs-menu')).not.toBe(-1));
         test('is not a layout', ()=> expect(menu.className.indexOf('hs-layout')).toEqual(-1));
     });

@@ -22,11 +22,11 @@
             code { padding: 5px 0;}</style></html><body>
                 <h1>src/RadioButton.ts</h1>
                 <div class='listing'><code><p id=1 class="line"><span>&nbsp;&nbsp;&nbsp;1</span><comment>/**</comment></p>
-<p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span><comment>&nbsp;*&nbsp;#&nbsp;Button&nbsp;Widget</comment></p>
-<p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span><comment>&nbsp;*&nbsp;A&nbsp;simple&nbsp;button&nbsp;widget</comment></p>
+<p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span><comment>&nbsp;*&nbsp;#&nbsp;Radio&nbsp;Button&nbsp;Widget</comment></p>
+<p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span><comment>&nbsp;*&nbsp;A&nbsp;simple&nbsp;radio&nbsp;button&nbsp;widget,&nbsp;allowing&nbsp;one&nbsp;button&nbsp;to&nbsp;be&nbsp;pressed&nbsp;at&nbsp;a&nbsp;time</comment></p>
 <p id=4 class="line"><span>&nbsp;&nbsp;&nbsp;4</span><comment>&nbsp;*&nbsp;</comment></p>
 <p id=5 class="line"><span>&nbsp;&nbsp;&nbsp;5</span><comment>&nbsp;*&nbsp;###&nbsp;Profile</comment></p>
-<p id=6 class="line"><span>&nbsp;&nbsp;&nbsp;6</span><comment>&nbsp;*&nbsp;invoked&nbsp;as&nbsp;`m(Button,&nbsp;{name:<string>,&nbsp;onclick:<function>});`</comment></p>
+<p id=6 class="line"><span>&nbsp;&nbsp;&nbsp;6</span><comment>&nbsp;*&nbsp;invoked&nbsp;as&nbsp;`m(RadioButton,&nbsp;{name:<string>,&nbsp;onclick:<function>});`</comment></p>
 <p id=7 class="line"><span>&nbsp;&nbsp;&nbsp;7</span><comment>&nbsp;*&nbsp;</comment></p>
 <p id=8 class="line"><span>&nbsp;&nbsp;&nbsp;8</span><comment>&nbsp;*&nbsp;###&nbsp;Attributes&nbsp;(node.attrs):</comment></p>
 <p id=9 class="line"><span>&nbsp;&nbsp;&nbsp;9</span><comment>&nbsp;*&nbsp;-&nbsp;`onclick:()&nbsp;=>&nbsp;void`&nbsp;function&nbsp;to&nbsp;execute&nbsp;when&nbsp;button&nbsp;is&nbsp;clicked</comment></p>
@@ -75,23 +75,25 @@
 <p id=52 class="line"><span>&nbsp;&nbsp;52</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;`itemCss?:string[]`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;css&nbsp;to&nbsp;apply&nbsp;to&nbsp;each&nbsp;item;</comment></p>
 <p id=53 class="line"><span>&nbsp;&nbsp;53</span><comment>&nbsp;*&nbsp;-&nbsp;`css?:&nbsp;string`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;css&nbsp;class&nbsp;to&nbsp;assign&nbsp;to&nbsp;button&nbsp;group</comment></p>
 <p id=54 class="line"><span>&nbsp;&nbsp;54</span><comment>&nbsp;*&nbsp;-&nbsp;`style?:&nbsp;string`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style&nbsp;string&nbsp;to&nbsp;apply&nbsp;to&nbsp;button&nbsp;tag</comment></p>
-<p id=55 class="line"><span>&nbsp;&nbsp;55</span><comment>&nbsp;*&nbsp;-&nbsp;`size?:&nbsp;string&nbsp;|&nbsp;string[]`&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;sizes&nbsp;to&nbsp;layout&nbsp;menu&nbsp;items;&nbsp;</comment></p>
-<p id=56 class="line"><span>&nbsp;&nbsp;56</span><comment>&nbsp;*/</comment></p>
-<p id=57 class="line"><span>&nbsp;&nbsp;57</span>export&nbsp;class&nbsp;RadioButton&nbsp;extends&nbsp;Selector&nbsp;{</p>
-<p id=58 class="line"><span>&nbsp;&nbsp;58</span>&nbsp;&nbsp;&nbsp;&nbsp;viewGroup(css:string,&nbsp;node:&nbsp;Vnode)&nbsp;{</p>
-<p id=59 class="line"><span>&nbsp;&nbsp;59</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;desc:SelectorDesc&nbsp;=&nbsp;this.init(node.attrs.desc,&nbsp;oneOfItems);</p>
-<p id=60 class="line"><span>&nbsp;&nbsp;60</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.attrs.desc&nbsp;=&nbsp;undefined;</p>
-<p id=61 class="line"><span>&nbsp;&nbsp;61</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;css&nbsp;=&nbsp;`${css}&nbsp;${node.attrs.css&nbsp;||&nbsp;<quote>''</quote>}`;</p>
-<p id=62 class="line"><span>&nbsp;&nbsp;62</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;style&nbsp;=&nbsp;node.attrs.style&nbsp;||&nbsp;<quote>''</quote>;</p>
-<p id=63 class="line"><span>&nbsp;&nbsp;63</span></p>
-<p id=64 class="line"><span>&nbsp;&nbsp;64</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(css,&nbsp;{style:style},&nbsp;m(Layout,&nbsp;{</p>
-<p id=65 class="line"><span>&nbsp;&nbsp;65</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;[],</p>
-<p id=66 class="line"><span>&nbsp;&nbsp;66</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content:&nbsp;desc.items.map((l:string,&nbsp;i:number)&nbsp;=>&nbsp;this.renderItem(desc,&nbsp;i))</p>
-<p id=67 class="line"><span>&nbsp;&nbsp;67</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}));</p>
-<p id=68 class="line"><span>&nbsp;&nbsp;68</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
-<p id=69 class="line"><span>&nbsp;&nbsp;69</span>&nbsp;&nbsp;&nbsp;&nbsp;view(node:&nbsp;Vnode):&nbsp;Vnode&nbsp;{&nbsp;return&nbsp;this.viewGroup(<quote>'.hs-radio-buttons'</quote>,&nbsp;node);&nbsp;}</p>
-<p id=70 class="line"><span>&nbsp;&nbsp;70</span>}</p>
-<p id=71 class="line"><span>&nbsp;&nbsp;71</span></p>
-<p id=72 class="line"><span>&nbsp;&nbsp;72</span></p></code></div>
+<p id=55 class="line"><span>&nbsp;&nbsp;55</span><comment>&nbsp;*/</comment></p>
+<p id=56 class="line"><span>&nbsp;&nbsp;56</span>export&nbsp;class&nbsp;RadioButton&nbsp;extends&nbsp;Selector&nbsp;{</p>
+<p id=57 class="line"><span>&nbsp;&nbsp;57</span>&nbsp;&nbsp;&nbsp;&nbsp;oninit(node:Vnode)&nbsp;{</p>
+<p id=58 class="line"><span>&nbsp;&nbsp;58</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super.oninit(node);</p>
+<p id=59 class="line"><span>&nbsp;&nbsp;59</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Selector.init(node,&nbsp;oneOfItems);</p>
+<p id=60 class="line"><span>&nbsp;&nbsp;60</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=61 class="line"><span>&nbsp;&nbsp;61</span>&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;viewGroup(css:string,&nbsp;node:&nbsp;Vnode)&nbsp;{</p>
+<p id=62 class="line"><span>&nbsp;&nbsp;62</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;desc:SelectorDesc&nbsp;=&nbsp;node.attrs.desc;</p>
+<p id=63 class="line"><span>&nbsp;&nbsp;63</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;css&nbsp;=&nbsp;`${css}&nbsp;${node.attrs.css&nbsp;||&nbsp;<quote>''</quote>}`;</p>
+<p id=64 class="line"><span>&nbsp;&nbsp;64</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;style&nbsp;=&nbsp;node.attrs.style&nbsp;||&nbsp;<quote>''</quote>;</p>
+<p id=65 class="line"><span>&nbsp;&nbsp;65</span></p>
+<p id=66 class="line"><span>&nbsp;&nbsp;66</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(css,&nbsp;{style:style},&nbsp;m(Layout,&nbsp;{</p>
+<p id=67 class="line"><span>&nbsp;&nbsp;67</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;columns:&nbsp;[],</p>
+<p id=68 class="line"><span>&nbsp;&nbsp;68</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;content:&nbsp;desc.items.map((l:string,&nbsp;i:number)&nbsp;=>&nbsp;Selector.renderItem(node,&nbsp;desc,&nbsp;i))</p>
+<p id=69 class="line"><span>&nbsp;&nbsp;69</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}));</p>
+<p id=70 class="line"><span>&nbsp;&nbsp;70</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=71 class="line"><span>&nbsp;&nbsp;71</span>&nbsp;&nbsp;&nbsp;&nbsp;view(node:&nbsp;Vnode):&nbsp;Vnode&nbsp;{&nbsp;return&nbsp;RadioButton.viewGroup(<quote>'.hs-radio-buttons'</quote>,&nbsp;node);&nbsp;}</p>
+<p id=72 class="line"><span>&nbsp;&nbsp;72</span>}</p>
+<p id=73 class="line"><span>&nbsp;&nbsp;73</span></p>
+<p id=74 class="line"><span>&nbsp;&nbsp;74</span></p></code></div>
                 </body>
             

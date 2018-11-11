@@ -19,7 +19,7 @@
  */
 
  /** */
-import { m } from 'hslayout';
+import { m, Vnode } from 'hslayout';
 
 /** passed into Menu from the calling application */
 export interface SelectorDesc {
@@ -62,8 +62,8 @@ export type selectFn = (items:{string:SelectableDesc}, title:string) => void;
  * `oneOfItems` ensures that `title` will be selected and all others deselected
  */
 export function oneOfItems(items:{string:SelectableDesc}, title:string):void {
-    Object.keys(this.items).forEach((key:string) => { 
-        this.items[key].isSelected = (key===title); 
+    Object.keys(items).forEach((key:string) => { 
+        items[key].isSelected = (key===title); 
     });
 }
 
@@ -72,7 +72,11 @@ export function oneOfItems(items:{string:SelectableDesc}, title:string):void {
  * `anyItems` ensures that `title` will be selected independant of all others
  */
 export function anyItems(items:{string:SelectableDesc}, title:string):void {
-    this.items[title].isSelected = !this.items[title].isSelected; 
+    if (!items[title]) { 
+        console.log(`adding item ${title}`);
+        items[title] = {isSelected: false};
+    }
+    items[title].isSelected = !items[title].isSelected; 
 }
 
 
@@ -80,64 +84,79 @@ export function anyItems(items:{string:SelectableDesc}, title:string):void {
  * Creates a simple menu with several items, as configured by the desc:SelectorDesc object passed as a parameter. 
  */
 export abstract class Selector {
-    /** 
-     * determines which function to use to updatye selections after events.
-     * Pre-configured function include:
-     * - oneOfItems: default; only one item of the set can be selected at a time
-     * - anyItem: each item can individually be selected. Pressing an item again will deselect it.
-     */
-    private updateSelected:selectFn = [oneOfItems, anyItems][0];
+    oninit(node: Vnode) {
+        node.state = {
+            /** 
+             * determines which function to use to updatye selections after events.
+             * Pre-configured function include:
+             * - oneOfItems: default; only one item of the set can be selected at a time
+             * - anyItem: each item can individually be selected. Pressing an item again will deselect it.
+             */
+            updateSelected: [oneOfItems, anyItems][0],
+            // selectedItem: <string>undefined,
+            /** instance variable, keeping a list of menu items and a `select` function for tracking which item is selected. */
+            items: <{string:SelectableDesc}>{},
+        };
+        node.attrs.desc.items.map((i:string) => node.state.items[i] = {
+            title: i, 
+            isSelected: false 
+        });
+    }
 
-    protected selectedItem: string; 
-
-    /** instance variable, keeping a list of menu items and a `select` function for tracking which item is selected. */
-    private items = <{string:SelectableDesc}>{};
-
-    init(desc:SelectorDesc, updateSelected:selectFn = oneOfItems):SelectorDesc {
-        this.updateSelected = updateSelected.bind(this);
+    static init(node: Vnode, updateSelected:selectFn = oneOfItems):SelectorDesc {
+        const desc:SelectorDesc = node.attrs.desc;
+        node.state.updateSelected = updateSelected;
         desc.items = desc.items || [];
         desc.changed = desc.changed || ((item:string) => console.log(`missing changed() function for menu item ${item}`));
-        this.checkSelectedItem(desc);
+        // Selector.checkSelectedItem(node, desc);
         return desc;
     };
 
     /** ensures that `selectedItem` is defined and is a string */
-    checkSelectedItem(desc:SelectorDesc) {
-        if (this.selectedItem === undefined) {
-            if (typeof desc.defaultItem === 'number') { 
-                this.selectedItem = desc.items[desc.defaultItem % desc.items.length];
-            } else {
-                this.selectedItem = desc.defaultItem || desc.items[0];
-            }
-        }
+    // static checkSelectedItem(node: Vnode, desc:SelectorDesc) {
+    //     if (node.state.selectedItem === undefined) {
+    //         if (typeof desc.defaultItem === 'number') { 
+    //             node.state.selectedItem = desc.items[desc.defaultItem % desc.items.length];
+    //         } else {
+    //             node.state.selectedItem = desc.defaultItem || desc.items[0];
+    //         }
+    //     }
+    // }
+
+    static internalStateUpdate(node: Vnode, item:string) {
+        // node.state.selectedItem = item;
+        // Selector.checkSelectedItem(node, desc);
+        node.state.updateSelected(node.state.items, item); // local housekeeping: make sure the item's style shows correct selection
     }
 
-    internalStateUpdate(desc:SelectorDesc, item:string) {
-        this.selectedItem = item;
-        this.checkSelectedItem(desc);
-        this.updateSelected(this.items, this.selectedItem); // local housekeeping: make sure the item's style shows correct selection
-    }
-
-    renderItem(desc:SelectorDesc, i:number) {
+    /**
+     * render an item of the Selector group
+     * @param node the node holding the group state
+     * @param desc the items descriptor
+     * @param i index of item to render
+     */
+    static renderItem(node: Vnode, desc:SelectorDesc, i:number) {
         const reactor = (callback:(itm:string)=>void) => (item:string) => {
-            this.internalStateUpdate(desc, item);
+            Selector.internalStateUpdate(node, item);
             if (typeof callback === 'function') { 
                 callback(item);  // trigger any actions from the selection
             }     
         }; 
-        const l:string = desc.items[i] || '';
+        const title:string = desc.items[i] || '';
         const itemCss = desc.itemCss || [];
 
-        this.checkSelectedItem(desc);
+        // Selector.checkSelectedItem(node, desc);
         return selectable({ 
-            title: l, 
+            title: title, 
             css: itemCss[i],        // possibly undefined
-            isSelected: this.selectedItem? (l.toLowerCase() === this.selectedItem.toLowerCase()) : false, 
+            // isSelected: node.state.selectedItem? (l.toLowerCase() === node.state.selectedItem.toLowerCase()) : false, 
+            isSelected: node.state.items[title]? node.state.items[title].isSelected : false, 
             mouseDown: reactor(desc.mouseDown),
             mouseUp: reactor(desc.mouseUp),
             clicked: reactor(desc.changed)
         });
     }
+    abstract view(node: Vnode): Vnode;
 };
 
 /**

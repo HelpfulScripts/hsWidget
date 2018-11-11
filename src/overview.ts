@@ -12,6 +12,9 @@ ___
 |========|=============|
 | &nbsp; {@link Menu.Menu Menu} | A group of horizontal menu items that can trigger actions |
 | &nbsp; {@link Button.Button Button} | A simple button widget |
+| &nbsp; {@link ToggleButton.ToggleButton ToggleButton} | A button widget that toggleds through a number of items |
+| &nbsp; {@link RadioButton.RadioButton RadioButton} | A radio button group widget: one selected at a time |
+| &nbsp; {@link OptionsButton.OptionsButton OptionsButton} | An options button group widget: independently selected |
 | &nbsp; {@link Collapsible Collapsible} | A panel that will expand znd collapse when the title is clicked |
 | &nbsp; {@link Modal Modal} | A modal panel that will cover the entire window until released. |
 | &nbsp; {@link AddRemove AddButton} | An inline `+` button that will open a form for adding new elements. |
@@ -23,7 +26,7 @@ ___
  * <file name='script.js'>
  * const render = () => m.mount(root, {view: () => 
  *    m('.hs-white', m(hslayout.Layout, {
- *      rows:['100px', '280px', '210px', '250px', '340px', '320px', '340px'], content: [m('',''),
+ *      rows:['100px', '340px', '210px', '250px', '340px', '320px', '340px'], content: [m('',''),
  * 
  *    // Buttons:
  *    m('',[
@@ -33,6 +36,10 @@ ___
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.RadioButton.RadioButton'}, 'RadioButton'), `: Select Station: ${radio}`]),
  *      m(hswidget.RadioButton, { desc: {
  *        items: ['1st', '2nd','3rd'], changed: (item) => radio = item
+ *      }}),
+ *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.OptionsButton.OptionsButton'}, 'OptionsButton'), `: Select Option: ${option}`]),
+ *      m(hswidget.OptionsButton, { desc: {
+ *        items: ['1st', '2nd','3rd'], changed: (item) => option = item
  *      }}),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToggleButton.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),
  *      m(hswidget.ToggleButton, { desc: {
@@ -55,7 +62,7 @@ ___
  *    m('',[
  *      m('h2.myGapModal', 'Modal Dialog Box'),
  *      m('h4', {onclick:() => trigger() }, 
- *          [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box (previous dismissals:${dismissals})`]),
+ *          [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box (previous dismissals: ${dismissals})`]),
  *      m(hswidget.Modal, {
  *          width:  '300px',
  *          height: '200px',
@@ -145,6 +152,7 @@ ___
  * let  theContent = content[1];
  * let clicked = 0;
  * let radio = '';
+ * let option = '';
  * let toggle = '';
  * const btnClicked = {};
  * let lastCornerButton = '';

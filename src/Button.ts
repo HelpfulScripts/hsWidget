@@ -46,11 +46,14 @@ import { ToggleButton } from './ToggleButton';
  * - `clicked:() => void` function to execute when button is clicked
  */
 export class Button extends ToggleButton {
-    view(node: Vnode) {
+    oninit(node: Vnode) {
         const desc = node.attrs.desc;
         desc.items = [desc.name || 'button'];
         desc.changed = desc.clicked;
-        return super.view(node);
+        super.oninit(node);
     }
+    // view(node: Vnode) {
+    //     return super.view(node);
+    // }
 }
 

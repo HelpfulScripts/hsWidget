@@ -53,30 +53,32 @@ import { oneOfItems }   from './Selector';
  * - `style?: string` style string to apply to button tag
  */
 export class ToggleButton extends Selector {
-    private toggleIndex = -1;
-    private mouseDown = '';
+    oninit(node:Vnode) {
+        super.oninit(node);
+        node.state.toggleIndex = -1;
+        node.state.mouseDown = '';
+    }
     view(node: Vnode): Vnode {
-        const desc = this.init(node.attrs.desc, oneOfItems);
-        node.attrs.desc = undefined;
+        const desc = Selector.init(node, oneOfItems);
         const css = node.attrs.css || '';
         const style = node.attrs.style || '';
 
         // insert click update into passed click function
         const parentChanged = desc.changed;
         desc.changed = ((item:string) => {
-            this.toggleIndex = (this.toggleIndex+1) % desc.items.length;
-            item = desc.items[this.toggleIndex];
-            this.internalStateUpdate(desc, item);
+            node.state.toggleIndex = (node.state.toggleIndex+1) % desc.items.length;
+            item = desc.items[node.state.toggleIndex];
+            Selector.internalStateUpdate(node, item);
             if (parentChanged) { parentChanged(item); }
         });
 
-        if (this.toggleIndex<0) { this.toggleIndex = 0; }
+        if (node.state.toggleIndex<0) { node.state.toggleIndex = 0; }
 
-        desc.mouseDown = () => this.mouseDown = '.hs-button-pressed';
-        desc.mouseUp   = () => this.mouseDown = '';
+        desc.mouseDown = () => node.state.mouseDown = '.hs-button-pressed';
+        desc.mouseUp   = () => node.state.mouseDown = '';
 
-        return m(`.hs-toggle-button${css}${this.mouseDown}`, { style:style}, m('span', 
-            this.renderItem(desc, this.toggleIndex)
+        return m(`.hs-toggle-button${css}${node.state.mouseDown}`, { style:style}, m('span', 
+            Selector.renderItem(node, desc, node.state.toggleIndex)
         ));
     }
 }
