@@ -6,7 +6,7 @@ const mq = require('mithril-query');
 
 let toggle = '';
 const out = mq(m(hswidget.ToggleButton, { desc: {
-    items: ['1st', '2nd','3rd'], changed: (item) => toggle = item
+    items: ['1st', '2nd','3rd'], changed: (item:string) => toggle = item
 }}));
 
 describe('ToggleButton', () => {

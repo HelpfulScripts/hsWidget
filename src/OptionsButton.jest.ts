@@ -6,7 +6,7 @@ const mq = require('mithril-query');
 
 let options = {'1st':false, '2nd':false, '3rd':false};
 const out = mq(m(hswidget.OptionsButton, { desc: {
-    items: ['1st', '2nd','3rd'], changed: (item) => options[item] = !options[item]
+    items: ['1st', '2nd','3rd'], changed: (item:string) => options[item] = !options[item]
 }}));
 
 describe('OptionsButton', () => {

@@ -5,7 +5,7 @@ window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mith
 const mq = require('mithril-query');
 
 let dismissals = 0;
-let trigger;
+let trigger: ()=> {};
 
 describe('ModalDialog', () => {
     const out = mq(m('#parent', {
@@ -15,7 +15,7 @@ describe('ModalDialog', () => {
             width:  '300px',
             height: '200px',
             dismiss: () => dismissals++,
-            setTrigger: (t) => trigger = t,
+            setTrigger: (t:()=> {}) => trigger = t,
             content: m('', `click on border or on the x to release ${dismissals}`)
         })
     ));
