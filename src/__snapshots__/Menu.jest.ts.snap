@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`hsMenu Menu matches 1`] = `
+<div>
+  <div
+    class="hs-menu "
+    style=""
+  >
+    <div
+      class="hs-layout  hs-column-layout "
+    >
+      <div
+        class="hs-layout  "
+        style="top: 0%; bottom: 0%; left: 0%; right: 75%; width: auto;"
+      >
+        <div
+          class="hs-selectable  hs-selected"
+        >
+          1a
+        </div>
+      </div>
+      <div
+        class="hs-layout  "
+        style="top: 0%; bottom: 0%; left: 25%; right: 50%; width: auto;"
+      >
+        <div
+          class="hs-selectable  "
+        >
+          2a
+        </div>
+      </div>
+      <div
+        class="hs-layout  "
+        style="top: 0%; bottom: 0%; left: 50%; right: 25%; width: auto;"
+      >
+        <div
+          class="hs-selectable  "
+        >
+          3a
+        </div>
+      </div>
+      <div
+        class="hs-layout  "
+        style="top: 0%; bottom: 0%; left: 75%; right: 0%; width: auto;"
+      >
+        <div
+          class="hs-selectable  "
+        >
+          4a
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

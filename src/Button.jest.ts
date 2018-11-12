@@ -18,6 +18,6 @@ describe('Button', () => {
     });
     it('should click', () => {
         out.click('.hs-selectable', null, true);
-        expect(clicked,).toBe(1);
+        expect(clicked).toBe(1);
     });
 });

@@ -31,9 +31,9 @@
  */
 
 /** */
-import { m, Vnode }     from 'hslayout';
-import { Layout }       from 'hslayout';
-import { Selector }     from './Selector';
+import { m, Vnode }         from 'hslayout';
+import { Layout }           from 'hslayout';
+import { Selector }         from './Selector';
 
 /**
  * # Radio Button Widget
@@ -60,6 +60,14 @@ export class RadioButton extends Selector {
             columns: [],
             content: node.state.items.map((l:string, i:number) => Selector.renderItem(node, i))
         }));
+    }
+    oninit(node: Vnode) {
+        Selector.init(node);
+        Selector.ensureSelected(node);
+    }
+    onupdate(node: Vnode) {
+        super.onupdate(node);
+        Selector.ensureSelected(node);
     }
     view(node: Vnode): Vnode { return RadioButton.viewGroup('.hs-radio-buttons', node); }
 }

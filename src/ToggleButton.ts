@@ -31,8 +31,8 @@
  */
 
 /** */
-import { m, Vnode }     from 'hslayout';
-import { Selector }     from './Selector';
+import { m, Vnode }                 from 'hslayout';
+import { Selector, SelectableDesc } from './Selector';
 
 /**
  * # ToggleButton Widget
@@ -53,31 +53,31 @@ import { Selector }     from './Selector';
  */
 export class ToggleButton extends Selector {
     oninit(node:Vnode) {
-        super.oninit(node);
-        node.state.toggleIndex = -1;
+        Selector.init(node);
         node.state.mouseDownCSS = '';
-        node.state.mouseDown = () => node.state.mouseDownCSS = '.hs-button-pressed';
-        node.state.mouseUp   = () => node.state.mouseDownCSS = '';
+        node.state.events.mouseDown = () => node.state.mouseDownCSS = '.hs-button-pressed';
+        node.state.events.mouseUp   = () => node.state.mouseDownCSS = '';
+        // node.state.postUpdate = node.state.updateModel;
+        node.state.itemClicked= (title:string):void => {
+            const i = node.state.items.map((i:SelectableDesc)=> i.title).indexOf(title);
+            const newTitle = node.state.items[(i+1) % node.state.items.length].title;
+            node.state.items[title].isSelected = false;
+            node.state.items[newTitle].isSelected = true;
+            return newTitle;
+        };
+        Selector.ensureSelected(node);
+    }
+    onupdate(node: Vnode) {
+        super.onupdate(node);
+        Selector.ensureSelected(node);
     }
     view(node: Vnode): Vnode {
-        const desc = node.state.desc;
         const css = node.attrs.css || '';
         const style = node.attrs.style || '';
+        const i = node.state.items.findIndex((i:SelectableDesc) => i.isSelected);
 
-        // insert click update into passed click function
-        const parentChanged = desc.clicked;
-        desc.clicked = ((item:string) => {
-            node.state.toggleIndex = (node.state.toggleIndex+1) % desc.items.length;
-            item = desc.items[node.state.toggleIndex];
-            node.state.updateSelected(node.state.items, item); // internal state update
-            if (parentChanged) { parentChanged(item); }
-        });
-
-        if (node.state.toggleIndex<0) { node.state.toggleIndex = 0; }
-
-
-        return m(`.hs-toggle-button${css}${node.state.mouseDownCSS}`, { style:style}, m('span', 
-            Selector.renderItem(node, node.state.toggleIndex)
+        return m(`.hs-toggle-button ${css} ${node.state.mouseDownCSS}`, { style:style}, m('span', 
+            Selector.renderItem(node, i)
         ));
     }
 }

@@ -1,9 +1,10 @@
 import { Menu } from './Menu';
 import { m } from './mithril';
+import { oneOfItems } from './Selector';
 
 const left  = ['0%', '25%', '50%', '75%'];
 const right = ['75%', '50%', '25%', '0%'];
-const title = ['1a', '2a', '3a', '4a'];
+const items = ['1a', '2a', '3a', '4a'];
 
 const root = window.document.createElement("div");
 
@@ -12,7 +13,7 @@ describe('hsMenu', () => {
     let cn:any;
     beforeEach(() => new Promise((resolve)=>{
         const md = { 
-            items: title,
+            items: items,
             clicked: (item:string) => { console.log('selected'); }
         };
         m.mount(root, {view: () => m(Menu, { desc: md }) }); 
@@ -26,13 +27,14 @@ describe('hsMenu', () => {
         test('creation', ()=> expect(menu).toBeDefined());
         test('is menu', ()=> expect(menu.className.indexOf('hs-menu')).not.toBe(-1));
         test('is not a layout', ()=> expect(menu.className.indexOf('hs-layout')).toEqual(-1));
+        test('matches', () => expect(root).toMatchSnapshot());
     });
 
     describe('Menu Items', () => {
         test("has 4 menu items", () => {
             return expect(cn.length).toEqual(4);
         });
-        describe('for all children', ()=> Promise.resolve(title)
+        describe('for all children', ()=> Promise.resolve(items)
             .then((t) => t.map((c:any, i:any) => {
                 const item = cn[i].childNodes[0];
                 Promise.all([
@@ -45,7 +47,7 @@ describe('hsMenu', () => {
                     test(`item ${i+1} has class hs-selectable`, () => expect(item.className.not.toContain('hs-selectable'))),
                     test(`item ${i+1} selected class`, () => expect(item.className).toContain('hs-selected')),
                     test(`item ${i+1} has 1 child`, () => expect(item.childNodes.length).toEqual(1)),
-                    test(`item ${i+1} child leaf text ${title[i]}`, () => expect(item.childNodes[0].nodeValue).toEqual(title[i]))
+                    test(`item ${i+1} child leaf text ${items[i]}`, () => expect(item.childNodes[0].nodeValue).toEqual(oneOfItems[i]))
                 ]);
             })
         ));

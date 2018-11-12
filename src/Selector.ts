@@ -1,7 +1,7 @@
 /**
  * # Abstract Selector
  * Creates a Selector with several Selectables.
- * The `updateSelected` property determines how selecting an item affects 
+ * The `updateModel` property determines how selecting an item affects 
  * the `isSelected` status of all other items. Preconfigured options are
  * -&nbsp; {@link Selector.oneOfItems oneOfItems} allows only one selection at a time
  * -&nbsp; {@link Selector.anyItems   anyItems} allows mutliple selections
@@ -60,28 +60,27 @@ export interface SelectableDesc {
  * @param items the list of selectable items
  * @param title the name of the current selection
  */
-export type selectionModel = (items:SelectableDesc[], title:string) => void;
+export type selectionModel = (items:SelectableDesc[], title:string) => SelectableDesc;
 
 /** 
  * called to update selection after the item with title `title` was selected.
  * `oneOfItems` ensures that `title` will be selected and all others deselected
  */
-export function oneOfItems(items:SelectableDesc[], title:string):void {
+export function oneOfItems(items:SelectableDesc[], title:string):SelectableDesc {
     items.forEach((item:SelectableDesc) => { 
         item.isSelected = (item.title===title); 
     });
+    if (!items.some((item:SelectableDesc) => item.isSelected)) { items[0].isSelected = true; }
+    return items.filter((item:SelectableDesc) => item.isSelected)[0];
 }
 
 /** 
  * called to update selection after the item with title `title` was selected.
  * `anyItems` ensures that `title` will be selected independant of all others
  */
-export function anyItems(items:SelectableDesc[], title:string):void {
-    // if (!items[title]) { 
-    //     console.log(`adding item ${title}`);
-    //     items[title] = {isSelected: false};
-    // }
+export function anyItems(items:SelectableDesc[], title:string):SelectableDesc {
     items[title].isSelected = !items[title].isSelected; 
+    return items[title];
 }
 
 export interface SelectorState {
@@ -91,10 +90,12 @@ export interface SelectorState {
      * - oneOfItems: default; only one item of the set can be selected at a time
      * - anyItem: each item can individually be selected. Pressing an item again will deselect it.
      */
-    updateSelected: selectionModel;
+    updateModel: selectionModel;
     /** instance variable, keeping a list of menu items and a `select` function for tracking which item is selected. */
     items: SelectableDesc[];
     events: (e:any)=>void;
+    itemClicked?: (item:string) => string;
+    defaultItem?: string;
 }
 
 
@@ -102,6 +103,24 @@ export interface SelectorState {
  * Abstract base class fopr menu and button selectors. 
  */
 export abstract class Selector {
+    /**
+     * takes care of copying menu items from `attrs` to `state`. This generates a redraw when the items change
+     * @param node 
+     */
+    static updateItems(node:Vnode) {
+        const items = node.attrs.desc.items || [];
+        items.map((itm:string) => {
+            if (!node.state.items[itm]) {
+                const item = {
+                    title: itm, 
+                    isSelected: false 
+                };
+                node.state.items.push(item);
+                node.state.items[itm] = item;
+            }
+        });
+    }
+
     /**
      * called when component is initialized, setting the internal state of the selector from
      * parameters passed in the `attrs` field. Currently supported attributes:
@@ -111,44 +130,59 @@ export abstract class Selector {
      * @param node then node to be initiailized
      * @param model model to use for state update; either `oneOfItems` (the default) or `anyItems`
      */
-    oninit(node: Vnode, model=oneOfItems) {
+    static init(node: Vnode, model=oneOfItems) {
         node.state = <SelectorState>{
-            updateSelected: model,
+            updateModel: model,
             items: <SelectableDesc[]>[],
-            events: {}
+            events: {},
+            itemClicked: (item:string) => item,
+            defaultItem: node.attrs.desc.defaultItem 
         };
         const desc = node.attrs.desc;
-        if (desc.mouseDown) { node.state.events.mouseDown = desc.mouseDown; }
-        if (desc.mouseUp)   { node.state.events.mouseUp = desc.mouseUp; }
-        if (desc.clicked)   { node.state.events.clicked = desc.clicked; }
-        const items = node.attrs.desc.items || [];
-        items.map((i:string) => {
-            const item = {
-                title: i, 
-                isSelected: false 
-            };
-            node.state.items.push(item);
-            node.state.items[i] = item;
-        });
-        if (node.attrs.defaultItem) { 
-            node.state.updateSelected(node.state.items, node.attrs.defaultItem); 
-        }
+        node.state.events.mouseDown = desc.mouseDown;
+        node.state.events.mouseUp = desc.mouseUp;
+        node.state.events.clicked = desc.clicked;
         node.attrs.desc.clicked = node.attrs.desc.clicked || ((item:string) => console.log(`missing clicked() function for selector item ${item}`));
+        Selector.updateItems(node);
     }
+
+    oninit(node: Vnode) { 
+        Selector.init(node); 
+    }
+    onupdate(node: Vnode) { 
+        Selector.updateItems(node); 
+    }
+
+    /**
+     * ensures that at least one item is selected. If none is selected,
+     * 
+     * @param node 
+     */
+    protected static ensureSelected(node: Vnode) {
+        if(!node.state.items.some((i:SelectableDesc) => i.isSelected) && node.state.items.length>0) { 
+            if (node.state.defaultItem) { 
+                node.state.items[node.state.defaultItem].isSelected = true; 
+            } else { 
+                node.state.items[0].isSelected = true; 
+            } 
+        }
+    }
+
 
     /**
      * render an item of the Selector group
      * @param node the node holding the group state
-     * @param desc the items descriptor
      * @param i index of item to render
      */
     protected static renderItem(node: Vnode, i:number) {
-        const reactor = (callback:(itm:string)=>void) => (item:string) => {
-            node.state.updateSelected(node.state.items, item); // internal state update
+        const reactor = (callback:(itm:string)=>void) => (title:string) => {
+            node.state.updateModel(node.state.items, title); // internal state update
+            title = node.state.itemClicked(title);
             if (typeof callback === 'function') { 
-                callback(item);  // trigger any external actions from the selection
+                callback(title);  // trigger any external actions from the selection
             }     
         }; 
+        if (i<0) { console.log(`illegal render index ${i} ${node.state.items.map((i:any)=>i.title).join('|')}`); i = 0; }
         const item:SelectableDesc = node.state.items[i];
         const title:string = item.title || '';
         const itemCss = item.css || '';
@@ -159,9 +193,9 @@ export abstract class Selector {
             css: itemCss,        // possibly undefined
             // isSelected: node.state.selectedItem? (l.toLowerCase() === node.state.selectedItem.toLowerCase()) : false, 
             isSelected: node.state.items[title]? node.state.items[title].isSelected : false, 
-            mouseDown: reactor(node.state.mouseDown),
-            mouseUp: reactor(node.state.mouseUp),
-            clicked: reactor(node.state.clicked)
+            mouseDown: node.state.events.mouseDown,
+            mouseUp: node.state.events.mouseUp,
+            clicked: reactor(node.state.events.clicked)
         });
     }
     abstract view(node: Vnode): Vnode;

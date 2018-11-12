@@ -32,7 +32,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>4/4</span>
+        <span class='fraction'>5/5</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -116,7 +116,8 @@
 71
 72
 73
-74</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+74
+75</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -152,41 +153,42 @@
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">32x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
@@ -213,7 +215,7 @@
  *    m('h4', `Select Radio Station: ${radio}`),
  *    m(hswidget.RadioButtons, { desc: {
  *        items: ['1st', '2nd','3rd'],
- *        changed: (item) =&gt; radio = item
+ *        clicked: (item) =&gt; radio = item
  *    }})
  * ])});
  * &lt;/file&gt;
@@ -222,22 +224,20 @@
  */
 &nbsp;
 /** */
-import { m, Vnode }     from 'hslayout';
-import { Layout }       from 'hslayout';
-import { Selector }     from './Selector';
-import { oneOfItems }   from './Selector';
-import { SelectorDesc } from './Selector';
+import { m, Vnode }         from 'hslayout';
+import { Layout }           from 'hslayout';
+import { Selector }         from './Selector';
 &nbsp;
 /**
  * # Radio Button Widget
  * A group of buttons with one or none selected
  * 
  * ### Profile
- * invoked as `m(RadioButton, {desc: { items:[&lt;string&gt;], changed:&lt;function&gt;}});`
+ * invoked as `m(RadioButton, {desc: { items:[&lt;string&gt;], clicked:&lt;function&gt;}});`
  * 
  * ### Attributes (node.attrs):
  * - `desc:` see {@link Selector.SelectorDesc SelectorDesc}
- *     - `changed:(item:string) =&gt; void`    function to execute when button is selected
+ *     - `clicked:(item:string) =&gt; void`    function to execute when button is selected
  *     - `selectedItem?: number|string`     the currently selected item, by index or name
  *     - `items: string[]`                  names to individual buttons to show
  *     - `itemCss?:string[]`                css to apply to each item;
@@ -245,19 +245,22 @@ import { SelectorDesc } from './Selector';
  * - `style?: string`                       style string to apply to button tag
  */
 export class RadioButton extends Selector {
-    oninit(node:Vnode) {
-        super.oninit(node);
-        Selector.init(node, oneOfItems);
-    }
     static viewGroup(css:string, node: Vnode) {
-        const desc:SelectorDesc = node.attrs.desc;
         css = `${css} ${node.attrs.css || ''}`;
         const style = node.attrs.style || '';
 &nbsp;
         return m(css, {style:style}, m(Layout, {
             columns: [],
-            content: desc.items.map((l:string, i:number) =&gt; Selector.renderItem(node, desc, i))
+            content: node.state.items.map((l:string, i:number) =&gt; Selector.renderItem(node, i))
         }));
+    }
+    oninit(node: Vnode) {
+        Selector.init(node);
+        Selector.ensureSelected(node);
+    }
+    onupdate(node: Vnode) {
+        super.onupdate(node);
+        Selector.ensureSelected(node);
     }
     view(node: Vnode): Vnode { return RadioButton.viewGroup('.hs-radio-buttons', node); }
 }

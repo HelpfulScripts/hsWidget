@@ -52,7 +52,7 @@ import { anyItems }      from './Selector';
  */
 export class OptionsButton extends Selector {
     oninit(node:Vnode) {
-        super.oninit(node, anyItems);
+        Selector.init(node, anyItems);
     }
     static viewGroup(css:string, node: Vnode) {
         css = `${css} ${node.attrs.css || ''}`;

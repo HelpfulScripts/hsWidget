@@ -25,14 +25,14 @@
         <span class='fraction'>22/24</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">75% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>6/8</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">60% </span>
+        <span class="strong">75% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>3/5</span>
+        <span class='fraction'>6/8</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -125,8 +125,7 @@
 80
 81
 82
-83
-84</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+83</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,7 +160,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -182,30 +180,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -233,7 +231,7 @@
  *    m('h4', `Please Toggle: (currently ${toggle})`),
  *    m(hswidget.ToggleButton, { desc: {
  *        items: ['1st', '2nd','3rd'],
- *        changed: (item) =&gt; toggle = item
+ *        clicked: (item) =&gt; toggle = item
  *    }})
  * ])});
  * &lt;/file&gt;
@@ -242,9 +240,8 @@
  */
 &nbsp;
 /** */
-import { m, Vnode }     from 'hslayout';
-import { Selector }     from './Selector';
-import { oneOfItems }   from './Selector';
+import { m, Vnode }                 from 'hslayout';
+import { Selector, SelectableDesc } from './Selector';
 &nbsp;
 /**
  * # ToggleButton Widget
@@ -252,11 +249,11 @@ import { oneOfItems }   from './Selector';
  * shows the current state as button title
  * 
  * ### Profile
- * invoked as `m(ToggleButton, {desc: { items:[&lt;string&gt;], changed:&lt;function&gt;}});`
+ * invoked as `m(ToggleButton, {desc: { items:[&lt;string&gt;], clicked:&lt;function&gt;}});`
  * 
  * ### Attributes (node.attrs):
  * - `desc:` see {@link Selector.SelectorDesc SelectorDesc}
- *     - `changed:(item:string) =&gt; void` function to execute when button is selected
+ *     - `clicked:(item:string) =&gt; void` function to execute when button is selected
  *     - `selectedItem?: number|string` the currently selected item, by index or name
  *     - `items: string[]` names of individual states to toggle through
  *     - `itemCss?:string[]` css to apply to each item;
@@ -265,31 +262,31 @@ import { oneOfItems }   from './Selector';
  */
 export class ToggleButton extends Selector {
     oninit(node:Vnode) {
-        super.oninit(node);
-        node.state.toggleIndex = -1;
-        node.state.mouseDown = '';
+        Selector.init(node);
+        node.state.mouseDownCSS = '';
+        node.state.events.mouseDown = <span class="fstat-no" title="function not covered" >() </span>=&gt; <span class="cstat-no" title="statement not covered" >node.state.mouseDownCSS = '.hs-button-pressed';</span>
+        node.state.events.mouseUp   = <span class="fstat-no" title="function not covered" >() </span>=&gt; <span class="cstat-no" title="statement not covered" >node.state.mouseDownCSS = '';</span>
+        // node.state.postUpdate = node.state.updateModel;
+        node.state.itemClicked= (title:string):void =&gt; {
+            const i = node.state.items.map((i:SelectableDesc)=&gt; i.title).indexOf(title);
+            const newTitle = node.state.items[(i+1) % node.state.items.length].title;
+            node.state.items[title].isSelected = false;
+            node.state.items[newTitle].isSelected = true;
+            return newTitle;
+        };
+        Selector.ensureSelected(node);
+    }
+    onupdate(node: Vnode) {
+        super.onupdate(node);
+        Selector.ensureSelected(node);
     }
     view(node: Vnode): Vnode {
-        const desc = Selector.init(node, oneOfItems);
         const css = node.attrs.css || '';
         const style = node.attrs.style || '';
+        const i = node.state.items.findIndex((i:SelectableDesc) =&gt; i.isSelected);
 &nbsp;
-        // insert click update into passed click function
-        const parentChanged = desc.changed;
-        desc.changed = ((item:string) =&gt; {
-            node.state.toggleIndex = (node.state.toggleIndex+1) % desc.items.length;
-            item = desc.items[node.state.toggleIndex];
-            node.state.updateSelected(node.state.items, item); // internal state update
-            <span class="missing-if-branch" title="else path not taken" >E</span>if (parentChanged) { parentChanged(item); }
-        });
-&nbsp;
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (node.state.toggleIndex&lt;0) { node.state.toggleIndex = 0; }
-&nbsp;
-        desc.mouseDown = <span class="fstat-no" title="function not covered" >() </span>=&gt; <span class="cstat-no" title="statement not covered" >node.state.mouseDown = '.hs-button-pressed';</span>
-        desc.mouseUp   = <span class="fstat-no" title="function not covered" >() </span>=&gt; <span class="cstat-no" title="statement not covered" >node.state.mouseDown = '';</span>
-&nbsp;
-        return m(`.hs-toggle-button${css}${node.state.mouseDown}`, { style:style}, m('span', 
-            Selector.renderItem(node, desc, node.state.toggleIndex)
+        return m(`.hs-toggle-button ${css} ${node.state.mouseDownCSS}`, { style:style}, m('span', 
+            Selector.renderItem(node, i)
         ));
     }
 }</pre></td></tr>

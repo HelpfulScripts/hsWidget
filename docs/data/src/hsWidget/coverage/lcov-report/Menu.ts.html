@@ -171,7 +171,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">11x</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * # Menu Widget
@@ -183,7 +183,7 @@
  * ### Attributes (node.attrs):
  * - `desc:` {@link Menu.MenuDesc MenuDesc}
  *     - `items: string[]`                  the items on the menu
- *     - `changed: (item:string) =&gt; void`   called when item clicked
+ *     - `clicked: (item:string) =&gt; void`   called when item clicked
  *     - `defaultItem?: number|string`      the currently selected item, by index or name
  *     - `itemCSS?: string[]`               css to apply to items;
  * - `css?: string`                         css class to assign to button group
@@ -203,7 +203,7 @@
  *         m(hswidget.Menu, {desc: {
  *             items: items,
  *             defaultItem: 'Two',
- *             changed: item =&gt; 
+ *             clicked: item =&gt; 
  *                theContent = content[items.indexOf(item)]
  *         }}),
  *         m(hslayout.Layout, { css:'myMain', content: theContent })

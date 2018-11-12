@@ -47,12 +47,9 @@ import { ToggleButton } from './ToggleButton';
  */
 export class Button extends ToggleButton {
     oninit(node: Vnode) {
-        const desc = node.attrs.desc;
-        desc.items = [desc.name || 'button'];
-        super.oninit(node);
+        node.attrs.desc.items = [node.attrs.desc.name || 'button'];
+        ToggleButton.init(node);
+        ToggleButton.ensureSelected(node);
     }
-    // view(node: Vnode) {
-    //     return super.view(node);
-    // }
 }
 

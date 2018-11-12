@@ -16,15 +16,15 @@ describe('ToggleButton', () => {
         out.should.have(1, '.hs-toggle-button>span>.hs-selectable');    
     });
     it('should click 2nd', () => {
-        out.click('.hs-selectable', null, true);
+        out.click('.hs-selectable');
         expect(toggle).toBe('2nd');
     });
     it('should click 3rd', () => {
-        out.click('.hs-selectable', null, true);
+        out.click('.hs-selectable');
         expect(toggle).toBe('3rd');
     });
     it('should click 1st', () => {
-        out.click('.hs-selectable', null, true);
+        out.click('.hs-selectable');
         expect(toggle).toBe('1st');
     });
 });
