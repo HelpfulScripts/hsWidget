@@ -109,15 +109,13 @@ export abstract class Selector {
      */
     static updateItems(node:Vnode) {
         const items = node.attrs.desc.items || [];
-        items.map((itm:string) => {
-            if (!node.state.items[itm]) {
-                const item = {
-                    title: itm, 
-                    isSelected: false 
-                };
-                node.state.items.push(item);
-                node.state.items[itm] = item;
-            }
+        items.map((itm:string, i:number) => {
+            const item = node.state.items[itm] || {
+                title: itm, 
+                isSelected: false 
+            };
+            node.state.items[i] = item;
+            node.state.items[itm] = item;
         });
     }
 

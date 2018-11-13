@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">91.23% </span>
+        <span class="strong">91.07% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>52/57</span>
+        <span class='fraction'>51/56</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">77.14% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>45/45</span>
+        <span class='fraction'>44/44</span>
       </div>
     </div>
   </div>
@@ -259,9 +259,7 @@
 214
 215
 216
-217
-218
-219</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+217</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -374,13 +372,11 @@
 <span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-yes">21x</span>
 <span class="cline-any cline-yes">66x</span>
-<span class="cline-any cline-yes">30x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-yes">30x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">66x</span>
+<span class="cline-any cline-yes">66x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -590,15 +586,13 @@ export abstract class Selector {
      */
     static updateItems(node:Vnode) {
         const items = node.attrs.desc.items || <span class="branch-1 cbranch-no" title="branch not covered" >[];</span>
-        items.map((itm:string) =&gt; {
-            if (!node.state.items[itm]) {
-                const item = {
-                    title: itm, 
-                    isSelected: false 
-                };
-                node.state.items.push(item);
-                node.state.items[itm] = item;
-            }
+        items.map((itm:string, i:number) =&gt; {
+            const item = node.state.items[itm] || {
+                title: itm, 
+                isSelected: false 
+            };
+            node.state.items[i] = item;
+            node.state.items[itm] = item;
         });
     }
 &nbsp;
