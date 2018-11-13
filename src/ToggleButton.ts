@@ -53,7 +53,7 @@ import { Selector, SelectableDesc } from './Selector';
  */
 export class ToggleButton extends Selector {
     oninit(node:Vnode) {
-        Selector.init(node);
+        super.oninit(node);
         node.state.mouseDownCSS = '';
         node.state.events.mouseDown = () => node.state.mouseDownCSS = '.hs-button-pressed';
         node.state.events.mouseUp   = () => node.state.mouseDownCSS = '';

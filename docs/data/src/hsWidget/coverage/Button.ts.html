@@ -203,7 +203,7 @@ import { ToggleButton } from './ToggleButton';
 export class Button extends ToggleButton {
     oninit(node: Vnode) {
         node.attrs.desc.items = [node.attrs.desc.name || <span class="branch-1 cbranch-no" title="branch not covered" >'button']</span>;
-        ToggleButton.init(node);
+        super.oninit(node);
         ToggleButton.ensureSelected(node);
     }
 }

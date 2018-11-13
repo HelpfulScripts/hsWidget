@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toolbar creates 1`] = `
+<div>
+  <div>
+    <div
+      class="myPositioned"
+    >
+      <div
+        class="hs-corner-button"
+      >
+        ×
+      </div>
+    </div>
+    <div
+      class="myPositioned"
+    >
+      <div
+        class="hs-corner-button"
+      >
+        ×
+        ∧
+      </div>
+    </div>
+  </div>
+</div>
+`;

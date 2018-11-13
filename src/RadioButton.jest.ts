@@ -6,7 +6,11 @@ const mq = require('mithril-query');
 
 let radio = 'xx';
 const out = mq(m(hswidget.RadioButton, { desc: {
-    items: ['1st', '2nd','3rd'], clicked: (item:string) => radio = item
+    items: ['1st', '2nd','3rd'], 
+    defaultItem: '2nd',
+    clicked: (item:string) => radio = item,
+    mouseDown: () => {},
+    mouseUp: () => {}
 }}));
 
 describe('RadioButton', () => {
@@ -26,6 +30,14 @@ describe('RadioButton', () => {
     });
     it('should click 3rd', () => {
         out.click('.hs-layout:nth-child(3)>.hs-selectable');
+        expect(radio).toBe('3rd');
+    });
+    it('should hear mouseDown', () => {
+        out.trigger('.hs-layout:nth-child(3)>.hs-selectable', 'onmousedown');
+        expect(radio).toBe('3rd');
+    });
+    it('should hear mouseUp', () => {
+        out.trigger('.hs-layout:nth-child(3)>.hs-selectable', 'onmouseup');
         expect(radio).toBe('3rd');
     });
 });

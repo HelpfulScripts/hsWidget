@@ -62,7 +62,7 @@ export class RadioButton extends Selector {
         }));
     }
     oninit(node: Vnode) {
-        Selector.init(node);
+        super.oninit(node);
         Selector.ensureSelected(node);
     }
     onupdate(node: Vnode) {

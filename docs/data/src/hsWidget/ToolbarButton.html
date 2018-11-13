@@ -39,7 +39,7 @@
 <p id=16 class="line"><span>&nbsp;&nbsp;16</span><comment>&nbsp;*&nbsp;const&nbsp;keys&nbsp;=&nbsp;Object.keys(hswidget.ButtonSymbols);</comment></p>
 <p id=17 class="line"><span>&nbsp;&nbsp;17</span><comment>&nbsp;*&nbsp;const&nbsp;groupsOf4&nbsp;=&nbsp;[];</comment></p>
 <p id=18 class="line"><span>&nbsp;&nbsp;18</span><comment>&nbsp;*&nbsp;let&nbsp;batch&nbsp;=&nbsp;[];</comment></p>
-<p id=19 class="line"><span>&nbsp;&nbsp;19</span><comment>&nbsp;*&nbsp;for&nbsp;(let&nbsp;i=0;&nbsp;i<keys.length;&nbsp;i++)&nbsp;{</comment></p>
+<p id=19 class="line"><span>&nbsp;&nbsp;19</span><comment>&nbsp;*&nbsp;for&nbsp;(let&nbsp;i=0;&nbsp;i&nbsp;<&nbsp;keys.length;&nbsp;i++)&nbsp;{</comment></p>
 <p id=20 class="line"><span>&nbsp;&nbsp;20</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(i&nbsp;%&nbsp;4&nbsp;===&nbsp;0)&nbsp;{</comment></p>
 <p id=21 class="line"><span>&nbsp;&nbsp;21</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;batch&nbsp;=&nbsp;[]</comment></p>
 <p id=22 class="line"><span>&nbsp;&nbsp;22</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;groupsOf4.push(batch);</comment></p>
@@ -132,8 +132,8 @@
 <p id=109 class="line"><span>&nbsp;109</span>};</p>
 <p id=110 class="line"><span>&nbsp;110</span></p>
 <p id=111 class="line"><span>&nbsp;111</span>export&nbsp;class&nbsp;ToolbarButton&nbsp;{</p>
-<p id=112 class="line"><span>&nbsp;112</span>&nbsp;&nbsp;&nbsp;&nbsp;constructor(protected&nbsp;symbols=<quote>'-'</quote>)&nbsp;{}</p>
-<p id=113 class="line"><span>&nbsp;113</span>&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;getSymbol(name:string)&nbsp;{</p>
+<p id=112 class="line"><span>&nbsp;112</span>&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;constructor(protected&nbsp;symbols=<quote>'-'</quote>)&nbsp;{}</comment></p>
+<p id=113 class="line"><span>&nbsp;113</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;static&nbsp;getSymbol(name:string)&nbsp;{</p>
 <p id=114 class="line"><span>&nbsp;114</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ButtonSymbols[name]?&nbsp;ButtonSymbols[name].sym&nbsp;:&nbsp;<quote>''</quote>;</p>
 <p id=115 class="line"><span>&nbsp;115</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=116 class="line"><span>&nbsp;116</span>&nbsp;&nbsp;&nbsp;&nbsp;view(node:Vnode)&nbsp;{</p>

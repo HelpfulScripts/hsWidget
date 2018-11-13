@@ -76,36 +76,38 @@ class GetList {
 }
 
 export class TypeAhead {
-    typeAheadList:string[] = [];
-    hidePopdown = true;
-    value = '';
-    inputNode:any;
+    oninit(node:Vnode) {
+        node.state.inputNode = '';
+        node.state.hidePopdown = true;
+        node.state.value = '';
+        node.state.typeAheadList = [];
+        node.state.onsubmit = node.attrs.onsubmit;
+    }
     view(node:Vnode) {
         const gl = new GetList(node.attrs.list);
         const nosubmit = () => console.log('no submit function defined');
         const submit = (v:string) => {
-//          this.inputNode.value = '';
-            this.inputNode.setSelectionRange(0, this.inputNode.value.length);
-            this.hidePopdown = true;
-            return node.attrs.onsubmit? node.attrs.onsubmit(v) : nosubmit();
+            node.state.inputNode.setSelectionRange(0, node.state.inputNode.value.length);
+            node.state.hidePopdown = true;
+            return node.state.onsubmit? node.state.onsubmit(v) : nosubmit();
         };
         const select = (e:any) => { if (e) { 
-            this.inputNode.value = e.target.attributes.name.value;
+            node.state.inputNode.value = e.target.attributes.name.value;
             submit(e.target.attributes.name.value);
         }};
         const input = (e:any) => {
-            const n = this.inputNode = e.target;
-            const input = this.value = n.value;
+            const n = node.state.inputNode = e.target;
+            const input = node.state.value = n.value;
             const withinInput = new RegExp(`${input}`, 'gi');
             const beginningOfInput = new RegExp(`^${input}`, 'gi');
-            this.typeAheadList = gl.list.filter((l:string) => l.match(withinInput));
-            n.value = this.typeAheadList.filter((l:string) => l.match(beginningOfInput))[0] || input; 
-            this.hidePopdown = n.value.length===0; 
+            node.state.typeAheadList = gl.list.filter((l:string) => l.match(withinInput));
+            n.value = node.state.typeAheadList.filter((l:string) => l.match(beginningOfInput))[0] || input; 
+            node.state.hidePopdown = n.value.length===0; 
             let pos = input.length;
             n.setSelectionRange(pos, n.value.length);
         };
         const keyPressed = (e:any) => {
-            const n = this.inputNode = e.target;
+            const n = node.state.inputNode = e.target;
             if (e.code === 'Enter') {
                 submit(n.value);
             } else if (e.code === 'Backspace') {
@@ -115,21 +117,21 @@ export class TypeAhead {
                 }
             }
         };
-        const inputNode = m(`input.hs-typeahead-input${this.value?'.hs-typeahead-value' : '.hs-typeahead-placeholder'}`, 
+        const inputNode = m(`input.hs-typeahead-input${node.state.value?'.hs-typeahead-value' : '.hs-typeahead-placeholder'}`, 
             {
                 contenteditable:true,
                 placeholder:    node.attrs.placeholder,
                 autofocus:      node.attrs.autofocus || true,
-                onkeydown:      keyPressed.bind(this),
-                oninput:        input.bind(this)
+                onkeydown:      keyPressed,
+                oninput:        input
             }, 
-            m.trust(this.value?this.value : node.attrs.placeholder));
+            m.trust(node.state.value?node.state.value : node.attrs.placeholder));
 
         return m('.hs-form', [
             inputNode, 
-            this.hidePopdown? undefined : 
-                m('.hs-typeahead-list', this.typeAheadList.map((l:string) => 
-                    m('', { onclick: select.bind(this) }, emphasize(l, this.value))))
+            node.state.hidePopdown? undefined : 
+                m('.hs-typeahead-list', node.state.typeAheadList.map((l:string) => 
+                    m('', { onclick: select }, emphasize(l, node.state.value))))
         ]);
     }
 }

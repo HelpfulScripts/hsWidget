@@ -71,7 +71,7 @@
 <p id=48 class="line"><span>&nbsp;&nbsp;48</span>export&nbsp;class&nbsp;Button&nbsp;extends&nbsp;ToggleButton&nbsp;{</p>
 <p id=49 class="line"><span>&nbsp;&nbsp;49</span>&nbsp;&nbsp;&nbsp;&nbsp;oninit(node:&nbsp;Vnode)&nbsp;{</p>
 <p id=50 class="line"><span>&nbsp;&nbsp;50</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.attrs.desc.items&nbsp;=&nbsp;[node.attrs.desc.name&nbsp;||&nbsp;<quote>'button'</quote>];</p>
-<p id=51 class="line"><span>&nbsp;&nbsp;51</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ToggleButton.init(node);</p>
+<p id=51 class="line"><span>&nbsp;&nbsp;51</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super.oninit(node);</p>
 <p id=52 class="line"><span>&nbsp;&nbsp;52</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ToggleButton.ensureSelected(node);</p>
 <p id=53 class="line"><span>&nbsp;&nbsp;53</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=54 class="line"><span>&nbsp;&nbsp;54</span>}</p>
