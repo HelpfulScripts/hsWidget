@@ -179,7 +179,8 @@
 134
 135
 136
-137</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+137
+138</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -306,9 +307,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -434,18 +436,19 @@ export class TypeAhead {
                 }
             }
         };
-        const inputNode = m(`input.hs-typeahead-input${node.state.value?<span class="branch-0 cbranch-no" title="branch not covered" >'.hs-typeahead-value' </span>: '.hs-typeahead-placeholder'}`, 
-            {
-                contenteditable:true,
-                placeholder:    node.attrs.placeholder,
-                autofocus:      node.attrs.autofocus || true,
-                onkeydown:      keyPressed,
-                oninput:        input
-            }, 
-            m.trust(node.state.value?<span class="branch-0 cbranch-no" title="branch not covered" >node.state.value </span>: node.attrs.placeholder));
-&nbsp;
+        const inputNode = {
+            contenteditable:true,
+            placeholder:    node.attrs.placeholder,
+            autofocus:      node.attrs.autofocus || true,
+            onkeydown:      keyPressed,
+            oninput:        input
+        };
+            
         return m('.hs-form', [
-            inputNode, 
+            m(`input.hs-typeahead-input${node.state.value?<span class="branch-0 cbranch-no" title="branch not covered" >'.hs-typeahead-value' </span>: '.hs-typeahead-placeholder'}`, 
+                inputNode, 
+                m.trust(node.state.value?<span class="branch-0 cbranch-no" title="branch not covered" >node.state.value </span>: node.attrs.placeholder)
+            ),
             node.state.hidePopdown? undefined : 
 <span class="branch-1 cbranch-no" title="branch not covered" >                m('.hs-typeahead-list', node.state.typeAheadList.map(<span class="fstat-no" title="function not covered" >(l</span>:string) =&gt; </span>
 <span class="cstat-no" title="statement not covered" >                    m('', { onclick: select }, emphasize(l, node.state.value)))</span>)

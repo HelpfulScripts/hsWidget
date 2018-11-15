@@ -82,9 +82,10 @@ export class TypeAhead {
         node.state.value = '';
         node.state.typeAheadList = [];
         node.state.onsubmit = node.attrs.onsubmit;
+        node.state.list = node.attrs.list;
     }
     view(node:Vnode) {
-        const gl = new GetList(node.attrs.list);
+        const gl = new GetList(node.state.list);
         const nosubmit = () => console.log('no submit function defined');
         const submit = (v:string) => {
             node.state.inputNode.setSelectionRange(0, node.state.inputNode.value.length);
@@ -117,18 +118,19 @@ export class TypeAhead {
                 }
             }
         };
-        const inputNode = m(`input.hs-typeahead-input${node.state.value?'.hs-typeahead-value' : '.hs-typeahead-placeholder'}`, 
-            {
-                contenteditable:true,
-                placeholder:    node.attrs.placeholder,
-                autofocus:      node.attrs.autofocus || true,
-                onkeydown:      keyPressed,
-                oninput:        input
-            }, 
-            m.trust(node.state.value?node.state.value : node.attrs.placeholder));
-
+        const inputNode = {
+            contenteditable:true,
+            placeholder:    node.attrs.placeholder,
+            autofocus:      node.attrs.autofocus || true,
+            onkeydown:      keyPressed,
+            oninput:        input
+        };
+            
         return m('.hs-form', [
-            inputNode, 
+            m(`input.hs-typeahead-input${node.state.value?'.hs-typeahead-value' : '.hs-typeahead-placeholder'}`, 
+                inputNode, 
+                m.trust(node.state.value?node.state.value : node.attrs.placeholder)
+            ),
             node.state.hidePopdown? undefined : 
                 m('.hs-typeahead-list', node.state.typeAheadList.map((l:string) => 
                     m('', { onclick: select }, emphasize(l, node.state.value))))
