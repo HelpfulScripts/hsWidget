@@ -25,9 +25,9 @@
         <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">50% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>3/6</span>
+        <span class='fraction'>6/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
@@ -142,10 +142,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,9 +195,9 @@ import { m, Vnode }     from 'hslayout';
  */
 export class Label {
     view(node: Vnode): Vnode { 
-        const css = node.attrs.css || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
-        const style = node.attrs.style || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
-        const text  = node.attrs.text || <span class="branch-1 cbranch-no" title="branch not covered" >'unspecified';</span>
+        const css = node.attrs.css || '';
+        const style = node.attrs.style || '';
+        const text  = node.attrs.text || 'unspecified';
         return m(`.hs-label ${css}`, { style:style }, m.trust(text)); 
     }
 }

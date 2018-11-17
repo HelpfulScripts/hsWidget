@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">95.24% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>20/21</span>
+        <span class='fraction'>19/19</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">58.33% </span>
+        <span class="strong">91.67% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>7/12</span>
+        <span class='fraction'>11/12</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>5/5</span>
+        <span class='fraction'>4/4</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">94.44% </span>
+        <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>17/18</span>
+        <span class='fraction'>17/17</span>
       </div>
     </div>
   </div>
@@ -110,8 +110,7 @@
 65
 66
 67
-68
-69</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+68</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -152,25 +151,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -224,7 +222,6 @@ export class Modal {
         node.state.showModal = false;
     }
     view(node:Vnode) {
-        const showModal = () =&gt; node.state.showModal;
         const trigger = () =&gt; {
             node.state.showModal = true;
             m.redraw();
@@ -233,14 +230,14 @@ export class Modal {
             node.state.showModal = false;
             <span class="missing-if-branch" title="else path not taken" >E</span>if (node.attrs.dismiss) { node.attrs.dismiss(); }
         };
-        const w = node.attrs.width  || <span class="branch-1 cbranch-no" title="branch not covered" >'auto';</span>
-        const h = node.attrs.height || <span class="branch-1 cbranch-no" title="branch not covered" >'auto';</span>
+        const w = node.attrs.width  || 'auto';
+        const h = node.attrs.height || 'auto';
         const attrs = { style: `width:${w}; height:${h};`};
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (node.attrs.setTrigger) { node.attrs.setTrigger(trigger); }
-        else { <span class="cstat-no" title="statement not covered" >console.log(`required attribute function 'setTrigger' is not defined`); </span>}
-        return !showModal()? m('span') : m('.hs-modal-frame', [
+        if (node.attrs.setTrigger) { node.attrs.setTrigger(trigger); }
+        else { console.log(`required attribute function 'setTrigger' is not defined`); }
+        return !node.state.showModal? m('span') : m('.hs-modal-frame', [
             m('.hs-modal-background', { onclick: dismiss}, ''),
-            m('.hs-modal-foreground', attrs, !node.attrs.content? <span class="branch-0 cbranch-no" title="branch not covered" >'modal pane' </span>: [
+            m('.hs-modal-foreground', attrs, !node.attrs.content? 'modal pane' : [
                 node.attrs.content,
                 m(ToolbarButton, { onclick: dismiss, symbols:ToolbarButton.getSymbol('cross') }) 
             ])

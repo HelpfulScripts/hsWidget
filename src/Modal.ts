@@ -43,7 +43,6 @@ export class Modal {
         node.state.showModal = false;
     }
     view(node:Vnode) {
-        const showModal = () => node.state.showModal;
         const trigger = () => {
             node.state.showModal = true;
             m.redraw();
@@ -57,7 +56,7 @@ export class Modal {
         const attrs = { style: `width:${w}; height:${h};`};
         if (node.attrs.setTrigger) { node.attrs.setTrigger(trigger); }
         else { console.log(`required attribute function 'setTrigger' is not defined`); }
-        return !showModal()? m('span') : m('.hs-modal-frame', [
+        return !node.state.showModal? m('span') : m('.hs-modal-frame', [
             m('.hs-modal-background', { onclick: dismiss}, ''),
             m('.hs-modal-foreground', attrs, !node.attrs.content? 'modal pane' : [
                 node.attrs.content,
