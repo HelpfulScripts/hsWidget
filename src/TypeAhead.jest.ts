@@ -7,7 +7,7 @@ const mq = require('mithril-query');
 let hero = '';
 const out = mq(m(hswidget.TypeAhead, {
     placeholder: 'favorite hero',
-    onsubmit: item => hero = item,
+    onsubmit: (item:string) => hero = item,
     onkeydown: console.log,
     list: ['Batman', 'Superman', 'Spiderman', 'Hulk']
 }));
@@ -16,7 +16,7 @@ const myEvent = {
     target: {
         value:'result',
         firstChild: {data: 'Sup'},
-        setSelectionRange: (n, length) => {}
+        setSelectionRange: (n:number, length:number) => {}
     },
     code: <string|number>undefined
 }; 
