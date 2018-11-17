@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Label should have DOM structure matches 1`] = `
+<div>
+  <div
+    class="hs-label  myLabel"
+    style="text-align: right;"
+  >
+    This is a label
+  </div>
+</div>
+`;
+
+exports[`Label should work with defaults matches 1`] = `
+<div>
+  <div
+    class="hs-label "
+    style=""
+  >
+    unspecified
+  </div>
+</div>
+`;
