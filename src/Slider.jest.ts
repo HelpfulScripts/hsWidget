@@ -78,11 +78,11 @@ describe('sliders', () => {
     });
 
     describe('nominal', () => {
-        const out = mq(m(Slider, {
+        const out = mq(m('div', m(Slider, {
             id:'mySlider1',
             range: ['one', 'two', 'three'],
             onchange: (v:any) => evtResult = v
-        }));
+        })));
         it('renders', () => {
             out.should.have('.hs-slider');
             out.should.have('.hs-slider>.hs-slider-slot');
@@ -103,6 +103,21 @@ describe('sliders', () => {
             myEvent.clientX = 410;
             out.trigger('.hs-slider', 'onmousemove', myEvent);
             expect(evtResult).toBe('three');
+        });
+        it('reacts to mouseup', () => {
+            myEvent.clientX = 410;
+            out.trigger('.hs-slider', 'onmouseup', myEvent);
+            expect(evtResult).toBe('three');
+        });
+    });
+    describe('default range', () => {
+        const out = mq(m('div', m(Slider, {
+            id:'mySlider1',
+            onchange: (v:any) => evtResult = v
+        })));
+        it('renders', () => {
+            out.should.have('.hs-slider');
+            out.should.have('.hs-slider>.hs-slider-slot');
         });
     });
 });

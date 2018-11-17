@@ -27,4 +27,12 @@ describe('ToggleButton', () => {
         out.click('.hs-selectable');
         expect(toggle).toBe('1st');
     });
+    it('should hear mouseDown', () => {
+        out.trigger('.hs-selectable', 'onmousedown');
+        out.should.have('.hs-toggle-button.hs-button-pressed');
+    });
+    it('should hear mouseUp', () => {
+        out.trigger('.hs-selectable', 'onmouseup');
+        out.should.not.have('.hs-toggle-button.hs-button-pressed');
+    });
 });

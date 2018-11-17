@@ -136,11 +136,10 @@ export abstract class Selector {
             itemClicked: (item:string) => item,
             defaultItem: node.attrs.desc.defaultItem 
         };
-        const desc = node.attrs.desc;
-        node.state.events.mouseDown = desc.mouseDown;
-        node.state.events.mouseUp = desc.mouseUp;
-        node.state.events.clicked = desc.clicked;
-        node.attrs.desc.clicked = node.attrs.desc.clicked || ((item:string) => console.log(`missing clicked() function for selector item ${item}`));
+        node.state.events.mouseDown = node.attrs.desc.mouseDown;
+        node.state.events.mouseUp   = node.attrs.desc.mouseUp;
+        node.attrs.desc.clicked     = node.attrs.desc.clicked || ((item:string) => console.log(`missing clicked() function for selector item ${item}`));
+        node.state.events.clicked   = node.attrs.desc.clicked;
         Selector.updateItems(node);
     }
 
