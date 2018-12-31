@@ -14,13 +14,13 @@
  * ### Example
  * <example>
  * <file name='script.js'>
- * let option = '';
+ * let options = {};
  * 
  * m.mount(root, {view: () => m('.hs-white', [
- *    m('h4', `Select Option: ${option}`),
- *    m(hswidget.OptionsButtons, { desc: {
+ *    m('h4', `Select Option: '${Object.keys(options).map(k=>options[k]).join(" ")}'`),
+ *    m(hswidget.OptionsButton, { desc: {
  *        items: ['1st', '2nd','3rd'],
- *        clicked: (item) => option = item
+ *        clicked: (item) => options[item] = options[item]? undefined : item
  *    }})
  * ])});
  * </file>

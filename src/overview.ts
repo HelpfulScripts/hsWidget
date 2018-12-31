@@ -37,9 +37,9 @@ ___
  *      m(hswidget.RadioButton, { desc: {
  *        items: ['1st', '2nd','3rd'], clicked: (item) => radio = item
  *      }}),
- *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.OptionsButton.OptionsButton'}, 'OptionsButton'), `: Select Option: ${option}`]),
+ *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.OptionsButton.OptionsButton'}, 'OptionsButton'), `: Select Option: '${Object.keys(options).map(k=>options[k]).join(" ")}'`]),
  *      m(hswidget.OptionsButton, { desc: {
- *        items: ['1st', '2nd','3rd'], clicked: (item) => option = item
+ *        items: ['1st', '2nd','3rd'], clicked: (item) => options[item] = options[item]? undefined : item
  *      }}),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToggleButton.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),
  *      m(hswidget.ToggleButton, { desc: {
@@ -153,6 +153,7 @@ ___
  * let clicked = 0;
  * let radio = '';
  * let option = '';
+ * let options = {};
  * let toggle = '';
  * let added  = 0;
  * let removed  = 0;

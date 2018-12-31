@@ -195,13 +195,13 @@
  * ### Example
  * &lt;example&gt;
  * &lt;file name='script.js'&gt;
- * let option = '';
+ * let options = {};
  * 
  * m.mount(root, {view: () =&gt; m('.hs-white', [
- *    m('h4', `Select Option: ${option}`),
- *    m(hswidget.OptionsButtons, { desc: {
+ *    m('h4', `Select Option: '${Object.keys(options).map(k=&gt;options[k]).join(" ")}'`),
+ *    m(hswidget.OptionsButton, { desc: {
  *        items: ['1st', '2nd','3rd'],
- *        clicked: (item) =&gt; option = item
+ *        clicked: (item) =&gt; options[item] = options[item]? undefined : item
  *    }})
  * ])});
  * &lt;/file&gt;
