@@ -199,7 +199,6 @@ ___
  * }
  * .myCollapsible .hs-collapsible-title {
  *     font-weight:bold;
- *     padding-left: 3px;
  *     background-color: #eee;
  * }
  * .myCollapsible .hs-collapsible-expanded {
