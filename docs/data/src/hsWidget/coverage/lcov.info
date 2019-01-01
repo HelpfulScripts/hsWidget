@@ -672,7 +672,6 @@ SF:/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril
 FNF:0
 FNH:0
 DA:8,10
-DA:9,10
 DA:10,10
 DA:11,10
 DA:12,10
@@ -684,8 +683,8 @@ DA:17,10
 DA:18,10
 DA:19,10
 DA:20,10
-LF:13
-LH:13
+LF:12
+LH:12
 BRF:0
 BRH:0
 end_of_record
