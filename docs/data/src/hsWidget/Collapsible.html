@@ -92,8 +92,8 @@
 <p id=69 class="line"><span>&nbsp;&nbsp;69</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.state.expanded&nbsp;=&nbsp;node.attrs.isExpanded;</p>
 <p id=70 class="line"><span>&nbsp;&nbsp;70</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=71 class="line"><span>&nbsp;&nbsp;71</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;expCSS&nbsp;=&nbsp;node.state.expanded?<quote>'hs-collapsible-expanded'</quote>:<quote>''</quote>;</p>
-<p id=72 class="line"><span>&nbsp;&nbsp;72</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(`.hs-collapsible&nbsp;${css}`,&nbsp;{&nbsp;onclick:node.state.toggle},&nbsp;[</p>
-<p id=73 class="line"><span>&nbsp;&nbsp;73</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>'.hs-collapsible-title'</quote>,[</p>
+<p id=72 class="line"><span>&nbsp;&nbsp;72</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(`.hs-collapsible&nbsp;${css}`,&nbsp;[</p>
+<p id=73 class="line"><span>&nbsp;&nbsp;73</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>'.hs-collapsible-title'</quote>,&nbsp;{&nbsp;onclick:node.state.toggle},&nbsp;[</p>
 <p id=74 class="line"><span>&nbsp;&nbsp;74</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!preArrow?&nbsp;m(<quote>''</quote>)&nbsp;:&nbsp;m(`.hs-collapsible-pre&nbsp;.hs-collapsible-arrow-${node.state.expanded?<quote>'down'</quote>&nbsp;:&nbsp;<quote>'right'</quote>}`),</p>
 <p id=75 class="line"><span>&nbsp;&nbsp;75</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;components[0],</p>
 <p id=76 class="line"><span>&nbsp;&nbsp;76</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;!postArrow?&nbsp;m(<quote>''</quote>)&nbsp;:&nbsp;m(`.hs-collapsible-post&nbsp;.hs-collapsible-arrow-${node.state.expanded?<quote>'down'</quote>&nbsp;:&nbsp;<quote>'left'</quote>}`),</p>

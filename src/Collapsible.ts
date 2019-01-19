@@ -69,8 +69,8 @@ export class Collapsible {
             node.state.expanded = node.attrs.isExpanded;
         }
         const expCSS = node.state.expanded?'hs-collapsible-expanded':'';
-        return m(`.hs-collapsible ${css}`, { onclick:node.state.toggle}, [
-            m('.hs-collapsible-title',[
+        return m(`.hs-collapsible ${css}`, [
+            m('.hs-collapsible-title', { onclick:node.state.toggle}, [
                 !preArrow? m('') : m(`.hs-collapsible-pre .hs-collapsible-arrow-${node.state.expanded?'down' : 'right'}`),
                 components[0],
                 !postArrow? m('') : m(`.hs-collapsible-post .hs-collapsible-arrow-${node.state.expanded?'down' : 'left'}`),

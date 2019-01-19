@@ -24,7 +24,7 @@ describe('Collapsible', () => {
             out.should.not.have('.hs-collapsible-arror-left');
         });
         it ('should respond to click', () => {
-            out.click('.myCollapsible'); 
+            out.click('.hs-collapsible-title'); 
             out.should.have('.hs-collapsible-expanded');
         });
     });
