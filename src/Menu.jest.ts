@@ -1,6 +1,7 @@
 import { Menu } from './Menu';
-import { m } from './mithril';
+// import { m } from './mithril';
 import { oneOfItems } from './Selector';
+const m = require("mithril");
 
 const left  = ['0%', '25%', '50%', '75%'];
 const right = ['75%', '50%', '25%', '0%'];
