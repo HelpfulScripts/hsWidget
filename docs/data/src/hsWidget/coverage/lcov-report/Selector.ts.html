@@ -25,9 +25,9 @@
         <span class='fraction'>51/55</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">82.86% </span>
+        <span class="strong">83.78% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>29/35</span>
+        <span class='fraction'>31/37</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">95.45% </span>
@@ -632,7 +632,7 @@ export abstract class Selector {
      */
     protected static ensureSelected(node: Vnode) {
         if(!node.state.items.some((i:SelectableDesc) =&gt; i.isSelected) &amp;&amp; node.state.items.length&gt;0) { 
-            if (node.state.defaultItem) { 
+            if (node.state.defaultItem &amp;&amp; node.state.items[node.state.defaultItem]) { 
                 node.state.items[node.state.defaultItem].isSelected = true; 
             } else { 
                 node.state.items[0].isSelected = true; 
