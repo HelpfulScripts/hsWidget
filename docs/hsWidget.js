@@ -1,4 +1,4 @@
-var hsWidget =
+this["hsWidget"] =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};

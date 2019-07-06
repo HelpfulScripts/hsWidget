@@ -20,7 +20,7 @@
  * let trigger;
  * m.mount(root, {view: () => m('.hs-white', [
  *      m('h4', {onclick:() => trigger()}, `click me (dismissed ${dismissals} times)`),
- *      m(hswidget.Modal, { 
+ *      m(hsWidget.Modal, { 
  *          setTrigger: (t) => trigger = t,
  *          width:  '300px',
  *          height: '200px',

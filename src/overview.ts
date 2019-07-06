@@ -25,24 +25,24 @@ ___
  * <example height=2700px>
  * <file name='script.js'>
  * const render = () => m.mount(root, {view: () => 
- *    m('.hs-white', m(hslayout.Layout, {
+ *    m('.hs-white', m(hsLayout.Layout, {
  *      rows:['100px', '360px', '210px', '250px', '340px', '320px', '340px'], content: [m('',''),
  * 
  *    // Buttons:
  *    m('',[
  *      m('h2', 'Buttons'),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button'), `: Please click: (${clicked}-times clicked)`]),
- *      m(hswidget.Button, { desc: { name: 'click me', clicked: () => clicked++ }}),
+ *      m(hsWidget.Button, { desc: { name: 'click me', clicked: () => clicked++ }}),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.RadioButton.RadioButton'}, 'RadioButton'), `: Select Station: ${radio}`]),
- *      m(hswidget.RadioButton, { desc: {
+ *      m(hsWidget.RadioButton, { desc: {
  *        items: ['1st', '2nd','3rd'], clicked: (item) => radio = item
  *      }}),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.OptionsButton.OptionsButton'}, 'OptionsButton'), `: Select Option: '${Object.keys(options).map(k=>options[k]).join(" ")}'`]),
- *      m(hswidget.OptionsButton, { desc: {
+ *      m(hsWidget.OptionsButton, { desc: {
  *        items: ['1st', '2nd','3rd'], clicked: (item) => options[item] = options[item]? undefined : item
  *      }}),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToggleButton.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),
- *      m(hswidget.ToggleButton, { desc: {
+ *      m(hsWidget.ToggleButton, { desc: {
  *        items: ['1st', '2nd','3rd'], clicked: (item) => toggle = item
  *      }}),
  *    ]),
@@ -51,7 +51,7 @@ ___
  *    m('',[
  *      m('h2', 'Menus'),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.Menu'}, 'Menu'), `: Please select:`]),
- *      m(hswidget.Menu, { css: '.myMenu', desc: {
+ *      m(hsWidget.Menu, { css: '.myMenu', desc: {
  *       items: menuItems,  defaultItem: 'Two',
  *       clicked: (item) => theContent = content[menuItems.indexOf(item)]
  *      }}),
@@ -63,7 +63,7 @@ ___
  *      m('h2.myGapModal', 'Modal Dialog Box'),
  *      m('h4', {onclick:() => trigger() }, 
  *          [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box (previous dismissals: ${dismissals})`]),
- *      m(hswidget.Modal, {
+ *      m(hsWidget.Modal, {
  *          width:  '300px',
  *          height: '200px',
  *          setTrigger: (t) => trigger = t,
@@ -76,16 +76,16 @@ ___
  *    m('',[
  *      m('h2', 'Collapsibles'),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Collapsible.Collapsible'}, 'Collapsible'), ': ']),
- *      m(hswidget.Collapsible, { css:'.myCollapsible', components: [
+ *      m(hsWidget.Collapsible, { css:'.myCollapsible', components: [
  *          m('.myTitle', 'click me to toggle - no arrows'), content 
  *      ]}),
- *      m(hswidget.Collapsible, { css:'.myCollapsible', preArrow:true, components: [
+ *      m(hsWidget.Collapsible, { css:'.myCollapsible', preArrow:true, components: [
  *          m('.myTitle', 'click me to toggle - left arrow'), content 
  *      ]}),
- *      m(hswidget.Collapsible, { css:'.myCollapsible', postArrow:true, components: [
+ *      m(hsWidget.Collapsible, { css:'.myCollapsible', postArrow:true, components: [
  *          m('.myTitle', 'click me to toggle - right arrow'), content 
  *      ]}),
- *      m(hswidget.Collapsible, { css:'.myCollapsible', preArrow:true, postArrow:true, components: [
+ *      m(hsWidget.Collapsible, { css:'.myCollapsible', preArrow:true, postArrow:true, components: [
  *          m('.myTitle', 'click me to toggle - both arrows'), content
  *      ]}),
  *      m('', 'Background text, will be pushed down by the Collapsible')
@@ -95,13 +95,13 @@ ___
  *    m('',[
  *      m('h2.myGapTypeAhead', 'Typeahead Search'),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: In-Memory List: ${hero.length? 'Selected1: ' + hero : 'Search for a Superhero'}`]),
- *      m(hswidget.TypeAhead, { 
+ *      m(hsWidget.TypeAhead, { 
  *          placeholder: 'favorite hero',
  *          onsubmit: item => hero = item,
  *          list: ['Batman', 'Superman', 'Spiderman', 'Hulk']
  *      }),
  *      m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: Remote List: ${friend.length? 'Selected2: '+ friend : 'Search for a Friend'}`]),
- *      m(hswidget.TypeAhead, { 
+ *      m(hsWidget.TypeAhead, { 
  *          placeholder: 'best friend',
  *          onsubmit: item => friend = item,
  *          autofocus: true,
@@ -115,11 +115,11 @@ ___
  *      //m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ButtonSymbols'}, 'ButtonSymbols'), ', ', 
  *      //         m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ToolbarButton'}, 'ToolbarButton'), ': ',
  *      //         lastCornerButton]),
- *      m('', Object.keys(hswidget.ButtonSymbols).map(
+ *      m('', Object.keys(hsWidget.ButtonSymbols).map(
  *          b => m('.myCornerPositioned', [
  *              btnClicked[b]? m('.myCornerClicked', 'Yayy!!') : m('', b),
- *              m(hswidget.ToolbarButton, { 
- *                  symbols:hswidget.ToolbarButton.getSymbol(b), onclick:click(b) 
+ *              m(hsWidget.ToolbarButton, { 
+ *                  symbols:hsWidget.ToolbarButton.getSymbol(b), onclick:click(b) 
  *              })
  *          ])
  *      ))
@@ -132,12 +132,12 @@ ___
  *    m('',[
  *      m('h2.mySliders', 'Sliders'),
  *      m('h4', `Nominal Slider: ${nom}`),
- *      m(hswidget.Slider, { 
+ *      m(hsWidget.Slider, { 
  *          range: ['one', 'two', 'three'],
  *          onchange: v => nom=v
  *      }),
  *      m('h4', `Continuous Slider: ${con}`),
- *      m(hswidget.Slider, {
+ *      m(hsWidget.Slider, {
  *          range: [0, 100],
  *          onchange: v => con=Math.floor(v*10)/10
  *      })
@@ -167,8 +167,8 @@ ___
  * 
  * const click = (button) => () => {
  *    lastCornerButton = '';
- *    if (hswidget.ButtonSymbols[button]) {
- *       lastCornerButton = m.trust(`last button pressed: ${hswidget.ButtonSymbols[button].sym}`);
+ *    if (hsWidget.ButtonSymbols[button]) {
+ *       lastCornerButton = m.trust(`last button pressed: ${hsWidget.ButtonSymbols[button].sym}`);
  *       btnClicked[button] = true;
  *       setTimeout(reset(button), 800);
  *    }

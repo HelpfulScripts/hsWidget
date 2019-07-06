@@ -22,16 +22,16 @@
  * const content   = ['1st', '2nd', '3rd'];
  * let  theContent = content[1];
  * 
- * m.mount(root, {view: () => m(hslayout.Layout, {
+ * m.mount(root, {view: () => m(hsLayout.Layout, {
  *     rows:["30px", "fill"],
  *     content:[
- *         m(hswidget.Menu, {desc: {
+ *         m(hsWidget.Menu, {desc: {
  *             items: items,
  *             defaultItem: 'Two',
  *             clicked: item => 
  *                theContent = content[items.indexOf(item)]
  *         }}),
- *         m(hslayout.Layout, { css:'myMain', content: theContent })
+ *         m(hsLayout.Layout, { css:'myMain', content: theContent })
  *     ]
  * })});
  *

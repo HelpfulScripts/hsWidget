@@ -23,7 +23,7 @@
  * <example>
  * <file name='script.js'>
  * m.mount(root, {view: () => m('.hs-white', [
- *    m(hswidget.Collapsible, { css:'.myExample', components: [
+ *    m(hsWidget.Collapsible, { css:'.myExample', components: [
  *       m('.myTitle', 'click me to toggle'), [
  *          m('.myItem', 'body item1'), 
  *          m('.myItem', 'body item2'), 

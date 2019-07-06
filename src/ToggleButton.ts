@@ -20,7 +20,7 @@
  * 
  * m.mount(root, {view: () => m('.hs-white', [
  *    m('h4', `Please Toggle: (currently ${toggle})`),
- *    m(hswidget.ToggleButton, { desc: {
+ *    m(hsWidget.ToggleButton, { desc: {
  *        items: ['1st', '2nd','3rd'],
  *        clicked: (item) => toggle = item
  *    }})

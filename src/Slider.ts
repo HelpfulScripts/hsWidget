@@ -25,12 +25,12 @@
  * 
  * m.mount(root, {view: () => m('', [
  *   m('h4', `Nominal Slider: ${nom}`),
- *   m(hswidget.Slider, {
+ *   m(hsWidget.Slider, {
  *      range: ['one', 'two', 'three'],
  *      onchange: v => nom=v
  *   }),
  *   m('h4', `Continuous Slider: ${con}`),
- *   m(hswidget.Slider, {
+ *   m(hsWidget.Slider, {
  *      range: [0, 100],
  *      onchange: v => con=Math.floor(v*10)/10
  *   })

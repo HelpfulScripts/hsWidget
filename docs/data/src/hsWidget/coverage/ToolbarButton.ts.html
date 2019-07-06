@@ -318,7 +318,7 @@
  * &lt;example height=450&gt;
  * &lt;file name='script.js'&gt;
  * const clicked = {}
- * const keys = Object.keys(hswidget.ButtonSymbols);
+ * const keys = Object.keys(hsWidget.ButtonSymbols);
  * const groupsOf4 = [];
  * let batch = [];
  * for (let i=0; i &lt; keys.length; i++) {
@@ -333,13 +333,13 @@
  *    m('', keys.map(       // single symbols
  *       bn =&gt; m('.myPositioned', [
  *          clicked[bn]? m('.myClicked', 'Yayy!!') : m('', bn),
- *          m(hswidget.ToolbarButton, { symbols:hswidget.ToolbarButton.getSymbol(bn), onclick:click(bn) })
+ *          m(hsWidget.ToolbarButton, { symbols:hsWidget.ToolbarButton.getSymbol(bn), onclick:click(bn) })
  *       ])
  *    )), 
  *    m('', groupsOf4.map(  // groups of 4 symbols
  *       batch =&gt; m('.myPositioned', [
  *          clicked[batch[0]]? m('.myClicked', 'Yayy!!') : m('', batch[0]),
- *          m(hswidget.ToolbarButton, { symbols:batch.map(bt =&gt; hswidget.ToolbarButton.getSymbol(bt)), onclick:click(batch[0]) })
+ *          m(hsWidget.ToolbarButton, { symbols:batch.map(bt =&gt; hsWidget.ToolbarButton.getSymbol(bt)), onclick:click(batch[0]) })
  *       ])
  *    ))
  * ])});

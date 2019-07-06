@@ -3,7 +3,7 @@
  * Provides a search box with a type-ahead dropdown to show valid options that match the current search input.
  * 
  * ### Profile
- * invoked as `m(hswidget.TypeAhead, { <Attributes> });`
+ * invoked as `m(hsWidget.TypeAhead, { <Attributes> });`
  * 
  * ### Attributes (node.attrs):
  * - `list: string | string[]` the list to search in. If `list` is a string, it serves
@@ -20,13 +20,13 @@
  * let friend = '';
  * m.mount(root, {view: () => m('.hs-white', [
  *      m('h4', hero.length? `Selected: ${hero}` : 'Local List: Search for a Superhero'),
- *      m(hswidget.TypeAhead, { 
+ *      m(hsWidget.TypeAhead, { 
  *         placeholder: 'favorite hero',
  *         onsubmit: item => hero = item,
  *         list: ['Batman', 'Superman', 'Spiderman', 'Hulk']
  *      }),
  *      m('h4', friend.length? `Selected: ${friend}` : 'Remote List: Search for a Friend'),
- *      m(hswidget.TypeAhead, { 
+ *      m(hsWidget.TypeAhead, { 
  *         placeholder: 'best friend',
  *         onsubmit: item => friend = item,
  *         autofocus: true,

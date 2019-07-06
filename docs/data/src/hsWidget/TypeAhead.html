@@ -26,7 +26,7 @@
 <p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span><comment>&nbsp;*&nbsp;Provides&nbsp;a&nbsp;search&nbsp;box&nbsp;with&nbsp;a&nbsp;type-ahead&nbsp;dropdown&nbsp;to&nbsp;show&nbsp;valid&nbsp;options&nbsp;that&nbsp;match&nbsp;the&nbsp;current&nbsp;search&nbsp;input.</comment></p>
 <p id=4 class="line"><span>&nbsp;&nbsp;&nbsp;4</span><comment>&nbsp;*&nbsp;</comment></p>
 <p id=5 class="line"><span>&nbsp;&nbsp;&nbsp;5</span><comment>&nbsp;*&nbsp;###&nbsp;Profile</comment></p>
-<p id=6 class="line"><span>&nbsp;&nbsp;&nbsp;6</span><comment>&nbsp;*&nbsp;invoked&nbsp;as&nbsp;`m(hswidget.TypeAhead,&nbsp;{&nbsp;<Attributes>&nbsp;});`</comment></p>
+<p id=6 class="line"><span>&nbsp;&nbsp;&nbsp;6</span><comment>&nbsp;*&nbsp;invoked&nbsp;as&nbsp;`m(hsWidget.TypeAhead,&nbsp;{&nbsp;<Attributes>&nbsp;});`</comment></p>
 <p id=7 class="line"><span>&nbsp;&nbsp;&nbsp;7</span><comment>&nbsp;*&nbsp;</comment></p>
 <p id=8 class="line"><span>&nbsp;&nbsp;&nbsp;8</span><comment>&nbsp;*&nbsp;###&nbsp;Attributes&nbsp;(node.attrs):</comment></p>
 <p id=9 class="line"><span>&nbsp;&nbsp;&nbsp;9</span><comment>&nbsp;*&nbsp;-&nbsp;`list:&nbsp;string&nbsp;|&nbsp;string[]`&nbsp;the&nbsp;list&nbsp;to&nbsp;search&nbsp;in.&nbsp;If&nbsp;`list`&nbsp;is&nbsp;a&nbsp;string,&nbsp;it&nbsp;serves</comment></p>
@@ -43,13 +43,13 @@
 <p id=20 class="line"><span>&nbsp;&nbsp;20</span><comment>&nbsp;*&nbsp;let&nbsp;friend&nbsp;=&nbsp;<quote>''</quote>;</comment></p>
 <p id=21 class="line"><span>&nbsp;&nbsp;21</span><comment>&nbsp;*&nbsp;m.mount(root,&nbsp;{view:&nbsp;()&nbsp;=>&nbsp;m(<quote>'.hs-white'</quote>,&nbsp;[</comment></p>
 <p id=22 class="line"><span>&nbsp;&nbsp;22</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>'h4'</quote>,&nbsp;hero.length?&nbsp;`Selected:&nbsp;${hero}`&nbsp;:&nbsp;<quote>'Local&nbsp;List:&nbsp;Search&nbsp;for&nbsp;a&nbsp;Superhero'</quote>),</comment></p>
-<p id=23 class="line"><span>&nbsp;&nbsp;23</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.TypeAhead,&nbsp;{&nbsp;</comment></p>
+<p id=23 class="line"><span>&nbsp;&nbsp;23</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(hsWidget.TypeAhead,&nbsp;{&nbsp;</comment></p>
 <p id=24 class="line"><span>&nbsp;&nbsp;24</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder:&nbsp;<quote>'favorite&nbsp;hero'</quote>,</comment></p>
 <p id=25 class="line"><span>&nbsp;&nbsp;25</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onsubmit:&nbsp;item&nbsp;=>&nbsp;hero&nbsp;=&nbsp;item,</comment></p>
 <p id=26 class="line"><span>&nbsp;&nbsp;26</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;list:&nbsp;[<quote>'Batman'</quote>,&nbsp;<quote>'Superman'</quote>,&nbsp;<quote>'Spiderman'</quote>,&nbsp;<quote>'Hulk'</quote>]</comment></p>
 <p id=27 class="line"><span>&nbsp;&nbsp;27</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}),</comment></p>
 <p id=28 class="line"><span>&nbsp;&nbsp;28</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>'h4'</quote>,&nbsp;friend.length?&nbsp;`Selected:&nbsp;${friend}`&nbsp;:&nbsp;<quote>'Remote&nbsp;List:&nbsp;Search&nbsp;for&nbsp;a&nbsp;Friend'</quote>),</comment></p>
-<p id=29 class="line"><span>&nbsp;&nbsp;29</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(hswidget.TypeAhead,&nbsp;{&nbsp;</comment></p>
+<p id=29 class="line"><span>&nbsp;&nbsp;29</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(hsWidget.TypeAhead,&nbsp;{&nbsp;</comment></p>
 <p id=30 class="line"><span>&nbsp;&nbsp;30</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder:&nbsp;<quote>'best&nbsp;friend'</quote>,</comment></p>
 <p id=31 class="line"><span>&nbsp;&nbsp;31</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onsubmit:&nbsp;item&nbsp;=>&nbsp;friend&nbsp;=&nbsp;item,</comment></p>
 <p id=32 class="line"><span>&nbsp;&nbsp;32</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;autofocus:&nbsp;true,</comment></p>

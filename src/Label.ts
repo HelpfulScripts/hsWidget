@@ -13,7 +13,7 @@
  * ### Example
  * <example>
  * <file name='script.js'> 
- * m.mount(root, {view: () => m(hswidget.Label, {
+ * m.mount(root, {view: () => m(hsWidget.Label, {
  *      css: '.myLabel', 
  *      style: 'text-align: right;',
  *      text: 'This is a <b>label</b>'

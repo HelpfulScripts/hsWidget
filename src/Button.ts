@@ -18,7 +18,7 @@
  * 
  * m.mount(root, {view: () => m('.hs-white', [
  *    m('h4', 'Please click:'),
- *    m(hswidget.Button, { desc: {
+ *    m(hsWidget.Button, { desc: {
  *        name: 'click me',
  *        clicked: () => clicked++
  *    }}),

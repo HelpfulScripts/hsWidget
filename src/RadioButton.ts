@@ -20,7 +20,7 @@
  * 
  * m.mount(root, {view: () => m('.hs-white', [
  *    m('h4', `Select Radio Station: ${radio}`),
- *    m(hswidget.RadioButtons, { desc: {
+ *    m(hsWidget.RadioButtons, { desc: {
  *        items: ['1st', '2nd','3rd'],
  *        clicked: (item) => radio = item
  *    }})
