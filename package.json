@@ -45,7 +45,7 @@
     "grunt-tslint": "^4.0.1",
     "grunt-typedoc": "^0.2.4",
     "grunt-webpack": "^3.1.2",
-    "mithril": "^1.1.6",
+    "mithril": "^2.0.2",
     "mithril-query": "^2.5.1",
     "coveralls": "^3.0.2",
     "grunt-coveralls": "^2.0.0",
@@ -58,7 +58,7 @@
     "webpack": "^4.14.0"
   },
   "dependencies": {
-    "mithril": "^1.1.6",
+    "mithril": "^2.0.2",
     "hslayout": "^2.0.0"
   }
 }
