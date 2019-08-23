@@ -217,9 +217,9 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
+								"isProtected": true,
 								"isStatic": true,
-								"isExported": true,
-								"isProtected": true
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -354,9 +354,9 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
+								"isProtected": true,
 								"isStatic": true,
-								"isExported": true,
-								"isProtected": true
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -997,9 +997,9 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
+								"isProtected": true,
 								"isStatic": true,
-								"isExported": true,
-								"isProtected": true
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -1134,9 +1134,9 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
+								"isProtected": true,
 								"isStatic": true,
-								"isExported": true,
-								"isProtected": true
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -1717,9 +1717,9 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
+								"isProtected": true,
 								"isStatic": true,
-								"isExported": true,
-								"isProtected": true
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -1854,9 +1854,9 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
+								"isProtected": true,
 								"isStatic": true,
-								"isExported": true,
-								"isProtected": true
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -2281,9 +2281,9 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
+								"isProtected": true,
 								"isStatic": true,
-								"isExported": true,
-								"isProtected": true
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -2418,9 +2418,9 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
+								"isProtected": true,
 								"isStatic": true,
-								"isExported": true,
-								"isProtected": true
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -2823,9 +2823,9 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
+								"isProtected": true,
 								"isStatic": true,
-								"isExported": true,
-								"isProtected": true
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -2940,9 +2940,9 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
+								"isProtected": true,
 								"isStatic": true,
-								"isExported": true,
-								"isProtected": true
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -5148,9 +5148,9 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
+								"isProtected": true,
 								"isStatic": true,
-								"isExported": true,
-								"isProtected": true
+								"isExported": true
 							},
 							"signatures": [
 								{
@@ -5285,9 +5285,9 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
+								"isProtected": true,
 								"isStatic": true,
-								"isExported": true,
-								"isProtected": true
+								"isExported": true
 							},
 							"signatures": [
 								{
