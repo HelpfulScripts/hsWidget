@@ -2,7 +2,7 @@
   "name": "hswidget",
   "main": "./index.js",
   "types": "./index.d.ts",
-  "version": "2.3.10",
+  "version": "2.3.11",
   "keywords": [
     "UI",
     "widgets",
@@ -56,7 +56,7 @@
     "typescript": "^3.5.3",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "webpack": "^4.39.1"
-},
+  },
   "dependencies": {
     "mithril": "^2.0.4",
     "hslayout": "*"
