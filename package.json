@@ -2,7 +2,7 @@
   "name": "hswidget",
   "main": "./index.js",
   "types": "./index.d.ts",
-  "version": "2.3.12",
+  "version": "2.3.13",
   "keywords": [
     "UI",
     "widgets",
