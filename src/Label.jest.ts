@@ -1,12 +1,13 @@
-import * as hswidget from './';
-import { m }    from 'hslayout';
+// import * as hswidget from './';
+import { Label }    from './Label';
+import { m }        from 'hslayout';
 
 const root = window.document.createElement("div");
 
 describe('Label', () => {
     describe('should have DOM structure', () => {
         beforeAll(() => {
-            m.mount(root, { view: () => m(hswidget.Label, {
+            m.mount(root, { view: () => m(Label, {
                 css: '.myLabel',
                 style: 'text-align: right;',
                 text: 'This is a label'
@@ -18,7 +19,7 @@ describe('Label', () => {
     });
     describe('should work with defaults', () => {
         beforeAll(() => {
-            m.mount(root, { view: () => m(hswidget.Label, {
+            m.mount(root, { view: () => m(Label, {
             })});
         });
         it ('matches', () => {

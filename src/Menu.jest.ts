@@ -1,57 +1,41 @@
-import { Menu } from './Menu';
-// import { m } from './mithril';
-import { oneOfItems } from './Selector';
-const m = require("mithril");
+import { Menu }         from './Menu';
+import { oneOfItems }   from './Selector';
+import { m }        from 'hslayout';
 
 const left  = ['0%', '25%', '50%', '75%'];
 const right = ['75%', '50%', '25%', '0%'];
 const items = ['1a', '2a', '3a', '4a'];
 
-const root = window.document.createElement("div");
+window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
+const mq = require('mithril-query');
 
 describe('hsMenu', () => {
-    let menu:any;
-    let cn:any;
-    beforeEach(() => new Promise((resolve)=>{
-        const md = { 
-            items: items,
-            clicked: (item:string) => { console.log('selected'); }
-        };
-        m.mount(root, {view: () => m(Menu, { desc: md }) }); 
-        menu = root.childNodes[0]; // class: hs-menu
-        const layout = menu.childNodes[0];
-        cn = layout.childNodes;
-        resolve();
-    }));
+    const out = mq(m(Menu, { desc: {
+        items: items,
+        clicked: (item:string) => { console.log('selected'); }
+    }}));
 
-    describe('Menu', () => {
-        test('creation', ()=> expect(menu).toBeDefined());
-        test('is menu', ()=> expect(menu.className.indexOf('hs-menu')).not.toBe(-1));
-        test('is not a layout', ()=> expect(menu.className.indexOf('hs-layout')).toEqual(-1));
-        test('matches', () => expect(root).toMatchSnapshot());
+    test ('DOM structure', () => {
+        out.should.have('.hs-menu');
+        out.should.have('.hs-menu>.hs-layout');
+        out.should.have(4, '.hs-menu>.hs-layout>.hs-layout');    
+        out.should.have('.hs-layout:nth-child(1)>.hs-selectable');    
     });
 
-    describe('Menu Items', () => {
-        test("has 4 menu items", () => {
-            return expect(cn.length).toEqual(4);
+    items.forEach((item, i) => {
+        const node = `.hs-menu>.hs-layout>.hs-layout:nth-child(${i+1})`;
+        test(`item ${i+1}`, () => {
+            out.should.have(`${node}`);
+            out.should.have(1, `${node}>.hs-selectable`);
+            const style = out.find(`${node}`)[0].attrs.style;
+            expect(style).toContain(`left: ${left[i]}`);
+            expect(style).toContain(`right: ${right[i]}`);
+            expect(style).toContain(`top:0%`);
+            expect(style).toContain(`bottom:0%`);
+            if (!i) { out.should.have(1, `${node}>.hs-selected`); }
+            else   { out.should.not.have(`${node}>.hs-selected`); }
+            expect(out.find(`${node}>.hs-selectable`)[0].text).toBe(item);
         });
-        describe('for all children', ()=> Promise.resolve(items)
-            .then((t) => t.map((c:any, i:any) => {
-                const item = cn[i].childNodes[0];
-                Promise.all([
-                    test(`item ${i+1} layout has class hs-layout`, () => expect(c.className).toContain('hs-layout')),
-                    test(`item ${i+1} layout has 1 child`, () => expect(c.childNodes.length).toEqual(1)),
-                    test(`item ${i+1} layout left is ${left[i]}`, () => expect(c.style.left).toEqual(left[i])),
-                    test(`item ${i+1} layout right is ${right[i]}`, () => expect(c.style.right).toEqual(right[i])),
-                    test(`item ${i+1} layout top is 0%`, () => expect(c.style.top).toEqual('0%')),
-                    test(`item ${i+1} layout bottom i8s 0%`, () => expect(c.style.bottom).toEqual('0%')),
-                    test(`item ${i+1} has class hs-selectable`, () => expect(item.className.not.toContain('hs-selectable'))),
-                    test(`item ${i+1} selected class`, () => expect(item.className).toContain('hs-selected')),
-                    test(`item ${i+1} has 1 child`, () => expect(item.childNodes.length).toEqual(1)),
-                    test(`item ${i+1} child leaf text ${items[i]}`, () => expect(item.childNodes[0].nodeValue).toEqual(oneOfItems[i]))
-                ]);
-            })
-        ));
+
     });
 });
-
