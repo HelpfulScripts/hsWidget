@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">93.22% </span>
+        <span class="strong">93.33% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>55/59</span>
+        <span class='fraction'>56/60</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">83.78% </span>
+        <span class="strong">82.05% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>31/37</span>
+        <span class='fraction'>32/39</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">95.45% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>46/46</span>
+        <span class='fraction'>47/47</span>
       </div>
     </div>
     <p class="quiet">
@@ -418,7 +418,7 @@
 <span class="cline-any cline-yes">38x</span>
 <span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -631,7 +631,7 @@ export abstract class Selector {
         if(!node.state.items.some((i:SelectableDesc) =&gt; i.isSelected) &amp;&amp; node.state.items.length&gt;0) { 
             if (node.state.defaultItem &amp;&amp; node.state.items[node.state.defaultItem]) { 
                 node.state.items[node.state.defaultItem].isSelected = true; 
-            } else { 
+            } else <span class="missing-if-branch" title="else path not taken" >E</span>if (node.state.items) { 
                 node.state.items[0].isSelected = true; 
             } 
         }
