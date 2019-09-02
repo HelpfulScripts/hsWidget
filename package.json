@@ -1,1 +1,63 @@
-{"name":"hswidget","main":"./index.js","types":"./index.d.ts","version":"2.3.13","keywords":["UI","widgets","es6"],"description":"Helpful Scripts UI widgets","homepage":"https://helpfulscripts.github.io/hsWidget/#!/api/hsWidget/0","author":{"name":"masterscripter","email":"helpfulscripts@gmail.com"},"scripts":{"build":"grunt build","test":"grunt test","debug":"node --nolazy --inspect-brk=9229 Slider.jest.ts"},"license":"MIT","repository":{"type":"git","url":"https://github.com/HelpfulScripts/hsWidget.git"},"engines":{"node":">= 10.14.0"},"plugins":["plugins/markdown"],"devDependencies":{"@types/node":"^12.7.3","@types/mithril":"^2.0.0","@types/jest":"^24.0.14","grunt":"^1.0.4","grunt-contrib-clean":"^2.0.0","grunt-contrib-concat":"^1.0.1","grunt-contrib-copy":"^1.0.0","grunt-contrib-less":"^2.0.0","grunt-contrib-uglify":"^4.0.0","grunt-contrib-watch":"^1.1.0","grunt-ts":"^6.0.0-beta.22","grunt-tslint":"^5.0.1","@vamship/grunt-typedoc":"^1.6.1","grunt-webpack":"^3.1.3","coveralls":"^3.0.6","grunt-coveralls":"^2.0.0","mithril-query":"^3.0.1","jest":"^24.9.0","ts-jest":"^24.0.2","tslint":"^5.19.0","typedoc":"^0.15.0","typescript":"^3.6.2","uglifyjs-webpack-plugin":"^2.2.0","webpack":"^4.39.3"},"dependencies":{"mithril":"^2.0.4","hslayout":"*"}}
+{
+  "name": "hswidget",
+  "main": "./index.js",
+  "types": "./index.d.ts",
+  "version": "2.3.14",
+  "keywords": [
+    "UI",
+    "widgets",
+    "es6"
+  ],
+  "description": "Helpful Scripts UI widgets",
+  "homepage": "https://helpfulscripts.github.io/hsWidget/#!/api/hsWidget/0",
+  "author": {
+    "name": "masterscripter",
+    "email": "helpfulscripts@gmail.com"
+  },
+  "scripts": {
+    "build": "grunt build",
+    "test": "grunt test",
+    "debug": "node --nolazy --inspect-brk=9229 Slider.jest.ts"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HelpfulScripts/hsWidget.git"
+  },
+  "engines": {
+    "node": ">= 10.14.0"
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "devDependencies": {
+    "@types/node": "^12.7.3",
+    "@types/mithril": "^2.0.0",
+    "@types/jest": "^24.0.14",
+    "grunt": "^1.0.4",
+    "grunt-contrib-clean": "^2.0.0",
+    "grunt-contrib-concat": "^1.0.1",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-less": "^2.0.0",
+    "grunt-contrib-uglify": "^4.0.0",
+    "grunt-contrib-watch": "^1.1.0",
+    "grunt-ts": "^6.0.0-beta.22",
+    "grunt-tslint": "^5.0.1",
+    "@vamship/grunt-typedoc": "^1.6.1",
+    "grunt-webpack": "^3.1.3",
+    "coveralls": "^3.0.6",
+    "grunt-coveralls": "^2.0.0",
+    "mithril-query": "^3.0.1",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.19.0",
+    "typedoc": "^0.15.0",
+    "typescript": "^3.6.2",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack": "^4.39.3"
+  },
+  "dependencies": {
+    "mithril": "^2.0.4",
+    "hslayout": "*"
+  }
+}
