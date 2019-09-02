@@ -62,15 +62,13 @@ type SliderRange = Array<number|string>;
  */
 export class Slider {
     oninit(node:Vnode) {
-        node.state = {
-            range: <SliderRange>[],
-            value: 0.5,     // reflects the slider position, 0...1
-            mouse: -1,      // <0: inactive; 0...n pixel: active
-            slider:0,       // 0...1 last slider position
-            notified:'',    // last notifed value
-            onchange: () => {}
-        };
-    }
+        node.state.range = <SliderRange>[];
+        node.state.value = 0.5;     // reflects the slider position, 0...1
+        node.state.mouse = -1;      // <0: inactive; 0...n pixel: active
+        node.state.slider = 0;       // 0...1 last slider position
+        node.state.notified = '';    // last notifed value
+        node.state.onchange = () => {};
+}
     view(node: Vnode): Vnode { 
         const id = node.attrs.id;
         const css = node.attrs.css || '';

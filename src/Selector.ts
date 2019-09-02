@@ -129,13 +129,11 @@ export abstract class Selector {
      * @param model model to use for state update; either `oneOfItems` (the default) or `anyItems`
      */
     static init(node: Vnode, model=oneOfItems) {
-        node.state = <SelectorState>{
-            updateModel: model,
-            items: <SelectableDesc[]>[],
-            events: {},
-            itemClicked: (item:string) => item,
-            defaultItem: node.attrs.desc.defaultItem 
-        };
+        node.state.updateModel = model;
+        node.state.items = <SelectableDesc[]>[];
+        node.state.events = {};
+        node.state.itemClicked = (item:string) => item;
+        node.state.defaultItem = node.attrs.desc.defaultItem;
         node.state.events.mouseDown = node.attrs.desc.mouseDown;
         node.state.events.mouseUp   = node.attrs.desc.mouseUp;
         node.attrs.desc.clicked     = node.attrs.desc.clicked || ((item:string) => console.log(`missing clicked() function for selector item ${item}`));
@@ -196,7 +194,7 @@ export abstract class Selector {
         });
     }
     abstract view(node: Vnode): Vnode;
-};
+}
 
 /**
  * Creates a Selectable as part of the `Selector`, 

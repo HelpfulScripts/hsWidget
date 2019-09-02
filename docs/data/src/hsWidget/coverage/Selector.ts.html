@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">92.73% </span>
+        <span class="strong">93.22% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>51/55</span>
+        <span class='fraction'>55/59</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">83.78% </span>
@@ -37,7 +37,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">100% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>43/43</span>
+        <span class='fraction'>46/46</span>
       </div>
     </div>
     <p class="quiet">
@@ -259,9 +259,7 @@
 <a name='L211'></a><a href='#L211'>211</a>
 <a name='L212'></a><a href='#L212'>212</a>
 <a name='L213'></a><a href='#L213'>213</a>
-<a name='L214'></a><a href='#L214'>214</a>
-<a name='L215'></a><a href='#L215'>215</a>
-<a name='L216'></a><a href='#L216'>216</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L214'></a><a href='#L214'>214</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -393,12 +391,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">8x</span>
@@ -607,13 +603,11 @@ export abstract class Selector {
      * @param model model to use for state update; either `oneOfItems` (the default) or `anyItems`
      */
     static init(node: Vnode, model=oneOfItems) {
-        node.state = &lt;SelectorState&gt;{
-            updateModel: model,
-            items: &lt;SelectableDesc[]&gt;[],
-            events: {},
-            itemClicked: (item:string) =&gt; item,
-            defaultItem: node.attrs.desc.defaultItem 
-        };
+        node.state.updateModel = model;
+        node.state.items = &lt;SelectableDesc[]&gt;[];
+        node.state.events = {};
+        node.state.itemClicked = (item:string) =&gt; item;
+        node.state.defaultItem = node.attrs.desc.defaultItem;
         node.state.events.mouseDown = node.attrs.desc.mouseDown;
         node.state.events.mouseUp   = node.attrs.desc.mouseUp;
         node.attrs.desc.clicked     = node.attrs.desc.clicked || ((item:string) =&gt; console.log(`missing clicked() function for selector item ${item}`));
@@ -674,7 +668,7 @@ export abstract class Selector {
         });
     }
     abstract view(node: Vnode): Vnode;
-};
+}
 &nbsp;
 /**
  * Creates a Selectable as part of the `Selector`, 

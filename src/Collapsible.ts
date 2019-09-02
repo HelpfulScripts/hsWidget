@@ -51,13 +51,11 @@ import { m, Vnode } from 'hslayout';
 
 export class Collapsible {
     oninit(node:Vnode) {
-        node.state = {
-            initial: true,
-            expanded: false,
-            toggle: () => {
-                node.state.expanded = !node.state.expanded;
-                node.state.initial = false;
-            }
+        node.state.intial = true;
+        node.state.expanded = false;
+        node.state.toggle = () => {
+            node.state.expanded = !node.state.expanded;
+            node.state.initial = false;
         };
     }
     view(node:Vnode) {
