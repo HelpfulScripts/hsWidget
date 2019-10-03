@@ -15,7 +15,7 @@ Helpful Scripts UI widgets.
 
 ___
 
-**hsWidget** Provides various UI widgets for use with mithril:
+ **hsWidgets** Provides various UI widgets for use with mithril:
 
 
 | Widget | Description |
