@@ -6,6 +6,7 @@
  * 
  */
 export { Menu }         from './Menu'; 
+export { MenuPanel }    from './Menu'; 
 export { SelectorDesc } from './Selector'; 
 export { Button }       from './Button'; 
 export { Label }        from './Label'; 

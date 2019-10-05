@@ -2,7 +2,7 @@
 # hsWidgets 
 
 Helpful Scripts UI widgets.  
-[`[Coverage Info]`](./data/src/hsWidget/coverage/)
+<a href="./data/src/hsWidget/coverage/" target="_blank">[Coverage Info]</a>
 
 [![npm version](https://badge.fury.io/js/hswidget.svg)](https://badge.fury.io/js/hswidget)
 [![GitHub](https://img.shields.io/badge/GitHub-hsWidget-blue.svg)](https://github.com/helpfulscripts/hswidget)

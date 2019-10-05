@@ -1,6 +1,5 @@
-import { Menu }         from './Menu';
-import { oneOfItems }   from './Selector';
-import { m }        from 'hslayout';
+import { Menu } from './Menu';
+import { m }    from 'hslayout';
 
 const left  = ['0%', '25%', '50%', '75%'];
 const right = ['75%', '50%', '25%', '0%'];
@@ -9,7 +8,7 @@ const items = ['1a', '2a', '3a', '4a'];
 window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
 const mq = require('mithril-query');
 
-describe('hsMenu', () => {
+describe('Menu', () => {
     const out = mq(m(Menu, { desc: {
         items: items,
         clicked: (item:string) => { console.log('selected'); }

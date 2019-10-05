@@ -1,6 +1,5 @@
 import * as widgets from './';
-// import { m } from "./mithril";
-const m = require("mithril");
+import { m } from "hslayout";
 
 const root = window.document.createElement("div");
 

@@ -1,6 +1,5 @@
 import * as hswidget from './';
-// import { m }    from 'hslayout';
-const m = require("mithril");
+import { m }    from 'hslayout';
 
 window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
 const mq = require('mithril-query');

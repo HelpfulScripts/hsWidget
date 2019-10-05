@@ -1,5 +1,4 @@
 import * as widgets from './';
-// import { m } from "../mithril";
 
 
 describe('Selector', () => {
