@@ -25,9 +25,9 @@
         <span class='fraction'>56/60</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">82.05% </span>
+        <span class="strong">82.5% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>32/39</span>
+        <span class='fraction'>33/40</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">95.45% </span>
@@ -628,7 +628,7 @@ export abstract class Selector {
      * @param node 
      */
     protected static ensureSelected(node: Vnode) {
-        if(!node.state.items.some((i:SelectableDesc) =&gt; i.isSelected) &amp;&amp; node.state.items.length&gt;0) { 
+        if(node.state.items &amp;&amp; !node.state.items.some((i:SelectableDesc) =&gt; i.isSelected) &amp;&amp; node.state.items.length&gt;0) { 
             if (node.state.defaultItem &amp;&amp; node.state.items[node.state.defaultItem]) { 
                 node.state.items[node.state.defaultItem].isSelected = true; 
             } else <span class="missing-if-branch" title="else path not taken" >E</span>if (node.state.items) { 

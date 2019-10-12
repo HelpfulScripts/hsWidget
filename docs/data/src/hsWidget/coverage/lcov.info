@@ -338,7 +338,8 @@ BRDA:139,4,1,1
 BRDA:157,5,0,7
 BRDA:157,5,1,14
 BRDA:157,6,0,21
-BRDA:157,6,1,8
+BRDA:157,6,1,21
+BRDA:157,6,2,8
 BRDA:158,7,0,2
 BRDA:158,7,1,5
 BRDA:158,8,0,7
@@ -365,8 +366,8 @@ BRDA:209,18,0,54
 BRDA:209,18,1,54
 BRDA:209,19,0,24
 BRDA:209,19,1,30
-BRF:39
-BRH:32
+BRF:40
+BRH:33
 end_of_record
 TN:
 SF:/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts

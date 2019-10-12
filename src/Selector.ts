@@ -154,7 +154,7 @@ export abstract class Selector {
      * @param node 
      */
     protected static ensureSelected(node: Vnode) {
-        if(!node.state.items.some((i:SelectableDesc) => i.isSelected) && node.state.items.length>0) { 
+        if(node.state.items && !node.state.items.some((i:SelectableDesc) => i.isSelected) && node.state.items.length>0) { 
             if (node.state.defaultItem && node.state.items[node.state.defaultItem]) { 
                 node.state.items[node.state.defaultItem].isSelected = true; 
             } else if (node.state.items) { 
