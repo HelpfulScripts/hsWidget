@@ -72,7 +72,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Button.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Button.ts",
 									"line": 49,
 									"character": 10
 								}
@@ -129,7 +129,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToggleButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToggleButton.ts",
 									"line": 70,
 									"character": 12
 								}
@@ -191,7 +191,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToggleButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToggleButton.ts",
 									"line": 74,
 									"character": 8
 								}
@@ -256,7 +256,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 156,
 									"character": 35
 								}
@@ -331,7 +331,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 131,
 									"character": 15
 								}
@@ -405,7 +405,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 172,
 									"character": 31
 								}
@@ -464,7 +464,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 110,
 									"character": 22
 								}
@@ -493,7 +493,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Button.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Button.ts",
 							"line": 48,
 							"character": 19
 						}
@@ -518,7 +518,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "Button.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Button.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -583,7 +583,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Collapsible.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Collapsible.ts",
 									"line": 53,
 									"character": 10
 								}
@@ -625,7 +625,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Collapsible.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Collapsible.ts",
 									"line": 61,
 									"character": 8
 								}
@@ -644,7 +644,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Collapsible.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Collapsible.ts",
 							"line": 52,
 							"character": 24
 						}
@@ -662,7 +662,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "Collapsible.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Collapsible.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -731,7 +731,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Label.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Label.ts",
 									"line": 46,
 									"character": 8
 								}
@@ -749,7 +749,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Label.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Label.ts",
 							"line": 45,
 							"character": 18
 						}
@@ -767,7 +767,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "Label.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Label.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -846,7 +846,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "RadioButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/RadioButton.ts",
 									"line": 64,
 									"character": 10
 								}
@@ -908,7 +908,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "RadioButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/RadioButton.ts",
 									"line": 68,
 									"character": 12
 								}
@@ -965,7 +965,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Menu.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
 									"line": 101,
 									"character": 8
 								}
@@ -1025,7 +1025,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 156,
 									"character": 35
 								}
@@ -1100,7 +1100,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 131,
 									"character": 15
 								}
@@ -1174,7 +1174,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 172,
 									"character": 31
 								}
@@ -1233,7 +1233,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 110,
 									"character": 22
 								}
@@ -1297,7 +1297,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "RadioButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/RadioButton.ts",
 									"line": 55,
 									"character": 20
 								}
@@ -1327,7 +1327,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Menu.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
 							"line": 100,
 							"character": 17
 						}
@@ -1364,7 +1364,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Menu.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
 									"line": 121,
 									"character": 20
 								}
@@ -1384,7 +1384,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "/Users/Shared/Sites/staging/apps/hsDocs/node_modules/hslayout/view/Layout.d.ts",
+									"fileName": "Shared/Sites/staging/apps/hsDocs/node_modules/hslayout/view/Layout.d.ts",
 									"line": 6,
 									"character": 9
 								}
@@ -1439,7 +1439,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "/Users/Shared/Sites/staging/apps/hsDocs/node_modules/hslayout/view/Layout.d.ts",
+									"fileName": "Shared/Sites/staging/apps/hsDocs/node_modules/hslayout/view/Layout.d.ts",
 									"line": 8,
 									"character": 20
 								}
@@ -1490,7 +1490,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "/Users/Shared/Sites/staging/apps/hsDocs/node_modules/hslayout/view/Layout.d.ts",
+									"fileName": "Shared/Sites/staging/apps/hsDocs/node_modules/hslayout/view/Layout.d.ts",
 									"line": 7,
 									"character": 27
 								}
@@ -1536,7 +1536,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Menu.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
 									"line": 122,
 									"character": 10
 								}
@@ -1582,7 +1582,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Menu.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
 									"line": 125,
 									"character": 8
 								}
@@ -1615,7 +1615,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Menu.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
 							"line": 120,
 							"character": 22
 						}
@@ -1646,7 +1646,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "Menu.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -1711,7 +1711,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Modal.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
 									"line": 41,
 									"character": 10
 								}
@@ -1753,7 +1753,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Modal.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
 									"line": 45,
 									"character": 8
 								}
@@ -1772,7 +1772,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Modal.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
 							"line": 40,
 							"character": 18
 						}
@@ -1790,7 +1790,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "Modal.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -1864,7 +1864,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "OptionsButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/OptionsButton.ts",
 									"line": 54,
 									"character": 10
 								}
@@ -1916,7 +1916,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 147,
 									"character": 12
 								}
@@ -1968,7 +1968,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "OptionsButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/OptionsButton.ts",
 									"line": 66,
 									"character": 8
 								}
@@ -2028,7 +2028,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 156,
 									"character": 35
 								}
@@ -2103,7 +2103,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 131,
 									"character": 15
 								}
@@ -2177,7 +2177,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 172,
 									"character": 31
 								}
@@ -2236,7 +2236,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 110,
 									"character": 22
 								}
@@ -2295,7 +2295,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "OptionsButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/OptionsButton.ts",
 									"line": 57,
 									"character": 20
 								}
@@ -2320,7 +2320,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "OptionsButton.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/OptionsButton.ts",
 							"line": 53,
 							"character": 26
 						}
@@ -2345,7 +2345,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "OptionsButton.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/OptionsButton.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -2419,7 +2419,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "RadioButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/RadioButton.ts",
 									"line": 64,
 									"character": 10
 								}
@@ -2471,7 +2471,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "RadioButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/RadioButton.ts",
 									"line": 68,
 									"character": 12
 								}
@@ -2523,7 +2523,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "RadioButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/RadioButton.ts",
 									"line": 72,
 									"character": 8
 								}
@@ -2583,7 +2583,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 156,
 									"character": 35
 								}
@@ -2658,7 +2658,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 131,
 									"character": 15
 								}
@@ -2732,7 +2732,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 172,
 									"character": 31
 								}
@@ -2791,7 +2791,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 110,
 									"character": 22
 								}
@@ -2850,7 +2850,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "RadioButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/RadioButton.ts",
 									"line": 55,
 									"character": 20
 								}
@@ -2875,7 +2875,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "RadioButton.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/RadioButton.ts",
 							"line": 54,
 							"character": 24
 						}
@@ -2907,7 +2907,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "RadioButton.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/RadioButton.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -2976,7 +2976,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 144,
 									"character": 10
 								}
@@ -3018,7 +3018,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 147,
 									"character": 12
 								}
@@ -3061,7 +3061,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 196,
 									"character": 17
 								}
@@ -3111,7 +3111,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 156,
 									"character": 35
 								}
@@ -3176,7 +3176,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 131,
 									"character": 15
 								}
@@ -3240,7 +3240,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 172,
 									"character": 31
 								}
@@ -3289,7 +3289,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 110,
 									"character": 22
 								}
@@ -3313,7 +3313,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Selector.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 							"line": 105,
 							"character": 30
 						}
@@ -3362,7 +3362,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 51,
 									"character": 11
 								}
@@ -3403,7 +3403,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "Selector.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 											"line": 51,
 											"character": 13
 										}
@@ -3425,7 +3425,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 47,
 									"character": 7
 								}
@@ -3448,7 +3448,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 45,
 									"character": 14
 								}
@@ -3472,7 +3472,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 53,
 									"character": 13
 								}
@@ -3513,7 +3513,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "Selector.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 											"line": 53,
 											"character": 15
 										}
@@ -3535,7 +3535,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 55,
 									"character": 11
 								}
@@ -3576,7 +3576,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "Selector.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 											"line": 55,
 											"character": 13
 										}
@@ -3598,7 +3598,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 49,
 									"character": 9
 								}
@@ -3621,7 +3621,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 43,
 									"character": 9
 								}
@@ -3649,7 +3649,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Selector.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 							"line": 41,
 							"character": 31
 						}
@@ -3680,7 +3680,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 33,
 									"character": 11
 								}
@@ -3721,7 +3721,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "Selector.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 											"line": 33,
 											"character": 12
 										}
@@ -3743,7 +3743,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 31,
 									"character": 15
 								}
@@ -3776,7 +3776,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 29,
 									"character": 11
 								}
@@ -3802,7 +3802,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 27,
 									"character": 9
 								}
@@ -3829,7 +3829,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 35,
 									"character": 13
 								}
@@ -3870,7 +3870,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "Selector.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 											"line": 35,
 											"character": 15
 										}
@@ -3892,7 +3892,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 37,
 									"character": 11
 								}
@@ -3933,7 +3933,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "Selector.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 											"line": 37,
 											"character": 13
 										}
@@ -3958,7 +3958,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Selector.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 							"line": 25,
 							"character": 29
 						}
@@ -3984,7 +3984,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 98,
 									"character": 15
 								}
@@ -4004,7 +4004,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 96,
 									"character": 10
 								}
@@ -4045,7 +4045,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "Selector.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 											"line": 96,
 											"character": 11
 										}
@@ -4064,7 +4064,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 97,
 									"character": 15
 								}
@@ -4105,7 +4105,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "Selector.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 											"line": 97,
 											"character": 17
 										}
@@ -4126,7 +4126,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 95,
 									"character": 9
 								}
@@ -4153,7 +4153,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 93,
 									"character": 15
 								}
@@ -4180,7 +4180,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Selector.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 							"line": 86,
 							"character": 30
 						}
@@ -4211,7 +4211,7 @@
 					},
 					"sources": [
 						{
-							"fileName": "Selector.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 							"line": 63,
 							"character": 26
 						}
@@ -4268,7 +4268,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 63,
 									"character": 28
 								}
@@ -4331,7 +4331,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Selector.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 							"line": 81,
 							"character": 24
 						}
@@ -4392,7 +4392,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Selector.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 							"line": 69,
 							"character": 26
 						}
@@ -4439,7 +4439,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Selector.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 							"line": 205,
 							"character": 32
 						}
@@ -4482,7 +4482,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "Selector.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -4551,7 +4551,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Slider.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 									"line": 64,
 									"character": 10
 								}
@@ -4593,7 +4593,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Slider.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 									"line": 72,
 									"character": 8
 								}
@@ -4612,7 +4612,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Slider.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 							"line": 63,
 							"character": 19
 						}
@@ -4626,7 +4626,7 @@
 					"flags": {},
 					"sources": [
 						{
-							"fileName": "Slider.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 							"line": 46,
 							"character": 16
 						}
@@ -4685,7 +4685,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Slider.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 							"line": 109,
 							"character": 24
 						}
@@ -4736,7 +4736,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Slider.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 							"line": 119,
 							"character": 17
 						}
@@ -4787,7 +4787,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Slider.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 							"line": 127,
 							"character": 18
 						}
@@ -4838,7 +4838,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Slider.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 							"line": 140,
 							"character": 18
 						}
@@ -4889,7 +4889,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Slider.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 							"line": 154,
 							"character": 17
 						}
@@ -4940,7 +4940,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Slider.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 							"line": 147,
 							"character": 16
 						}
@@ -4980,7 +4980,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Slider.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 							"line": 160,
 							"character": 15
 						}
@@ -5029,7 +5029,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Slider.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 							"line": 103,
 							"character": 20
 						}
@@ -5101,7 +5101,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Slider.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 							"line": 97,
 							"character": 21
 						}
@@ -5141,7 +5141,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "Slider.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 							"line": 90,
 							"character": 21
 						}
@@ -5182,7 +5182,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "Slider.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Slider.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -5256,7 +5256,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToggleButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToggleButton.ts",
 									"line": 55,
 									"character": 10
 								}
@@ -5308,7 +5308,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToggleButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToggleButton.ts",
 									"line": 70,
 									"character": 12
 								}
@@ -5360,7 +5360,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToggleButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToggleButton.ts",
 									"line": 74,
 									"character": 8
 								}
@@ -5420,7 +5420,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 156,
 									"character": 35
 								}
@@ -5495,7 +5495,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 131,
 									"character": 15
 								}
@@ -5569,7 +5569,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 172,
 									"character": 31
 								}
@@ -5628,7 +5628,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "Selector.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 									"line": 110,
 									"character": 22
 								}
@@ -5657,7 +5657,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "ToggleButton.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToggleButton.ts",
 							"line": 54,
 							"character": 25
 						}
@@ -5689,7 +5689,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "ToggleButton.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToggleButton.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -5754,7 +5754,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 116,
 									"character": 8
 								}
@@ -5797,7 +5797,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 113,
 									"character": 20
 								}
@@ -5816,7 +5816,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "ToolbarButton.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 							"line": 111,
 							"character": 26
 						}
@@ -5851,7 +5851,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 106,
 											"character": 21
 										}
@@ -5874,7 +5874,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 106,
 									"character": 9
 								}
@@ -5903,7 +5903,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 104,
 											"character": 21
 										}
@@ -5926,7 +5926,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 104,
 									"character": 10
 								}
@@ -5955,7 +5955,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 79,
 											"character": 21
 										}
@@ -5978,7 +5978,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 79,
 									"character": 9
 								}
@@ -6007,7 +6007,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 95,
 											"character": 21
 										}
@@ -6030,7 +6030,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 95,
 									"character": 10
 								}
@@ -6059,7 +6059,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 82,
 											"character": 21
 										}
@@ -6082,7 +6082,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 82,
 									"character": 9
 								}
@@ -6111,7 +6111,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 83,
 											"character": 21
 										}
@@ -6134,7 +6134,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 83,
 									"character": 10
 								}
@@ -6163,7 +6163,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 91,
 											"character": 21
 										}
@@ -6186,7 +6186,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 91,
 									"character": 8
 								}
@@ -6215,7 +6215,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 89,
 											"character": 21
 										}
@@ -6238,7 +6238,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 89,
 									"character": 11
 								}
@@ -6267,7 +6267,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 102,
 											"character": 21
 										}
@@ -6290,7 +6290,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 102,
 									"character": 12
 								}
@@ -6319,7 +6319,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 96,
 											"character": 21
 										}
@@ -6342,7 +6342,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 96,
 									"character": 9
 								}
@@ -6371,7 +6371,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 97,
 											"character": 21
 										}
@@ -6394,7 +6394,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 97,
 									"character": 14
 								}
@@ -6423,7 +6423,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 108,
 											"character": 21
 										}
@@ -6446,7 +6446,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 108,
 									"character": 7
 								}
@@ -6475,7 +6475,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 105,
 											"character": 21
 										}
@@ -6498,7 +6498,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 105,
 									"character": 9
 								}
@@ -6527,7 +6527,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 92,
 											"character": 21
 										}
@@ -6550,7 +6550,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 92,
 									"character": 10
 								}
@@ -6579,7 +6579,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 84,
 											"character": 21
 										}
@@ -6602,7 +6602,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 84,
 									"character": 8
 								}
@@ -6631,7 +6631,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 86,
 											"character": 21
 										}
@@ -6654,7 +6654,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 86,
 									"character": 11
 								}
@@ -6683,7 +6683,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 100,
 											"character": 21
 										}
@@ -6706,7 +6706,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 100,
 									"character": 10
 								}
@@ -6735,7 +6735,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 80,
 											"character": 21
 										}
@@ -6758,7 +6758,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 80,
 									"character": 9
 								}
@@ -6787,7 +6787,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 99,
 											"character": 21
 										}
@@ -6810,7 +6810,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 99,
 									"character": 5
 								}
@@ -6839,7 +6839,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 98,
 											"character": 21
 										}
@@ -6862,7 +6862,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 98,
 									"character": 10
 								}
@@ -6891,7 +6891,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 81,
 											"character": 21
 										}
@@ -6914,7 +6914,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 81,
 									"character": 8
 								}
@@ -6943,7 +6943,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 93,
 											"character": 21
 										}
@@ -6966,7 +6966,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 93,
 									"character": 10
 								}
@@ -6995,7 +6995,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 85,
 											"character": 21
 										}
@@ -7018,7 +7018,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 85,
 									"character": 9
 								}
@@ -7047,7 +7047,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 87,
 											"character": 21
 										}
@@ -7070,7 +7070,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 87,
 									"character": 12
 								}
@@ -7099,7 +7099,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 107,
 											"character": 21
 										}
@@ -7122,7 +7122,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 107,
 									"character": 9
 								}
@@ -7151,7 +7151,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 101,
 											"character": 21
 										}
@@ -7174,7 +7174,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 101,
 									"character": 7
 								}
@@ -7203,7 +7203,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 94,
 											"character": 21
 										}
@@ -7226,7 +7226,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 94,
 									"character": 10
 								}
@@ -7255,7 +7255,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 90,
 											"character": 21
 										}
@@ -7278,7 +7278,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 90,
 									"character": 6
 								}
@@ -7307,7 +7307,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 88,
 											"character": 21
 										}
@@ -7330,7 +7330,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 88,
 									"character": 9
 								}
@@ -7359,7 +7359,7 @@
 									},
 									"sources": [
 										{
-											"fileName": "ToolbarButton.ts",
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 											"line": 103,
 											"character": 21
 										}
@@ -7382,7 +7382,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "ToolbarButton.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 									"line": 103,
 									"character": 14
 								}
@@ -7433,7 +7433,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "ToolbarButton.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 							"line": 78,
 							"character": 26
 						}
@@ -7462,7 +7462,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "ToolbarButton.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/ToolbarButton.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -7576,7 +7576,7 @@
 													],
 													"sources": [
 														{
-															"fileName": "TypeAhead.ts",
+															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 															"line": 68,
 															"character": 43
 														}
@@ -7594,7 +7594,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "TypeAhead.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 									"line": 67,
 									"character": 5
 								}
@@ -7610,7 +7610,7 @@
 							},
 							"sources": [
 								{
-									"fileName": "TypeAhead.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 									"line": 64,
 									"character": 15
 								}
@@ -7702,7 +7702,7 @@
 													],
 													"sources": [
 														{
-															"fileName": "TypeAhead.ts",
+															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 															"line": 65,
 															"character": 40
 														}
@@ -7719,7 +7719,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "TypeAhead.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 									"line": 65,
 									"character": 23
 								}
@@ -7751,7 +7751,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "TypeAhead.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 							"line": 63,
 							"character": 13
 						}
@@ -7802,7 +7802,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "TypeAhead.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 									"line": 79,
 									"character": 10
 								}
@@ -7844,7 +7844,7 @@
 							],
 							"sources": [
 								{
-									"fileName": "TypeAhead.ts",
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 									"line": 87,
 									"character": 8
 								}
@@ -7863,7 +7863,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "TypeAhead.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 							"line": 78,
 							"character": 22
 						}
@@ -7914,7 +7914,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "TypeAhead.ts",
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 							"line": 46,
 							"character": 18
 						}
@@ -7940,7 +7940,7 @@
 			],
 			"sources": [
 				{
-					"fileName": "TypeAhead.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -7965,7 +7965,7 @@
 			},
 			"sources": [
 				{
-					"fileName": "index.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/index.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -7986,7 +7986,7 @@
 			},
 			"sources": [
 				{
-					"fileName": "overview.ts",
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/overview.ts",
 					"line": 1,
 					"character": 0
 				}
