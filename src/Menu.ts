@@ -98,7 +98,10 @@ import { RadioButton }  from './RadioButton';
  * ```
  */
 export class Menu extends RadioButton {
-    view(node: Vnode): Vnode { return RadioButton.viewGroup('.hs-menu', node); }
+    view(node: Vnode): Vnode {
+        this.onupdate(node); 
+        return RadioButton.viewGroup('.hs-menu', node); 
+    }
 }
 
 /**

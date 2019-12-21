@@ -56,6 +56,7 @@ export class RadioButton extends Selector {
         css = `${css} ${node.attrs.css || ''}`;
         const style = node.attrs.style || '';
 
+console.log(`drawing RadioButtons ${node.state.items.join(', ')}`);
         return m(css, {style:style}, m(Layout, {
             columns: [],
             content: node.state.items.map((l:string, i:number) => Selector.renderItem(node, i))
