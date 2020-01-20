@@ -15,7 +15,7 @@ Helpful Scripts UI widgets.
 
 ___
 
- **hsWidgets** Provides various UI widgets for use with mithril:
+**hsWidgets** Provides various UI widgets for use with mithril:
 
 
 | Widget | Description |
@@ -31,12 +31,15 @@ ___
 | &nbsp; {@link AddRemove RemoveButton} | An  `-` button that will remove an item. |
 | &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |
 | &nbsp; {@link Slider Slider} | A simple nominal or continuous slider. |
+| &nbsp; {@link EditLabel EditLabel} | A text label that turns into a single-line input field when clicked on. |
+| &nbsp; {@link EditSelect EditSelect} | A text label with pulldown select capability. |
+| &nbsp; {@link EditList EditList} | An auto-extending list of editable rows. |
 
- * <example height=2700px>
+ * <example height=3500px>
  * <file name='script.js'>
  * const render = () => m.mount(root, {view: () => 
  *    m('.hs-white', m(hsLayout.Layout, {
- *      rows:['100px', '360px', '210px', '250px', '340px', '320px', '340px'], content: [m('',''),
+ *      rows:['100px', '360px', '210px', '250px', '340px', '320px', '340px', '250px', '180px', '180px', 'fill'], content: [m('',''),
  * 
  *    // Buttons:
  *    m('',[
@@ -151,7 +154,38 @@ ___
  *          range: [0, 100],
  *          onchange: v => con=Math.floor(v*10)/10
  *      })
- *    ])
+ *    ]),
+ * 
+ *    // EditLabel
+ *    m('',[
+ *      m('h2.myEditLabel', `EditLabel: '${editLabelContent}'`),
+ *      m(hsWidget.EditLabel, { 
+ *          placeholder: 'Enter here...',
+ *          content: editLabelContent,
+ *          update: newValue => editLabelContent = newValue
+ *      }),
+ *    ]),
+ * 
+ *    // EditSelect
+ *    m('',[
+ *      m('h2.myEditSelect', `EditSelect: ${esSelected}`),
+ *      m(hsWidget.EditSelect, { 
+ *          from: ['first','second','third'],
+ *          selected: esSelected,
+ *          update: newValue => esSelected = newValue
+ *      }),
+ *    ]),
+ * 
+ *    // EditList
+ *    m('',[
+ *      m('h2.myEditList', 'EditList'),
+ *      m(hsWidget.EditList, { 
+ *          header: 'List Header',
+ *          rows: elContent,
+ *      }),
+ *    ]),
+ * 
+ * 
  * ]}))});
  * 
  * 
@@ -174,6 +208,9 @@ ___
  * let hero = '';
  * let friend = '';
  * let nom, con;
+ * let editLabelContent = '';
+ * let esSelected = '';
+ * let elContent = [''];
  * 
  * const click = (button) => () => {
  *    lastCornerButton = '';

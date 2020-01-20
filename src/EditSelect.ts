@@ -1,6 +1,6 @@
 /**
  * # EditSelect
- * Provides a text label that a pulldown select capability
+ * Provides a text label with pulldown select capability
  * 
  * ### Attributes:
  * - from: `string[]` the array to select from

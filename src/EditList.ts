@@ -1,6 +1,8 @@
 /**
  * # EditList
- * Creates an extensible List of rows. The widget is highly configurable though 
+ * Creates an auto-extending list of editable rows. The widget is simple to apply yet highly configurable
+ * even to more complex situations. See examples below.
+ * 
  * ### Attributes:
  * - **rows**: `any[]` array of the row data to be rendered. Each row data will be 
  *      provided to calls of `rowRender`.`EditList` ensures that there is always an 
@@ -138,6 +140,8 @@ export class EditList {
         const def:Row    = node.attrs.defaultRow===undefined? '' : node.attrs.defaultRow;
         const expandRows = node.attrs.expand || expand;
 
+        if (!rows) { log.warn(`EditList${css} rows array is missing`); }
+        if (!rows || !rows.map) { log.warn(`EditList${css} rows must be an array`); }
         expandRows(rows, def, isEmpty);
         const content = [
             m('.hsedit_list_content', 

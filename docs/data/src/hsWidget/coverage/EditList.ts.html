@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.62% </span>
+        <span class="strong">19.51% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>8/37</span>
+        <span class='fraction'>8/41</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/28</span>
+        <span class='fraction'>0/34</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/12</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.88% </span>
+        <span class="strong">20.59% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>7/32</span>
+        <span class='fraction'>7/34</span>
       </div>
     </div>
     <p class="quiet">
@@ -208,7 +208,13 @@
 <a name='L160'></a><a href='#L160'>160</a>
 <a name='L161'></a><a href='#L161'>161</a>
 <a name='L162'></a><a href='#L162'>162</a>
-<a name='L163'></a><a href='#L163'>163</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -348,6 +354,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -372,7 +380,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * # EditList
- * Creates an extensible List of rows. The widget is highly configurable though 
+ * Creates an auto-extending list of editable rows. The widget is simple to apply yet highly configurable
+ * even to more complex situations. See examples below.
+ * 
  * ### Attributes:
  * - **rows**: `any[]` array of the row data to be rendered. Each row data will be 
  *      provided to calls of `rowRender`.`EditList` ensures that there is always an 
@@ -510,6 +520,8 @@ export class EditList {
         const def:Row    = <span class="cstat-no" title="statement not covered" >node.attrs.defaultRow===undefined? '' : node.attrs.defaultRow;</span>
         const expandRows = <span class="cstat-no" title="statement not covered" >node.attrs.expand || expand;</span>
 &nbsp;
+<span class="cstat-no" title="statement not covered" >        if (!rows) { <span class="cstat-no" title="statement not covered" >log.warn(`EditList${css} rows array is missing`); </span>}</span>
+<span class="cstat-no" title="statement not covered" >        if (!rows || !rows.map) { <span class="cstat-no" title="statement not covered" >log.warn(`EditList${css} rows must be an array`); </span>}</span>
 <span class="cstat-no" title="statement not covered" >        expandRows(rows, def, isEmpty);</span>
         const content = <span class="cstat-no" title="statement not covered" >[</span>
             m('.hsedit_list_content', 
