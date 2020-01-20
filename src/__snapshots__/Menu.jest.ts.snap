@@ -7,7 +7,7 @@ exports[`MenuPanel layout 1`] = `
   >
     <div
       class="hs-layout  "
-      style="left: 0%; right: 0%; top: 0px; height: 30px;"
+      style="width: 100%; top: 0px; height: 30px;"
     >
       <div
         class="hs-menu "
@@ -18,7 +18,7 @@ exports[`MenuPanel layout 1`] = `
         >
           <div
             class="hs-layout  "
-            style="top: 0%; bottom: 0%; left: 0%; right: 66.66666666666666%; width: auto;"
+            style="height: 100%; left: 0%; right: 66.66666666666666%; width: auto;"
           >
             <div
               class="hs-selectable  "
@@ -28,7 +28,7 @@ exports[`MenuPanel layout 1`] = `
           </div>
           <div
             class="hs-layout  "
-            style="top: 0%; bottom: 0%; left: 33.333333333333336%; right: 33.33333333333333%; width: auto;"
+            style="height: 100%; left: 33.333333333333336%; right: 33.33333333333333%; width: auto;"
           >
             <div
               class="hs-selectable  hs-selected"
@@ -38,7 +38,7 @@ exports[`MenuPanel layout 1`] = `
           </div>
           <div
             class="hs-layout  "
-            style="top: 0%; bottom: 0%; left: 66.66666666666667%; right: 0%; width: auto;"
+            style="height: 100%; left: 66.66666666666667%; right: 0%; width: auto;"
           >
             <div
               class="hs-selectable  "
@@ -51,7 +51,7 @@ exports[`MenuPanel layout 1`] = `
     </div>
     <div
       class="hs-layout  "
-      style="left: 0%; right: 0%; top: 30px; bottom: 0px; height: auto;"
+      style="width: 100%; top: 30px; bottom: 0px; height: auto;"
     >
       <div
         class="hs-layout   hs-menu-panel"

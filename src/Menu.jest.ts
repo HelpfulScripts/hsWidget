@@ -1,4 +1,4 @@
-import { Menu } from './Menu';
+import { Menu, MenuPanel } from './Menu';
 import { m }    from 'hslayout';
 
 const left  = ['0%', '25%', '50%', '75%'];
@@ -29,12 +29,25 @@ describe('Menu', () => {
             const style = out.find(`${node}`)[0].attrs.style;
             expect(style).toContain(`left: ${left[i]}`);
             expect(style).toContain(`right: ${right[i]}`);
-            expect(style).toContain(`top:0%`);
-            expect(style).toContain(`bottom:0%`);
+            expect(style).toContain(`height:100%`);
             if (!i) { out.should.have(1, `${node}>.hs-selected`); }
             else   { out.should.not.have(`${node}>.hs-selected`); }
             expect(out.find(`${node}>.hs-selectable`)[0].text).toBe(item);
         });
 
     });
+});
+
+const root = window.document.createElement("div");
+
+describe('MenuPanel', () => {
+    beforeEach(() =>
+        m.mount(root, {view: () => m(MenuPanel, {
+            items: ["one", "two", "three"],  
+            defaultItem: "two",
+            content: ['1st', '2nd', '3rd']
+        })})
+    );
+
+    test('layout', () => expect(root).toMatchSnapshot());
 });

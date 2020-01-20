@@ -13,31 +13,42 @@
  *     - `itemCSS?: string[]`               css to apply to items;
  * - `css?: string`                         css class to assign to button group
  * - `style?: string`                       style string to apply to button tag
- * - `size?: string | string[]`             sizes to layout menu items; 
+ * - `sizes?: string[]`                     sizes to layout menu items; 
  * 
  * ### Menu Example
+ * Creates a menu of items with a callback for changes in the menu selection. 
+ * The calling program is responsible for acting on the changes, e.g. rendering them.
  * <example>
  * <file name='script.js'>
  * const items = ['One', 'Two', 'Three'];
  * const content   = ['1st', '2nd', '3rd'];
- * let  theContent = content[1];
+ * let  theContent = `default content: ${content['2nd']}`;
  * 
- * m.mount(root, {view: () => m(hsLayout.Layout, {
- *     rows:["30px", "fill"],
- *     content:[
- *         m(hsWidget.Menu, {desc: {
- *             items: items,
- *             defaultItem: 'Two',
- *             clicked: item => 
- *                theContent = content[items.indexOf(item)]
- *         }}),
- *         m(hsLayout.Layout, { css:'myMain', content: theContent })
- *     ]
- * })});
+ * m.mount(root, {view: () => m('div', [
+ *      m('div.mySeparate', 'inline menu example:'),
+ *      m(hsWidget.Menu, {
+ *          desc: {
+ *              items: items,
+ *              defaultItem: 'Two',
+ *              clicked: item => 
+ *                  theContent = content[items.indexOf(item)] + ' content'
+ *          },
+ *          sizes: ['60px', 'fill']
+ *      }),
+ *      m('div.mySeparate', 'Content: not managed by `Menu`:'),
+ *      m(hsLayout.Layout, { 
+ *          css:'myMenuContent', 
+ *          content: theContent 
+ *      })
+ * ])});
  *
  * </file>
  * <file name='style.css'>
- * .myMain { 
+ * .mySeparate { 
+ *    background-color: #eee;
+ *    padding: 5px;
+ * }
+ * .myMenuContent { 
  *    border:1px solid #ddd;
  *    border-top: 0px solid #ddd;
  * } 
@@ -52,12 +63,13 @@
  * </example>
  * 
  * ### MenuPanel Example
+ * Self-contained `Menu` with content panel. 
  * <example>
  * <file name='script.js'>
  * m.mount(root, {view: () => m(hsWidget.MenuPanel, {
  *    items: ["one", "two", "three"],  
  *    defaultItem: "two",
- *    content: ['1st', '2nd', '3rd']
+ *    content: ['1st', '2nd', '3rd'].map(c => `${c} managed by 'MenuPanel'`)
  * })});
  *
  * </file>
@@ -86,14 +98,27 @@ import { RadioButton }  from './RadioButton';
 
 
 /**
- * Creates a simple menu with several items, as configured by the desc:SelectorDesc object passed as a parameter. 
+ * Creates a simple menu with several items and a callback for changes in the menu selection. 
+ * The calling program is responsible for acting on the changes, e.g. rendering them.
+ * ### node attributes:
+ * - desc:
+ *     - items: `string[]` the menu items to render
+ *     - defaultItem?: `numer|string` optional default item, either as index in `items` 
+ *       or directly as the content of an element in `items`
+ *     - clicked: `(item:string) => void` a callback for when a menu item was clicked. 
+ *       `Menu` takes care of updating the menu items and the calling 
+ *       program needs to react to the change in any further rendering of content.
+ *     - itemCSS?: `string[]`  optional item-wise css styles to apply.
+ * - css?:   `string`   optional css style to apply to the menu bar
+ * - style?: `string`   optional styles to apply to each menu item
+ * - sizes?: `string[]` optional width settings to pass to the menu `Layout`.
  * 
- * Call as: 
+ * #### Call as: 
  * ```
  * m(Menu, {desc: {
  *    items: ['One', 'Two', 'Three'],
  *    defaultItem: 'Two',
- *    clicked: item => ...  // set the maoin panel content for `item`
+ *    clicked: item => ...  // callback to set the main panel content for `item`
  * }})
  * ```
  */
@@ -106,8 +131,15 @@ export class Menu extends RadioButton {
 
 /**
  * Creates a compound horizontal menu with several items and a panel directly below the menu items.
+ * ### node attributes:
+ * - items: `string[]` menu items to render
+ * - defaultItem: `number|string` the item, or its index in `items` to select by default
+ * - content: `node[]` array of contents to show, must be the same length as `items`
+ * - css?: `string` optional css style to apply to the menu bar
+ * - style?: `string` optional styles to apply to each menu item
+ * - sizes?: `string[]` optional width settings to pass to the menu `Layout`.
  * 
- * Call as: 
+ * #### Call as: 
  * ```
  * m(MenuPanel, {
  *    items: ['One', 'Two', 'Three'],
@@ -130,11 +162,16 @@ export class MenuPanel extends Layout {
         return m(Layout, {
             rows:["30px", "fill"],
             content:[
-                m(Menu, { desc: {
-                    items: items,
-                    defaultItem: node.attrs.defaultItem,
-                    clicked: (item:string) => this.selected = items.indexOf(item)
-                }}),
+                m(Menu, { 
+                    desc: {
+                        items: items,
+                        defaultItem: node.attrs.defaultItem,
+                        clicked: (item:string) => this.selected = items.indexOf(item)
+                    },
+                    css: node.attrs.css,        // possibly undefined
+                    style: node.attrs.style,    // possibly undefined
+                    sizes: node.attrs.sizes     // possibly undefined
+                }),
                 m(Layout, { css:'.hs-menu-panel', content: node.attrs.content[this.selected] })
             ]
         });

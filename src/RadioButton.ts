@@ -42,14 +42,15 @@ import { Selector }         from './Selector';
  * ### Profile
  * invoked as `m(RadioButton, {desc: { items:[<string>], clicked:<function>}});`
  * 
- * ### Attributes (node.attrs):
- * - `desc:` see {@link Selector.SelectorDesc SelectorDesc}
- *     - `clicked:(item:string) => void`    function to execute when button is selected
- *     - `selectedItem?: number|string`     the currently selected item, by index or name
- *     - `items: string[]`                  names to individual buttons to show
- *     - `itemCss?:string[]`                css to apply to each item;
- * - `css?: string`                         css class to assign to button group
- * - `style?: string`                       style string to apply to button tag
+ * ### node attributes:
+ * - desc: see {@link Selector.SelectorDesc SelectorDesc}
+ *     - clicked: `(item:string) => void`   function to execute when button is selected
+ *     - selectedItem?: `number|string`     the currently selected item, by index or name
+ *     - items: `string[]`                  names to individual buttons to show
+ *     - itemCss?:`string[]`                css to apply to each item;
+ * - css?: `string`                         css class to assign to button group
+ * - style?: `string`                       style string to apply to button tag
+ * - sizes?: `string[]`                     optional width settings to pass to the menu `Layout`.
  */
 export class RadioButton extends Selector {
     static viewGroup(css:string, node: Vnode) {
@@ -57,7 +58,7 @@ export class RadioButton extends Selector {
         const style = node.attrs.style || '';
 
         return m(css, {style:style}, m(Layout, {
-            columns: [],
+            columns: node.attrs.sizes || [],
             content: node.state.items.map((l:string, i:number) => Selector.renderItem(node, i))
         }));
     }
