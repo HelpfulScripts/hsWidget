@@ -20,5 +20,6 @@ export { Collapsible }  from './Collapsible';
 export { Modal }        from './Modal'; 
 export { TypeAhead }    from './TypeAhead'; 
 export { EditLabel }    from './EditLabel'; 
+export { EditDate }     from './EditLabel'; 
 export { EditList }     from './EditList'; 
 export { EditSelect }   from './EditSelect'; 

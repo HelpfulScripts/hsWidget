@@ -1,22 +1,23 @@
 /**
  * # EditList
- * Creates an extensible List of rows
+ * Creates an extensible List of rows. The widget is highly configurable though 
  * ### Attributes:
- * - css: a css selector, typically a class selector: '.myclass'
- * - header?: `Vnode` otpional header row
- * - rows?: `any[]` optional array of the row data to be rendered. Each row data will be 
- *   provided to calls of `rowRender`,
- *   `EditList` ensures that there is always an empty row at the end of list so it can be extended
- * - sort?: `(rows) => number` optional sorting function for rows
- * - columnLayout?: optional array of column widths for use in `Layout`, defaults to '[ ]'
- * - rowRender?: `(rowData:any, index:number)=>Vnode[]` function returning a rendered row
- *   for the supplied row data. The calling program. If missing, a default renderer is provided.
- * - isEmpty: `(any[])=>boolean` a function to test if a content row is considered empty. The `row`
- *   to test is provided as paramater
- * - defaultRow: `any` the default (empty) content row, defaults to `{ }`. 
- *   This will be added as last element to `node.attrs.rowElements` to ensure an empty row is available.
- * - manualAdd: if truthy, prevents `EditList` from automatically adding new empty rows. 
- *   This makes the calling program responsible for adding rows to the list. 
+ * - **rows**: `any[]` array of the row data to be rendered. Each row data will be 
+ *      provided to calls of `rowRender`.`EditList` ensures that there is always an 
+ *      empty row at the end of list so it can be extended
+ * - **rowRender**?: `(rowData:any, index:number)=>Vnode[]` function returning a rendered row
+ *      for the supplied row data. If missing, a default renderer is supplied for a variety of situations.
+ *      Updated values will be reflected in the provided `rows` array.
+ * - **css**?: an optional css selector, typically a class selector: '.myclass'
+ * - **header**?: `Vnode` otpional header row. If missing, no header row will be shown. 
+ * - **sort**?: `(rows) => number` optional sorting function for rows; As a default, no sorting happens.
+ * - **columnLayout**?: optional array of column widths for use in `Layout`, defaults to '[ ]'
+ * - **isEmpty**?: `(any[])=>boolean` a function to test if a content row is considered empty. The `row`
+ *      to test is provided as paramater
+ * - **defaultRow**?: `any` the default (empty) content row, defaults to `''`. 
+ *      This will be added as last element to `node.attrs.rowElements` to ensure an empty row is available.
+ * - **expandRows**?: `(rows:any[], def:any, isEmpty:IsTest)=>void` if truthy, prevents `EditList` from automatically adding new empty rows. 
+ *      This makes the calling program responsible for adding rows to the list. 
  * 
  * ### Example
  * <example>
@@ -27,41 +28,50 @@
  * m.mount(root, {view: () => m('div', [
  *    m('h4', `simple content: '${content1.join(', ')}'`),
  *    m(hsWidget.EditList, {
- *      css: '.myLabel',
- *      header: 'List Header',
- *      defaultRow: '',
  *      rows: content1,
- *      isEmpty: (row) => !(row && row.length),  // undefined or empty string
- *      rowRender:(row, i) => m(hsWidget.EditLabel, {
- *          content: row || '', 
- *          placeholder: 'add a line...',
- *          update: value => content1[i] = value
- *      })
  *    }),
- *    m('h4', `complex content: '${content2.map(r => r.value).join(', ')}'`),
+ * 
+ *    m('h4', `complex content: '${content2.map(r => `${r.value}:${r.selected}`).join(', ')}'`),
  *    m(hsWidget.EditList, {
- *      css: '.myLabel',
+ *      css: '.myList',
  *      header: 'List Header',
- *      defaultRow: {value:''},
+ *      defaultRow: {value:'', selected:''},
  *      rows: content2,
- *      isEmpty: (row) => !(row.value && row.value.length),   // undefined or empty string
- *      rowRender:(row, i) => m(hsWidget.EditLabel, {
- *          content: row.value,
- *          placeholder: 'add a line...',
- *          update: value => {
- *              content2[i] = content2[i] || {};
- *              content2[i].value = value;
- *          }
- *      })
+ *      isEmpty: (row) => !(row.value && row.value.length),   // undefined or empty value
+ *      columnLayout: ['70%', '30%'],
+ *      rowRender:(row, i) => [
+ *          m(hsWidget.EditLabel, {
+ *              css: '.myListElement',
+ *              content: row.value,
+ *              placeholder: 'description',
+ *              update: value => {
+ *                  content2[i] = content2[i] || {};
+ *                  content2[i].value = value;
+ *              }
+ *          }),
+ *          m(hsWidget.EditSelect, {
+ *              css: '.myListElement',
+ *              selected: row.value,
+ *              from: ['high', 'med', 'low'],
+ *              update: value => {
+ *                  content2[i] = content2[i] || {};
+ *                  content2[i].selected = value;
+ *              }
+ *          }),
+ *       ]
  *    })
  * ])});
  * 
  * 
  * </file>
  * <file name='style.css'>
- * .myLabel {  
+ * .myList {  
  *    border: 1px solid #aaf; 
  *    margin: 5px;
+ * }
+ * .myListElement {
+ *    display: inline-block;
+ *    width: 100%;
  * }
  * h4 {
  *    padding-left:5px;
@@ -74,26 +84,61 @@
 import { m, Vnode } from 'hslayout';
 import { Log }      from 'hsutil';  const log = new Log('EditList');
 import { Layout }   from 'hslayout';
+import { EditLabel } from './EditLabel';
 
-const defIsEmpty = (data:any[]) => (data && data[0])? false : true;
-const defSort = () => 0;
-const defRender = (row:any, i:number) => m('span', row.toString());
+interface IsTest { (val:Row): boolean; }
+
+interface RowRender { (row:Row, rowNum:number): Vnode; }
+
+/** semantic type alias for the `row` data structure. */
+type Row = any;
+
+/** 
+ * the default `isEmpty` test: returns true if either `row` is undefined, or if its length is 0 or undefined.
+ * This test matches situations where the row is a simple `string`, or an `array` of `any`s.
+ */
+const defIsEmpty:IsTest = (row:Row) => (row && row.length)? false : true;
+
+/**
+ * returns the default row-`render` function: 
+ * - if `row` is an array or an object literal, turn each element into an `EditLabel`
+ * - otherwise treat `row` as a primitive and turn it into an EditLabel.  
+ */
+const defRender = (rows:Row[]):RowRender =>  {
+    return (row:Row, rowNum:number) => {
+        if (row.map) {
+            return row.map((e:string, i:number) => m(EditLabel, {
+                content: e,
+                placeholder: 'add...',
+                update: (newValue:string) => row[i] = newValue
+            }));
+        } else if (Object.prototype.toString.call(row) === '[object Object]') { // an object literal
+            return Object.keys(row).map((e:string) => m(EditLabel, {
+                content: row[e],
+                placeholder: 'add...',
+                update: (newValue:string) => row[e] = newValue
+            }));
+        } else { // a primitive
+            return m(EditLabel, {
+                content: row,
+                placeholder: 'add...',
+                update: (newValue:string) => rows[rowNum] = newValue
+            });
+        }
+    };
+};
 
 export class EditList {
     view(node:Vnode) {
-        const css = node.attrs.css || '';
-        const sort = node.attrs.sort || defSort;
-        const rows = node.attrs.rows || [];
-        const isEmpty = node.attrs.isEmpty || defIsEmpty;
-        const render = node.attrs.rowRender || defRender;
-        const def = node.attrs.defaultRow===undefined? {} : node.attrs.defaultRow;
+        const css        = node.attrs.css || '';
+        const sort       = node.attrs.sort || (()=>0);
+        const rows:Row[] = node.attrs.rows;
+        const isEmpty    = node.attrs.isEmpty || defIsEmpty;
+        const render     = node.attrs.rowRender || defRender(rows);
+        const def:Row    = node.attrs.defaultRow===undefined? '' : node.attrs.defaultRow;
+        const expandRows = node.attrs.expand || expand;
 
-        if (!node.attrs.manuelAdd) {
-            const lastRowIndex = rows.length - 1;
-            if (lastRowIndex<0 || !isEmpty(rows[lastRowIndex])) {
-                rows.push(def);
-            }
-        }
+        expandRows(rows, def, isEmpty);
         const content = [
             m('.hsedit_list_content', 
                 rows.sort(sort).map((row:any, i:number) => m(Layout, {
@@ -107,5 +152,12 @@ export class EditList {
             content.unshift(m('.hsedit_list_header', node.attrs.header));
         }
         return m(`.edit_list${css}`, content);
+    }
+}
+
+function expand(rows:any[], def:any, isEmpty:IsTest) {
+    const lastRowIndex = rows.length - 1;
+    if (lastRowIndex<0 || !isEmpty(rows[lastRowIndex])) {
+        rows.push(def);
     }
 }
