@@ -9159,7 +9159,7 @@
 			},
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 			"comment": {
-				"shortText": "# TypeAhead\nProvides a search box with a type-ahead dropdown to show valid options that match the current search input.",
+				"shortText": "# TypeAhead\nProvides a list search box with a type-ahead dropdown to show valid options that match the current search input.",
 				"text": "### Profile\ninvoked as `m(hsWidget.TypeAhead, { <Attributes> });`\n\n### Attributes (node.attrs):\n- `list: string | string[]` the list to search in. If `list` is a string, it serves\n   as a URL to a `json` file containing an array of search terms. Else, if it is a\n   string[] it serves directly as an array of search terms\n- `placeholder: string` an indicator what to enter in the search box\n- `onsubmit: (term:string) => void`  a function to call when a term is submitted\n- `autofocus: boolean` whether the search box automatically gets the focus\n\n### Example\n<example>\n<file name='script.js'>\nlet hero = '';\nlet friend = '';\nm.mount(root, {view: () => m('.hs-white', [\n     m('h4', hero.length? `Selected: ${hero}` : 'Local List: Search for a Superhero'),\n     m(hsWidget.TypeAhead, {\n        placeholder: 'favorite hero',\n        onsubmit: item => hero = item,\n        list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n     }),\n     m('h4', friend.length? `Selected: ${friend}` : 'Remote List: Search for a Friend'),\n     m(hsWidget.TypeAhead, {\n        placeholder: 'best friend',\n        onsubmit: item => friend = item,\n        autofocus: true,\n        list: 'example/search.json'\n     })\n  ])\n});\n</file>\n</example>\n\n"
 			},
 			"children": [
@@ -9171,44 +9171,21 @@
 					"flags": {},
 					"children": [
 						{
-							"id": 478,
+							"id": 472,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 479,
+									"id": 477,
 									"name": "new GetList",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 480,
-											"name": "list",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {},
-											"type": {
-												"type": "union",
-												"types": [
-													{
-														"type": "intrinsic",
-														"name": "string"
-													},
-													{
-														"type": "array",
-														"elementType": {
-															"type": "intrinsic",
-															"name": "string"
-														}
-													}
-												]
-											}
-										},
-										{
-											"id": 481,
+											"id": 478,
 											"name": "map",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9218,21 +9195,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 482,
+													"id": 479,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 483,
+															"id": 480,
 															"name": "__call",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 484,
+																	"id": 481,
 																	"name": "item",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -9258,8 +9235,8 @@
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-															"line": 68,
-															"character": 43
+															"line": 69,
+															"character": 31
 														}
 													]
 												}
@@ -9277,12 +9254,12 @@
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 									"line": 67,
-									"character": 5
+									"character": 30
 								}
 							]
 						},
 						{
-							"id": 470,
+							"id": 471,
 							"name": "list",
 							"kind": 1024,
 							"kindString": "Property",
@@ -9292,7 +9269,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 64,
+									"line": 67,
 									"character": 15
 								}
 							],
@@ -9306,7 +9283,94 @@
 							"defaultValue": " []"
 						},
 						{
-							"id": 471,
+							"id": 473,
+							"name": "map",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isProtected": true,
+								"isOptional": true,
+								"isConstructorProperty": true
+							},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
+									"line": 69,
+									"character": 29
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 474,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"signatures": [
+										{
+											"id": 475,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 476,
+													"name": "item",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "array",
+														"elementType": {
+															"type": "intrinsic",
+															"name": "any"
+														}
+													}
+												}
+											],
+											"type": {
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "string"
+												}
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
+											"line": 69,
+											"character": 31
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 470,
+							"name": "url",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true
+							},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
+									"line": 66,
+									"character": 15
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 485,
 							"name": "captureList",
 							"kind": 2048,
 							"kindString": "Method",
@@ -9315,14 +9379,14 @@
 							},
 							"signatures": [
 								{
-									"id": 472,
+									"id": 486,
 									"name": "captureList",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 473,
+											"id": 487,
 											"name": "list",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9336,7 +9400,7 @@
 											}
 										},
 										{
-											"id": 474,
+											"id": 488,
 											"name": "map",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9344,21 +9408,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 475,
+													"id": 489,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 476,
+															"id": 490,
 															"name": "__call",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 477,
+																	"id": 491,
 																	"name": "l",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -9384,7 +9448,7 @@
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-															"line": 65,
+															"line": 85,
 															"character": 40
 														}
 													]
@@ -9401,8 +9465,62 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 65,
+									"line": 85,
 									"character": 23
+								}
+							]
+						},
+						{
+							"id": 482,
+							"name": "search",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPublic": true
+							},
+							"signatures": [
+								{
+									"id": 483,
+									"name": "search",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 484,
+											"name": "list",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "string"
+													},
+													{
+														"type": "array",
+														"elementType": {
+															"type": "intrinsic",
+															"name": "string"
+														}
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
+									"line": 72,
+									"character": 17
 								}
 							]
 						}
@@ -9412,13 +9530,15 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								478
+								472
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
+								471,
+								473,
 								470
 							]
 						},
@@ -9426,20 +9546,21 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								471
+								485,
+								482
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-							"line": 63,
+							"line": 65,
 							"character": 13
 						}
 					]
 				},
 				{
-					"id": 485,
+					"id": 492,
 					"name": "TypeAhead",
 					"kind": 128,
 					"kindString": "Class",
@@ -9448,7 +9569,29 @@
 					},
 					"children": [
 						{
-							"id": 486,
+							"id": 493,
+							"name": "gl",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
+									"line": 92,
+									"character": 6
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "GetList",
+								"id": 469
+							},
+							"defaultValue": " new GetList()"
+						},
+						{
+							"id": 494,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -9457,14 +9600,14 @@
 							},
 							"signatures": [
 								{
-									"id": 487,
+									"id": 495,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 488,
+											"id": 496,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9484,13 +9627,13 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 79,
+									"line": 93,
 									"character": 10
 								}
 							]
 						},
 						{
-							"id": 489,
+							"id": 497,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -9499,14 +9642,14 @@
 							},
 							"signatures": [
 								{
-									"id": 490,
+									"id": 498,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 491,
+											"id": 499,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -9526,7 +9669,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 87,
+									"line": 101,
 									"character": 8
 								}
 							]
@@ -9534,38 +9677,66 @@
 					],
 					"groups": [
 						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								493
+							]
+						},
+						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								486,
-								489
+								494,
+								497
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-							"line": 78,
+							"line": 91,
 							"character": 22
 						}
 					]
 				},
 				{
-					"id": 492,
+					"id": 500,
+					"name": "log",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
+							"line": 45,
+							"character": 11
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Log"
+					},
+					"defaultValue": " new Log('TypeAhead')"
+				},
+				{
+					"id": 501,
 					"name": "emphasize",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 493,
+							"id": 502,
 							"name": "emphasize",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 494,
+									"id": 503,
 									"name": "item",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9576,7 +9747,7 @@
 									}
 								},
 								{
-									"id": 495,
+									"id": 504,
 									"name": "match",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -9596,7 +9767,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-							"line": 46,
+							"line": 48,
 							"character": 18
 						}
 					]
@@ -9608,14 +9779,21 @@
 					"kind": 128,
 					"children": [
 						469,
-						485
+						492
+					]
+				},
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						500
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						492
+						501
 					]
 				}
 			],
@@ -9628,7 +9806,7 @@
 			]
 		},
 		{
-			"id": 496,
+			"id": 505,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -9653,7 +9831,7 @@
 			]
 		},
 		{
-			"id": 497,
+			"id": 506,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -9694,8 +9872,8 @@
 				87,
 				391,
 				468,
-				496,
-				497
+				505,
+				506
 			]
 		}
 	]

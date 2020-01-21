@@ -1,6 +1,6 @@
 /**
  * # TypeAhead
- * Provides a search box with a type-ahead dropdown to show valid options that match the current search input.
+ * Provides a list search box with a type-ahead dropdown to show valid options that match the current search input.
  * 
  * ### Profile
  * invoked as `m(hsWidget.TypeAhead, { <Attributes> });`
@@ -41,6 +41,8 @@
 
  /** */
 import { m, Vnode } from 'hslayout';
+import { Log } from 'hsutil';import { SpawnSyncOptionsWithStringEncoding } from 'child_process';
+  const log = new Log('TypeAhead');
 
 // emphasize literal matches as *bold* in the drop down list
 function emphasize(item:string, match:string) {
@@ -61,32 +63,45 @@ function emphasize(item:string, match:string) {
 }
 
 class GetList {
+    private url:string;
     public list:string[] = [];
+
+    constructor(protected map?:(item:any[])=>string[]) {
+    }
+
+    public search(list:string|string[]) {
+        if (typeof list === 'string') {
+            if (this.url!==list) {
+                this.url = list;
+                m.request({ method: "GET", url: list })
+                .then((data:any[]) => this.captureList(data, this.map))
+                .catch((e:any) =>log.warn(`requesting ${list}: ${e.toString()}`));
+            }
+        } else {
+            this.captureList(list, this.map);
+        }
+    }
+
     private captureList(list:any[], map:(l:any[])=>string[]) {
         this.list = map? map(list) : list;
     }
-    constructor(list:string|string[], map?:(item:any[])=>string[]) {
-        if (typeof list === 'string') {
-            m.request({ method: "GET", url: list })
-            .then((data:any[]) => this.captureList(data, map));
-        } else {
-            this.captureList(list, map);
-        }
-    }
+
 }
 
 export class TypeAhead {
+    gl = new GetList();
     oninit(node:Vnode) {
         node.state.inputNode = '';
         node.state.hidePopdown = true;
         node.state.value = '';
         node.state.typeAheadList = [];
         node.state.onsubmit = node.attrs.onsubmit;
-        node.state.list = node.attrs.list;
+        // node.state.list = node.attrs.list;
     }
     view(node:Vnode) {
-        const gl = new GetList(node.state.list);
+        this.gl.search(node.attrs.list);
         const nosubmit = () => console.log('no submit function defined');
+        
         const submit = (v:string) => {
             node.state.inputNode.setSelectionRange(0, node.state.inputNode.value.length);
             node.state.hidePopdown = true;
@@ -96,17 +111,19 @@ export class TypeAhead {
             node.state.inputNode.value = e.target.attributes.name.value;
             submit(e.target.attributes.name.value);
         }};
+
         const input = (e:any) => {
             const n = node.state.inputNode = e.target;
             const input = node.state.value = n.value;
             const withinInput = new RegExp(`${input}`, 'gi');
             const beginningOfInput = new RegExp(`^${input}`, 'gi');
-            node.state.typeAheadList = gl.list.filter((l:string) => l.match(withinInput));
+            node.state.typeAheadList = this.gl.list.filter((l:string) => l.match(withinInput));
             n.value = node.state.typeAheadList.filter((l:string) => l.match(beginningOfInput))[0] || input; 
             node.state.hidePopdown = n.value.length===0; 
             let pos = input.length;
             n.setSelectionRange(pos, n.value.length);
         };
+
         const keyPressed = (e:any) => {
             const n = node.state.inputNode = e.target;
             if (e.code === 'Enter') {
@@ -118,18 +135,16 @@ export class TypeAhead {
                 }
             }
         };
-        const inputNode = {
-            contenteditable:true,
-            placeholder:    node.attrs.placeholder,
-            autofocus:      node.attrs.autofocus || true,
-            onkeydown:      keyPressed,
-            oninput:        input
-        };
+        const selector = node.state.value? '.hs-typeahead-value' : '.hs-typeahead-placeholder';
             
         return m('.hs-form', [
-            m(`input.hs-typeahead-input${node.state.value?'.hs-typeahead-value' : '.hs-typeahead-placeholder'}`, 
-                inputNode, 
-                m.trust(node.state.value?node.state.value : node.attrs.placeholder)
+            m(`input.hs-typeahead-input${selector}`, {
+                contenteditable:true,
+                placeholder:    node.attrs.placeholder,
+                autofocus:      node.attrs.autofocus || true,
+                onkeydown:      keyPressed,
+                oninput:        input
+            }, m.trust(node.state.value?node.state.value : node.attrs.placeholder)
             ),
             node.state.hidePopdown? undefined : 
                 m('.hs-typeahead-list', node.state.typeAheadList.map((l:string) => 
