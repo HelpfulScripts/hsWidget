@@ -6,12 +6,15 @@
  * invoked as `m(hsWidget.TypeAhead, { <Attributes> });`
  * 
  * ### Attributes (node.attrs):
- * - `list: string | string[]` the list to search in. If `list` is a string, it serves
+ * - **list**: `string | string[]` the list to search in. If `list` is a string, it serves
  *    as a URL to a `json` file containing an array of search terms. Else, if it is a 
  *    string[] it serves directly as an array of search terms
- * - `placeholder: string` an indicator what to enter in the search box
- * - `onsubmit: (term:string) => void`  a function to call when a term is submitted
- * - `autofocus: boolean` whether the search box automatically gets the focus
+ * - **placeholder**: `string` an indicator what to enter in the search box
+ * - **onsubmit**: `(term:string, matches:string[]) => void`  a function to call with the selected `term`, as
+ *      well as all `matches` to the current filter term.
+ * - **autofocus**?: `boolean` whether the search box automatically gets the focus, defaults to `true`
+ * - **autocomplete**?: `boolean` if true, autocompletes the input with the first start-of-word match in the list
+ *      defaults to `true`
  * 
  * ### Example
  * <example>
@@ -96,6 +99,7 @@ export class TypeAhead {
         node.state.value = '';
         node.state.typeAheadList = [];
         node.state.onsubmit = node.attrs.onsubmit;
+        node.state.autocomplete = node.attrs.autocomplete===undefined? true : node.attrs.autocomplete;
         // node.state.list = node.attrs.list;
     }
     view(node:Vnode) {
@@ -105,27 +109,32 @@ export class TypeAhead {
         const submit = (v:string) => {
             node.state.inputNode.setSelectionRange(0, node.state.inputNode.value.length);
             node.state.hidePopdown = true;
-            return node.state.onsubmit? node.state.onsubmit(v) : nosubmit();
+            return node.state.onsubmit? node.state.onsubmit(v, node.state.typeAheadList) : nosubmit();
         };
         const select = (e:any) => { if (e) { 
             node.state.inputNode.value = e.target.attributes.name.value;
             submit(e.target.attributes.name.value);
         }};
 
+        function match(word:string, list:string[]):string[] {
+            const against = new RegExp(`${word}`, 'gi');
+            return list.filter((l:string) => l.match(against));
+        }
+
+        /**
+         * reacts to inputs in text field.
+         * @param e the input event
+         */
         const input = (e:any) => {
             const n = node.state.inputNode = e.target;
             const input = node.state.value = n.value;
-            const withinInput = new RegExp(`${input}`, 'gi');
-            const beginningOfInput = new RegExp(`^${input}`, 'gi');
-            node.state.typeAheadList = this.gl.list.filter((l:string) => l.match(withinInput));
-            n.value = node.state.typeAheadList.filter((l:string) => l.match(beginningOfInput))[0] || input; 
-            node.state.hidePopdown = n.value.length===0; 
-            let pos = input.length;
-            n.setSelectionRange(pos, n.value.length);
+            node.state.typeAheadList = match(input, this.gl.list);
+            if (node.state.autocomplete) { typeAhead(input, node); }
         };
 
         const keyPressed = (e:any) => {
             const n = node.state.inputNode = e.target;
+            node.state.hidePopdown = false; 
             if (e.code === 'Enter') {
                 submit(n.value);
             } else if (e.code === 'Backspace') {
@@ -151,4 +160,15 @@ export class TypeAhead {
                     m('', { onclick: select }, emphasize(l, node.state.value))))
         ]);
     }
+}
+
+function typeAhead(input:string, node:Vnode) { // ...with first match at beginning of word in list
+    const n = node.state.inputNode;
+    const startOfLineInput = new RegExp(`^${input}`, 'gi');
+    // find first list entry with 'input' at start of string
+    n.value = node.state.typeAheadList.filter((l:string) => l.match(startOfLineInput))[0] || input; 
+    // node.state.hidePopdown = n.value.length===0; 
+    // select hind (un-typed) part of match for replacement 
+    let pos = input.length;
+    n.setSelectionRange(pos, n.value.length);
 }
