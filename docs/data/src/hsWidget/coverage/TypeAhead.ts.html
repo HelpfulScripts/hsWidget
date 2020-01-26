@@ -19,26 +19,6 @@
       <a href="index.html">hsWidget: All files</a> TypeAhead.ts
     </h1>
     <div class='clearfix'>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">86.57% </span>
-        <span class="quiet">Statements</span>
-        <span class='fraction'>58/67</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">67.65% </span>
-        <span class="quiet">Branches</span>
-        <span class='fraction'>23/34</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">80% </span>
-        <span class="quiet">Functions</span>
-        <span class='fraction'>16/20</span>
-      </div>
-      <div class='fl pad1y space-right2'>
-        <span class="strong">88.89% </span>
-        <span class="quiet">Lines</span>
-        <span class='fraction'>56/63</span>
-      </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
@@ -216,7 +196,11 @@
 <a name='L168'></a><a href='#L168'>168</a>
 <a name='L169'></a><a href='#L169'>169</a>
 <a name='L170'></a><a href='#L170'>170</a>
-<a name='L171'></a><a href='#L171'>171</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -334,6 +318,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">8x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -341,10 +330,7 @@
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
@@ -397,11 +383,12 @@
  * - **list**: `string | string[]` the list to search in. If `list` is a string, it serves
  *    as a URL to a `json` file containing an array of search terms. Else, if it is a 
  *    string[] it serves directly as an array of search terms
- * - `placeholder: string` an indicator what to enter in the search box
- * - `onsubmit: (term:string, matches:string[]) =&gt; void`  a function to call with the selected term, as
- *      well as all matches to the current filter term.
- * - `autofocus: boolean` whether the search box automatically gets the focus
- * - **autocomplete**: `boolean` if true, autocompletes the input with the first start-of-word match in the list
+ * - **placeholder**: `string` an indicator what to enter in the search box
+ * - **onsubmit**: `(term:string, matches:string[]) =&gt; void`  a function to call with the selected `term`, as
+ *      well as all `matches` to the current filter term.
+ * - **autofocus**?: `boolean` whether the search box automatically gets the focus, defaults to `true`
+ * - **autocomplete**?: `boolean` if true, autocompletes the input with the first start-of-word match in the list
+ *      defaults to `true`
  * 
  * ### Example
  * &lt;example&gt;
@@ -503,6 +490,11 @@ export class TypeAhead {
 <span class="cstat-no" title="statement not covered" >            submit(e.target.attributes.name.value);</span>
         }};
 &nbsp;
+        function match(word:string, list:string[]):string[] {
+            const against = new RegExp(`${word}`, 'gi');
+            return list.filter((l:string) =&gt; l.match(against));
+        }
+&nbsp;
         /**
          * reacts to inputs in text field.
          * @param e the input event
@@ -510,11 +502,8 @@ export class TypeAhead {
         const input = (e:any) =&gt; {
             const n = node.state.inputNode = e.target;
             const input = node.state.value = n.value;
-            const withinInput = new RegExp(`${input}`, 'gi');
-            node.state.typeAheadList = this.gl.list.filter((l:string) =&gt; l.match(withinInput));
-            <span class="missing-if-branch" title="else path not taken" >E</span>if (node.state.autocomplete) { // ...with first match at beginning of word in list
-                typeAhead(input, node);
-            }
+            node.state.typeAheadList = match(input, this.gl.list);
+            <span class="missing-if-branch" title="else path not taken" >E</span>if (node.state.autocomplete) { typeAhead(input, node); }
         };
 &nbsp;
         const keyPressed = (e:any) =&gt; {
@@ -547,7 +536,7 @@ export class TypeAhead {
     }
 }
 &nbsp;
-function typeAhead(input:string, node:Vnode) {
+function typeAhead(input:string, node:Vnode) { // ...with first match at beginning of word in list
     const n = node.state.inputNode;
     const startOfLineInput = new RegExp(`^${input}`, 'gi');
     // find first list entry with 'input' at start of string

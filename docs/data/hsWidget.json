@@ -9160,7 +9160,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
 			"comment": {
 				"shortText": "# TypeAhead\nProvides a list search box with a type-ahead dropdown to show valid options that match the current search input.",
-				"text": "### Profile\ninvoked as `m(hsWidget.TypeAhead, { <Attributes> });`\n\n### Attributes (node.attrs):\n- **list**: `string | string[]` the list to search in. If `list` is a string, it serves\n   as a URL to a `json` file containing an array of search terms. Else, if it is a\n   string[] it serves directly as an array of search terms\n- `placeholder: string` an indicator what to enter in the search box\n- `onsubmit: (term:string, matches:string[]) => void`  a function to call with the selected term, as\n     well as all matches to the current filter term.\n- `autofocus: boolean` whether the search box automatically gets the focus\n- **autocomplete**: `boolean` if true, autocompletes the input with the first start-of-word match in the list\n\n### Example\n<example>\n<file name='script.js'>\nlet hero = '';\nlet friend = '';\nm.mount(root, {view: () => m('.hs-white', [\n     m('h4', hero.length? `Selected: ${hero}` : 'Local List: Search for a Superhero'),\n     m(hsWidget.TypeAhead, {\n        placeholder: 'favorite hero',\n        onsubmit: item => hero = item,\n        list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n     }),\n     m('h4', friend.length? `Selected: ${friend}` : 'Remote List: Search for a Friend'),\n     m(hsWidget.TypeAhead, {\n        placeholder: 'best friend',\n        onsubmit: item => friend = item,\n        autofocus: true,\n        list: 'example/search.json'\n     })\n  ])\n});\n</file>\n</example>\n\n"
+				"text": "### Profile\ninvoked as `m(hsWidget.TypeAhead, { <Attributes> });`\n\n### Attributes (node.attrs):\n- **list**: `string | string[]` the list to search in. If `list` is a string, it serves\n   as a URL to a `json` file containing an array of search terms. Else, if it is a\n   string[] it serves directly as an array of search terms\n- **placeholder**: `string` an indicator what to enter in the search box\n- **onsubmit**: `(term:string, matches:string[]) => void`  a function to call with the selected `term`, as\n     well as all `matches` to the current filter term.\n- **autofocus**?: `boolean` whether the search box automatically gets the focus, defaults to `true`\n- **autocomplete**?: `boolean` if true, autocompletes the input with the first start-of-word match in the list\n     defaults to `true`\n\n### Example\n<example>\n<file name='script.js'>\nlet hero = '';\nlet friend = '';\nm.mount(root, {view: () => m('.hs-white', [\n     m('h4', hero.length? `Selected: ${hero}` : 'Local List: Search for a Superhero'),\n     m(hsWidget.TypeAhead, {\n        placeholder: 'favorite hero',\n        onsubmit: item => hero = item,\n        list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n     }),\n     m('h4', friend.length? `Selected: ${friend}` : 'Remote List: Search for a Friend'),\n     m(hsWidget.TypeAhead, {\n        placeholder: 'best friend',\n        onsubmit: item => friend = item,\n        autofocus: true,\n        list: 'example/search.json'\n     })\n  ])\n});\n</file>\n</example>\n\n"
 			},
 			"children": [
 				{
@@ -9235,7 +9235,7 @@
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-															"line": 71,
+															"line": 72,
 															"character": 31
 														}
 													]
@@ -9253,7 +9253,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 69,
+									"line": 70,
 									"character": 30
 								}
 							]
@@ -9269,7 +9269,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 69,
+									"line": 70,
 									"character": 15
 								}
 							],
@@ -9295,7 +9295,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 71,
+									"line": 72,
 									"character": 29
 								}
 							],
@@ -9342,7 +9342,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-											"line": 71,
+											"line": 72,
 											"character": 31
 										}
 									]
@@ -9360,7 +9360,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 68,
+									"line": 69,
 									"character": 15
 								}
 							],
@@ -9448,7 +9448,7 @@
 													"sources": [
 														{
 															"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-															"line": 87,
+															"line": 88,
 															"character": 40
 														}
 													]
@@ -9465,7 +9465,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 87,
+									"line": 88,
 									"character": 23
 								}
 							]
@@ -9519,7 +9519,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 74,
+									"line": 75,
 									"character": 17
 								}
 							]
@@ -9554,7 +9554,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-							"line": 67,
+							"line": 68,
 							"character": 13
 						}
 					]
@@ -9579,7 +9579,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 94,
+									"line": 95,
 									"character": 6
 								}
 							],
@@ -9627,7 +9627,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 95,
+									"line": 96,
 									"character": 10
 								}
 							]
@@ -9669,7 +9669,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-									"line": 104,
+									"line": 105,
 									"character": 8
 								}
 							]
@@ -9695,7 +9695,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-							"line": 93,
+							"line": 94,
 							"character": 22
 						}
 					]
@@ -9711,7 +9711,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-							"line": 47,
+							"line": 48,
 							"character": 11
 						}
 					],
@@ -9767,7 +9767,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-							"line": 50,
+							"line": 51,
 							"character": 18
 						}
 					]
@@ -9818,7 +9818,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-							"line": 162,
+							"line": 165,
 							"character": 18
 						}
 					]
