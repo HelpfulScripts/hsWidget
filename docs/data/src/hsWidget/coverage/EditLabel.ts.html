@@ -19,6 +19,26 @@
       <a href="index.html">hsWidget: All files</a> EditLabel.ts
     </h1>
     <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">18.52% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>5/27</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>0/20</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">0% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>0/9</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">15.38% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>4/26</span>
+      </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
@@ -121,7 +141,9 @@
 <a name='L93'></a><a href='#L93'>93</a>
 <a name='L94'></a><a href='#L94'>94</a>
 <a name='L95'></a><a href='#L95'>95</a>
-<a name='L96'></a><a href='#L96'>96</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -166,6 +188,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -211,6 +234,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -261,6 +285,7 @@ import { m, Vnode } from 'hslayout';
     protected <span class="cstat-no" title="statement not covered" >editable = false;</span>
     protected <span class="cstat-no" title="statement not covered" >hasFocus = false;</span>
     protected updateCB:(r:string) =&gt; void;
+    protected <span class="cstat-no" title="statement not covered" >default = '';</span>
 &nbsp;
     protected <span class="fstat-no" title="function not covered" >click(</span>e:any) { 
 <span class="cstat-no" title="statement not covered" >        this.editable = !this.editable; </span>
@@ -284,7 +309,7 @@ import { m, Vnode } from 'hslayout';
 &nbsp;
     public <span class="fstat-no" title="function not covered" >onupdate(</span>node:Vnode) {
 <span class="cstat-no" title="statement not covered" >        if (this.editable &amp;&amp; !this.hasFocus) {</span>
-<span class="cstat-no" title="statement not covered" >            node.dom.value = node.attrs.content || '';</span>
+<span class="cstat-no" title="statement not covered" >            node.dom.value = node.attrs.content || this.default;</span>
 <span class="cstat-no" title="statement not covered" >            node.dom.focus();</span>
 <span class="cstat-no" title="statement not covered" >            node.dom.select();</span>
 <span class="cstat-no" title="statement not covered" >            this.hasFocus = true;</span>
@@ -292,7 +317,7 @@ import { m, Vnode } from 'hslayout';
     }
 &nbsp;
     public <span class="fstat-no" title="function not covered" >view(</span>node:Vnode) {
-<span class="cstat-no" title="statement not covered" >        this.update = node.attrs.update;</span>
+<span class="cstat-no" title="statement not covered" >        this.updateCB = node.attrs.update;</span>
         const css = <span class="cstat-no" title="statement not covered" >node.attrs.css || '';</span>
 <span class="cstat-no" title="statement not covered" >        return this.editable? </span>
             m(`input.hsedit_label${css}`, { 
@@ -305,10 +330,11 @@ import { m, Vnode } from 'hslayout';
     }
 }
 &nbsp;
-export class EditDate extends EditLabel {
+<span class="fstat-no" title="function not covered" >export class E</span>ditDate extends EditLabel {
+    protected <span class="cstat-no" title="statement not covered" >default = new Date().toDateString().slice(4);</span>
     protected <span class="fstat-no" title="function not covered" >update(</span>newValue:string) {
         const date = <span class="cstat-no" title="statement not covered" >new Date(newValue);</span>
-        const result = <span class="cstat-no" title="statement not covered" >isNaN(date.getTime())? date.toDateString() : date.toDateString().slice(4);</span>
+        const result = <span class="cstat-no" title="statement not covered" >isNaN(date.getTime())? 'invalid date' : date.toDateString().slice(4);</span>
 <span class="cstat-no" title="statement not covered" >        super.update(result);</span>
     }
 }</pre></td></tr>

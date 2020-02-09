@@ -20,10 +20,10 @@
                     height:90%;
             }
             code { padding: 5px 0;}</style></html><body>
-                <h1>src/EditLabel.ts</h1>
+                <h1>src/EditTextarea.ts</h1>
                 <div class='listing'><code><p id=1 class="line"><span>&nbsp;&nbsp;&nbsp;1</span><comment>/**</comment></p>
-<p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span><comment>&nbsp;*&nbsp;#&nbsp;EditLabel</comment></p>
-<p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span><comment>&nbsp;*&nbsp;Provides&nbsp;a&nbsp;text&nbsp;label&nbsp;that&nbsp;turns&nbsp;into&nbsp;a&nbsp;single-line&nbsp;input&nbsp;field&nbsp;when&nbsp;clicked&nbsp;on</comment></p>
+<p id=2 class="line"><span>&nbsp;&nbsp;&nbsp;2</span><comment>&nbsp;*&nbsp;#&nbsp;EditTextarea</comment></p>
+<p id=3 class="line"><span>&nbsp;&nbsp;&nbsp;3</span><comment>&nbsp;*&nbsp;Provides&nbsp;a&nbsp;text&nbsp;label&nbsp;that&nbsp;turns&nbsp;into&nbsp;a&nbsp;multi-line&nbsp;text&nbsp;area&nbsp;when&nbsp;clicked&nbsp;on</comment></p>
 <p id=4 class="line"><span>&nbsp;&nbsp;&nbsp;4</span><comment>&nbsp;*&nbsp;</comment></p>
 <p id=5 class="line"><span>&nbsp;&nbsp;&nbsp;5</span><comment>&nbsp;*&nbsp;###&nbsp;Attributes:</comment></p>
 <p id=6 class="line"><span>&nbsp;&nbsp;&nbsp;6</span><comment>&nbsp;*&nbsp;-&nbsp;**css**?:&nbsp;`string`&nbsp;an&nbsp;optional&nbsp;css&nbsp;selector</comment></p>
@@ -62,7 +62,7 @@
 <p id=39 class="line"><span>&nbsp;&nbsp;39</span>import&nbsp;{&nbsp;m,&nbsp;Vnode&nbsp;}&nbsp;from&nbsp;<quote>'hslayout'</quote>;</p>
 <p id=40 class="line"><span>&nbsp;&nbsp;40</span></p>
 <p id=41 class="line"><span>&nbsp;&nbsp;41</span></p>
-<p id=42 class="line"><span>&nbsp;&nbsp;42</span>export&nbsp;class&nbsp;EditLabel&nbsp;{</p>
+<p id=42 class="line"><span>&nbsp;&nbsp;42</span>export&nbsp;class&nbsp;EditTextarea&nbsp;{</p>
 <p id=43 class="line"><span>&nbsp;&nbsp;43</span>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;editable&nbsp;=&nbsp;false;</p>
 <p id=44 class="line"><span>&nbsp;&nbsp;44</span>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;hasFocus&nbsp;=&nbsp;false;</p>
 <p id=45 class="line"><span>&nbsp;&nbsp;45</span>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;updateCB:(r:string)&nbsp;=>&nbsp;void;</p>
@@ -101,23 +101,16 @@
 <p id=78 class="line"><span>&nbsp;&nbsp;78</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.updateCB&nbsp;=&nbsp;node.attrs.update;</p>
 <p id=79 class="line"><span>&nbsp;&nbsp;79</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;css&nbsp;=&nbsp;node.attrs.css&nbsp;||&nbsp;<quote>''</quote>;</p>
 <p id=80 class="line"><span>&nbsp;&nbsp;80</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;this.editable?&nbsp;</p>
-<p id=81 class="line"><span>&nbsp;&nbsp;81</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`input.hsedit_label${css}`,&nbsp;{&nbsp;</p>
-<p id=82 class="line"><span>&nbsp;&nbsp;82</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onblur:&nbsp;this.blur.bind(this),</p>
-<p id=83 class="line"><span>&nbsp;&nbsp;83</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onkeyup:&nbsp;this.keyup.bind(this),</p>
-<p id=84 class="line"><span>&nbsp;&nbsp;84</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<quote>''</quote>)</p>
-<p id=85 class="line"><span>&nbsp;&nbsp;85</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;(node.attrs.content&nbsp;&&&nbsp;node.attrs.content.length)?&nbsp;</p>
-<p id=86 class="line"><span>&nbsp;&nbsp;86</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`span.hsedit_label${css}`,&nbsp;{&nbsp;onclick:&nbsp;this.click.bind(this)&nbsp;},&nbsp;node.attrs.content)</p>
-<p id=87 class="line"><span>&nbsp;&nbsp;87</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;m(`span.hsedit_label.default${css}`,&nbsp;{&nbsp;onclick:&nbsp;this.click.bind(this)&nbsp;},&nbsp;node.attrs.placeholder&nbsp;||&nbsp;<quote>'click&nbsp;to&nbsp;enter'</quote>);</p>
-<p id=88 class="line"><span>&nbsp;&nbsp;88</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
-<p id=89 class="line"><span>&nbsp;&nbsp;89</span>}</p>
-<p id=90 class="line"><span>&nbsp;&nbsp;90</span></p>
-<p id=91 class="line"><span>&nbsp;&nbsp;91</span>export&nbsp;class&nbsp;EditDate&nbsp;extends&nbsp;EditLabel&nbsp;{</p>
-<p id=92 class="line"><span>&nbsp;&nbsp;92</span>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;default&nbsp;=&nbsp;new&nbsp;Date().toDateString().slice(4);</p>
-<p id=93 class="line"><span>&nbsp;&nbsp;93</span>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;update(newValue:string)&nbsp;{</p>
-<p id=94 class="line"><span>&nbsp;&nbsp;94</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;date&nbsp;=&nbsp;new&nbsp;Date(newValue);</p>
-<p id=95 class="line"><span>&nbsp;&nbsp;95</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;result&nbsp;=&nbsp;isNaN(date.getTime())?&nbsp;<quote>'invalid&nbsp;date'</quote>&nbsp;:&nbsp;date.toDateString().slice(4);</p>
-<p id=96 class="line"><span>&nbsp;&nbsp;96</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super.update(result);</p>
-<p id=97 class="line"><span>&nbsp;&nbsp;97</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
-<p id=98 class="line"><span>&nbsp;&nbsp;98</span>}</p></code></div>
+<p id=81 class="line"><span>&nbsp;&nbsp;81</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`textarea.hsedit_textarea${css}`,&nbsp;{&nbsp;</p>
+<p id=82 class="line"><span>&nbsp;&nbsp;82</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;wrap:&nbsp;<quote>'physical'</quote>,</p>
+<p id=83 class="line"><span>&nbsp;&nbsp;83</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onblur:&nbsp;this.blur.bind(this),</p>
+<p id=84 class="line"><span>&nbsp;&nbsp;84</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;onkeyup:&nbsp;this.keyup.bind(this),</comment></p>
+<p id=85 class="line"><span>&nbsp;&nbsp;85</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<quote>''</quote>)</p>
+<p id=86 class="line"><span>&nbsp;&nbsp;86</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;(node.attrs.content&nbsp;&&&nbsp;node.attrs.content.length)?&nbsp;</p>
+<p id=87 class="line"><span>&nbsp;&nbsp;87</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`div.hsedit_textarea${css}`,&nbsp;{&nbsp;onclick:&nbsp;this.click.bind(this)&nbsp;},&nbsp;node.attrs.content)</p>
+<p id=88 class="line"><span>&nbsp;&nbsp;88</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;m(`div.hsedit_textarea.default${css}`,&nbsp;{&nbsp;onclick:&nbsp;this.click.bind(this)&nbsp;},&nbsp;node.attrs.placeholder&nbsp;||&nbsp;<quote>'click&nbsp;to&nbsp;enter'</quote>);</p>
+<p id=89 class="line"><span>&nbsp;&nbsp;89</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=90 class="line"><span>&nbsp;&nbsp;90</span>}</p>
+<p id=91 class="line"><span>&nbsp;&nbsp;91</span></p></code></div>
                 </body>
             

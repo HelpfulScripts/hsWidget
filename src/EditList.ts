@@ -12,6 +12,7 @@
  *      Updated values will be reflected in the provided `rows` array.
  * - **css**?: an optional css selector, typically a class selector: '.myclass'
  * - **header**?: `Vnode` otpional header row. If missing, no header row will be shown. 
+ * - **collapsible**?: `boolean` makes the list collapsible. This requires `header` to be set. DEfaults to `true`.
  * - **sort**?: `(rows) => number` optional sorting function for rows; As a default, no sorting happens.
  * - **columnLayout**?: optional array of column widths for use in `Layout`, defaults to '[ ]'
  * - **isEmpty**?: `(any[])=>boolean` a function to test if a content row is considered empty. The `row`
@@ -87,6 +88,7 @@ import { m, Vnode } from 'hslayout';
 import { Log }      from 'hsutil';  const log = new Log('EditList');
 import { Layout }   from 'hslayout';
 import { EditLabel } from './EditLabel';
+import { Collapsible } from './Collapsible';
 
 interface IsTest { (val:Row): boolean; }
 
@@ -139,6 +141,7 @@ export class EditList {
         const render     = node.attrs.rowRender || defRender(rows);
         const def:Row    = node.attrs.defaultRow===undefined? '' : node.attrs.defaultRow;
         const expandRows = node.attrs.expand || expand;
+        const collapsible= node.attrs.collapsible===undefined? true : node.attrs.collapsible;
 
         if (!rows) { log.warn(`EditList${css} rows array is missing`); }
         if (!rows || !rows.map) { log.warn(`EditList${css} rows must be an array`); }
@@ -152,10 +155,21 @@ export class EditList {
                 }))
             )
         ];
-        if (node.attrs.header) { 
-            content.unshift(m('.hsedit_list_header', node.attrs.header));
+        if (collapsible && node.attrs.header) {
+            return m(Collapsible, {
+                css: `.edit_list${css}`,
+                isExpanded: true,
+                components: [
+                    m('.hsedit_list_header', node.attrs.header),
+                    content
+                ]
+            });
+        } else {
+            if (node.attrs.header) { 
+                content.unshift(m('.hsedit_list_header', node.attrs.header));
+            }
+            return m(`.edit_list${css}`, content);
         }
-        return m(`.edit_list${css}`, content);
     }
 }
 

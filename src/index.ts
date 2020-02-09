@@ -23,3 +23,5 @@ export { EditLabel }    from './EditLabel';
 export { EditDate }     from './EditLabel'; 
 export { EditList }     from './EditList'; 
 export { EditSelect }   from './EditSelect'; 
+export { EditCheckbox } from './EditCheckbox'; 
+export { EditTextarea } from './EditTextarea'; 

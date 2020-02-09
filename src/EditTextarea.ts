@@ -1,6 +1,6 @@
 /**
- * # EditLabel
- * Provides a text label that turns into a single-line input field when clicked on
+ * # EditTextarea
+ * Provides a text label that turns into a multi-line text area when clicked on
  * 
  * ### Attributes:
  * - **css**?: `string` an optional css selector
@@ -39,7 +39,7 @@ import { Log }      from 'hsutil';  const log = new Log('EditLabel');
 import { m, Vnode } from 'hslayout';
 
 
-export class EditLabel {
+export class EditTextarea {
     protected editable = false;
     protected hasFocus = false;
     protected updateCB:(r:string) => void;
@@ -78,21 +78,13 @@ export class EditLabel {
         this.updateCB = node.attrs.update;
         const css = node.attrs.css || '';
         return this.editable? 
-            m(`input.hsedit_label${css}`, { 
+            m(`textarea.hsedit_textarea${css}`, { 
+                wrap: 'physical',
                 onblur: this.blur.bind(this),
-                onkeyup: this.keyup.bind(this),
+                // onkeyup: this.keyup.bind(this),
             },'')
       : (node.attrs.content && node.attrs.content.length)? 
-            m(`span.hsedit_label${css}`, { onclick: this.click.bind(this) }, node.attrs.content)
-          : m(`span.hsedit_label.default${css}`, { onclick: this.click.bind(this) }, node.attrs.placeholder || 'click to enter');
-    }
-}
-
-export class EditDate extends EditLabel {
-    protected default = new Date().toDateString().slice(4);
-    protected update(newValue:string) {
-        const date = new Date(newValue);
-        const result = isNaN(date.getTime())? 'invalid date' : date.toDateString().slice(4);
-        super.update(result);
+            m(`div.hsedit_textarea${css}`, { onclick: this.click.bind(this) }, node.attrs.content)
+          : m(`div.hsedit_textarea.default${css}`, { onclick: this.click.bind(this) }, node.attrs.placeholder || 'click to enter');
     }
 }

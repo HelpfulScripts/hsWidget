@@ -52,7 +52,7 @@ import { m, Vnode } from 'hslayout';
 export class Collapsible {
     oninit(node:Vnode) {
         node.state.intial = true;
-        node.state.expanded = false;
+        node.state.expanded = node.attrs.isExpanded? true : false;
         node.state.toggle = () => {
             node.state.expanded = !node.state.expanded;
             node.state.initial = false;
@@ -63,16 +63,12 @@ export class Collapsible {
         const components = node.attrs.components;
         const preArrow   = node.attrs.preArrow;
         const postArrow  = node.attrs.postArrow;
-        if (node.state.initial && node.attrs.isExpanded!==undefined) {
-            node.state.expanded = node.attrs.isExpanded;
-        }
         const expCSS = node.state.expanded?'hs-collapsible-expanded':'';
+        const title = [components[0]];
+        if (preArrow) { title.unshift(m(`.hs-collapsible-pre .hs-collapsible-arrow-${node.state.expanded?'down' : 'right'}`)); }
+        if (postArrow){ title.push(m(`.hs-collapsible-post .hs-collapsible-arrow-${node.state.expanded?'down' : 'left'}`)); }
         return m(`.hs-collapsible ${css}`, [
-            m('.hs-collapsible-title', { onclick:node.state.toggle}, [
-                !preArrow? m('') : m(`.hs-collapsible-pre .hs-collapsible-arrow-${node.state.expanded?'down' : 'right'}`),
-                components[0],
-                !postArrow? m('') : m(`.hs-collapsible-post .hs-collapsible-arrow-${node.state.expanded?'down' : 'left'}`),
-            ]),
+            m('.hs-collapsible-title', { onclick:node.state.toggle}, title),
             components[1]? m(`.hs-collapsible-content ${expCSS}`, components[1].map((c:any) =>m('',c))) : undefined
         ]);
     }
