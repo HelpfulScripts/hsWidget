@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">18.52% </span>
+        <span class="strong">17.24% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/27</span>
+        <span class='fraction'>5/29</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/20</span>
+        <span class='fraction'>0/22</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/9</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">15.38% </span>
+        <span class="strong">14.29% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/26</span>
+        <span class='fraction'>4/28</span>
       </div>
     </div>
     <p class="quiet">
@@ -143,7 +143,11 @@
 <a name='L95'></a><a href='#L95'>95</a>
 <a name='L96'></a><a href='#L96'>96</a>
 <a name='L97'></a><a href='#L97'>97</a>
-<a name='L98'></a><a href='#L98'>98</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -239,6 +243,10 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * # EditLabel
@@ -333,9 +341,13 @@ import { m, Vnode } from 'hslayout';
 <span class="fstat-no" title="function not covered" >export class E</span>ditDate extends EditLabel {
     protected <span class="cstat-no" title="statement not covered" >default = new Date().toDateString().slice(4);</span>
     protected <span class="fstat-no" title="function not covered" >update(</span>newValue:string) {
-        const date = <span class="cstat-no" title="statement not covered" >new Date(newValue);</span>
-        const result = <span class="cstat-no" title="statement not covered" >isNaN(date.getTime())? 'invalid date' : date.toDateString().slice(4);</span>
-<span class="cstat-no" title="statement not covered" >        super.update(result);</span>
+<span class="cstat-no" title="statement not covered" >        if (newValue) {</span>
+            const date = <span class="cstat-no" title="statement not covered" >new Date(newValue);</span>
+            const result = <span class="cstat-no" title="statement not covered" >isNaN(date.getTime())? 'invalid date' : date.toDateString().slice(4);</span>
+<span class="cstat-no" title="statement not covered" >            super.update(result);</span>
+        } else {
+<span class="cstat-no" title="statement not covered" >            super.update(undefined);</span>
+        }
     }
 }</pre></td></tr>
 </table></pre>

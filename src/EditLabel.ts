@@ -91,8 +91,12 @@ export class EditLabel {
 export class EditDate extends EditLabel {
     protected default = new Date().toDateString().slice(4);
     protected update(newValue:string) {
-        const date = new Date(newValue);
-        const result = isNaN(date.getTime())? 'invalid date' : date.toDateString().slice(4);
-        super.update(result);
+        if (newValue) {
+            const date = new Date(newValue);
+            const result = isNaN(date.getTime())? 'invalid date' : date.toDateString().slice(4);
+            super.update(result);
+        } else {
+            super.update(undefined);
+        }
     }
 }
