@@ -1,6 +1,6 @@
 /**
  * # TypeAhead
- * Provides a list search box with a type-ahead dropdown to show valid options that match the current search input.
+ * Provides a list search box with a type-ahead dropdown to show valid options that match the regex search input.
  * 
  * ### Profile
  * invoked as `m(hsWidget.TypeAhead, { <Attributes> });`
@@ -45,6 +45,7 @@
  /** */
 import { m, Vnode } from 'hslayout';
 import { Log } from 'hsutil';import { SpawnSyncOptionsWithStringEncoding } from 'child_process';
+import { type } from 'os';
   const log = new Log('TypeAhead');
 
 // emphasize literal matches as *bold* in the drop down list
@@ -100,7 +101,6 @@ export class TypeAhead {
         node.state.typeAheadList = [];
         node.state.onsubmit = node.attrs.onsubmit;
         node.state.autocomplete = node.attrs.autocomplete===undefined? true : node.attrs.autocomplete;
-        // node.state.list = node.attrs.list;
     }
     view(node:Vnode) {
         this.gl.search(node.attrs.list);
@@ -116,43 +116,46 @@ export class TypeAhead {
             submit(e.target.attributes.name.value);
         }};
 
-        function match(word:string, list:string[]):string[] {
-            const against = new RegExp(`${word}`, 'gi');
-            return list.filter((l:string) => l.match(against));
-        }
-
         /**
-         * reacts to inputs in text field.
+         * reacts to inputs in text field: matches current input against the list of candidates
          * @param e the input event
          */
-        const input = (e:any) => {
+        const oninput = (e:any) => {
             const n = node.state.inputNode = e.target;
-            const input = node.state.value = n.value;
-            node.state.typeAheadList = match(input, this.gl.list);
-            if (node.state.autocomplete) { typeAhead(input, node); }
+            const typed = node.state.value = n.value;
+            if (typed.length>0) {
+                node.state.typeAheadList = this.gl.list.filter(
+                    (l:string) => l.match(new RegExp(typed, 'gi'))
+                );
+                if (node.state.autocomplete) { autoComplete(typed, node); }
+            }
         };
 
+        /**
+         * unhides the popdown and deals with 'Enter' and 'Backspace' keys.
+         * @param e the key event
+         */
         const keyPressed = (e:any) => {
             const n = node.state.inputNode = e.target;
             node.state.hidePopdown = false; 
             if (e.code === 'Enter') {
                 submit(n.value);
-            } else if (e.code === 'Backspace') {
-                const input = n.firstChild.data;
+            } else if (e.code === 'Backspace' && n.textLength>0) {
+                const input:string = n.textContent;
                 if (input.length > 0) {
                     n.value = input.slice(0);
                 }
             }
         };
-        const selector = node.state.value? '.hs-typeahead-value' : '.hs-typeahead-placeholder';
-            
+
+        const selector = node.state.value? '.hs-typeahead-value' : '.hs-typeahead-placeholder';    
         return m('.hs-form', [
             m(`input.hs-typeahead-input${selector}`, {
                 contenteditable:true,
                 placeholder:    node.attrs.placeholder,
                 autofocus:      node.attrs.autofocus || true,
                 onkeydown:      keyPressed,
-                oninput:        input
+                oninput:        oninput
             }, m.trust(node.state.value?node.state.value : node.attrs.placeholder)
             ),
             node.state.hidePopdown? undefined : 
@@ -162,13 +165,16 @@ export class TypeAhead {
     }
 }
 
-function typeAhead(input:string, node:Vnode) { // ...with first match at beginning of word in list
+/**
+ * adds 
+ * @param typed the text typed so far
+ * @param node 
+ */
+function autoComplete(typed:string, node:Vnode) {
     const n = node.state.inputNode;
-    const startOfLineInput = new RegExp(`^${input}`, 'gi');
-    // find first list entry with 'input' at start of string
-    n.value = node.state.typeAheadList.filter((l:string) => l.match(startOfLineInput))[0] || input; 
-    // node.state.hidePopdown = n.value.length===0; 
-    // select hind (un-typed) part of match for replacement 
-    let pos = input.length;
-    n.setSelectionRange(pos, n.value.length);
+    // search the list again, matching for `typed` at the start of the entries
+    const startOfLineInput = new RegExp(`^${typed}`, 'gi');
+    n.value = node.state.typeAheadList.filter((l:string) => l.match(startOfLineInput))[0] || typed; 
+    // select remaining right-hand (un-typed) part of match for replacement 
+    n.setSelectionRange(typed.length, n.value.length);
 }
