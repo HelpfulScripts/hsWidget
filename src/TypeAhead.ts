@@ -140,6 +140,8 @@ export class TypeAhead {
             node.state.hidePopdown = false; 
             if (e.code === 'Enter') {
                 submit(n.value);
+            } else if (e.code === 'Escape') {
+                node.state.hidePopdown = true; 
             } else if (e.code === 'Backspace' && n.textLength>0) {
                 const input:string = n.textContent;
                 if (input.length > 0) {
