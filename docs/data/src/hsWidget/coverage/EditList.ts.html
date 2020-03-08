@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">20% </span>
+        <span class="strong">17.65% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>9/45</span>
+        <span class='fraction'>9/51</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/40</span>
+        <span class='fraction'>0/47</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/12</span>
+        <span class='fraction'>0/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">21.05% </span>
+        <span class="strong">18.18% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>8/38</span>
+        <span class='fraction'>8/44</span>
       </div>
     </div>
     <p class="quiet">
@@ -226,7 +226,19 @@
 <a name='L178'></a><a href='#L178'>178</a>
 <a name='L179'></a><a href='#L179'>179</a>
 <a name='L180'></a><a href='#L180'>180</a>
-<a name='L181'></a><a href='#L181'>181</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L181'></a><a href='#L181'>181</a>
+<a name='L182'></a><a href='#L182'>182</a>
+<a name='L183'></a><a href='#L183'>183</a>
+<a name='L184'></a><a href='#L184'>184</a>
+<a name='L185'></a><a href='#L185'>185</a>
+<a name='L186'></a><a href='#L186'>186</a>
+<a name='L187'></a><a href='#L187'>187</a>
+<a name='L188'></a><a href='#L188'>188</a>
+<a name='L189'></a><a href='#L189'>189</a>
+<a name='L190'></a><a href='#L190'>190</a>
+<a name='L191'></a><a href='#L191'>191</a>
+<a name='L192'></a><a href='#L192'>192</a>
+<a name='L193'></a><a href='#L193'>193</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -360,6 +372,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -378,6 +399,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -516,8 +540,8 @@ const defIsEmpty:IsTest = <span class="fstat-no" title="function not covered" >(
  * - if `row` is an array or an object literal, turn each element into an `EditLabel`
  * - otherwise treat `row` as a primitive and turn it into an EditLabel.  
  */
-const defRender = <span class="fstat-no" title="function not covered" >(r</span>ows:Row[]):RowRender =&gt;  {
-<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >(r</span>ow:Row, rowNum:number) =&gt; {</span>
+const defaultRender = <span class="fstat-no" title="function not covered" >(r</span>ows:Row[]):RowRender =&gt;  {
+<span class="cstat-no" title="statement not covered" >    return <span class="fstat-no" title="function not covered" >(r</span>ow:Row, rowNum:number):Vnode =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >        if (row.map) {</span>
 <span class="cstat-no" title="statement not covered" >            return row.map(<span class="fstat-no" title="function not covered" >(e</span>:string, i:number) =&gt; <span class="cstat-no" title="statement not covered" >m(EditLabel, {</span></span>
                 content: e,
@@ -540,13 +564,22 @@ const defRender = <span class="fstat-no" title="function not covered" >(r</span>
     };
 };
 &nbsp;
+function <span class="fstat-no" title="function not covered" >adjustListRowHeight(</span>dom:any, indent=<span class="branch-0 cbranch-no" title="branch not covered" >'')</span> { 
+    const height = <span class="cstat-no" title="statement not covered" >Math.max(...Array.from(dom.childNodes).map(<span class="fstat-no" title="function not covered" >(n</span>:Vnode) =&gt; </span>
+<span class="cstat-no" title="statement not covered" >        parseInt(window.getComputedStyle(n).height)</span>
+    ));
+<span class="cstat-no" title="statement not covered" >    if (dom &amp;&amp; !dom.classList.contains('hsedit_list_content')) {</span>
+<span class="cstat-no" title="statement not covered" >        dom.style.height = height&gt;0? `${height}px` : 'auto';</span>
+    }
+}
+&nbsp;
 export class EditList {
 <span class="fstat-no" title="function not covered" >    view(</span>node:Vnode) {
         const css        = <span class="cstat-no" title="statement not covered" >node.attrs.css || '';</span>
         const sort       = <span class="cstat-no" title="statement not covered" >node.attrs.sort || (<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >0)</span>;</span>
         const rows:Row[] = <span class="cstat-no" title="statement not covered" >node.attrs.rows;</span>
         const isEmpty    = <span class="cstat-no" title="statement not covered" >node.attrs.isEmpty || defIsEmpty;</span>
-        const render     = <span class="cstat-no" title="statement not covered" >node.attrs.rowRender || defRender(rows);</span>
+        const render     = <span class="cstat-no" title="statement not covered" >node.attrs.rowRender || defaultRender(rows);</span>
         const def:Row    = <span class="cstat-no" title="statement not covered" >node.attrs.defaultRow===undefined? '' : node.attrs.defaultRow;</span>
         const expandRows = <span class="cstat-no" title="statement not covered" >node.attrs.expand || expand;</span>
         const collapsible= <span class="cstat-no" title="statement not covered" >node.attrs.collapsible===undefined? true : node.attrs.collapsible;</span>
@@ -555,9 +588,12 @@ export class EditList {
 <span class="cstat-no" title="statement not covered" >        if (!rows || !rows.map) { <span class="cstat-no" title="statement not covered" >log.warn(`EditList${css} rows must be an array`); </span>}</span>
 <span class="cstat-no" title="statement not covered" >        expandRows(rows, def, isEmpty);</span>
         const content = <span class="cstat-no" title="statement not covered" >[</span>
-            m('.hsedit_list_content', 
+            m('.hsedit_list_content', {
+<span class="fstat-no" title="function not covered" >                onupdate(</span>node:Vnode) { <span class="cstat-no" title="statement not covered" >adjustListRowHeight(node.dom); </span>},
+            },
                 rows.sort(sort).map(<span class="fstat-no" title="function not covered" >(r</span>ow:any, i:number) =&gt; <span class="cstat-no" title="statement not covered" >m(Layout, {</span>
                     css: '.hsedit_list_row',
+<span class="fstat-no" title="function not covered" >                    onupdate(</span>node:Vnode) { <span class="cstat-no" title="statement not covered" >adjustListRowHeight(node.dom); </span>},
                     columns: node.attrs.columnLayout || [],
                     content: render(row, i)
                 }))

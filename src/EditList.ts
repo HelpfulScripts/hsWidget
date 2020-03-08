@@ -108,8 +108,8 @@ const defIsEmpty:IsTest = (row:Row) => (row && row.length)? false : true;
  * - if `row` is an array or an object literal, turn each element into an `EditLabel`
  * - otherwise treat `row` as a primitive and turn it into an EditLabel.  
  */
-const defRender = (rows:Row[]):RowRender =>  {
-    return (row:Row, rowNum:number) => {
+const defaultRender = (rows:Row[]):RowRender =>  {
+    return (row:Row, rowNum:number):Vnode => {
         if (row.map) {
             return row.map((e:string, i:number) => m(EditLabel, {
                 content: e,
@@ -132,13 +132,22 @@ const defRender = (rows:Row[]):RowRender =>  {
     };
 };
 
+function adjustListRowHeight(dom:any, indent='') { 
+    const height = Math.max(...Array.from(dom.childNodes).map((n:Vnode) => 
+        parseInt(window.getComputedStyle(n).height)
+    ));
+    if (dom && !dom.classList.contains('hsedit_list_content')) {
+        dom.style.height = height>0? `${height}px` : 'auto';
+    }
+}
+
 export class EditList {
     view(node:Vnode) {
         const css        = node.attrs.css || '';
         const sort       = node.attrs.sort || (()=>0);
         const rows:Row[] = node.attrs.rows;
         const isEmpty    = node.attrs.isEmpty || defIsEmpty;
-        const render     = node.attrs.rowRender || defRender(rows);
+        const render     = node.attrs.rowRender || defaultRender(rows);
         const def:Row    = node.attrs.defaultRow===undefined? '' : node.attrs.defaultRow;
         const expandRows = node.attrs.expand || expand;
         const collapsible= node.attrs.collapsible===undefined? true : node.attrs.collapsible;
@@ -147,9 +156,12 @@ export class EditList {
         if (!rows || !rows.map) { log.warn(`EditList${css} rows must be an array`); }
         expandRows(rows, def, isEmpty);
         const content = [
-            m('.hsedit_list_content', 
+            m('.hsedit_list_content', {
+                onupdate(node:Vnode) { adjustListRowHeight(node.dom); },
+            },
                 rows.sort(sort).map((row:any, i:number) => m(Layout, {
                     css: '.hsedit_list_row',
+                    onupdate(node:Vnode) { adjustListRowHeight(node.dom); },
                     columns: node.attrs.columnLayout || [],
                     content: render(row, i)
                 }))

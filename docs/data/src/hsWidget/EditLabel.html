@@ -106,7 +106,7 @@
 <p id=83 class="line"><span>&nbsp;&nbsp;83</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onkeyup:&nbsp;this.keyup.bind(this),</p>
 <p id=84 class="line"><span>&nbsp;&nbsp;84</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},<quote>''</quote>)</p>
 <p id=85 class="line"><span>&nbsp;&nbsp;85</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;(node.attrs.content&nbsp;&&&nbsp;node.attrs.content.length)?&nbsp;</p>
-<p id=86 class="line"><span>&nbsp;&nbsp;86</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`span.hsedit_label${css}`,&nbsp;{&nbsp;onclick:&nbsp;this.click.bind(this)&nbsp;},&nbsp;node.attrs.content)</p>
+<p id=86 class="line"><span>&nbsp;&nbsp;86</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`span.hsedit_label${css}`,&nbsp;{&nbsp;onclick:&nbsp;this.click.bind(this)&nbsp;},&nbsp;m.trust(node.attrs.content))</p>
 <p id=87 class="line"><span>&nbsp;&nbsp;87</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;m(`span.hsedit_label.default${css}`,&nbsp;{&nbsp;onclick:&nbsp;this.click.bind(this)&nbsp;},&nbsp;node.attrs.placeholder&nbsp;||&nbsp;<quote>'click&nbsp;to&nbsp;enter'</quote>);</p>
 <p id=88 class="line"><span>&nbsp;&nbsp;88</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=89 class="line"><span>&nbsp;&nbsp;89</span>}</p>

@@ -83,7 +83,7 @@ export class EditLabel {
                 onkeyup: this.keyup.bind(this),
             },'')
       : (node.attrs.content && node.attrs.content.length)? 
-            m(`span.hsedit_label${css}`, { onclick: this.click.bind(this) }, node.attrs.content)
+            m(`span.hsedit_label${css}`, { onclick: this.click.bind(this) }, m.trust(node.attrs.content))
           : m(`span.hsedit_label.default${css}`, { onclick: this.click.bind(this) }, node.attrs.placeholder || 'click to enter');
     }
 }

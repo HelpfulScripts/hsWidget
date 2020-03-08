@@ -14,7 +14,11 @@ div.hsedit_list_header {
 }
 
 .hsedit_list_row {
-    height: @rowHeight;
+    min-height: @rowHeight;
     overflow-x: hidden;
-    & .hs-layout { overflow-x: hidden;}
+    height: auto;
+    & div.hs-layout { 
+        overflow-x: hidden;
+        height: auto;
+    }
 }
