@@ -39,7 +39,7 @@ ___
  * <file name='script.js'>
  * const render = () => m.mount(root, {view: () => 
  *    m('.hs-white', m(hsLayout.Layout, {
- *      rows:['100px', '360px', '210px', '250px', '340px', '320px', '340px', '250px', '180px', '180px', 'fill'], content: [m('',''),
+ *      rows:['100px', '400px', '180px', '180px', '250px', '340px', '320px', '340px', '250px', '180px', '180px', 'fill'], content: [m('',''),
  * 
  *    // Buttons:
  *    m('',[
@@ -83,6 +83,14 @@ ___
  *          dismiss: () => dismissals++,
  *          content: m('', 'click on border or on the x to release')
  *      })
+ *    ]),
+ * 
+ *    // Popup Box:
+ *    m('',[
+ *      m('h2.myGapPopup', 'Popup Box'),
+ *      m('h4', hsWidget.Popup.arm('!!Jack in the Box!!'), 
+ *          [m('a',{href:'#!/api/hsWidget/hsWidget.Popup.Popup'}, 'Popup'), `: Hover over me to open a popup`]),
+ *      m(hsWidget.Popup, {})
  *    ]),
  * 
  *    // Collapsibles:
@@ -268,6 +276,9 @@ ___
  * 
  * .hs-radio-buttons>.hs-column-layout>.hs-layout { border-color: transparent}
  * 
+ * .hsedit_label { 
+ *    background-color: #eee;
+ * }
  * </file>
  * </example>
 */
