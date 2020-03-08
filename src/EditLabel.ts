@@ -88,6 +88,7 @@ export class EditLabel {
     }
 }
 
+/** an extension of `EditLabel` that pareses entries as dates. */
 export class EditDate extends EditLabel {
     protected default = new Date().toDateString().slice(4);
     protected update(newValue:string) {

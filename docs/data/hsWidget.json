@@ -979,6 +979,9 @@
 					"flags": {
 						"isExported": true
 					},
+					"comment": {
+						"shortText": "an extension of `EditLabel` that pareses entries as dates."
+					},
 					"children": [
 						{
 							"id": 189,
@@ -992,7 +995,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditLabel.ts",
-									"line": 92,
+									"line": 93,
 									"character": 21
 								}
 							],
@@ -1381,7 +1384,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditLabel.ts",
-									"line": 93,
+									"line": 94,
 									"character": 20
 								}
 							],
@@ -1472,7 +1475,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditLabel.ts",
-							"line": 91,
+							"line": 92,
 							"character": 21
 						}
 					],
@@ -4906,6 +4909,473 @@
 			"sources": [
 				{
 					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/OptionsButton.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
+			"id": 518,
+			"name": "\"Popup\"",
+			"kind": 1,
+			"kindString": "External module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+			"comment": {
+				"shortText": "# Popup Widget\nopens a popup on an armed Vnode.",
+				"text": "### Profile\ninvoked as `m(Popup, {})`. `Popup` uses fixed positioning, so it can be added to the\nrendering tree anywhere except as a direct `content` element in `Layout` (where it would interfere with `Layout's`\nrendering logic). Only a single `Popup` is needed per app.\n\nTo arm a vnode, call `Popup.arm` which will return a `Mithril` attribute object:\n```\nm('.myContent', Popup.arm(popupContent), myContent);\n```\n\n### Attributes (node.attrs):\nnone\n\n### Example\n<example>\n<file name='script.js'>\nlet dismissals = 0;\nlet trigger;\nm.mount(root, {view: () => m('.hs-white', [\n     m('h4', hsWidget.Popup.arm(`popup content`), `hover over me`),\n     m(hsWidget.Popup, {})\n   ])\n});\n</file>\n</example>\n"
+			},
+			"children": [
+				{
+					"id": 519,
+					"name": "Popup",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {},
+					"children": [
+						{
+							"id": 530,
+							"name": "content",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+									"line": 51,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Vnode"
+							},
+							"defaultValue": "\"...Popup...\""
+						},
+						{
+							"id": 529,
+							"name": "showPopup",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+									"line": 50,
+									"character": 13
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "boolean"
+							},
+							"defaultValue": "false"
+						},
+						{
+							"id": 527,
+							"name": "x",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+									"line": 48,
+									"character": 5
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"defaultValue": "0"
+						},
+						{
+							"id": 528,
+							"name": "y",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+									"line": 49,
+									"character": 5
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							},
+							"defaultValue": "0"
+						},
+						{
+							"id": 526,
+							"name": "instance",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isPrivate": true,
+								"isStatic": true,
+								"isExported": true
+							},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+									"line": 46,
+									"character": 27
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Popup",
+								"id": 519
+							}
+						},
+						{
+							"id": 538,
+							"name": "hide",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 539,
+									"name": "hide",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+									"line": 62,
+									"character": 8
+								}
+							]
+						},
+						{
+							"id": 535,
+							"name": "move",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 536,
+									"name": "move",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 537,
+											"name": "e",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+									"line": 58,
+									"character": 8
+								}
+							]
+						},
+						{
+							"id": 531,
+							"name": "show",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 532,
+									"name": "show",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 533,
+											"name": "e",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										},
+										{
+											"id": 534,
+											"name": "content",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "void"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+									"line": 53,
+									"character": 8
+								}
+							]
+						},
+						{
+							"id": 540,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 541,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 542,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+									"line": 65,
+									"character": 8
+								}
+							]
+						},
+						{
+							"id": 520,
+							"name": "arm",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isPublic": true,
+								"isStatic": true,
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 521,
+									"name": "arm",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 522,
+											"name": "content",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "reference",
+														"name": "Vnode"
+													},
+													{
+														"type": "reflection",
+														"declaration": {
+															"id": 523,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"signatures": [
+																{
+																	"id": 524,
+																	"name": "__call",
+																	"kind": 4096,
+																	"kindString": "Call signature",
+																	"flags": {},
+																	"type": {
+																		"type": "reference",
+																		"name": "Vnode"
+																	}
+																}
+															],
+															"sources": [
+																{
+																	"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+																	"line": 40,
+																	"character": 36
+																}
+															]
+														}
+													}
+												]
+											}
+										},
+										{
+											"id": 525,
+											"name": "attrs",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "any"
+											},
+											"defaultValue": "{}"
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "any"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+									"line": 40,
+									"character": 21
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								530,
+								529,
+								527,
+								528,
+								526
+							]
+						},
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								538,
+								535,
+								531,
+								540,
+								520
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+							"line": 39,
+							"character": 18
+						}
+					]
+				},
+				{
+					"id": 543,
+					"name": "log",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
+							"line": 33,
+							"character": 44
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Log"
+					},
+					"defaultValue": " new Log('Popup')"
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						519
+					]
+				},
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						543
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Popup.ts",
 					"line": 1,
 					"character": 0
 				}
@@ -10029,7 +10499,7 @@
 			]
 		},
 		{
-			"id": 518,
+			"id": 544,
 			"name": "\"TypeAhead\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -10043,28 +10513,28 @@
 			},
 			"children": [
 				{
-					"id": 519,
+					"id": 545,
 					"name": "GetList",
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {},
 					"children": [
 						{
-							"id": 522,
+							"id": 548,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 527,
+									"id": 553,
 									"name": "new GetList",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 528,
+											"id": 554,
 											"name": "map",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -10074,21 +10544,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 529,
+													"id": 555,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 530,
+															"id": 556,
 															"name": "__call",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 531,
+																	"id": 557,
 																	"name": "item",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -10125,7 +10595,7 @@
 									"type": {
 										"type": "reference",
 										"name": "GetList",
-										"id": 519
+										"id": 545
 									}
 								}
 							],
@@ -10138,7 +10608,7 @@
 							]
 						},
 						{
-							"id": 521,
+							"id": 547,
 							"name": "list",
 							"kind": 1024,
 							"kindString": "Property",
@@ -10162,7 +10632,7 @@
 							"defaultValue": " []"
 						},
 						{
-							"id": 523,
+							"id": 549,
 							"name": "map",
 							"kind": 1024,
 							"kindString": "Property",
@@ -10181,21 +10651,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 524,
+									"id": 550,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 525,
+											"id": 551,
 											"name": "__call",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 526,
+													"id": 552,
 													"name": "item",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -10229,7 +10699,7 @@
 							}
 						},
 						{
-							"id": 520,
+							"id": 546,
 							"name": "url",
 							"kind": 1024,
 							"kindString": "Property",
@@ -10249,7 +10719,7 @@
 							}
 						},
 						{
-							"id": 535,
+							"id": 561,
 							"name": "captureList",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10258,14 +10728,14 @@
 							},
 							"signatures": [
 								{
-									"id": 536,
+									"id": 562,
 									"name": "captureList",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 537,
+											"id": 563,
 											"name": "list",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -10279,7 +10749,7 @@
 											}
 										},
 										{
-											"id": 538,
+											"id": 564,
 											"name": "map",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -10287,21 +10757,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 539,
+													"id": 565,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 540,
+															"id": 566,
 															"name": "__call",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 541,
+																	"id": 567,
 																	"name": "l",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -10350,7 +10820,7 @@
 							]
 						},
 						{
-							"id": 532,
+							"id": 558,
 							"name": "search",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10359,14 +10829,14 @@
 							},
 							"signatures": [
 								{
-									"id": 533,
+									"id": 559,
 									"name": "search",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 534,
+											"id": 560,
 											"name": "list",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -10409,24 +10879,24 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								522
+								548
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								521,
-								523,
-								520
+								547,
+								549,
+								546
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								535,
-								532
+								561,
+								558
 							]
 						}
 					],
@@ -10439,7 +10909,7 @@
 					]
 				},
 				{
-					"id": 542,
+					"id": 568,
 					"name": "TypeAhead",
 					"kind": 128,
 					"kindString": "Class",
@@ -10448,7 +10918,7 @@
 					},
 					"children": [
 						{
-							"id": 543,
+							"id": 569,
 							"name": "gl",
 							"kind": 1024,
 							"kindString": "Property",
@@ -10465,12 +10935,12 @@
 							"type": {
 								"type": "reference",
 								"name": "GetList",
-								"id": 519
+								"id": 545
 							},
 							"defaultValue": " new GetList()"
 						},
 						{
-							"id": 544,
+							"id": 570,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10479,14 +10949,14 @@
 							},
 							"signatures": [
 								{
-									"id": 545,
+									"id": 571,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 546,
+											"id": 572,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -10512,7 +10982,7 @@
 							]
 						},
 						{
-							"id": 547,
+							"id": 573,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -10521,14 +10991,14 @@
 							},
 							"signatures": [
 								{
-									"id": 548,
+									"id": 574,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 549,
+											"id": 575,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -10559,15 +11029,15 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								543
+								569
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								544,
-								547
+								570,
+								573
 							]
 						}
 					],
@@ -10580,7 +11050,7 @@
 					]
 				},
 				{
-					"id": 550,
+					"id": 576,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -10601,14 +11071,14 @@
 					"defaultValue": " new Log('TypeAhead')"
 				},
 				{
-					"id": 555,
+					"id": 581,
 					"name": "autoComplete",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 556,
+							"id": 582,
 							"name": "autoComplete",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -10618,7 +11088,7 @@
 							},
 							"parameters": [
 								{
-									"id": 557,
+									"id": 583,
 									"name": "typed",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10632,7 +11102,7 @@
 									}
 								},
 								{
-									"id": 558,
+									"id": 584,
 									"name": "node",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10655,27 +11125,27 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/TypeAhead.ts",
-							"line": 173,
+							"line": 175,
 							"character": 21
 						}
 					]
 				},
 				{
-					"id": 551,
+					"id": 577,
 					"name": "emphasize",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 552,
+							"id": 578,
 							"name": "emphasize",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 553,
+									"id": 579,
 									"name": "item",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10686,7 +11156,7 @@
 									}
 								},
 								{
-									"id": 554,
+									"id": 580,
 									"name": "match",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -10717,23 +11187,23 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						519,
-						542
+						545,
+						568
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						550
+						576
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						555,
-						551
+						581,
+						577
 					]
 				}
 			],
@@ -10746,7 +11216,7 @@
 			]
 		},
 		{
-			"id": 559,
+			"id": 585,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -10771,7 +11241,7 @@
 			]
 		},
 		{
-			"id": 560,
+			"id": 586,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "External module",
@@ -10781,7 +11251,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/overview.ts",
 			"comment": {
 				"shortText": "# hsWidgets",
-				"text": "Helpful Scripts UI widgets.\n<a href=\"./data/src/hsWidget/coverage/\" target=\"_blank\">[Coverage Info]</a>\n\n[![npm version](https://badge.fury.io/js/hswidget.svg)](https://badge.fury.io/js/hswidget)\n[![GitHub](https://img.shields.io/badge/GitHub-hsWidget-blue.svg)](https://github.com/helpfulscripts/hswidget)\n[![docs](https://img.shields.io/badge/hsDocs-hsWidget-blue.svg)](https://helpfulscripts.github.io/hsWidget/#!/api/hsWidget/0)\n[![Build Status](https://travis-ci.org/HelpfulScripts/hsWidget.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsWidget)\n[![Dependencies Status](https://david-dm.org/helpfulscripts/hswidget.svg)](https://david-dm.org/helpfulscripts/hswidget)\n[![Coverage Status](https://coveralls.io/repos/github/HelpfulScripts/hsWidget/badge.svg?branch=master)](https://coveralls.io/github/HelpfulScripts/hsWidget?branch=master)\n[![Known Vulnerabilities](https://snyk.io/test/github/HelpfulScripts/hsWidget/badge.svg?targetFile=package.json)](https://snyk.io/test/github/HelpfulScripts/hsWidget?targetFile=package.json)\n[![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hswidget)\n\n___\n\n*hsWidgets** Provides various UI widgets for use with mithril:\n\n\n| Widget | Description |\n|========|=============|\n| &nbsp; {@link Menu.Menu Menu} | A group of horizontal menu items that can trigger actions |\n| &nbsp; {@link Button.Button Button} | A simple button widget |\n| &nbsp; {@link ToggleButton.ToggleButton ToggleButton} | A button widget that toggleds through a number of items |\n| &nbsp; {@link RadioButton.RadioButton RadioButton} | A radio button group widget: one selected at a time |\n| &nbsp; {@link OptionsButton.OptionsButton OptionsButton} | An options button group widget: independently selected |\n| &nbsp; {@link Collapsible Collapsible} | A panel that will expand znd collapse when the title is clicked |\n| &nbsp; {@link Modal Modal} | A modal panel that will cover the entire window until released. |\n| &nbsp; {@link AddRemove AddButton} | An  `+` button that will open a form for adding new elements. |\n| &nbsp; {@link AddRemove RemoveButton} | An  `-` button that will remove an item. |\n| &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |\n| &nbsp; {@link Slider Slider} | A simple nominal or continuous slider. |\n| &nbsp; {@link EditLabel EditLabel} | A text label that turns into a single-line input field when clicked on. |\n| &nbsp; {@link EditSelect EditSelect} | A text label with pulldown select capability. |\n| &nbsp; {@link EditList EditList} | An auto-extending list of editable rows. |\n\n<example height=3500px>\n<file name='script.js'>\nconst render = () => m.mount(root, {view: () =>\n   m('.hs-white', m(hsLayout.Layout, {\n     rows:['100px', '360px', '210px', '250px', '340px', '320px', '340px', '250px', '180px', '180px', 'fill'], content: [m('',''),\n\n   // Buttons:\n   m('',[\n     m('h2', 'Buttons'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button'), `: Please click: (${clicked}-times clicked)`]),\n     m(hsWidget.Button, { desc: { name: 'click me', clicked: () => clicked++ }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.RadioButton.RadioButton'}, 'RadioButton'), `: Select Station: ${radio}`]),\n     m(hsWidget.RadioButton, { desc: {\n       items: ['1st', '2nd','3rd'], clicked: (item) => radio = item\n     }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.OptionsButton.OptionsButton'}, 'OptionsButton'), `: Select Option: '${Object.keys(options).map(k=>options[k]).join(\" \")}'`]),\n     m(hsWidget.OptionsButton, { desc: {\n       items: ['1st', '2nd','3rd'], clicked: (item) => options[item] = options[item]? undefined : item\n     }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToggleButton.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),\n     m(hsWidget.ToggleButton, { desc: {\n       items: ['1st', '2nd','3rd'], clicked: (item) => toggle = item\n     }}),\n   ]),\n\n   // Menus:\n   m('',[\n     m('h2', 'Menus'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.Menu'}, 'Menu'), `: Please select:`]),\n     m(hsWidget.Menu, { css: '.myMenu', desc: {\n      items: menuItems,  defaultItem: 'Two',\n      clicked: (item) => theContent = content[menuItems.indexOf(item)]\n     }}),\n     m('myMenuMain', theContent),\n   ]),\n\n   // Modal Dialog Box:\n   m('',[\n     m('h2.myGapModal', 'Modal Dialog Box'),\n     m('h4', {onclick:() => trigger() },\n         [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box (previous dismissals: ${dismissals})`]),\n     m(hsWidget.Modal, {\n         width:  '300px',\n         height: '200px',\n         setTrigger: (t) => trigger = t,\n         dismiss: () => dismissals++,\n         content: m('', 'click on border or on the x to release')\n     })\n   ]),\n\n   // Collapsibles:\n   m('',[\n     m('h2', 'Collapsibles'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Collapsible.Collapsible'}, 'Collapsible'), ': ']),\n     m(hsWidget.Collapsible, { css:'.myCollapsible', components: [\n         m('.myTitle', 'click me to toggle - no arrows'), content\n     ]}),\n     m(hsWidget.Collapsible, { css:'.myCollapsible', preArrow:true, components: [\n         m('.myTitle', 'click me to toggle - left arrow'), content\n     ]}),\n     m(hsWidget.Collapsible, { css:'.myCollapsible', postArrow:true, components: [\n         m('.myTitle', 'click me to toggle - right arrow'), content\n     ]}),\n     m(hsWidget.Collapsible, { css:'.myCollapsible', preArrow:true, postArrow:true, components: [\n         m('.myTitle', 'click me to toggle - both arrows'), content\n     ]}),\n     m('', 'Background text, will be pushed down by the Collapsible')\n   ]),\n\n   // Typeahead Search:\n   m('',[\n     m('h2.myGapTypeAhead', 'Typeahead Search'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: In-Memory List: ${hero.length? 'Selected1: ' + hero : 'Search for a Superhero'}`]),\n     m(hsWidget.TypeAhead, {\n         placeholder: 'favorite hero',\n         onsubmit: item => hero = item,\n         list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n     }),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: Remote List: ${friend.length? 'Selected2: '+ friend : 'Search for a Friend'}`]),\n     m(hsWidget.TypeAhead, {\n         placeholder: 'best friend',\n         onsubmit: item => friend = item,\n         autofocus: true,\n         list: 'example/search.json'\n     })\n   ]),\n\n   // Corner Buttons:\n   m('',[\n     m('h2.myGapCornerButtons', 'Corner Buttons'),\n     //m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ButtonSymbols'}, 'ButtonSymbols'), ', ',\n     //         m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ToolbarButton'}, 'ToolbarButton'), ': ',\n     //         lastCornerButton]),\n     m('', Object.keys(hsWidget.ButtonSymbols).map(\n         b => m('.myCornerPositioned', [\n             btnClicked[b]? m('.myCornerClicked', 'Yayy!!') : m('', b),\n             m(hsWidget.ToolbarButton, {\n                 symbols:hsWidget.ToolbarButton.getSymbol(b), onclick:click(b)\n             })\n         ])\n     ))\n   ]),\n\n\n\n\n   // Slider:\n   m('',[\n     m('h2.mySliders', 'Sliders'),\n     m('h4', `Nominal Slider: ${nom}`),\n     m(hsWidget.Slider, {\n         range: ['one', 'two', 'three'],\n         onchange: v => nom=v\n     }),\n     m('h4', `Continuous Slider: ${con}`),\n     m(hsWidget.Slider, {\n         range: [0, 100],\n         onchange: v => con=Math.floor(v*10)/10\n     })\n   ]),\n\n   // EditLabel\n   m('',[\n     m('h2.myEditLabel', `EditLabel: '${editLabelContent}'`),\n     m(hsWidget.EditLabel, {\n         placeholder: 'Enter here...',\n         content: editLabelContent,\n         update: newValue => editLabelContent = newValue\n     }),\n   ]),\n\n   // EditSelect\n   m('',[\n     m('h2.myEditSelect', `EditSelect: ${esSelected}`),\n     m(hsWidget.EditSelect, {\n         from: ['first','second','third'],\n         selected: esSelected,\n         update: newValue => esSelected = newValue\n     }),\n   ]),\n\n   // EditList\n   m('',[\n     m('h2.myEditList', 'EditList'),\n     m(hsWidget.EditList, {\n         header: 'List Header',\n         rows: elContent,\n     }),\n   ]),\n\n\n]}))});\n\n\n//--------------------------------------\n// supporting variables:\nconst menuItems = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\nlet  theContent = content[1];\nlet clicked = 0;\nlet radio = '';\nlet option = '';\nlet options = {};\nlet toggle = '';\nlet added  = 0;\nlet removed  = 0;\nconst btnClicked = {};\nlet lastCornerButton = '';\nlet dismissals = 0;\nlet trigger;\nlet hero = '';\nlet friend = '';\nlet nom, con;\nlet editLabelContent = '';\nlet esSelected = '';\nlet elContent = [''];\n\nconst click = (button) => () => {\n   lastCornerButton = '';\n   if (hsWidget.ButtonSymbols[button]) {\n      lastCornerButton = m.trust(`last button pressed: ${hsWidget.ButtonSymbols[button].sym}`);\n      btnClicked[button] = true;\n      setTimeout(reset(button), 800);\n   }\n};\n\nconst reset = (button) => () => {\n   btnClicked[button] = false;\n   m.redraw();\n}\n\nrender();\n</file>\n\n<file name='style.css'>\n.myMenuMain {\n   border:1px solid #ddd;\n   border-top: 0px solid #ddd;\n}\n.myMenu .hs-selectable {\n    background-color: #eef;\n}\n.myMenu .hs-selected {\n    background-color: #ddf;\n    border-width:0px;\n}\n.myCollapsible {\n    margin-bottom: 5px;\n}\n.myCollapsible .hs-collapsible-title {\n    font-weight:bold;\n    background-color: #eee;\n}\n.myCollapsible .hs-collapsible-expanded {\n    margin-left: 10px;\n}\n.myCornerClicked { background-color: #efe; }\n.myCornerPositioned {\n     position: relative;\n     display: inline-block;\n     box-sizing: border-box;\n     background-color: #eee;\n     text-align: center;\n     font-size: 70%;\n     margin:  2px;\n     padding-top: 20px;\n     height: 50px;\n     width:  50px;\n}\n.hs-corner-button { color: #008; }\n\n.hs-radio-buttons>.hs-column-layout>.hs-layout { border-color: transparent}\n\n</file>\n</example>\n"
+				"text": "Helpful Scripts UI widgets.\n<a href=\"./data/src/hsWidget/coverage/\" target=\"_blank\">[Coverage Info]</a>\n\n[![npm version](https://badge.fury.io/js/hswidget.svg)](https://badge.fury.io/js/hswidget)\n[![GitHub](https://img.shields.io/badge/GitHub-hsWidget-blue.svg)](https://github.com/helpfulscripts/hswidget)\n[![docs](https://img.shields.io/badge/hsDocs-hsWidget-blue.svg)](https://helpfulscripts.github.io/hsWidget/#!/api/hsWidget/0)\n[![Build Status](https://travis-ci.org/HelpfulScripts/hsWidget.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsWidget)\n[![Dependencies Status](https://david-dm.org/helpfulscripts/hswidget.svg)](https://david-dm.org/helpfulscripts/hswidget)\n[![Coverage Status](https://coveralls.io/repos/github/HelpfulScripts/hsWidget/badge.svg?branch=master)](https://coveralls.io/github/HelpfulScripts/hsWidget?branch=master)\n[![Known Vulnerabilities](https://snyk.io/test/github/HelpfulScripts/hsWidget/badge.svg?targetFile=package.json)](https://snyk.io/test/github/HelpfulScripts/hsWidget?targetFile=package.json)\n[![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hswidget)\n\n___\n\n*hsWidgets** Provides various UI widgets for use with mithril:\n\n\n| Widget | Description |\n|========|=============|\n| &nbsp; {@link Menu.Menu Menu} | A group of horizontal menu items that can trigger actions |\n| &nbsp; {@link Button.Button Button} | A simple button widget |\n| &nbsp; {@link ToggleButton.ToggleButton ToggleButton} | A button widget that toggleds through a number of items |\n| &nbsp; {@link RadioButton.RadioButton RadioButton} | A radio button group widget: one selected at a time |\n| &nbsp; {@link OptionsButton.OptionsButton OptionsButton} | An options button group widget: independently selected |\n| &nbsp; {@link Collapsible Collapsible} | A panel that will expand znd collapse when the title is clicked |\n| &nbsp; {@link Modal Modal} | A modal panel that will cover the entire window until released. |\n| &nbsp; {@link AddRemove AddButton} | An  `+` button that will open a form for adding new elements. |\n| &nbsp; {@link AddRemove RemoveButton} | An  `-` button that will remove an item. |\n| &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |\n| &nbsp; {@link Slider Slider} | A simple nominal or continuous slider. |\n| &nbsp; {@link EditLabel EditLabel} | A text label that turns into a single-line input field when clicked on. |\n| &nbsp; {@link EditSelect EditSelect} | A text label with pulldown select capability. |\n| &nbsp; {@link EditList EditList} | An auto-extending list of editable rows. |\n\n<example height=3500px>\n<file name='script.js'>\nconst render = () => m.mount(root, {view: () =>\n   m('.hs-white', m(hsLayout.Layout, {\n     rows:['100px', '400px', '180px', '180px', '250px', '340px', '320px', '340px', '250px', '180px', '180px', 'fill'], content: [m('',''),\n\n   // Buttons:\n   m('',[\n     m('h2', 'Buttons'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button'), `: Please click: (${clicked}-times clicked)`]),\n     m(hsWidget.Button, { desc: { name: 'click me', clicked: () => clicked++ }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.RadioButton.RadioButton'}, 'RadioButton'), `: Select Station: ${radio}`]),\n     m(hsWidget.RadioButton, { desc: {\n       items: ['1st', '2nd','3rd'], clicked: (item) => radio = item\n     }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.OptionsButton.OptionsButton'}, 'OptionsButton'), `: Select Option: '${Object.keys(options).map(k=>options[k]).join(\" \")}'`]),\n     m(hsWidget.OptionsButton, { desc: {\n       items: ['1st', '2nd','3rd'], clicked: (item) => options[item] = options[item]? undefined : item\n     }}),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToggleButton.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),\n     m(hsWidget.ToggleButton, { desc: {\n       items: ['1st', '2nd','3rd'], clicked: (item) => toggle = item\n     }}),\n   ]),\n\n   // Menus:\n   m('',[\n     m('h2', 'Menus'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.Menu'}, 'Menu'), `: Please select:`]),\n     m(hsWidget.Menu, { css: '.myMenu', desc: {\n      items: menuItems,  defaultItem: 'Two',\n      clicked: (item) => theContent = content[menuItems.indexOf(item)]\n     }}),\n     m('myMenuMain', theContent),\n   ]),\n\n   // Modal Dialog Box:\n   m('',[\n     m('h2.myGapModal', 'Modal Dialog Box'),\n     m('h4', {onclick:() => trigger() },\n         [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box (previous dismissals: ${dismissals})`]),\n     m(hsWidget.Modal, {\n         width:  '300px',\n         height: '200px',\n         setTrigger: (t) => trigger = t,\n         dismiss: () => dismissals++,\n         content: m('', 'click on border or on the x to release')\n     })\n   ]),\n\n   // Popup Box:\n   m('',[\n     m('h2.myGapPopup', 'Popup Box'),\n     m('h4', hsWidget.Popup.arm('!!Jack in the Box!!'),\n         [m('a',{href:'#!/api/hsWidget/hsWidget.Popup.Popup'}, 'Popup'), `: Hover over me to open a popup`]),\n     m(hsWidget.Popup, {})\n   ]),\n\n   // Collapsibles:\n   m('',[\n     m('h2', 'Collapsibles'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Collapsible.Collapsible'}, 'Collapsible'), ': ']),\n     m(hsWidget.Collapsible, { css:'.myCollapsible', components: [\n         m('.myTitle', 'click me to toggle - no arrows'), content\n     ]}),\n     m(hsWidget.Collapsible, { css:'.myCollapsible', preArrow:true, components: [\n         m('.myTitle', 'click me to toggle - left arrow'), content\n     ]}),\n     m(hsWidget.Collapsible, { css:'.myCollapsible', postArrow:true, components: [\n         m('.myTitle', 'click me to toggle - right arrow'), content\n     ]}),\n     m(hsWidget.Collapsible, { css:'.myCollapsible', preArrow:true, postArrow:true, components: [\n         m('.myTitle', 'click me to toggle - both arrows'), content\n     ]}),\n     m('', 'Background text, will be pushed down by the Collapsible')\n   ]),\n\n   // Typeahead Search:\n   m('',[\n     m('h2.myGapTypeAhead', 'Typeahead Search'),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: In-Memory List: ${hero.length? 'Selected1: ' + hero : 'Search for a Superhero'}`]),\n     m(hsWidget.TypeAhead, {\n         placeholder: 'favorite hero',\n         onsubmit: item => hero = item,\n         list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n     }),\n     m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: Remote List: ${friend.length? 'Selected2: '+ friend : 'Search for a Friend'}`]),\n     m(hsWidget.TypeAhead, {\n         placeholder: 'best friend',\n         onsubmit: item => friend = item,\n         autofocus: true,\n         list: 'example/search.json'\n     })\n   ]),\n\n   // Corner Buttons:\n   m('',[\n     m('h2.myGapCornerButtons', 'Corner Buttons'),\n     //m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ButtonSymbols'}, 'ButtonSymbols'), ', ',\n     //         m('a',{href:'#!/api/hsWidget/hsWidget.ToolbarButton.ToolbarButton'}, 'ToolbarButton'), ': ',\n     //         lastCornerButton]),\n     m('', Object.keys(hsWidget.ButtonSymbols).map(\n         b => m('.myCornerPositioned', [\n             btnClicked[b]? m('.myCornerClicked', 'Yayy!!') : m('', b),\n             m(hsWidget.ToolbarButton, {\n                 symbols:hsWidget.ToolbarButton.getSymbol(b), onclick:click(b)\n             })\n         ])\n     ))\n   ]),\n\n\n\n\n   // Slider:\n   m('',[\n     m('h2.mySliders', 'Sliders'),\n     m('h4', `Nominal Slider: ${nom}`),\n     m(hsWidget.Slider, {\n         range: ['one', 'two', 'three'],\n         onchange: v => nom=v\n     }),\n     m('h4', `Continuous Slider: ${con}`),\n     m(hsWidget.Slider, {\n         range: [0, 100],\n         onchange: v => con=Math.floor(v*10)/10\n     })\n   ]),\n\n   // EditLabel\n   m('',[\n     m('h2.myEditLabel', `EditLabel: '${editLabelContent}'`),\n     m(hsWidget.EditLabel, {\n         placeholder: 'Enter here...',\n         content: editLabelContent,\n         update: newValue => editLabelContent = newValue\n     }),\n   ]),\n\n   // EditSelect\n   m('',[\n     m('h2.myEditSelect', `EditSelect: ${esSelected}`),\n     m(hsWidget.EditSelect, {\n         from: ['first','second','third'],\n         selected: esSelected,\n         update: newValue => esSelected = newValue\n     }),\n   ]),\n\n   // EditList\n   m('',[\n     m('h2.myEditList', 'EditList'),\n     m(hsWidget.EditList, {\n         header: 'List Header',\n         rows: elContent,\n     }),\n   ]),\n\n\n]}))});\n\n\n//--------------------------------------\n// supporting variables:\nconst menuItems = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\nlet  theContent = content[1];\nlet clicked = 0;\nlet radio = '';\nlet option = '';\nlet options = {};\nlet toggle = '';\nlet added  = 0;\nlet removed  = 0;\nconst btnClicked = {};\nlet lastCornerButton = '';\nlet dismissals = 0;\nlet trigger;\nlet hero = '';\nlet friend = '';\nlet nom, con;\nlet editLabelContent = '';\nlet esSelected = '';\nlet elContent = [''];\n\nconst click = (button) => () => {\n   lastCornerButton = '';\n   if (hsWidget.ButtonSymbols[button]) {\n      lastCornerButton = m.trust(`last button pressed: ${hsWidget.ButtonSymbols[button].sym}`);\n      btnClicked[button] = true;\n      setTimeout(reset(button), 800);\n   }\n};\n\nconst reset = (button) => () => {\n   btnClicked[button] = false;\n   m.redraw();\n}\n\nrender();\n</file>\n\n<file name='style.css'>\n.myMenuMain {\n   border:1px solid #ddd;\n   border-top: 0px solid #ddd;\n}\n.myMenu .hs-selectable {\n    background-color: #eef;\n}\n.myMenu .hs-selected {\n    background-color: #ddf;\n    border-width:0px;\n}\n.myCollapsible {\n    margin-bottom: 5px;\n}\n.myCollapsible .hs-collapsible-title {\n    font-weight:bold;\n    background-color: #eee;\n}\n.myCollapsible .hs-collapsible-expanded {\n    margin-left: 10px;\n}\n.myCornerClicked { background-color: #efe; }\n.myCornerPositioned {\n     position: relative;\n     display: inline-block;\n     box-sizing: border-box;\n     background-color: #eee;\n     text-align: center;\n     font-size: 70%;\n     margin:  2px;\n     padding-top: 20px;\n     height: 50px;\n     width:  50px;\n}\n.hs-corner-button { color: #008; }\n\n.hs-radio-buttons>.hs-column-layout>.hs-layout { border-color: transparent}\n\n.hsedit_label {\n   background-color: #eee;\n}\n</file>\n</example>\n"
 			},
 			"sources": [
 				{
@@ -10808,14 +11278,15 @@
 				317,
 				510,
 				412,
+				518,
 				288,
 				1,
 				366,
 				87,
 				441,
-				518,
-				559,
-				560
+				544,
+				585,
+				586
 			]
 		}
 	]
