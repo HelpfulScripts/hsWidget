@@ -37,7 +37,15 @@
 /** */
 import { Log }      from 'hsutil';  const log = new Log('EditTextarea');
 import { m, Vnode } from 'hslayout';
+import showdown     from 'showdown';
 
+const converter = new showdown.Converter({
+    tables:                 true,   // enables |...| style tables; requires 2nd |---| line
+    ghCompatibleHeaderId:   true,   // github-style dash-separated header IDs
+    smartIndentationFix:    true,   // fixes ES6 template indentations
+    takslists:              true,   // enable - [ ] task; doesn't seem to work.
+    strikethrough:          true    // enables ~~text~~
+});
 
 export class EditTextarea {
     protected editable = false;
@@ -92,14 +100,15 @@ export class EditTextarea {
             onclick: this.click.bind(this),
             onupdate: (node:Vnode) => this.adjustTextAreaHeight.bind(this)(node.dom)
         };
-        const content = m.trust(node.attrs.content.replace(/\n/g,'<p>'));
+        // const content = m.trust(node.attrs.content.replace(/\n/g,'<p>'));
+        const content = m.trust(converter.makeHtml(node.attrs.content));
         return this.editable? 
             m(`textarea.hsedit_textarea${css}`, { 
                 wrap: 'physical',
                 onblur: this.blur.bind(this),
-            }, content)
+            }, m.trust(node.attrs.content.replace(/\n/g,'<p>')))
       : (node.attrs.content && node.attrs.content.length)? 
-            m(`.hsedit_textarea${css}`, attrs, content)
+            m(`.hsedit_textarea${css}`, attrs, m.trust(converter.makeHtml(node.attrs.content)))
           : m(`.hsedit_textarea.default${css}`, attrs, node.attrs.placeholder || 'click to enter');
     }
 }

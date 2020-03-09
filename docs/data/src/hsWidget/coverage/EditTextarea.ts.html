@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">11.43% </span>
+        <span class="strong">16.22% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/35</span>
+        <span class='fraction'>6/37</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>0/8</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">9.09% </span>
+        <span class="strong">14.29% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/33</span>
+        <span class='fraction'>5/35</span>
       </div>
     </div>
     <p class="quiet">
@@ -151,7 +151,16 @@
 <a name='L103'></a><a href='#L103'>103</a>
 <a name='L104'></a><a href='#L104'>104</a>
 <a name='L105'></a><a href='#L105'>105</a>
-<a name='L106'></a><a href='#L106'>106</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -190,6 +199,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
@@ -244,6 +261,7 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -295,7 +313,15 @@
 /** */
 import { Log }      from 'hsutil';  const log = new Log('EditTextarea');
 import { m, Vnode } from 'hslayout';
+import showdown     from 'showdown';
 &nbsp;
+const converter = new showdown.Converter({
+    tables:                 true,   // enables |...| style tables; requires 2nd |---| line
+    ghCompatibleHeaderId:   true,   // github-style dash-separated header IDs
+    smartIndentationFix:    true,   // fixes ES6 template indentations
+    takslists:              true,   // enable - [ ] task; doesn't seem to work.
+    strikethrough:          true    // enables ~~text~~
+});
 &nbsp;
 <span class="fstat-no" title="function not covered" >export class E</span>ditTextarea {
     protected <span class="cstat-no" title="statement not covered" >editable = false;</span>
@@ -350,14 +376,15 @@ import { m, Vnode } from 'hslayout';
             onclick: this.click.bind(this),
             onupdate: <span class="fstat-no" title="function not covered" >(n</span>ode:Vnode) =&gt; <span class="cstat-no" title="statement not covered" >this.adjustTextAreaHeight.bind(this)(node.dom)</span>
         };
-        const content = <span class="cstat-no" title="statement not covered" >m.trust(node.attrs.content.replace(/\n/g,'&lt;p&gt;'));</span>
+        // const content = m.trust(node.attrs.content.replace(/\n/g,'&lt;p&gt;'));
+        const content = <span class="cstat-no" title="statement not covered" >m.trust(converter.makeHtml(node.attrs.content));</span>
 <span class="cstat-no" title="statement not covered" >        return this.editable? </span>
             m(`textarea.hsedit_textarea${css}`, { 
                 wrap: 'physical',
                 onblur: this.blur.bind(this),
-            }, content)
+            }, m.trust(node.attrs.content.replace(/\n/g,'&lt;p&gt;')))
       : (node.attrs.content &amp;&amp; node.attrs.content.length)? 
-            m(`.hsedit_textarea${css}`, attrs, content)
+            m(`.hsedit_textarea${css}`, attrs, m.trust(converter.makeHtml(node.attrs.content)))
           : m(`.hsedit_textarea.default${css}`, attrs, node.attrs.placeholder || 'click to enter');
     }
 }

@@ -27,7 +27,7 @@
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>0/3</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
@@ -116,7 +116,18 @@
 <a name='L68'></a><a href='#L68'>68</a>
 <a name='L69'></a><a href='#L69'>69</a>
 <a name='L70'></a><a href='#L70'>70</a>
-<a name='L71'></a><a href='#L71'>71</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,6 +167,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -163,9 +180,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -222,32 +244,43 @@ import { Log }      from 'hsutil'; const log = new Log('Popup');
 import { m, Vnode}  from 'hslayout'; 
 &nbsp;
 /**
- * 
+ * a `Mithril` node that shows a popup when triggered.
  */
 <span class="fstat-no" title="function not covered" >export class P</span>opup {
-    public <span class="fstat-no" title="function not covered" >static </span>arm(content:Vnode|(()=&gt;Vnode), attrs:any=<span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
-<span class="cstat-no" title="statement not covered" >        attrs.onmouseenter = <span class="fstat-no" title="function not covered" >(e</span>:any) =&gt; <span class="cstat-no" title="statement not covered" >Popup.instance.show(e, typeof content === 'function'? content() : content);</span></span>
+    /**
+     * arms a `Mithril` node by adding mouse listeners to the `attrs` object. 
+     * @param content a `VNode` that specifies the content to show in the popup.
+     * @param attrs optional; an `attrs` object that is extended by mouse listeners.
+     * @return the extended `attrs` object
+     */
+    public <span class="fstat-no" title="function not covered" >static </span>arm(content:Vnode, attrs:any=<span class="branch-0 cbranch-no" title="branch not covered" >{})</span>:any {
+<span class="cstat-no" title="statement not covered" >        attrs.onmouseenter = <span class="fstat-no" title="function not covered" >(e</span>:any) =&gt; <span class="cstat-no" title="statement not covered" >Popup.instance.show(e, content);</span></span>
 <span class="cstat-no" title="statement not covered" >        attrs.onmousemove = <span class="fstat-no" title="function not covered" >(e</span>:any) =&gt; <span class="cstat-no" title="statement not covered" >Popup.instance.move(e);</span></span>
 <span class="cstat-no" title="statement not covered" >        attrs.onmouseleave = <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >Popup.instance.hide();</span></span>
 <span class="cstat-no" title="statement not covered" >        return attrs;</span>
     }
+    /** the singleton instance to use upon mouse events */
     private static instance:Popup;
 &nbsp;
+    /** the fixed x position of the popup */
 <span class="cstat-no" title="statement not covered" >    x = 0;</span>
+    /** the fixed y position of the popup */
 <span class="cstat-no" title="statement not covered" >    y = 0;</span>
+    /** state variable, true if popup is visible. */
 <span class="cstat-no" title="statement not covered" >    showPopup = false;</span>
+    /** state variable containing the content to show. */
 <span class="cstat-no" title="statement not covered" >    content:Vnode = '...Popup...';</span>
 &nbsp;
-<span class="fstat-no" title="function not covered" >    show(</span>e:any, content:Vnode) {
+    private <span class="fstat-no" title="function not covered" >show(</span>e:any, content:Vnode) {
 <span class="cstat-no" title="statement not covered" >        this.showPopup = true;</span>
 <span class="cstat-no" title="statement not covered" >        this.content = content;</span>
 <span class="cstat-no" title="statement not covered" >        this.move(e);</span>
     }
-<span class="fstat-no" title="function not covered" >    move(</span>e:any) {
+    private <span class="fstat-no" title="function not covered" >move(</span>e:any) {
 <span class="cstat-no" title="statement not covered" >        this.x = e.x;</span>
 <span class="cstat-no" title="statement not covered" >        this.y = e.y;</span>
     }
-<span class="fstat-no" title="function not covered" >    hide(</span>) {
+    private <span class="fstat-no" title="function not covered" >hide(</span>) {
 <span class="cstat-no" title="statement not covered" >        this.showPopup = false;</span>
     }
 <span class="fstat-no" title="function not covered" >    view(</span>node:Vnode) {
