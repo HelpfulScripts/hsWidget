@@ -20,14 +20,14 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">93.33% </span>
+        <span class="strong">92.19% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>56/60</span>
+        <span class='fraction'>59/64</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">82.93% </span>
+        <span class="strong">81.4% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>34/41</span>
+        <span class='fraction'>35/43</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">95.45% </span>
@@ -35,9 +35,9 @@
         <span class='fraction'>21/22</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">100% </span>
+        <span class="strong">98% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>47/47</span>
+        <span class='fraction'>49/50</span>
       </div>
     </div>
     <p class="quiet">
@@ -259,7 +259,11 @@
 <a name='L211'></a><a href='#L211'>211</a>
 <a name='L212'></a><a href='#L212'>212</a>
 <a name='L213'></a><a href='#L213'>213</a>
-<a name='L214'></a><a href='#L214'>214</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L214'></a><a href='#L214'>214</a>
+<a name='L215'></a><a href='#L215'>215</a>
+<a name='L216'></a><a href='#L216'>216</a>
+<a name='L217'></a><a href='#L217'>217</a>
+<a name='L218'></a><a href='#L218'>218</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -280,6 +284,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -377,6 +382,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">73x</span>
 <span class="cline-any cline-yes">73x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">26x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -493,6 +501,7 @@
  */
 &nbsp;
  /** */
+import { Log }      from 'hsutil'; const log = new Log('Selector');
 import { m, Vnode } from 'hslayout';
 &nbsp;
 /** passed into Menu from the calling application */
@@ -589,8 +598,11 @@ export abstract class Selector {
                 isSelected: false 
             };
             node.state.items[i] = item;
-            node.state.items[itm] = item;
+            node.state.items[''+itm] = item;
         });
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (node.state.length &gt; items.length) {
+<span class="cstat-no" title="statement not covered" >            log.warn(`avoid numeric selectors: ${items.join(', ')}`);</span>
+        }
     }
 &nbsp;
     /**

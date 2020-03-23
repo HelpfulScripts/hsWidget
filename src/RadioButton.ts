@@ -45,7 +45,7 @@ import { Selector }         from './Selector';
  * ### node attributes:
  * - desc: see {@link Selector.SelectorDesc SelectorDesc}
  *     - clicked: `(item:string) => void`   function to execute when button is selected
- *     - selectedItem?: `number|string`     the currently selected item, by index or name
+ *     - defaultItem?: `number|string`      the currently selected item, by index or name
  *     - items: `string[]`                  names to individual buttons to show
  *     - itemCss?:`string[]`                css to apply to each item;
  * - css?: `string`                         css class to assign to button group
