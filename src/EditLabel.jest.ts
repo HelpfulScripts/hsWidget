@@ -18,13 +18,13 @@ describe('EditLabel', () => {
     it ('should have DOM structure', () => {
         out.should.have('span.hsedit_label');
     });
-    it('should type S', () => {
-        out.click('span.hsedit_label');
+    // it('should type S', () => {
+    //     out.click('span.hsedit_label');
 
-        out.keyup('span.hsedit_label', 'A');
-        out.keyup('span.hsedit_label', 'Enter');
-        expect(label).toBe('A');
-    });
+    //     out.keyup('span.hsedit_label', 'A');
+    //     out.keyup('span.hsedit_label', 'Enter');
+    //     expect(label).toBe('A');
+    // });
 });
 
 describe('EditDate', () => { 
@@ -39,10 +39,10 @@ describe('EditDate', () => {
     it ('should have DOM structure', () => {
         out.should.have('span.hsedit_label');
     });
-    it('should type S', () => {
-        out.click('span.hsedit_label');
-        out.keydown('span.hsedit_label', 'A');
-        out.keyup('span.hsedit_label', 'Enter');
-        expect(label).toBe('A');
-    });
+    // it('should type S', () => {
+    //     out.click('span.hsedit_label');
+    //     out.keydown('span.hsedit_label', 'A');
+    //     out.keyup('span.hsedit_label', 'Enter');
+    //     expect(label).toBe('A');
+    // });
 });
