@@ -32,6 +32,7 @@
  /** */
 import { Log }      from 'hsutil'; const log = new Log('Popup');
 import { m, Vnode}  from 'hslayout'; 
+// import { stringify } from 'querystring';
 
 /**
  * a `Mithril` node that shows a popup when triggered.
@@ -47,6 +48,7 @@ export class Popup {
         attrs.onmouseenter = (e:any) => Popup.instance.show(e, content);
         attrs.onmousemove = (e:any) => Popup.instance.move(e);
         attrs.onmouseleave = () => Popup.instance.hide();
+        attrs.class = `popup ${attrs.class||''}`;
         return attrs;
     }
     /** the singleton instance to use upon mouse events */
@@ -75,7 +77,26 @@ export class Popup {
     }
     view(node:Vnode) {
         Popup.instance = this;
-        const attrs = { style:`left:${this.x+15}px; top:${this.y}px`};
-        return !this.showPopup? m('span') : m('.hs_popup', attrs, this.content);
+        const pos = xy(window.innerWidth, window.innerHeight, this.x, this.y);
+        const attrs = { style:`left:${pos[0]}px; top:${pos[1]}px; transform: translate(${pos[2]}%, ${pos[3]}%);`};
+        return !this.showPopup? m('span') : m(`.hs_popup`, attrs, this.content);
     }
+}
+
+function xy(w:number, h:number, x:number, y:number) {
+    let left = x;
+    let top = y;
+    let transX = 50;
+    let transY = -50;
+    if (2*x > w) { 
+        left+= 15; transX = -100; 
+    } else {
+        left-= 15; transX = 0;
+    }
+    if (2*y > h) { 
+        top-= 15; transY = -100; 
+    } else {
+        top+= 15; transY = 0;
+    }
+    return [left, top, transX, transY];
 }

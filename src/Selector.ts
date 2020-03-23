@@ -19,6 +19,7 @@
  */
 
  /** */
+import { Log }      from 'hsutil'; const log = new Log('Selector');
 import { m, Vnode } from 'hslayout';
 
 /** passed into Menu from the calling application */
@@ -115,8 +116,11 @@ export abstract class Selector {
                 isSelected: false 
             };
             node.state.items[i] = item;
-            node.state.items[itm] = item;
+            node.state.items[''+itm] = item;
         });
+        if (node.state.length > items.length) {
+            log.warn(`avoid numeric selectors: ${items.join(', ')}`);
+        }
     }
 
     /**
