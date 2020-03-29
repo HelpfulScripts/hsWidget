@@ -52,32 +52,28 @@ import { Selector, SelectableDesc } from './Selector';
  * - `style?: string` style string to apply to button tag
  */
 export class ToggleButton extends Selector {
+    mouseDownCSS = '';
+
     oninit(node:Vnode) {
         super.oninit(node);
-        node.state.mouseDownCSS = '';
-        node.state.events.mouseDown = () => node.state.mouseDownCSS = '.hs-button-pressed';
-        node.state.events.mouseUp   = () => node.state.mouseDownCSS = '';
-        // node.state.postUpdate = node.state.updateModel;
-        node.state.itemClicked= (title:string):void => {
+        node.state.mouseDown = () => this.mouseDownCSS = '.hs-button-pressed';
+        node.state.mouseUp   = () => this.mouseDownCSS = '';
+        node.state.itemClicked= (title:string):string => {
             const i = node.state.items.map((i:SelectableDesc)=> i.title).indexOf(title);
             const newTitle = node.state.items[(i+1) % node.state.items.length].title;
             node.state.items[title].isSelected = false;
             node.state.items[newTitle].isSelected = true;
             return newTitle;
         };
-        Selector.ensureSelected(node);
     }
-    onupdate(node: Vnode) {
-        super.onupdate(node);
-        Selector.ensureSelected(node);
-    }
+
     view(node: Vnode): Vnode {
         const css = node.attrs.css || '';
         const style = node.attrs.style || '';
         const i = node.state.items.findIndex((i:SelectableDesc) => i.isSelected);
 
         return m(`.hs-toggle-button ${css} ${node.state.mouseDownCSS}`, { style:style}, m('span', 
-            Selector.renderItem(node, i)
+            this.renderItem(node, i)
         ));
     }
 }

@@ -33,7 +33,7 @@
 /** */
 import { m, Vnode }         from 'hslayout';
 import { Layout }           from 'hslayout';
-import { Selector }         from './Selector';
+import { Selector, SelectableDesc }         from './Selector';
 
 /**
  * # Radio Button Widget
@@ -53,23 +53,15 @@ import { Selector }         from './Selector';
  * - sizes?: `string[]`                     optional width settings to pass to the menu `Layout`.
  */
 export class RadioButton extends Selector {
-    static viewGroup(css:string, node: Vnode) {
+    viewGroup(css:string, node: Vnode) {
         css = `${css} ${node.attrs.css || ''}`;
         const style = node.attrs.style || '';
 
         return m(css, {style:style}, m(Layout, {
             columns: node.attrs.sizes || [],
-            content: node.state.items.map((l:string, i:number) => Selector.renderItem(node, i))
+            content: node.state.items.map((l:SelectableDesc, i:number) => this.renderItem(node, i))
         }));
     }
-    oninit(node: Vnode) {
-        super.oninit(node);
-        Selector.ensureSelected(node);
-    }
-    onupdate(node: Vnode) {
-        super.onupdate(node);
-        Selector.ensureSelected(node);
-    }
-    view(node: Vnode): Vnode { return RadioButton.viewGroup('.hs-radio-buttons', node); }
+    view(node: Vnode): Vnode { return this.viewGroup('.hs-radio-buttons', node); }
 }
 

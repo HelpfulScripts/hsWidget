@@ -68,11 +68,14 @@ export type selectionModel = (items:SelectableDesc[], title:string) => Selectabl
  * `oneOfItems` ensures that `title` will be selected and all others deselected
  */
 export function oneOfItems(items:SelectableDesc[], title:string):SelectableDesc {
-    items.forEach((item:SelectableDesc) => { 
-        item.isSelected = (item.title===title); 
-    });
-    if (!items.some((item:SelectableDesc) => item.isSelected)) { items[0].isSelected = true; }
-    return items.filter((item:SelectableDesc) => item.isSelected)[0];
+    if (items.length) {
+        items.forEach((item:SelectableDesc) => { 
+            item.isSelected = (item.title===title); 
+        });
+        if (!items.some((item:SelectableDesc) => item.isSelected)) { items[0].isSelected = true; }
+        return items.filter((item:SelectableDesc) => item.isSelected)[0];
+    }
+    return undefined;
 }
 
 /** 
@@ -80,8 +83,11 @@ export function oneOfItems(items:SelectableDesc[], title:string):SelectableDesc 
  * `anyItems` ensures that `title` will be selected independant of all others
  */
 export function anyItems(items:SelectableDesc[], title:string):SelectableDesc {
-    items[title].isSelected = !items[title].isSelected; 
-    return items[title];
+    if (items[title]) {
+        items[title].isSelected = !items[title].isSelected; 
+        return items[title];
+    }
+    return undefined;
 }
 
 export interface SelectorState {
@@ -108,15 +114,15 @@ export abstract class Selector {
      * takes care of copying menu items from `attrs` to `state`. This generates a redraw when the items change
      * @param node 
      */
-    static updateItems(node:Vnode) {
+    updateItems(node:Vnode) {
         const items = node.attrs.desc.items || [];
         items.map((itm:string, i:number) => {
             const item = node.state.items[itm] || {
                 title: itm, 
                 isSelected: false 
             };
-            node.state.items[i] = item;
-            node.state.items[''+itm] = item;
+           node.state.items[i] = item;
+           node.state.items[''+itm] = item;
         });
         if (node.state.length > items.length) {
             log.warn(`avoid numeric selectors: ${items.join(', ')}`);
@@ -132,24 +138,24 @@ export abstract class Selector {
      * @param node then node to be initiailized
      * @param model model to use for state update; either `oneOfItems` (the default) or `anyItems`
      */
-    static init(node: Vnode, model=oneOfItems) {
+    init(node: Vnode, model=oneOfItems) {
         node.state.updateModel = model;
         node.state.items = <SelectableDesc[]>[];
-        node.state.events = {};
         node.state.itemClicked = (item:string) => item;
-        node.state.defaultItem = node.attrs.desc.defaultItem;
-        node.state.events.mouseDown = node.attrs.desc.mouseDown;
-        node.state.events.mouseUp   = node.attrs.desc.mouseUp;
-        node.attrs.desc.clicked     = node.attrs.desc.clicked || ((item:string) => console.log(`missing clicked() function for selector item ${item}`));
-        node.state.events.clicked   = node.attrs.desc.clicked;
-        Selector.updateItems(node);
+        // node.state.defaultItem = node.attrs.desc.defaultItem;
+        node.state.mouseDown = node.attrs.desc.mouseDown;
+        node.state.mouseUp   = node.attrs.desc.mouseUp;
+        node.state.clicked   = node.attrs.desc.clicked || ((item:string) => console.log(`missing clicked() function for selector item ${item}`));
+        this.updateItems(node);
     }
 
     oninit(node: Vnode) { 
-        Selector.init(node); 
+        this.init(node); 
     }
     onupdate(node: Vnode) { 
-        Selector.updateItems(node); 
+        if (node.attrs.desc.defaultItem) { node.state.updateModel(node.state.items, node.attrs.desc.defaultItem); }
+        this.ensureSelected(node);
+        this.updateItems(node); 
     }
 
     /**
@@ -157,12 +163,12 @@ export abstract class Selector {
      * 
      * @param node 
      */
-    protected static ensureSelected(node: Vnode) {
-        if(node.state && node.state.items && !node.state.items.some((i:SelectableDesc) => i.isSelected) && node.state.items.length>0) { 
-            if (node.state.defaultItem && node.state.items[node.state.defaultItem]) { 
-                node.state.items[node.state.defaultItem].isSelected = true; 
+    protected ensureSelected(node: Vnode) {
+        if(node.state.items && !node.state.items.some((i:SelectableDesc) => i.isSelected) &&node.state.items.length>0) { 
+            if (node.attrs.desc.defaultItem &&node.state.items[node.attrs.desc.defaultItem]) { 
+               node.state.items[node.attrs.desc.defaultItem].isSelected = true; 
             } else if (node.state.items[0]) { 
-                node.state.items[0].isSelected = true; 
+               node.state.items[0].isSelected = true; 
             } 
         }
     }
@@ -173,7 +179,7 @@ export abstract class Selector {
      * @param node the node holding the group state
      * @param i index of item to render
      */
-    protected static renderItem(node: Vnode, i:number) {
+    protected renderItem(node: Vnode, i:number) {
         const reactor = (callback:(itm:string)=>void) => (title:string) => {
             node.state.updateModel(node.state.items, title); // internal state update
             title = node.state.itemClicked(title);
@@ -181,20 +187,19 @@ export abstract class Selector {
                 callback(title);  // trigger any external actions from the selection
             }     
         }; 
-        if (i<0) { console.log(`illegal render index ${i} ${node.state.items.map((i:any)=>i.title).join('|')}`); i = 0; }
+        if (i<0) { log.debug(`illegal render index ${i} ${node.state.items.map((i:any)=>i.title).join('|')}`); i = 0; }
         const item:SelectableDesc = node.state.items[i];
-        const title:string = item.title || '';
-        const itemCss = item.css || '';
+        const title:string = item? item.title : '';
+        const itemCss      = item? item.css : '';
 
         // Selector.checkSelectedItem(node, desc);
         return renderSelectable({ 
             title: title, 
             css: itemCss,        // possibly undefined
-            // isSelected: node.state.selectedItem? (l.toLowerCase() === node.state.selectedItem.toLowerCase()) : false, 
-            isSelected: node.state.items[title]? node.state.items[title].isSelected : false, 
-            mouseDown: node.state.events.mouseDown,
-            mouseUp: node.state.events.mouseUp,
-            clicked: reactor(node.state.events.clicked)
+            isSelected:(node.state.items && node.state.items[title])?node.state.items[title].isSelected : false, 
+            mouseDown:node.state.mouseDown,
+            mouseUp:node.state.mouseUp,
+            clicked: reactor(node.state.clicked)
         });
     }
     abstract view(node: Vnode): Vnode;

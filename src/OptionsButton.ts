@@ -31,7 +31,7 @@
 /** */
 import { m, Vnode }      from 'hslayout';
 import { Layout }        from 'hslayout';
-import { Selector }      from './Selector';
+import { Selector, SelectableDesc }      from './Selector';
 import { anyItems }      from './Selector';
 
 /**
@@ -52,17 +52,17 @@ import { anyItems }      from './Selector';
  */
 export class OptionsButton extends Selector {
     oninit(node:Vnode) {
-        Selector.init(node, anyItems);
+        this.init(node, anyItems);
     }
-    static viewGroup(css:string, node: Vnode) {
+    viewGroup(css:string, node: Vnode) {
         css = `${css} ${node.attrs.css || ''}`;
         const style = node.attrs.style || '';
 
         return m(css, {style:style}, m(Layout, {
             columns: [],
-            content: node.state.items.map((l:string, i:number) => Selector.renderItem(node, i))
+            content: node.state.items.map((l:SelectableDesc, i:number) => this.renderItem(node, i))
         }));
     }
-    view(node: Vnode): Vnode { return OptionsButton.viewGroup('.hs-options-buttons', node); }
+    view(node: Vnode): Vnode { return this.viewGroup('.hs-options-buttons', node); }
 }
 
