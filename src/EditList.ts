@@ -84,11 +84,11 @@
  */
 
 /** */
-import { m, Vnode } from 'hslayout';
-import { Log }      from 'hsutil';  const log = new Log('EditList');
-import { Layout }   from 'hslayout';
-import { EditLabel } from './EditLabel';
-import { Collapsible } from './Collapsible';
+import { m, Vnode }     from 'hslayout';
+import { Log }          from 'hsutil';  const log = new Log('EditList');
+import { Layout }       from 'hslayout';
+import { EditLabel }    from './EditLabel';
+import { Collapsible }  from './Collapsible';
 
 interface IsTest { (val:Row): boolean; }
 
