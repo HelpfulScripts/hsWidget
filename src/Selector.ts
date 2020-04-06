@@ -72,7 +72,9 @@ export function oneOfItems(items:SelectableDesc[], title:string):SelectableDesc 
         items.forEach((item:SelectableDesc) => { 
             item.isSelected = (item.title===title); 
         });
-        if (!items.some((item:SelectableDesc) => item.isSelected)) { items[0].isSelected = true; }
+        if (items.length && !items.some((item:SelectableDesc) => item.isSelected)) { 
+            items[0].isSelected = true; 
+        }
         return items.filter((item:SelectableDesc) => item.isSelected)[0];
     }
     return undefined;
