@@ -95,7 +95,7 @@
 <p id=72 class="line"><span>&nbsp;&nbsp;72</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items.forEach((item:SelectableDesc)&nbsp;=>&nbsp;{&nbsp;</p>
 <p id=73 class="line"><span>&nbsp;&nbsp;73</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;item.isSelected&nbsp;=&nbsp;(item.title===title);&nbsp;</p>
 <p id=74 class="line"><span>&nbsp;&nbsp;74</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</p>
-<p id=75 class="line"><span>&nbsp;&nbsp;75</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(items.length&nbsp;&&&nbsp;!items.some((item:SelectableDesc)&nbsp;=>&nbsp;item.isSelected))&nbsp;{&nbsp;</p>
+<p id=75 class="line"><span>&nbsp;&nbsp;75</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(items[0]&nbsp;&&&nbsp;!items.some((item:SelectableDesc)&nbsp;=>&nbsp;item.isSelected))&nbsp;{&nbsp;</p>
 <p id=76 class="line"><span>&nbsp;&nbsp;76</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;items[0].isSelected&nbsp;=&nbsp;true;&nbsp;</p>
 <p id=77 class="line"><span>&nbsp;&nbsp;77</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=78 class="line"><span>&nbsp;&nbsp;78</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;items.filter((item:SelectableDesc)&nbsp;=>&nbsp;item.isSelected)[0];</p>

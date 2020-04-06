@@ -568,7 +568,7 @@ export function oneOfItems(items:SelectableDesc[], title:string):SelectableDesc 
         items.forEach((item:SelectableDesc) =&gt; { 
             item.isSelected = (item.title===title); 
         });
-        <span class="missing-if-branch" title="if path not taken" >I</span>if (items.length &amp;&amp; !items.some((item:SelectableDesc) =&gt; item.isSelected)) { 
+        <span class="missing-if-branch" title="if path not taken" >I</span>if (items[0] &amp;&amp; !items.some((item:SelectableDesc) =&gt; item.isSelected)) { 
 <span class="cstat-no" title="statement not covered" >            items[0].isSelected = true; </span>
         }
         return items.filter((item:SelectableDesc) =&gt; item.isSelected)[0];
