@@ -63,13 +63,14 @@ export class Collapsible {
         const components = node.attrs.components;
         const preArrow   = node.attrs.preArrow;
         const postArrow  = node.attrs.postArrow;
-        const expCSS = node.state.expanded?'hs-collapsible-expanded':'';
+        const maxHeight  = node.state.expanded?'1000px':'0';
         const title = [components[0]];
         if (preArrow) { title.unshift(m(`.hs-collapsible-pre .hs-collapsible-arrow-${node.state.expanded?'down' : 'right'}`)); }
         if (postArrow){ title.push(m(`.hs-collapsible-post .hs-collapsible-arrow-${node.state.expanded?'down' : 'left'}`)); }
         return m(`.hs-collapsible ${css}`, [
             m('.hs-collapsible-title', { onclick:node.state.toggle}, title),
-            components[1]? m(`.hs-collapsible-content ${expCSS}`, components[1].map((c:any) =>m('',c))) : undefined
+            components[1]? m(`.hs-collapsible-content`, {style:`max-height:${maxHeight}`}, components[1].map((c:any) =>m('',c)))
+                         : undefined
         ]);
     }
 }

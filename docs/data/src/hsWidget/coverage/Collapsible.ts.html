@@ -121,7 +121,8 @@
 <a name='L73'></a><a href='#L73'>73</a>
 <a name='L74'></a><a href='#L74'>74</a>
 <a name='L75'></a><a href='#L75'>75</a>
-<a name='L76'></a><a href='#L76'>76</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -196,6 +197,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">/**
  * # Collapsible Widget
  * returns a Vnode that can be toggled to expand and contract by clicking on the first `component`.
@@ -261,13 +263,14 @@ export class Collapsible {
         const components = node.attrs.components;
         const preArrow   = node.attrs.preArrow;
         const postArrow  = node.attrs.postArrow;
-        const expCSS = node.state.expanded?'hs-collapsible-expanded':'';
+        const maxHeight  = node.state.expanded?'1000px':'0';
         const title = [components[0]];
         if (preArrow) { title.unshift(m(`.hs-collapsible-pre .hs-collapsible-arrow-${node.state.expanded?<span class="branch-0 cbranch-no" title="branch not covered" >'down' </span>: 'right'}`)); }
         if (postArrow){ title.push(m(`.hs-collapsible-post .hs-collapsible-arrow-${node.state.expanded?<span class="branch-0 cbranch-no" title="branch not covered" >'down' </span>: 'left'}`)); }
         return m(`.hs-collapsible ${css}`, [
             m('.hs-collapsible-title', { onclick:node.state.toggle}, title),
-            components[1]? m(`.hs-collapsible-content ${expCSS}`, components[1].map((c:any) =&gt;m('',c))) : <span class="branch-1 cbranch-no" title="branch not covered" >undefined</span>
+            components[1]? m(`.hs-collapsible-content`, {style:`max-height:${maxHeight}`}, components[1].map((c:any) =&gt;m('',c)))
+                         : <span class="branch-1 cbranch-no" title="branch not covered" >undefined</span>
         ]);
     }
 }

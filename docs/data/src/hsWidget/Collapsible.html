@@ -86,16 +86,17 @@
 <p id=63 class="line"><span>&nbsp;&nbsp;63</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;components&nbsp;=&nbsp;node.attrs.components;</p>
 <p id=64 class="line"><span>&nbsp;&nbsp;64</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;preArrow&nbsp;&nbsp;&nbsp;=&nbsp;node.attrs.preArrow;</p>
 <p id=65 class="line"><span>&nbsp;&nbsp;65</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;postArrow&nbsp;&nbsp;=&nbsp;node.attrs.postArrow;</p>
-<p id=66 class="line"><span>&nbsp;&nbsp;66</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;expCSS&nbsp;=&nbsp;node.state.expanded?<quote>'hs-collapsible-expanded'</quote>:<quote>''</quote>;</p>
+<p id=66 class="line"><span>&nbsp;&nbsp;66</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;maxHeight&nbsp;&nbsp;=&nbsp;node.state.expanded?<quote>'1000px'</quote>:<quote>'0'</quote>;</p>
 <p id=67 class="line"><span>&nbsp;&nbsp;67</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;title&nbsp;=&nbsp;[components[0]];</p>
 <p id=68 class="line"><span>&nbsp;&nbsp;68</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(preArrow)&nbsp;{&nbsp;title.unshift(m(`.hs-collapsible-pre&nbsp;.hs-collapsible-arrow-${node.state.expanded?<quote>'down'</quote>&nbsp;:&nbsp;<quote>'right'</quote>}`));&nbsp;}</p>
 <p id=69 class="line"><span>&nbsp;&nbsp;69</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(postArrow){&nbsp;title.push(m(`.hs-collapsible-post&nbsp;.hs-collapsible-arrow-${node.state.expanded?<quote>'down'</quote>&nbsp;:&nbsp;<quote>'left'</quote>}`));&nbsp;}</p>
 <p id=70 class="line"><span>&nbsp;&nbsp;70</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(`.hs-collapsible&nbsp;${css}`,&nbsp;[</p>
 <p id=71 class="line"><span>&nbsp;&nbsp;71</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>'.hs-collapsible-title'</quote>,&nbsp;{&nbsp;onclick:node.state.toggle},&nbsp;title),</p>
-<p id=72 class="line"><span>&nbsp;&nbsp;72</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;components[1]?&nbsp;m(`.hs-collapsible-content&nbsp;${expCSS}`,&nbsp;components[1].map((c:any)&nbsp;=>m(<quote>''</quote>,c)))&nbsp;:&nbsp;undefined</p>
-<p id=73 class="line"><span>&nbsp;&nbsp;73</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);</p>
-<p id=74 class="line"><span>&nbsp;&nbsp;74</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
-<p id=75 class="line"><span>&nbsp;&nbsp;75</span>}</p>
-<p id=76 class="line"><span>&nbsp;&nbsp;76</span></p></code></div>
+<p id=72 class="line"><span>&nbsp;&nbsp;72</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;components[1]?&nbsp;m(`.hs-collapsible-content`,&nbsp;{style:`max-height:${maxHeight}`},&nbsp;components[1].map((c:any)&nbsp;=>m(<quote>''</quote>,c)))</p>
+<p id=73 class="line"><span>&nbsp;&nbsp;73</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;undefined</p>
+<p id=74 class="line"><span>&nbsp;&nbsp;74</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);</p>
+<p id=75 class="line"><span>&nbsp;&nbsp;75</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=76 class="line"><span>&nbsp;&nbsp;76</span>}</p>
+<p id=77 class="line"><span>&nbsp;&nbsp;77</span></p></code></div>
                 </body>
             
