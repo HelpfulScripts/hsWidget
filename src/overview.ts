@@ -9,7 +9,7 @@ Helpful Scripts UI widgets.
 [![docs](https://img.shields.io/badge/hsDocs-hsWidget-blue.svg)](https://helpfulscripts.github.io/hsWidget/#!/api/hsWidget/0)
 [![Build Status](https://travis-ci.org/HelpfulScripts/hsWidget.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsWidget)
 [![Dependencies Status](https://david-dm.org/helpfulscripts/hswidget.svg)](https://david-dm.org/helpfulscripts/hswidget)
-[![Coverage Status](https://coveralls.io/repos/github/HelpfulScripts/hsWidget/badge.svg?branch=master)](https://coveralls.io/github/HelpfulScripts/hsWidget?branch=master)
+[![codecov](https://codecov.io/gh/HelpfulScripts/hsWidget/branch/master/graph/badge.svg)](https://codecov.io/gh/HelpfulScripts/hsWidget)
 [![Known Vulnerabilities](https://snyk.io/test/github/HelpfulScripts/hsWidget/badge.svg?targetFile=package.json)](https://snyk.io/test/github/HelpfulScripts/hsWidget?targetFile=package.json)
 [![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hswidget)
 
