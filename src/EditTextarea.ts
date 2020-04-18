@@ -38,6 +38,7 @@
 import { Log }      from 'hsutil';  const log = new Log('EditTextarea');
 import { m, Vnode } from 'hslayout';
 import showdown     from 'showdown';
+import { Popup } from './Popup';
 
 const converter = new showdown.Converter({
     tables:                 true,   // enables |...| style tables; requires 2nd |---| line
@@ -94,11 +95,15 @@ export class EditTextarea {
     }
 
     public view(node:Vnode) {
+        const area = this;
         this.updateCB = node.attrs.update;
         const css = node.attrs.css || '';
-        const attrs = {
-            onclick: this.click.bind(this),
-            onupdate: (node:Vnode) => this.adjustTextAreaHeight.bind(this)(node.dom)
+        const attrs = () => node.attrs.popup? Popup.arm(node.attrs.popup, {
+            onclick: area.click.bind(area),
+            onupdate: (node:Vnode) => area.adjustTextAreaHeight.bind(area)(node.dom)
+        }) : {
+            onclick: area.click.bind(area),
+            onupdate: (node:Vnode) => area.adjustTextAreaHeight.bind(area)(node.dom)
         };
         // const content = m.trust(node.attrs.content.replace(/\n/g,'<p>'));
         const content = m.trust(converter.makeHtml(node.attrs.content));
@@ -108,7 +113,7 @@ export class EditTextarea {
                 onblur: this.blur.bind(this),
             }, m.trust(node.attrs.content.replace(/\n/g,'<p>')))
       : (node.attrs.content && node.attrs.content.length)? 
-            m(`.hsedit_textarea${css}`, attrs, m.trust(converter.makeHtml(node.attrs.content)))
-          : m(`.hsedit_textarea.default${css}`, attrs, node.attrs.placeholder || 'click to enter');
+            m(`.hsedit_textarea${css}`, attrs(), m.trust(converter.makeHtml(node.attrs.content)))
+          : m(`.hsedit_textarea.default${css}`, attrs(), node.attrs.placeholder || 'click to enter');
     }
 }

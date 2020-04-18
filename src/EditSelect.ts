@@ -7,6 +7,7 @@
  * - selected: `string` the initial string to show in the text label
  * - css: the css selector to add to the field
  * - update: callback function called when the input field looses focus
+ * - **popup**?: `string`: optional message to show in a {@link Popup popup box} upon mouseover.
  * 
  * ### Example
  * <example>
@@ -36,7 +37,8 @@
 
 /** */
 import { m, Vnode } from 'hslayout';
-import { Log }      from 'hsutil';  const log = new Log('EditSelect');
+import { Log }      from 'hsutil';import { Popup } from './Popup';
+  const log = new Log('EditSelect');
 
 
 export class EditSelect {
@@ -53,9 +55,11 @@ export class EditSelect {
     }
 
     view(node:Vnode) {
+        const select = this;
+        const attrs = (popup:string) => popup? Popup.arm(popup, { onchange:select.select.bind(select)}) : { onchange:select.select.bind(select)};
         this.update = node.attrs.update;
         const css = node.attrs.css || '';
-        return m(`select.hsedit_select${css}`, { onchange:this.select.bind(this)}, 
+        return m(`select.hsedit_select${css}`, attrs(node.attrs.popup), 
             node.attrs.from.map((o:string) => node.attrs.selected===o?
                 m('option.hsedit_select_option.selected', { value: o, selected:true }, o) :
                 m('option.hsedit_select_option', { value: o }, o)));

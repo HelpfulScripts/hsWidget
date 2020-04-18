@@ -6,6 +6,7 @@
  * - **css**?: `string` an optional css selector
  * - **content**: `string` the initial string to show in the text label
  * - **update**: `(newValue:string)=>void` callback function called with the updated lable when the input field loses focus
+ * - **popup**?: `string`: optional message to show in a {@link Popup popup box} upon mouseover. 
  * - **placeholder**?: optional hint to show for an empty field. Deafults to *'click to enter'*. Provide a `sapce (' ')` to 
  *      display an empty field.
  * 
@@ -37,6 +38,7 @@
 /** */
 import { Log }      from 'hsutil';  const log = new Log('EditLabel');
 import { m, Vnode } from 'hslayout';
+import { Popup } from './Popup';
 
 
 export class EditLabel {
@@ -75,7 +77,9 @@ export class EditLabel {
     }
 
     public view(node:Vnode) {
+        const label = this;
         this.updateCB = node.attrs.update;
+        const attrs = (popup:string) => popup? Popup.arm(popup, { onclick: label.click.bind(label) }) : { onclick: label.click.bind(label) };
         const css = node.attrs.css || '';
         return this.editable? 
             m(`input.hsedit_label${css}`, { 
@@ -83,8 +87,8 @@ export class EditLabel {
                 onkeyup: this.keyup.bind(this),
             },'')
       : (node.attrs.content && node.attrs.content.length)? 
-            m(`span.hsedit_label${css}`, { onclick: this.click.bind(this) }, m.trust(node.attrs.content))
-          : m(`span.hsedit_label.default${css}`, { onclick: this.click.bind(this) }, node.attrs.placeholder || 'click to enter');
+            m(`span.hsedit_label${css}`, attrs(node.attrs.popup), m.trust(node.attrs.content))
+          : m(`span.hsedit_label.default${css}`, attrs(node.attrs.popup), node.attrs.placeholder || 'click to enter');
     }
 }
 
@@ -99,5 +103,9 @@ export class EditDate extends EditLabel {
         } else {
             super.update(undefined);
         }
+    }
+    public view(node:Vnode) {
+        node.attrs.content = node.attrs.content? new Date(node.attrs.content).toDateString().slice(4) : '';
+        return super.view(node);
     }
 }
