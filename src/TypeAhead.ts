@@ -43,10 +43,8 @@
  */
 
  /** */
+import { Log } from 'hsutil';  const log = new Log('TypeAhead');
 import { m, Vnode } from 'hslayout';
-import { Log } from 'hsutil';import { SpawnSyncOptionsWithStringEncoding } from 'child_process';
-import { type } from 'os';
-  const log = new Log('TypeAhead');
 
 // emphasize literal matches as *bold* in the drop down list
 function emphasize(item:string, match:string) {
@@ -104,16 +102,19 @@ export class TypeAhead {
     }
     view(node:Vnode) {
         this.gl.search(node.attrs.list);
-        const nosubmit = () => console.log('no submit function defined');
+        const nosubmit = () => log.warn('no submit function defined');
+        const getList = (typed:string) => node.state.typeAheadList = this.gl.list.filter(l => l.match(new RegExp(typed, 'gi')));
         
         const submit = (v:string) => {
             node.state.inputNode.setSelectionRange(0, node.state.inputNode.value.length);
             node.state.hidePopdown = true;
-            return node.state.onsubmit? node.state.onsubmit(v, node.state.typeAheadList) : nosubmit();
+            return (node.state.onsubmit || nosubmit)(v, node.state.typeAheadList);
         };
         const select = (e:any) => { if (e) { 
-            node.state.inputNode.value = e.target.attributes.name.value;
-            submit(e.target.attributes.name.value);
+            const selected = e.target.attributes.name.value;
+            node.state.inputNode.value = selected;
+            node.state.typeAheadList = getList(selected);
+            submit(selected);
         }};
 
         /**
@@ -124,9 +125,7 @@ export class TypeAhead {
             const n = node.state.inputNode = e.target;
             const typed = node.state.value = n.value;
             if (typed.length>0) {
-                node.state.typeAheadList = this.gl.list.filter(
-                    (l:string) => l.match(new RegExp(typed, 'gi'))
-                );
+                node.state.typeAheadList = getList(typed);
                 if (node.state.autocomplete) { autoComplete(typed, node); }
             }
         };
