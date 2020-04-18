@@ -20,24 +20,24 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">33.33% </span>
+        <span class="strong">31.25% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>4/12</span>
+        <span class='fraction'>5/16</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/4</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">0% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/5</span>
+        <span class='fraction'>0/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">27.27% </span>
+        <span class="strong">28.57% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>3/11</span>
+        <span class='fraction'>4/14</span>
       </div>
     </div>
     <p class="quiet">
@@ -108,7 +108,12 @@
 <a name='L60'></a><a href='#L60'>60</a>
 <a name='L61'></a><a href='#L61'>61</a>
 <a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -147,6 +152,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
@@ -163,6 +169,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -179,6 +187,7 @@
  * - selected: `string` the initial string to show in the text label
  * - css: the css selector to add to the field
  * - update: callback function called when the input field looses focus
+ * - **popup**?: `string`: optional message to show in a {@link Popup popup box} upon mouseover.
  * 
  * ### Example
  * &lt;example&gt;
@@ -208,7 +217,8 @@
 &nbsp;
 /** */
 import { m, Vnode } from 'hslayout';
-import { Log }      from 'hsutil';  const log = new Log('EditSelect');
+import { Log }      from 'hsutil';import { Popup } from './Popup';
+  const log = new Log('EditSelect');
 &nbsp;
 &nbsp;
 <span class="fstat-no" title="function not covered" >export class E</span>ditSelect {
@@ -225,9 +235,11 @@ import { Log }      from 'hsutil';  const log = new Log('EditSelect');
     }
 &nbsp;
 <span class="fstat-no" title="function not covered" >    view(</span>node:Vnode) {
+        const select = <span class="cstat-no" title="statement not covered" >this;</span>
+        const attrs = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>opup:string) =&gt; <span class="cstat-no" title="statement not covered" >popup? Popup.arm(popup, { onchange:select.select.bind(select)}) : { onchange:select.select.bind(select)};</span></span>
 <span class="cstat-no" title="statement not covered" >        this.update = node.attrs.update;</span>
         const css = <span class="cstat-no" title="statement not covered" >node.attrs.css || '';</span>
-<span class="cstat-no" title="statement not covered" >        return m(`select.hsedit_select${css}`, { onchange:this.select.bind(this)}, </span>
+<span class="cstat-no" title="statement not covered" >        return m(`select.hsedit_select${css}`, attrs(node.attrs.popup), </span>
             node.attrs.from.map(<span class="fstat-no" title="function not covered" >(o</span>:string) =&gt; <span class="cstat-no" title="statement not covered" >node.attrs.selected===o?</span>
                 m('option.hsedit_select_option.selected', { value: o, selected:true }, o) :
                 m('option.hsedit_select_option', { value: o }, o)));

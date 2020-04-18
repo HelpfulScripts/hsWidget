@@ -20,9 +20,9 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">64.71% </span>
+        <span class="strong">63.89% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>44/68</span>
+        <span class='fraction'>46/72</span>
       </div>
       <div class='fl pad1y space-right2'>
         <span class="strong">55% </span>
@@ -30,14 +30,14 @@
         <span class='fraction'>22/40</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">55% </span>
+        <span class="strong">57.14% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>11/20</span>
+        <span class='fraction'>12/21</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">67.19% </span>
+        <span class="strong">64.62% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>43/64</span>
+        <span class='fraction'>42/65</span>
       </div>
     </div>
     <p class="quiet">
@@ -226,8 +226,7 @@
 <a name='L178'></a><a href='#L178'>178</a>
 <a name='L179'></a><a href='#L179'>179</a>
 <a name='L180'></a><a href='#L180'>180</a>
-<a name='L181'></a><a href='#L181'>181</a>
-<a name='L182'></a><a href='#L182'>182</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L181'></a><a href='#L181'>181</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -273,8 +272,6 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -334,28 +331,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">5x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -453,10 +451,8 @@
  */
 &nbsp;
  /** */
+import { Log } from 'hsutil';  const log = new Log('TypeAhead');
 import { m, Vnode } from 'hslayout';
-import { Log } from 'hsutil';import { SpawnSyncOptionsWithStringEncoding } from 'child_process';
-import { type } from 'os';
-  const log = new Log('TypeAhead');
 &nbsp;
 // emphasize literal matches as *bold* in the drop down list
 function <span class="fstat-no" title="function not covered" >emphasize(</span>item:string, match:string) {
@@ -514,16 +510,19 @@ export class TypeAhead {
     }
     view(node:Vnode) {
         this.gl.search(node.attrs.list);
-        const nosubmit = <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >console.log('no submit function defined');</span>
+        const nosubmit = <span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >log.warn('no submit function defined');</span>
+        const getList = (typed:string) =&gt; node.state.typeAheadList = this.gl.list.filter(l =&gt; l.match(new RegExp(typed, 'gi')));
         
         const submit = (v:string) =&gt; {
             node.state.inputNode.setSelectionRange(0, node.state.inputNode.value.length);
             node.state.hidePopdown = true;
-            return node.state.onsubmit? node.state.onsubmit(v, node.state.typeAheadList) : <span class="branch-1 cbranch-no" title="branch not covered" >nosubmit();</span>
+            return (node.state.onsubmit || <span class="branch-1 cbranch-no" title="branch not covered" >nosubmit)</span>(v, node.state.typeAheadList);
         };
         const select = <span class="fstat-no" title="function not covered" >(e</span>:any) =&gt; { <span class="cstat-no" title="statement not covered" >if (e) { </span>
-<span class="cstat-no" title="statement not covered" >            node.state.inputNode.value = e.target.attributes.name.value;</span>
-<span class="cstat-no" title="statement not covered" >            submit(e.target.attributes.name.value);</span>
+            const selected = <span class="cstat-no" title="statement not covered" >e.target.attributes.name.value;</span>
+<span class="cstat-no" title="statement not covered" >            node.state.inputNode.value = selected;</span>
+<span class="cstat-no" title="statement not covered" >            node.state.typeAheadList = getList(selected);</span>
+<span class="cstat-no" title="statement not covered" >            submit(selected);</span>
         }};
 &nbsp;
         /**
@@ -534,9 +533,7 @@ export class TypeAhead {
             const n = node.state.inputNode = e.target;
             const typed = node.state.value = n.value;
             <span class="missing-if-branch" title="else path not taken" >E</span>if (typed.length&gt;0) {
-                node.state.typeAheadList = this.gl.list.filter(
-                    (l:string) =&gt; l.match(new RegExp(typed, 'gi'))
-                );
+                node.state.typeAheadList = getList(typed);
                 <span class="missing-if-branch" title="else path not taken" >E</span>if (node.state.autocomplete) { autoComplete(typed, node); }
             }
         };
