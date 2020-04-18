@@ -11,6 +11,15 @@
  * ```
  * m('.myContent', Popup.arm(popupContent), myContent);
  * ```
+ * Additional attributes can be passed into the `arm` method and will be passed on to the hosting component. For example,
+ * to add a `Popup` to the component 
+ * ```
+ * m('.myContent', { onclick: click }, myContent);
+ * ```
+ * do the following:
+ * ```
+ * m('.myContent', Popup.arm(popupContent, {onclick: click}), myContent);
+ * ```
  * 
  * ### Attributes (node.attrs):
  * none
