@@ -54,10 +54,12 @@ export class Popup {
      * @return the extended `attrs` object
      */
     public static arm(content:Vnode, attrs:any={}):any {
-        attrs.onmouseenter = (e:any) => Popup.instance.show(e, content);
-        attrs.onmousemove = (e:any) => Popup.instance.move(e);
-        attrs.onmouseleave = () => Popup.instance.hide();
-        attrs.class = `popup ${attrs.class||''}`;
+        if (content) {
+            attrs.onmouseenter = (e:any) => Popup.instance.show(e, content);
+            attrs.onmousemove = (e:any) => Popup.instance.move(e);
+            attrs.onmouseleave = () => Popup.instance.hide();
+            attrs.class = `popup ${attrs.class||''}`;
+        }
         return attrs;
     }
     /** the singleton instance to use upon mouse events */

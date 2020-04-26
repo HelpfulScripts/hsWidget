@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditList should match snapshot 1`] = `
+<div>
+  <div
+    class="edit_list"
+  >
+    <div
+      class="hsedit_list_content"
+    >
+      <div
+        class="hs-layout  hs-column-layout  hsedit_list_row"
+      >
+        <span
+          class="hsedit_label default"
+        >
+          add...
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

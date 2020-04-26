@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditCheckbox should match snapshot 1`] = `
+<div>
+  <input
+    class="hsedit_checkbox mySelect"
+    type="checkbox"
+  >
+    
+  </input>
+</div>
+`;

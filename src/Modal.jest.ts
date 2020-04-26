@@ -1,4 +1,4 @@
-import * as hswidget from './';
+import { Modal } from './Modal';
 import { m }    from 'hslayout';
 
 window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
@@ -10,7 +10,7 @@ describe('ModalDialog', () => {
     describe('with settings', () => {
         let trigger: ()=> {};
         const out = mq(m('#parent', {onclick: () => trigger()}, 
-            m(hswidget.Modal, {
+            m(Modal, {
                 width:  '300px',
                 height: '200px',
                 dismiss: () => dismissals++,
@@ -42,7 +42,7 @@ describe('ModalDialog', () => {
     describe('with defaults', () => {
         let trigger: ()=> {};
         const out = mq(m('#parent', {onclick: () => trigger()}, 
-        m(hswidget.Modal, {
+        m(Modal, {
             setTrigger: (t:()=> {}) => trigger = t
         })
         ));
@@ -61,7 +61,7 @@ describe('ModalDialog', () => {
     describe('missing trrigger', () => {
         let trigger: ()=> {};
         const out = mq(m('#parent', {onclick: () => trigger()}, 
-        m(hswidget.Modal, {
+        m(Modal, {
         })
         ));
         it ('should have DOM structure', () => {

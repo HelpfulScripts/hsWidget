@@ -20,31 +20,31 @@
     </h1>
     <div class='clearfix'>
       <div class='fl pad1y space-right2'>
-        <span class="strong">31.25% </span>
+        <span class="strong">81.25% </span>
         <span class="quiet">Statements</span>
-        <span class='fraction'>5/16</span>
+        <span class='fraction'>13/16</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">50% </span>
         <span class="quiet">Branches</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>3/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">0% </span>
+        <span class="strong">66.67% </span>
         <span class="quiet">Functions</span>
-        <span class='fraction'>0/6</span>
+        <span class='fraction'>4/6</span>
       </div>
       <div class='fl pad1y space-right2'>
-        <span class="strong">28.57% </span>
+        <span class="strong">78.57% </span>
         <span class="quiet">Lines</span>
-        <span class='fraction'>4/14</span>
+        <span class='fraction'>11/14</span>
       </div>
     </div>
     <p class="quiet">
       Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
     </p>
   </div>
-  <div class='status-line low'></div>
+  <div class='status-line high'></div>
 <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -150,31 +150,31 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -221,9 +221,9 @@ import { Log }      from 'hsutil';import { Popup } from './Popup';
   const log = new Log('EditSelect');
 &nbsp;
 &nbsp;
-<span class="fstat-no" title="function not covered" >export class E</span>ditSelect {
+export class EditSelect {
     update:(r:string) =&gt; void;
-<span class="cstat-no" title="statement not covered" >    selectable = false;</span>
+    selectable = false;
 &nbsp;
 <span class="fstat-no" title="function not covered" >    click(</span>) {
 <span class="cstat-no" title="statement not covered" >        this.selectable = true;</span>
@@ -234,14 +234,14 @@ import { Log }      from 'hsutil';import { Popup } from './Popup';
 <span class="cstat-no" title="statement not covered" >        this.selectable = false;</span>
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    view(</span>node:Vnode) {
-        const select = <span class="cstat-no" title="statement not covered" >this;</span>
-        const attrs = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(p</span>opup:string) =&gt; <span class="cstat-no" title="statement not covered" >popup? Popup.arm(popup, { onchange:select.select.bind(select)}) : { onchange:select.select.bind(select)};</span></span>
-<span class="cstat-no" title="statement not covered" >        this.update = node.attrs.update;</span>
-        const css = <span class="cstat-no" title="statement not covered" >node.attrs.css || '';</span>
-<span class="cstat-no" title="statement not covered" >        return m(`select.hsedit_select${css}`, attrs(node.attrs.popup), </span>
-            node.attrs.from.map(<span class="fstat-no" title="function not covered" >(o</span>:string) =&gt; <span class="cstat-no" title="statement not covered" >node.attrs.selected===o?</span>
-                m('option.hsedit_select_option.selected', { value: o, selected:true }, o) :
+    view(node:Vnode) {
+        const select = this;
+        const attrs = (popup:string) =&gt; popup? <span class="branch-0 cbranch-no" title="branch not covered" >Popup.arm(popup, { onchange:select.select.bind(select)}) </span>: { onchange:select.select.bind(select)};
+        this.update = node.attrs.update;
+        const css = node.attrs.css || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+        return m(`select.hsedit_select${css}`, attrs(node.attrs.popup), 
+            node.attrs.from.map((o:string) =&gt; node.attrs.selected===o?
+<span class="branch-0 cbranch-no" title="branch not covered" >                m('option.hsedit_select_option.selected', { value: o, selected:true }, o) </span>:
                 m('option.hsedit_select_option', { value: o }, o)));
     }
 }</pre></td></tr>

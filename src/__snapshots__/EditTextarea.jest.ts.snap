@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditTextarea should match snapshot 1`] = `
+<div>
+  <div>
+    <h3>
+      Edit Label Example
+    </h3>
+    <div>
+      <span>
+        current content: ''
+      </span>
+      <div
+        class="hsedit_textarea default myLabel"
+      >
+        Enter Value
+      </div>
+    </div>
+  </div>
+</div>
+`;

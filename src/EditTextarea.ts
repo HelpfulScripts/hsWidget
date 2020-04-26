@@ -17,7 +17,7 @@
  *    m('h3', 'Edit Label Example'),
  *    m('div', [
  *      m('span', `current content: '${content}'`),
- *      m(hsWidget.EditLabel, {
+ *      m(hsWidget.EditTextarea, {
  *          css: '.myLabel',
  *          placeholder: 'Enter Value',
  *          content: content,

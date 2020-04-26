@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EditCheckbox should match snapshot 1`] = `
+<div>
+  <div
+    class="hs-white"
+  >
+    <h4
+      class="popup "
+    >
+      hover over me
+    </h4>
+    <span />
+  </div>
+</div>
+`;

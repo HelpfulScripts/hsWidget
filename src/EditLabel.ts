@@ -13,7 +13,7 @@
  * ### Example
  * <example>
  * <file name='script.js'> 
- * let content = '';
+ * let content = 'prior content';
  * m.mount(root, {view: () => m('div', [
  *    m('h3', 'Edit Label Example'),
  *    m('div', [
@@ -29,8 +29,8 @@
  * 
  * </file>
  * <file name='style.css'>
- * .myLabel {  
- * }
+ * span.myLabel { background-color: #eee; }
+ * input.myLabel { background-color: #fff; }
  * </file>
  * </example>
  */
@@ -43,65 +43,48 @@ import { Popup } from './Popup';
 
 export class EditLabel {
     protected editable = false;
-    protected hasFocus = false;
     protected updateCB:(r:string) => void;
-    protected default = '';
-
-    protected click(e:any) { 
-        this.editable = !this.editable; 
-    }
 
     protected blur(e:any) {
         this.editable = false;
-        this.hasFocus = false;
         this.update(e.target.value);
     }
 
-    protected keyup(key:any) {
-        if (key.which === 13) {
-            key.target.blur();
-        }
-    }
+    protected click = () => this.editable = true; 
 
-    protected update(newValue:string) {
-        this.updateCB(newValue);
-    }
+    protected keyup = (key:any) => key.which === 13? key.target.blur() : '';
 
-    public onupdate(node:Vnode) {
-        if (this.editable && !this.hasFocus) {
-            node.dom.value = node.attrs.content || this.default;
+    protected update = (newValue:string) => this.updateCB(newValue);
+
+    onupdate(node:Vnode) {
+        if (this.editable && document.activeElement!==node.dom) {
+            node.dom.value = node.attrs.content || '';
             node.dom.focus();
             node.dom.select();
-            this.hasFocus = true;
         }
     }
 
-    public view(node:Vnode) {
-        const label = this;
+    view(node:Vnode) {
         this.updateCB = node.attrs.update;
-        const attrs = (popup:string) => popup? Popup.arm(popup, { onclick: label.click.bind(label) }) : { onclick: label.click.bind(label) };
         const css = node.attrs.css || '';
-        return this.editable? 
-            m(`input.hsedit_label${css}`, { 
-                onblur: this.blur.bind(this),
-                onkeyup: this.keyup.bind(this),
-            },'')
-      : (node.attrs.content && node.attrs.content.length)? 
-            m(`span.hsedit_label${css}`, attrs(node.attrs.popup), m.trust(node.attrs.content))
-          : m(`span.hsedit_label.default${css}`, attrs(node.attrs.popup), node.attrs.placeholder || 'click to enter');
+        return this.editable? m(`input.hsedit_label${css}`, { onblur:this.blur.bind(this), onkeyup:this.keyup.bind(this) }, 'yeah')
+            : ( node.attrs.content &&  node.attrs.content.length)? 
+            m(`span.hsedit_label${css}`, Popup.arm(node.attrs.popup, { onclick:()=>this.click() }), m.trust( node.attrs.content))
+            : m(`span.hsedit_label.default${css}`, Popup.arm(node.attrs.popup, { onclick:()=>this.click() }), node.attrs.placeholder || 'click to enter');
     }
 }
 
+
 /** an extension of `EditLabel` that pareses entries as dates. */
 export class EditDate extends EditLabel {
-    protected default = new Date().toDateString().slice(4);
-    protected update(newValue:string) {
+    protected def = new Date().toDateString().slice(4);
+    protected update = (newValue:string) => {
         if (newValue) {
             const date = new Date(newValue);
             const result = isNaN(date.getTime())? 'invalid date' : date.toDateString().slice(4);
-            super.update(result);
+            super.updateCB(result);
         } else {
-            super.update(undefined);
+            super.updateCB(undefined);
         }
     }
     public view(node:Vnode) {
