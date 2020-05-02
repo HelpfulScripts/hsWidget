@@ -36,7 +36,6 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('@vamship/grunt-typedoc');
-    grunt.loadNpmTasks('grunt-tslint');
     grunt.loadNpmTasks('grunt-ts');
     grunt.loadNpmTasks('grunt-webpack');
     grunt.loadNpmTasks('jest');
@@ -63,8 +62,8 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
     grunt.registerTask('build-html',    ['copy:buildHTML']);
     grunt.registerTask('build-css',     ['less']);
     // grunt.registerTask('build-example', ['clean:example', 'copy:example', 'ts:example', 'less:example', 'webpack:exampleDev']);
-    grunt.registerTask('build-js',      ['tslint:src', 'ts:src']);
-    // grunt.registerTask('build-spec',    ['tslint:spec', 'ts:test']);    
+    grunt.registerTask('build-js',      ['ts:src']);
+    // grunt.registerTask('build-spec',    ['ts:test']);    
     grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin', 'copy:example', 'build-js']);
     switch(type) {
         case 'node':grunt.registerTask('buildMin', ['build-base', 'doc', 'test']);
@@ -182,19 +181,19 @@ module.exports = (grunt, dir, dependencies, type, lib) => {
                 }
             }
         },
-        tslint: {
-            options: {
-                configuration: __dirname+'/tslint.json',
-                force:  false,
-                fix:    false
-            },
-            src: {
-                src: ["src/**/*.ts"]
-            },
-            spec: {
-                src: ["src/**/*.spec.ts", "src/**/*.jest.ts"]
-            }
-        },
+        // tslint: {
+        //     options: {
+        //         configuration: __dirname+'/tslint.json',
+        //         force:  false,
+        //         fix:    false
+        //     },
+        //     src: {
+        //         src: ["src/**/*.ts"]
+        //     },
+        //     spec: {
+        //         src: ["src/**/*.spec.ts", "src/**/*.jest.ts"]
+        //     }
+        // },
         ts: {
             options: {
                 target: "es6",
