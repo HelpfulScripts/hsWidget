@@ -60,6 +60,7 @@
   "dependencies": {
     "mithril": "^2.0.4",
     "hslayout": "2.4.x",
+    "hsutil": "3.2.x",
     "showdown": "^1.9.1"
   }
 }
