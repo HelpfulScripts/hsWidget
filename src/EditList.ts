@@ -12,11 +12,12 @@
  *      Updated values will be reflected in the provided `rows` array.
  * - **css**?: an optional css selector, typically a class selector: '.myclass'
  * - **header**?: `Vnode` otpional header row. If missing, no header row will be shown. 
- * - **collapsible**?: `boolean` makes the list collapsible. This requires `header` to be set. DEfaults to `true`.
+ * - **collapsible**?: `boolean` makes the list collapsible. This requires `header` to be set. Defaults to `true`.
  * - **sort**?: `(rows) => number` optional sorting function for rows; As a default, no sorting happens.
- * - **columnLayout**?: optional array of column widths for use in `Layout`, defaults to '[ ]'
+ * - **columnLayout**?: optional array of column widths for use in `Layout`, defaults to `[ ]`
  * - **isEmpty**?: `(any[])=>boolean` a function to test if a content row is considered empty. The `row`
  *      to test is provided as paramater
+ * - **isExpanded**?: `boolean` if `true`, will auto expand the list
  * - **defaultRow**?: `any` the default (empty) content row, defaults to `''`. 
  *      This will be added as last element to `node.attrs.rowElements` to ensure an empty row is available.
  * - **expandRows**?: `(rows:any[], def:any, isEmpty:IsTest)=>void` if truthy, prevents `EditList` from automatically adding new empty rows. 
@@ -147,6 +148,7 @@ export class EditList {
         const sort       = node.attrs.sort || (()=>0);
         const rows:Row[] = node.attrs.rows;
         const isEmpty    = node.attrs.isEmpty || defIsEmpty;
+        const isExpanded = node.attrs.isExpanded || false;
         const render     = node.attrs.rowRender || defaultRender(rows);
         const def:Row    = node.attrs.defaultRow===undefined? '' : node.attrs.defaultRow;
         const expandRows = node.attrs.expand || expand;
@@ -170,7 +172,7 @@ export class EditList {
         if (collapsible && node.attrs.header) {
             return m(Collapsible, {
                 css: `.edit_list${css}`,
-                isExpanded: true,
+                isExpanded: isExpanded,
                 components: [
                     m('.hsedit_list_header', node.attrs.header),
                     content

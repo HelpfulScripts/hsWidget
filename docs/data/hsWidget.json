@@ -2001,7 +2001,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditList.ts",
 			"comment": {
 				"shortText": "# EditList\nCreates an auto-extending list of editable rows. The widget is simple to apply yet highly configurable\neven to more complex situations. See examples below.",
-				"text": "### Attributes:\n- **rows**: `any[]` array of the row data to be rendered. Each row data will be\n     provided to calls of `rowRender`.`EditList` ensures that there is always an\n     empty row at the end of list so it can be extended\n- **rowRender**?: `(rowData:any, index:number)=>Vnode[]` function returning a rendered row\n     for the supplied row data. If missing, a default renderer is supplied for a variety of situations.\n     Updated values will be reflected in the provided `rows` array.\n- **css**?: an optional css selector, typically a class selector: '.myclass'\n- **header**?: `Vnode` otpional header row. If missing, no header row will be shown.\n- **collapsible**?: `boolean` makes the list collapsible. This requires `header` to be set. DEfaults to `true`.\n- **sort**?: `(rows) => number` optional sorting function for rows; As a default, no sorting happens.\n- **columnLayout**?: optional array of column widths for use in `Layout`, defaults to '[ ]'\n- **isEmpty**?: `(any[])=>boolean` a function to test if a content row is considered empty. The `row`\n     to test is provided as paramater\n- **defaultRow**?: `any` the default (empty) content row, defaults to `''`.\n     This will be added as last element to `node.attrs.rowElements` to ensure an empty row is available.\n- **expandRows**?: `(rows:any[], def:any, isEmpty:IsTest)=>void` if truthy, prevents `EditList` from automatically adding new empty rows.\n     This makes the calling program responsible for adding rows to the list.\n\n### Example\n<example>\n<file name='script.js'>\nlet content1 = [''];\nlet content2 = [];\n\nm.mount(root, {view: () => m('div', [\n   m('h4', `simple content: '${content1.join(', ')}'`),\n   m(hsWidget.EditList, {\n     rows: content1,\n   }),\n\n   m('h4', `complex content: '${content2.map(r => `${r.value}:${r.selected}`).join(', ')}'`),\n   m(hsWidget.EditList, {\n     css: '.myList',\n     header: 'List Header',\n     defaultRow: {value:'', selected:''},\n     rows: content2,\n     isEmpty: (row) => !(row.value && row.value.length),   // undefined or empty value\n     columnLayout: ['70%', '30%'],\n     rowRender:(row, i) => [\n         m(hsWidget.EditLabel, {\n             css: '.myListElement',\n             content: row.value,\n             placeholder: 'description',\n             update: value => {\n                 content2[i] = content2[i] || {};\n                 content2[i].value = value;\n             }\n         }),\n         m(hsWidget.EditSelect, {\n             css: '.myListElement',\n             selected: row.value,\n             from: ['high', 'med', 'low'],\n             update: value => {\n                 content2[i] = content2[i] || {};\n                 content2[i].selected = value;\n             }\n         }),\n      ]\n   })\n])});\n\n\n</file>\n<file name='style.css'>\n.myList {\n   border: 1px solid #aaf;\n   margin: 5px;\n}\n.myListElement {\n   display: inline-block;\n   width: 100%;\n}\nh4 {\n   padding-left:5px;\n}\n</file>\n</example>\n"
+				"text": "### Attributes:\n- **rows**: `any[]` array of the row data to be rendered. Each row data will be\n     provided to calls of `rowRender`.`EditList` ensures that there is always an\n     empty row at the end of list so it can be extended\n- **rowRender**?: `(rowData:any, index:number)=>Vnode[]` function returning a rendered row\n     for the supplied row data. If missing, a default renderer is supplied for a variety of situations.\n     Updated values will be reflected in the provided `rows` array.\n- **css**?: an optional css selector, typically a class selector: '.myclass'\n- **header**?: `Vnode` otpional header row. If missing, no header row will be shown.\n- **collapsible**?: `boolean` makes the list collapsible. This requires `header` to be set. Defaults to `true`.\n- **sort**?: `(rows) => number` optional sorting function for rows; As a default, no sorting happens.\n- **columnLayout**?: optional array of column widths for use in `Layout`, defaults to `[ ]`\n- **isEmpty**?: `(any[])=>boolean` a function to test if a content row is considered empty. The `row`\n     to test is provided as paramater\n- **isExpanded**?: `boolean` if `true`, will auto expand the list\n- **defaultRow**?: `any` the default (empty) content row, defaults to `''`.\n     This will be added as last element to `node.attrs.rowElements` to ensure an empty row is available.\n- **expandRows**?: `(rows:any[], def:any, isEmpty:IsTest)=>void` if truthy, prevents `EditList` from automatically adding new empty rows.\n     This makes the calling program responsible for adding rows to the list.\n\n### Example\n<example>\n<file name='script.js'>\nlet content1 = [''];\nlet content2 = [];\n\nm.mount(root, {view: () => m('div', [\n   m('h4', `simple content: '${content1.join(', ')}'`),\n   m(hsWidget.EditList, {\n     rows: content1,\n   }),\n\n   m('h4', `complex content: '${content2.map(r => `${r.value}:${r.selected}`).join(', ')}'`),\n   m(hsWidget.EditList, {\n     css: '.myList',\n     header: 'List Header',\n     defaultRow: {value:'', selected:''},\n     rows: content2,\n     isEmpty: (row) => !(row.value && row.value.length),   // undefined or empty value\n     columnLayout: ['70%', '30%'],\n     rowRender:(row, i) => [\n         m(hsWidget.EditLabel, {\n             css: '.myListElement',\n             content: row.value,\n             placeholder: 'description',\n             update: value => {\n                 content2[i] = content2[i] || {};\n                 content2[i].value = value;\n             }\n         }),\n         m(hsWidget.EditSelect, {\n             css: '.myListElement',\n             selected: row.value,\n             from: ['high', 'med', 'low'],\n             update: value => {\n                 content2[i] = content2[i] || {};\n                 content2[i].selected = value;\n             }\n         }),\n      ]\n   })\n])});\n\n\n</file>\n<file name='style.css'>\n.myList {\n   border: 1px solid #aaf;\n   margin: 5px;\n}\n.myListElement {\n   display: inline-block;\n   width: 100%;\n}\nh4 {\n   padding-left:5px;\n}\n</file>\n</example>\n"
 			},
 			"children": [
 				{
@@ -2054,7 +2054,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditList.ts",
-									"line": 145,
+									"line": 146,
 									"character": 8
 								}
 							]
@@ -2072,7 +2072,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditList.ts",
-							"line": 144,
+							"line": 145,
 							"character": 21
 						}
 					]
@@ -2113,7 +2113,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditList.ts",
-							"line": 93,
+							"line": 94,
 							"character": 16
 						}
 					]
@@ -2165,7 +2165,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditList.ts",
-							"line": 95,
+							"line": 96,
 							"character": 19
 						}
 					]
@@ -2182,7 +2182,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditList.ts",
-							"line": 98,
+							"line": 99,
 							"character": 8
 						}
 					],
@@ -2202,7 +2202,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditList.ts",
-							"line": 88,
+							"line": 89,
 							"character": 49
 						}
 					],
@@ -2259,7 +2259,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditList.ts",
-							"line": 135,
+							"line": 136,
 							"character": 28
 						}
 					]
@@ -2308,7 +2308,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditList.ts",
-							"line": 104,
+							"line": 105,
 							"character": 16
 						}
 					]
@@ -2361,7 +2361,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditList.ts",
-							"line": 111,
+							"line": 112,
 							"character": 19
 						}
 					]
@@ -2427,7 +2427,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditList.ts",
-							"line": 188,
+							"line": 190,
 							"character": 15
 						}
 					]
