@@ -1396,7 +1396,6 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isProtected": true,
 								"isExported": true
 							},
 							"signatures": [
@@ -1438,7 +1437,7 @@
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditLabel.ts",
 									"line": 81,
-									"character": 20
+									"character": 10
 								}
 							],
 							"overwrites": {
@@ -1818,7 +1817,6 @@
 							"kind": 2048,
 							"kindString": "Method",
 							"flags": {
-								"isProtected": true,
 								"isExported": true
 							},
 							"signatures": [
@@ -1855,7 +1853,7 @@
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/EditLabel.ts",
 									"line": 57,
-									"character": 20
+									"character": 10
 								}
 							]
 						},

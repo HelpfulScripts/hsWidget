@@ -54,7 +54,7 @@ export class EditLabel {
 
     protected keyup = (key:any) => key.which === 13? key.target.blur() : '';
 
-    protected update = (newValue:string) => this.updateCB(newValue);
+    update(newValue:string) { this.updateCB(newValue); }
 
     onupdate(node:Vnode) {
         if (this.editable && document.activeElement!==node.dom) {
@@ -78,17 +78,20 @@ export class EditLabel {
 /** an extension of `EditLabel` that pareses entries as dates. */
 export class EditDate extends EditLabel {
     protected def = new Date().toDateString().slice(4);
-    protected update = (newValue:string) => {
+    update(newValue:string) {
         if (newValue) {
             const date = new Date(newValue);
             const result = isNaN(date.getTime())? 'invalid date' : date.toDateString().slice(4);
-            super.updateCB(result);
+            this.updateCB(result);
         } else {
-            super.updateCB(undefined);
+            this.updateCB(undefined);
         }
     }
     public view(node:Vnode) {
-        node.attrs.content = node.attrs.content? new Date(node.attrs.content).toDateString().slice(4) : '';
+        if (this.editable && (!node.attrs.content || node.attrs.content === '')) {
+            node.attrs.content = new Date().toDateString();
+            node.attrs.content = node.attrs.content.slice(4);
+        }
         return super.view(node);
     }
 }
