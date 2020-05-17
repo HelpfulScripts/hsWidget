@@ -189,7 +189,7 @@ export abstract class Selector {
                 callback(title);  // trigger any external actions from the selection
             }     
         }; 
-        if (i<0) { log.debug(`illegal render index ${i} ${node.state.items.map((i:any)=>i.title).join('|')}`); i = 0; }
+        if (i<0) { log.debug(()=>`illegal render index ${i} ${node.state.items.map((i:any)=>i.title).join('|')}`); i = 0; }
         const item:SelectableDesc = node.state.items[i];
         const title:string = item? item.title : '';
         const itemCss      = item? item.css : '';

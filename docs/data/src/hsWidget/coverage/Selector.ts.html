@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.65% </span>
+                <span class="strong">89.86% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>63/68</span>
+                <span class='fraction'>62/69</span>
             </div>
         
             
@@ -37,9 +37,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">91.3% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>22/22</span>
+                <span class='fraction'>21/23</span>
             </div>
         
             
@@ -696,7 +696,7 @@ export abstract class Selector {
                 callback(title);  // trigger any external actions from the selection
             }     
         }; 
-        if (i&lt;0) { log.debug(`illegal render index ${i} ${node.state.items.map((i:any)=&gt;i.title).join('|')}`); i = 0; }
+        if (i&lt;0) { log.debug(<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >`illegal render index ${i} ${node.state.items.map(<span class="fstat-no" title="function not covered" >(i</span>:any)=&gt;<span class="cstat-no" title="statement not covered" >i.title)</span>.join('|')}`)</span>; i = 0; }
         const item:SelectableDesc = node.state.items[i];
         const title:string = item? item.title : <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
         const itemCss      = item? item.css : <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>

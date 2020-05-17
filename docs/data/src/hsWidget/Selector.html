@@ -212,7 +212,7 @@
 <p id=189 class="line"><span>&nbsp;189</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;callback(title);&nbsp;&nbsp;<comment>//&nbsp;trigger&nbsp;any&nbsp;external&nbsp;actions&nbsp;from&nbsp;the&nbsp;selection</comment></p>
 <p id=190 class="line"><span>&nbsp;190</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p>
 <p id=191 class="line"><span>&nbsp;191</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};&nbsp;</p>
-<p id=192 class="line"><span>&nbsp;192</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(i<0)&nbsp;{&nbsp;log.debug(`illegal&nbsp;render&nbsp;index&nbsp;${i}&nbsp;${node.state.items.map((i:any)=>i.title).join(<quote>'|'</quote>)}`);&nbsp;i&nbsp;=&nbsp;0;&nbsp;}</p>
+<p id=192 class="line"><span>&nbsp;192</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(i<0)&nbsp;{&nbsp;log.debug(()=>`illegal&nbsp;render&nbsp;index&nbsp;${i}&nbsp;${node.state.items.map((i:any)=>i.title).join(<quote>'|'</quote>)}`);&nbsp;i&nbsp;=&nbsp;0;&nbsp;}</p>
 <p id=193 class="line"><span>&nbsp;193</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;item:SelectableDesc&nbsp;=&nbsp;node.state.items[i];</p>
 <p id=194 class="line"><span>&nbsp;194</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;title:string&nbsp;=&nbsp;item?&nbsp;item.title&nbsp;:&nbsp;<quote>''</quote>;</p>
 <p id=195 class="line"><span>&nbsp;195</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;itemCss&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;item?&nbsp;item.css&nbsp;:&nbsp;<quote>''</quote>;</p>
