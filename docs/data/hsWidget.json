@@ -76,7 +76,7 @@
 										"isExported": true
 									},
 									"comment": {
-										"shortText": "ensures that at least one item is selected. If none is selected,"
+										"shortText": "ensures that at least one item is selected. If none is selected,\n- select the `desc.defaultItem`, if defined.\n- otherwise select the first item in the list."
 									},
 									"parameters": [
 										{
@@ -110,7 +110,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 168,
+									"line": 169,
 									"character": 28
 								}
 							],
@@ -381,7 +381,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 184,
+									"line": 185,
 									"character": 24
 								}
 							],
@@ -3479,7 +3479,7 @@
 										"isExported": true
 									},
 									"comment": {
-										"shortText": "ensures that at least one item is selected. If none is selected,"
+										"shortText": "ensures that at least one item is selected. If none is selected,\n- select the `desc.defaultItem`, if defined.\n- otherwise select the first item in the list."
 									},
 									"parameters": [
 										{
@@ -3513,7 +3513,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 168,
+									"line": 169,
 									"character": 28
 								}
 							],
@@ -3784,7 +3784,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 184,
+									"line": 185,
 									"character": 24
 								}
 							],
@@ -4544,7 +4544,7 @@
 										"isExported": true
 									},
 									"comment": {
-										"shortText": "ensures that at least one item is selected. If none is selected,"
+										"shortText": "ensures that at least one item is selected. If none is selected,\n- select the `desc.defaultItem`, if defined.\n- otherwise select the first item in the list."
 									},
 									"parameters": [
 										{
@@ -4578,7 +4578,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 168,
+									"line": 169,
 									"character": 28
 								}
 							],
@@ -4849,7 +4849,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 184,
+									"line": 185,
 									"character": 24
 								}
 							],
@@ -5699,7 +5699,7 @@
 										"isExported": true
 									},
 									"comment": {
-										"shortText": "ensures that at least one item is selected. If none is selected,"
+										"shortText": "ensures that at least one item is selected. If none is selected,\n- select the `desc.defaultItem`, if defined.\n- otherwise select the first item in the list."
 									},
 									"parameters": [
 										{
@@ -5733,7 +5733,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 168,
+									"line": 169,
 									"character": 28
 								}
 							],
@@ -6004,7 +6004,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 184,
+									"line": 185,
 									"character": 24
 								}
 							],
@@ -6294,7 +6294,7 @@
 										"isExported": true
 									},
 									"comment": {
-										"shortText": "ensures that at least one item is selected. If none is selected,"
+										"shortText": "ensures that at least one item is selected. If none is selected,\n- select the `desc.defaultItem`, if defined.\n- otherwise select the first item in the list."
 									},
 									"parameters": [
 										{
@@ -6323,7 +6323,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 168,
+									"line": 169,
 									"character": 28
 								}
 							]
@@ -6554,7 +6554,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 184,
+									"line": 185,
 									"character": 24
 								}
 							]
@@ -6653,7 +6653,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 207,
+									"line": 209,
 									"character": 17
 								}
 							]
@@ -7896,7 +7896,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-							"line": 216,
+							"line": 218,
 							"character": 32
 						}
 					]
@@ -8726,7 +8726,7 @@
 										"isExported": true
 									},
 									"comment": {
-										"shortText": "ensures that at least one item is selected. If none is selected,"
+										"shortText": "ensures that at least one item is selected. If none is selected,\n- select the `desc.defaultItem`, if defined.\n- otherwise select the first item in the list."
 									},
 									"parameters": [
 										{
@@ -8760,7 +8760,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 168,
+									"line": 169,
 									"character": 28
 								}
 							],
@@ -9031,7 +9031,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 184,
+									"line": 185,
 									"character": 24
 								}
 							],

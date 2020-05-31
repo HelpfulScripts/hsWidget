@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">89.86% </span>
+                <span class="strong">91.43% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>62/69</span>
+                <span class='fraction'>64/70</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">76.92% </span>
+                <span class="strong">80.77% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>40/52</span>
+                <span class='fraction'>42/52</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90.74% </span>
+                <span class="strong">92.73% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>49/54</span>
+                <span class='fraction'>51/55</span>
             </div>
         
             
@@ -281,7 +281,9 @@
 <a name='L222'></a><a href='#L222'>222</a>
 <a name='L223'></a><a href='#L223'>223</a>
 <a name='L224'></a><a href='#L224'>224</a>
-<a name='L225'></a><a href='#L225'>225</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L225'></a><a href='#L225'>225</a>
+<a name='L226'></a><a href='#L226'>226</a>
+<a name='L227'></a><a href='#L227'>227</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -449,11 +451,12 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">31x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">124x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -472,6 +475,7 @@
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">54x</span>
 <span class="cline-any cline-yes">54x</span>
 <span class="cline-any cline-yes">54x</span>
 <span class="cline-any cline-yes">54x</span>
@@ -669,13 +673,14 @@ export abstract class Selector {
 &nbsp;
     /**
      * ensures that at least one item is selected. If none is selected,
-     * 
+     * - select the `desc.defaultItem`, if defined.
+     * - otherwise select the first item in the list.
      * @param node 
      */
     protected ensureSelected(node: Vnode) {
-        if(node.state.items &amp;&amp; !node.state.items.some((i:SelectableDesc) =&gt; i.isSelected) &amp;&amp;node.state.items.length&gt;0) { 
-            <span class="missing-if-branch" title="if path not taken" >I</span>if (node.attrs.desc.defaultItem &amp;&amp;<span class="branch-1 cbranch-no" title="branch not covered" >node.state.items[node.attrs.desc.defaultItem])</span> { 
-<span class="cstat-no" title="statement not covered" >               node.state.items[node.attrs.desc.defaultItem].isSelected = true; </span>
+        if(node.state.items &amp;&amp; !node.state.items.some((i:SelectableDesc) =&gt; i.isSelected) &amp;&amp; node.state.items.length&gt;0) { 
+            if (node.attrs.desc.defaultItem &amp;&amp; node.state.items[node.attrs.desc.defaultItem]) { 
+               node.state.items[node.attrs.desc.defaultItem].isSelected = true; 
             } else <span class="missing-if-branch" title="else path not taken" >E</span>if (node.state.items[0]) { 
                node.state.items[0].isSelected = true; 
             } 
@@ -700,6 +705,7 @@ export abstract class Selector {
         const item:SelectableDesc = node.state.items[i];
         const title:string = item? item.title : <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
         const itemCss      = item? item.css : <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
+        this.ensureSelected(node);
 &nbsp;
         // Selector.checkSelectedItem(node, desc);
         return renderSelectable({ 

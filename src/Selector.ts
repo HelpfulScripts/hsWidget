@@ -162,12 +162,13 @@ export abstract class Selector {
 
     /**
      * ensures that at least one item is selected. If none is selected,
-     * 
+     * - select the `desc.defaultItem`, if defined.
+     * - otherwise select the first item in the list.
      * @param node 
      */
     protected ensureSelected(node: Vnode) {
-        if(node.state.items && !node.state.items.some((i:SelectableDesc) => i.isSelected) &&node.state.items.length>0) { 
-            if (node.attrs.desc.defaultItem &&node.state.items[node.attrs.desc.defaultItem]) { 
+        if(node.state.items && !node.state.items.some((i:SelectableDesc) => i.isSelected) && node.state.items.length>0) { 
+            if (node.attrs.desc.defaultItem && node.state.items[node.attrs.desc.defaultItem]) { 
                node.state.items[node.attrs.desc.defaultItem].isSelected = true; 
             } else if (node.state.items[0]) { 
                node.state.items[0].isSelected = true; 
@@ -193,6 +194,7 @@ export abstract class Selector {
         const item:SelectableDesc = node.state.items[i];
         const title:string = item? item.title : '';
         const itemCss      = item? item.css : '';
+        this.ensureSelected(node);
 
         // Selector.checkSelectedItem(node, desc);
         return renderSelectable({ 

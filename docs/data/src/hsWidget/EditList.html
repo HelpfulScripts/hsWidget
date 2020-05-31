@@ -211,10 +211,12 @@
 <p id=188 class="line"><span>&nbsp;188</span>}</p>
 <p id=189 class="line"><span>&nbsp;189</span></p>
 <p id=190 class="line"><span>&nbsp;190</span>function&nbsp;expand(rows:any[],&nbsp;def:any,&nbsp;isEmpty:IsTest)&nbsp;{</p>
-<p id=191 class="line"><span>&nbsp;191</span>&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;lastRowIndex&nbsp;=&nbsp;rows.length&nbsp;-&nbsp;1;</p>
-<p id=192 class="line"><span>&nbsp;192</span>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(lastRowIndex<0&nbsp;||&nbsp;!isEmpty(rows[lastRowIndex]))&nbsp;{</p>
-<p id=193 class="line"><span>&nbsp;193</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rows.push(def);</p>
-<p id=194 class="line"><span>&nbsp;194</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
-<p id=195 class="line"><span>&nbsp;195</span>}</p></code></div>
+<p id=191 class="line"><span>&nbsp;191</span>&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(rows)&nbsp;{</p>
+<p id=192 class="line"><span>&nbsp;192</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;lastRowIndex&nbsp;=&nbsp;rows.length&nbsp;-&nbsp;1;</p>
+<p id=193 class="line"><span>&nbsp;193</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(lastRowIndex<0&nbsp;||&nbsp;!rows[lastRowIndex]&nbsp;||&nbsp;!isEmpty(rows[lastRowIndex]))&nbsp;{</p>
+<p id=194 class="line"><span>&nbsp;194</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;rows.push(def);</p>
+<p id=195 class="line"><span>&nbsp;195</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=196 class="line"><span>&nbsp;196</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=197 class="line"><span>&nbsp;197</span>}</p></code></div>
                 </body>
             

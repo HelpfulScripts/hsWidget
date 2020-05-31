@@ -188,8 +188,10 @@ export class EditList {
 }
 
 function expand(rows:any[], def:any, isEmpty:IsTest) {
-    const lastRowIndex = rows.length - 1;
-    if (lastRowIndex<0 || !isEmpty(rows[lastRowIndex])) {
-        rows.push(def);
+    if (rows) {
+        const lastRowIndex = rows.length - 1;
+        if (lastRowIndex<0 || !rows[lastRowIndex] || !isEmpty(rows[lastRowIndex])) {
+            rows.push(def);
+        }
     }
 }
