@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36.36% </span>
+                <span class="strong">38.24% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/33</span>
+                <span class='fraction'>13/34</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">36.67% </span>
+                <span class="strong">38.71% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/30</span>
+                <span class='fraction'>12/31</span>
             </div>
         
             
@@ -153,7 +153,8 @@
 <a name='L94'></a><a href='#L94'>94</a>
 <a name='L95'></a><a href='#L95'>95</a>
 <a name='L96'></a><a href='#L96'>96</a>
-<a name='L97'></a><a href='#L97'>97</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -220,6 +221,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -318,10 +320,11 @@ export class EditLabel {
     view(node:Vnode) {
         this.updateCB = node.attrs.update;
         const css = node.attrs.css || '';
+        const content = ''+node.attrs.content;
         return this.editable? <span class="branch-0 cbranch-no" title="branch not covered" >m(`input.hsedit_label${css}`, { onblur:this.blur.bind(this), onkeyup:this.keyup.bind(this) }, 'yeah')</span>
-            : ( node.attrs.content &amp;&amp;  <span class="branch-1 cbranch-no" title="branch not covered" >node.attrs.content.length)</span>? 
-<span class="branch-0 cbranch-no" title="branch not covered" >            m(`span.hsedit_label${css}`, Popup.arm(node.attrs.popup, { onclick:<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >this.click() </span>}), m.trust( node.attrs.content))</span>
-            : m(`span.hsedit_label.default${css}`, Popup.arm(node.attrs.popup, { onclick:<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >this.click() </span>}), node.attrs.placeholder || <span class="branch-1 cbranch-no" title="branch not covered" >'click to enter')</span>;
+            : ( content &amp;&amp;  <span class="branch-1 cbranch-no" title="branch not covered" >content.length)</span>? 
+<span class="branch-0 cbranch-no" title="branch not covered" >            m(`span.hsedit_label${css}`, Popup.arm(node.attrs.popup, { onclick:<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >this.click() </span>}), m.trust( content))</span>
+            : m(`span.hsedit_label.default${css}`, Popup.arm(node.attrs.popup, { onclick:<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >this.click() </span>}), ''+node.attrs.placeholder || <span class="branch-1 cbranch-no" title="branch not covered" >'click to enter')</span>;
     }
 }
 &nbsp;

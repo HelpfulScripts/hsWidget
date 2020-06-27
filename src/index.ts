@@ -5,24 +5,25 @@
 /**
  * 
  */
-export { Menu }         from './Menu'; 
-export { MenuPanel }    from './Menu'; 
-export { SelectorDesc } from './Selector'; 
-export { Button }       from './Button'; 
-export { Label }        from './Label'; 
-export { Slider }       from './Slider'; 
-export { RadioButton }  from './RadioButton'; 
-export { OptionsButton }from './OptionsButton'; 
-export { ToggleButton } from './ToggleButton'; 
-export { ToolbarButton} from './ToolbarButton'; 
-export { ButtonSymbols} from './ToolbarButton';          
-export { Collapsible }  from './Collapsible'; 
-export { Modal }        from './Modal'; 
-export { Popup }        from './Popup'; 
-export { TypeAhead }    from './TypeAhead'; 
-export { EditLabel }    from './EditLabel'; 
-export { EditDate }     from './EditLabel'; 
-export { EditList }     from './EditList'; 
-export { EditSelect }   from './EditSelect'; 
-export { EditCheckbox } from './EditCheckbox'; 
-export { EditTextarea } from './EditTextarea'; 
+export * from './Menu'; 
+export * from './Menu'; 
+export * from './Selector'; 
+export * from './Button'; 
+export * from './Label'; 
+export * from './Icon'; 
+export * from './Slider'; 
+export * from './RadioButton'; 
+export * from './OptionsButton'; 
+export * from './ToggleButton'; 
+export * from './ToolbarButton'; 
+export * from './ToolbarButton';          
+export * from './Collapsible'; 
+export * from './Modal'; 
+export * from './Popup'; 
+export * from './TypeAhead'; 
+export * from './EditLabel'; 
+export * from './EditLabel'; 
+export * from './EditList'; 
+export * from './EditSelect'; 
+export * from './EditCheckbox'; 
+export * from './EditTextarea'; 

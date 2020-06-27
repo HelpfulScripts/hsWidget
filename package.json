@@ -1,5 +1,6 @@
 {
   "name": "hswidget",
+  "sideEffects": false,
   "main": "./index.js",
   "types": "./index.d.ts",
   "version": "2.4.10",
@@ -59,7 +60,7 @@
   "dependencies": {
     "mithril": "^2.0.4",
     "hslayout": "2.4.x",
-    "hsutil": "3.4.x",
+    "hsutil": "3.5.x",
     "showdown": "^1.9.1"
   }
 }

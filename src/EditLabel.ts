@@ -67,10 +67,11 @@ export class EditLabel {
     view(node:Vnode) {
         this.updateCB = node.attrs.update;
         const css = node.attrs.css || '';
+        const content = ''+node.attrs.content;
         return this.editable? m(`input.hsedit_label${css}`, { onblur:this.blur.bind(this), onkeyup:this.keyup.bind(this) }, 'yeah')
-            : ( node.attrs.content &&  node.attrs.content.length)? 
-            m(`span.hsedit_label${css}`, Popup.arm(node.attrs.popup, { onclick:()=>this.click() }), m.trust( node.attrs.content))
-            : m(`span.hsedit_label.default${css}`, Popup.arm(node.attrs.popup, { onclick:()=>this.click() }), node.attrs.placeholder || 'click to enter');
+            : ( content &&  content.length)? 
+            m(`span.hsedit_label${css}`, Popup.arm(node.attrs.popup, { onclick:()=>this.click() }), m.trust( content))
+            : m(`span.hsedit_label.default${css}`, Popup.arm(node.attrs.popup, { onclick:()=>this.click() }), ''+node.attrs.placeholder || 'click to enter');
     }
 }
 

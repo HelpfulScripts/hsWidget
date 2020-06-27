@@ -96,24 +96,21 @@ export class EditTextarea {
 
     public view(node:Vnode) {
         const area = this;
-        this.updateCB = node.attrs.update;
-        const css = node.attrs.css || '';
-        const attrs = () => node.attrs.popup? Popup.arm(node.attrs.popup, {
-            onclick: area.click.bind(area),
-            onupdate: (node:Vnode) => area.adjustTextAreaHeight.bind(area)(node.dom)
-        }) : {
+        const onEvent = {
             onclick: area.click.bind(area),
             onupdate: (node:Vnode) => area.adjustTextAreaHeight.bind(area)(node.dom)
         };
-        // const content = m.trust(node.attrs.content.replace(/\n/g,'<p>'));
-        const content = m.trust(converter.makeHtml(node.attrs.content));
+        this.updateCB = node.attrs.update;
+        const css = node.attrs.css || '';
+        const attrs = () => node.attrs.popup? Popup.arm(node.attrs.popup, onEvent) : onEvent;
         return this.editable? 
             m(`textarea.hsedit_textarea${css}`, { 
                 wrap: 'physical',
                 onblur: this.blur.bind(this),
             }, m.trust(node.attrs.content.replace(/\n/g,'<p>')))
-      : (node.attrs.content && node.attrs.content.length)? 
-            m(`.hsedit_textarea${css}`, attrs(), m.trust(converter.makeHtml(node.attrs.content)))
-          : m(`.hsedit_textarea.default${css}`, attrs(), node.attrs.placeholder || 'click to enter');
+            : (node.attrs.content && node.attrs.content.length)? 
+                    m(`.hsedit_textarea${css}`, attrs(), m.trust(converter.makeHtml(node.attrs.content)))
+                : m(`.hsedit_textarea.default${css}`, attrs(), node.attrs.placeholder || 'click to enter');
     }
 }
+
