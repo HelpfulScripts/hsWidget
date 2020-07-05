@@ -20,7 +20,8 @@
 
  /** */
 import { Log }      from 'hsutil'; const log = new Log('Selector');
-import { m, Vnode } from 'hslayout';
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
 
 /** passed into Menu from the calling application */
 export interface SelectorDesc {

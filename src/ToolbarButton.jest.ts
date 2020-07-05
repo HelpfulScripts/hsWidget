@@ -1,5 +1,5 @@
 import * as widgets from './';
-import { m } from "hslayout";
+import m from "mithril";
 
 const root = window.document.createElement("div");
 

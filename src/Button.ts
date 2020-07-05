@@ -29,7 +29,8 @@
  */
 
 /** */
-import { Vnode }     from 'hslayout';
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
 import { ToggleButton } from './ToggleButton';
 
 /**

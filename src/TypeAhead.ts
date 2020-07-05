@@ -44,7 +44,8 @@
 
  /** */
 import { Log } from 'hsutil';  const log = new Log('TypeAhead');
-import { m, Vnode } from 'hslayout';
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
 
 // emphasize literal matches as *bold* in the drop down list
 function emphasize(item:string, match:string) {

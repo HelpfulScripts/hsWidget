@@ -323,8 +323,8 @@
 &nbsp;
  /** */
 import { Log }      from 'hsutil'; const log = new Log('Popup');
-import { m, Vnode}  from 'hslayout'; 
-// import { stringify } from 'querystring';
+import m from "mithril";
+type Vnode = m.Vnode&lt;any, any&gt;;
 &nbsp;
 /**
  * a `Mithril` node that shows a popup when triggered.
@@ -336,7 +336,7 @@ export class Popup {
      * @param attrs optional; an `attrs` object that is extended by mouse listeners.
      * @return the extended `attrs` object
      */
-    public static arm(content:Vnode, attrs:any={}):any {
+    public static arm(content:Vnode|string, attrs:any={}):any {
         if (content) {
             attrs.onmouseenter = <span class="fstat-no" title="function not covered" >(e</span>:any) =&gt; <span class="cstat-no" title="statement not covered" >Popup.instance.show(e, content);</span>
             attrs.onmousemove = <span class="fstat-no" title="function not covered" >(e</span>:any) =&gt; <span class="cstat-no" title="statement not covered" >Popup.instance.move(e);</span>
@@ -355,9 +355,9 @@ export class Popup {
     /** state variable, true if popup is visible. */
     showPopup = false;
     /** state variable containing the content to show. */
-    content:Vnode = '...Popup...';
+    content:Vnode|string = '...Popup...';
 &nbsp;
-    private <span class="fstat-no" title="function not covered" >show(</span>e:any, content:Vnode) {
+    private <span class="fstat-no" title="function not covered" >show(</span>e:any, content:Vnode|string) {
 <span class="cstat-no" title="statement not covered" >        this.showPopup = true;</span>
 <span class="cstat-no" title="statement not covered" >        this.content = content;</span>
 <span class="cstat-no" title="statement not covered" >        this.move(e);</span>

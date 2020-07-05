@@ -1,5 +1,5 @@
 import { Menu, MenuPanel } from './Menu';
-import { m }    from 'hslayout';
+import m from "mithril";
 
 const left  = ['0%', '25%', '50%', '75%'];
 const right = ['75%', '50%', '25%', '0%'];

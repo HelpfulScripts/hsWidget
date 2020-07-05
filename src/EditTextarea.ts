@@ -36,7 +36,8 @@
 
 /** */
 import { Log }      from 'hsutil';  const log = new Log('EditTextarea');
-import { m, Vnode } from 'hslayout';
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
 import showdown     from 'showdown';
 import { Popup } from './Popup';
 
@@ -85,12 +86,12 @@ export class EditTextarea {
     public onupdate(node:Vnode) {
         if (this.editable) {
             if (!this.hasFocus) {
-                node.dom.value = node.attrs.content || this.default;
-                node.dom.focus();
-                node.dom.select();
+                (<any>node).dom.value = node.attrs.content || this.default;
+                (<any>node).dom.focus();
+                (<any>node).dom.select();
                 this.hasFocus = true;
             }
-            this.adjustTextAreaHeight(node.dom);
+            this.adjustTextAreaHeight((<any>node).dom);
         }
     }
 
@@ -98,7 +99,7 @@ export class EditTextarea {
         const area = this;
         const onEvent = {
             onclick: area.click.bind(area),
-            onupdate: (node:Vnode) => area.adjustTextAreaHeight.bind(area)(node.dom)
+            onupdate: (node:Vnode) => area.adjustTextAreaHeight.bind(area)((<any>node).dom)
         };
         this.updateCB = node.attrs.update;
         const css = node.attrs.css || '';

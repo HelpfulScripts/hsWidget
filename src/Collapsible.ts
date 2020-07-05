@@ -46,9 +46,10 @@
  * </example>
  */
 
- /** */
-import { m, Vnode } from 'hslayout';
-
+/** */
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
+ 
 export class Collapsible {
     oninit(node:Vnode) {
         node.state.intial = true;

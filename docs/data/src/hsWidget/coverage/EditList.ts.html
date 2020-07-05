@@ -253,7 +253,8 @@
 <a name='L194'></a><a href='#L194'>194</a>
 <a name='L195'></a><a href='#L195'>195</a>
 <a name='L196'></a><a href='#L196'>196</a>
-<a name='L197'></a><a href='#L197'>197</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L197'></a><a href='#L197'>197</a>
+<a name='L198'></a><a href='#L198'>198</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -341,6 +342,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
@@ -536,7 +538,8 @@
  */
 &nbsp;
 /** */
-import { m, Vnode }     from 'hslayout';
+import m from "mithril";
+type Vnode = m.Vnode&lt;any, any&gt;;
 import { Log }          from 'hsutil';  const log = new Log('EditList');
 import { Layout }       from 'hslayout';
 import { EditLabel }    from './EditLabel';
@@ -544,7 +547,7 @@ import { Collapsible }  from './Collapsible';
 &nbsp;
 interface IsTest { (val:Row): boolean; }
 &nbsp;
-interface RowRender { (row:Row, rowNum:number): Vnode; }
+interface RowRender { (row:Row, rowNum:number): Vnode|Vnode[]; }
 &nbsp;
 /** semantic type alias for the `row` data structure. */
 type Row = any;
@@ -561,7 +564,7 @@ const defIsEmpty:IsTest = <span class="fstat-no" title="function not covered" >(
  * - otherwise treat `row` as a primitive and turn it into an EditLabel.  
  */
 const defaultRender = (rows:Row[]):RowRender =&gt;  {
-    return (row:Row, rowNum:number):Vnode =&gt; {
+    return (row:Row, rowNum:number):Vnode|Vnode[] =&gt; {
         <span class="missing-if-branch" title="if path not taken" >I</span>if (row.map) {
 <span class="cstat-no" title="statement not covered" >            return row.map(<span class="fstat-no" title="function not covered" >(e</span>:string, i:number) =&gt; <span class="cstat-no" title="statement not covered" >m(EditLabel, {</span></span>
                 content: e,
@@ -585,7 +588,7 @@ const defaultRender = (rows:Row[]):RowRender =&gt;  {
 };
 &nbsp;
 function <span class="fstat-no" title="function not covered" >adjustListRowHeight(</span>dom:any, indent=<span class="branch-0 cbranch-no" title="branch not covered" >'')</span> { 
-    const height = <span class="cstat-no" title="statement not covered" >Math.max(...Array.from(dom.childNodes).map(<span class="fstat-no" title="function not covered" >(n</span>:Vnode) =&gt; </span>
+    const height = <span class="cstat-no" title="statement not covered" >Math.max(...Array.from(dom.childNodes).map(<span class="fstat-no" title="function not covered" >(n</span>:Element) =&gt; </span>
 <span class="cstat-no" title="statement not covered" >        parseInt(window.getComputedStyle(n).height)</span>
     ));
 <span class="cstat-no" title="statement not covered" >    if (dom &amp;&amp; !dom.classList.contains('hsedit_list_content')) {</span>
@@ -610,11 +613,11 @@ export class EditList {
         expandRows(rows, def, isEmpty);
         const content = [
             m('.hsedit_list_content', {
-<span class="fstat-no" title="function not covered" >                onupdate(</span>node:Vnode) { <span class="cstat-no" title="statement not covered" >adjustListRowHeight(node.dom); </span>},
+<span class="fstat-no" title="function not covered" >                onupdate(</span>node:Vnode) { <span class="cstat-no" title="statement not covered" >adjustListRowHeight((&lt;any&gt;node).dom); </span>},
             },
                 rows.sort(sort).map((row:any, i:number) =&gt; m(Layout, {
                     css: '.hsedit_list_row',
-<span class="fstat-no" title="function not covered" >                    onupdate(</span>node:Vnode) { <span class="cstat-no" title="statement not covered" >adjustListRowHeight(node.dom); </span>},
+<span class="fstat-no" title="function not covered" >                    onupdate(</span>node:Vnode) { <span class="cstat-no" title="statement not covered" >adjustListRowHeight((&lt;any&gt;node).dom); </span>},
                     columns: node.attrs.columnLayout || [],
                     content: render(row, i)
                 }))

@@ -36,7 +36,8 @@
  */
 
 /** */
-import { m, Vnode } from 'hslayout';
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
 import { Log }      from 'hsutil';import { Popup } from './Popup';
   const log = new Log('EditSelect');
 

@@ -73,8 +73,9 @@
  */
 
  /** */
-import { m, Vnode}  from 'hslayout'; 
-
+ import m from "mithril";
+ type Vnode = m.Vnode<any, any>;
+ 
 export const ButtonSymbols = {
     cross:      { sym: '&times;' },
     minus:      { sym: '&minus;'},

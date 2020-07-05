@@ -85,7 +85,8 @@
  */
 
 /** */
-import { m, Vnode }     from 'hslayout';
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
 import { Log }          from 'hsutil';  const log = new Log('EditList');
 import { Layout }       from 'hslayout';
 import { EditLabel }    from './EditLabel';
@@ -93,7 +94,7 @@ import { Collapsible }  from './Collapsible';
 
 interface IsTest { (val:Row): boolean; }
 
-interface RowRender { (row:Row, rowNum:number): Vnode; }
+interface RowRender { (row:Row, rowNum:number): Vnode|Vnode[]; }
 
 /** semantic type alias for the `row` data structure. */
 type Row = any;
@@ -110,7 +111,7 @@ const defIsEmpty:IsTest = (row:Row) => (row && row.length)? false : true;
  * - otherwise treat `row` as a primitive and turn it into an EditLabel.  
  */
 const defaultRender = (rows:Row[]):RowRender =>  {
-    return (row:Row, rowNum:number):Vnode => {
+    return (row:Row, rowNum:number):Vnode|Vnode[] => {
         if (row.map) {
             return row.map((e:string, i:number) => m(EditLabel, {
                 content: e,
@@ -134,7 +135,7 @@ const defaultRender = (rows:Row[]):RowRender =>  {
 };
 
 function adjustListRowHeight(dom:any, indent='') { 
-    const height = Math.max(...Array.from(dom.childNodes).map((n:Vnode) => 
+    const height = Math.max(...Array.from(dom.childNodes).map((n:Element) => 
         parseInt(window.getComputedStyle(n).height)
     ));
     if (dom && !dom.classList.contains('hsedit_list_content')) {
@@ -159,11 +160,11 @@ export class EditList {
         expandRows(rows, def, isEmpty);
         const content = [
             m('.hsedit_list_content', {
-                onupdate(node:Vnode) { adjustListRowHeight(node.dom); },
+                onupdate(node:Vnode) { adjustListRowHeight((<any>node).dom); },
             },
                 rows.sort(sort).map((row:any, i:number) => m(Layout, {
                     css: '.hsedit_list_row',
-                    onupdate(node:Vnode) { adjustListRowHeight(node.dom); },
+                    onupdate(node:Vnode) { adjustListRowHeight((<any>node).dom); },
                     columns: node.attrs.columnLayout || [],
                     content: render(row, i)
                 }))

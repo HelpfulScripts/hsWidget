@@ -1,6 +1,6 @@
 // import * as hswidget from './';
 import { Label }    from './Label';
-import { m }        from 'hslayout';
+import m from "mithril";
 
 const root = window.document.createElement("div");
 

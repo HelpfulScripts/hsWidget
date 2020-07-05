@@ -1,4 +1,4 @@
-import { m, Vnode }     from 'hslayout';
+import m from "mithril";
 import { EditLabel }    from './EditLabel';
 import { Log }          from 'hsnode';  const log = new Log('EditLabel.jest');
 import $                from 'jquery';

@@ -92,8 +92,9 @@
  */
 
  /** */
-import { m, Vnode }     from 'hslayout';
-import { Layout }       from 'hslayout';
+ import m from "mithril";
+ type Vnode = m.Vnode<any, any>;
+ import { Layout }       from 'hslayout';
 import { RadioButton }  from './RadioButton';
 
 

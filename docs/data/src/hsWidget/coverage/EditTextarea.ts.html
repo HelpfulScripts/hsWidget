@@ -173,7 +173,8 @@
 <a name='L114'></a><a href='#L114'>114</a>
 <a name='L115'></a><a href='#L115'>115</a>
 <a name='L116'></a><a href='#L116'>116</a>
-<a name='L117'></a><a href='#L117'>117</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,6 +213,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -327,7 +329,8 @@
 &nbsp;
 /** */
 import { Log }      from 'hsutil';  const log = new Log('EditTextarea');
-import { m, Vnode } from 'hslayout';
+import m from "mithril";
+type Vnode = m.Vnode&lt;any, any&gt;;
 import showdown     from 'showdown';
 import { Popup } from './Popup';
 &nbsp;
@@ -376,12 +379,12 @@ export class EditTextarea {
     public <span class="fstat-no" title="function not covered" >onupdate(</span>node:Vnode) {
 <span class="cstat-no" title="statement not covered" >        if (this.editable) {</span>
 <span class="cstat-no" title="statement not covered" >            if (!this.hasFocus) {</span>
-<span class="cstat-no" title="statement not covered" >                node.dom.value = node.attrs.content || this.default;</span>
-<span class="cstat-no" title="statement not covered" >                node.dom.focus();</span>
-<span class="cstat-no" title="statement not covered" >                node.dom.select();</span>
+                (&lt;any&gt;<span class="cstat-no" title="statement not covered" >node).dom.value = node.attrs.content || this.default;</span>
+                (&lt;any&gt;<span class="cstat-no" title="statement not covered" >node).dom.focus();</span>
+                (&lt;any&gt;<span class="cstat-no" title="statement not covered" >node).dom.select();</span>
 <span class="cstat-no" title="statement not covered" >                this.hasFocus = true;</span>
             }
-<span class="cstat-no" title="statement not covered" >            this.adjustTextAreaHeight(node.dom);</span>
+<span class="cstat-no" title="statement not covered" >            this.adjustTextAreaHeight((&lt;any&gt;node).dom);</span>
         }
     }
 &nbsp;
@@ -389,7 +392,7 @@ export class EditTextarea {
         const area = this;
         const onEvent = {
             onclick: area.click.bind(area),
-            onupdate: <span class="fstat-no" title="function not covered" >(n</span>ode:Vnode) =&gt; <span class="cstat-no" title="statement not covered" >area.adjustTextAreaHeight.bind(area)(node.dom)</span>
+            onupdate: <span class="fstat-no" title="function not covered" >(n</span>ode:Vnode) =&gt; <span class="cstat-no" title="statement not covered" >area.adjustTextAreaHeight.bind(area)((&lt;any&gt;node).dom)</span>
         };
         this.updateCB = node.attrs.update;
         const css = node.attrs.css || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>

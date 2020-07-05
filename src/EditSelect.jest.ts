@@ -1,4 +1,4 @@
-import { m }      from 'hslayout';
+import m from "mithril";
 import { EditSelect }    from './EditSelect';
 const root = window.document.createElement("div");
 

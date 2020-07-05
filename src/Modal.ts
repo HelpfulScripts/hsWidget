@@ -34,8 +34,9 @@
  */
 
  /** */
-import { m, Vnode}  from 'hslayout'; 
-import { ToolbarButton } from './ToolbarButton';
+ import m from "mithril";
+ type Vnode = m.Vnode<any, any>;
+ import { ToolbarButton } from './ToolbarButton';
 
 export class Modal {    
     oninit(node:Vnode) {

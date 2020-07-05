@@ -37,7 +37,8 @@
 
 /** */
 import { Log }      from 'hsutil';  const log = new Log('EditLabel');
-import { m, Vnode } from 'hslayout';
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
 import { Popup } from './Popup';
 
 
@@ -57,10 +58,10 @@ export class EditLabel {
     update(newValue:string) { this.updateCB(newValue); }
 
     onupdate(node:Vnode) {
-        if (this.editable && document.activeElement!==node.dom) {
-            node.dom.value = node.attrs.content || '';
-            node.dom.focus();
-            node.dom.select();
+        if (this.editable && document.activeElement!==(<any>node).dom) {
+            (<any>node).dom.value = node.attrs.content || '';
+            (<any>node).dom.focus();
+            (<any>node).dom.select();
         }
     }
 

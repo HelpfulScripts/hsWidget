@@ -40,8 +40,8 @@
 
  /** */
 import { Log }      from 'hsutil'; const log = new Log('Popup');
-import { m, Vnode}  from 'hslayout'; 
-// import { stringify } from 'querystring';
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
 
 /**
  * a `Mithril` node that shows a popup when triggered.
@@ -53,7 +53,7 @@ export class Popup {
      * @param attrs optional; an `attrs` object that is extended by mouse listeners.
      * @return the extended `attrs` object
      */
-    public static arm(content:Vnode, attrs:any={}):any {
+    public static arm(content:Vnode|string, attrs:any={}):any {
         if (content) {
             attrs.onmouseenter = (e:any) => Popup.instance.show(e, content);
             attrs.onmousemove = (e:any) => Popup.instance.move(e);
@@ -72,9 +72,9 @@ export class Popup {
     /** state variable, true if popup is visible. */
     showPopup = false;
     /** state variable containing the content to show. */
-    content:Vnode = '...Popup...';
+    content:Vnode|string = '...Popup...';
 
-    private show(e:any, content:Vnode) {
+    private show(e:any, content:Vnode|string) {
         this.showPopup = true;
         this.content = content;
         this.move(e);

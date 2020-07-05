@@ -154,7 +154,8 @@
 <a name='L95'></a><a href='#L95'>95</a>
 <a name='L96'></a><a href='#L96'>96</a>
 <a name='L97'></a><a href='#L97'>97</a>
-<a name='L98'></a><a href='#L98'>98</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -194,6 +195,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">10x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -290,7 +292,8 @@
 &nbsp;
 /** */
 import { Log }      from 'hsutil';  const log = new Log('EditLabel');
-import { m, Vnode } from 'hslayout';
+import m from "mithril";
+type Vnode = m.Vnode&lt;any, any&gt;;
 import { Popup } from './Popup';
 &nbsp;
 &nbsp;
@@ -310,10 +313,10 @@ export class EditLabel {
 <span class="fstat-no" title="function not covered" >    update(</span>newValue:string) { <span class="cstat-no" title="statement not covered" >this.updateCB(newValue); </span>}
 &nbsp;
 <span class="fstat-no" title="function not covered" >    onupdate(</span>node:Vnode) {
-<span class="cstat-no" title="statement not covered" >        if (this.editable &amp;&amp; document.activeElement!==node.dom) {</span>
-<span class="cstat-no" title="statement not covered" >            node.dom.value = node.attrs.content || '';</span>
-<span class="cstat-no" title="statement not covered" >            node.dom.focus();</span>
-<span class="cstat-no" title="statement not covered" >            node.dom.select();</span>
+<span class="cstat-no" title="statement not covered" >        if (this.editable &amp;&amp; document.activeElement!==(&lt;any&gt;node).dom) {</span>
+            (&lt;any&gt;<span class="cstat-no" title="statement not covered" >node).dom.value = node.attrs.content || '';</span>
+            (&lt;any&gt;<span class="cstat-no" title="statement not covered" >node).dom.focus();</span>
+            (&lt;any&gt;<span class="cstat-no" title="statement not covered" >node).dom.select();</span>
         }
     }
 &nbsp;
