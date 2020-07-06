@@ -5796,17 +5796,8 @@
 								}
 							],
 							"type": {
-								"type": "union",
-								"types": [
-									{
-										"type": "reference",
-										"name": "Vnode"
-									},
-									{
-										"type": "intrinsic",
-										"name": "string"
-									}
-								]
+								"type": "reference",
+								"name": "m.Children"
 							},
 							"defaultValue": "\"...Popup...\""
 						},
@@ -6028,17 +6019,8 @@
 												"isExported": true
 											},
 											"type": {
-												"type": "union",
-												"types": [
-													{
-														"type": "reference",
-														"name": "Vnode"
-													},
-													{
-														"type": "intrinsic",
-														"name": "string"
-													}
-												]
+												"type": "reference",
+												"name": "m.Children"
 											}
 										}
 									],
@@ -6148,17 +6130,8 @@
 												"text": "a `VNode` that specifies the content to show in the popup."
 											},
 											"type": {
-												"type": "union",
-												"types": [
-													{
-														"type": "reference",
-														"name": "Vnode"
-													},
-													{
-														"type": "intrinsic",
-														"name": "string"
-													}
-												]
+												"type": "reference",
+												"name": "m.Children"
 											}
 										},
 										{

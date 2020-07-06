@@ -53,7 +53,7 @@ export class Popup {
      * @param attrs optional; an `attrs` object that is extended by mouse listeners.
      * @return the extended `attrs` object
      */
-    public static arm(content:Vnode|string, attrs:any={}):any {
+    public static arm(content:m.Children, attrs:any={}):any {
         if (content) {
             attrs.onmouseenter = (e:any) => Popup.instance.show(e, content);
             attrs.onmousemove = (e:any) => Popup.instance.move(e);
@@ -72,9 +72,9 @@ export class Popup {
     /** state variable, true if popup is visible. */
     showPopup = false;
     /** state variable containing the content to show. */
-    content:Vnode|string = '...Popup...';
+    content:m.Children = '...Popup...';
 
-    private show(e:any, content:Vnode|string) {
+    private show(e:any, content:m.Children) {
         this.showPopup = true;
         this.content = content;
         this.move(e);
