@@ -17,7 +17,7 @@ describe('Collapsible', () => {
             // out.log('.hs-collapsible-content');
             out.should.have('.myTitle');
             out.should.have('.myCollapsible');
-            expect(out.first('.hs-collapsible-content').attrs.style).toBe('max-height:0');
+            expect(out.first('.hs-collapsible-content').attrs.style).toBe('max-height:0; transition: max-height 0.25s ease-in-out');
             out.should.contain('click me to toggle - no arrows');
         });
         it ('should not have arrows', () => {
@@ -26,7 +26,7 @@ describe('Collapsible', () => {
         });
         it ('should respond to click', () => {
             out.click('.hs-collapsible-title'); 
-            expect(out.first('.hs-collapsible-content').attrs.style).toBe('max-height:1000px');
+            expect(out.first('.hs-collapsible-content').attrs.style).toBe('max-height:1000px; transition: max-height 0.25s ease-in-out');
         });
     });
     describe('double arrows', () => {

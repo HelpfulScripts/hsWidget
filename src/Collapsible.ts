@@ -48,30 +48,53 @@
 
 /** */
 import m from "mithril";
-type Vnode = m.Vnode<any, any>;
+type Vnode = m.VnodeDOM<any, any>;
+
+const transition = 250; // ms to animate opening and closing
+
+enum Expansion {
+    closed  = 0,
+    opening = 1,
+    open    = 2,
+    closing = 3,
+}
  
 export class Collapsible {
     oninit(node:Vnode) {
-        node.state.intial = true;
-        node.state.expanded = node.attrs.isExpanded? true : false;
+        node.state.expanded = node.attrs.isExpanded? Expansion.open : Expansion.closed;
+        node.state.maxHeight = null;
         node.state.toggle = () => {
-            node.state.expanded = !node.state.expanded;
-            node.state.initial = false;
+            switch (node.state.expanded) {
+                case Expansion.open:
+                case Expansion.opening:
+                    node.state.expanded = Expansion.closing;
+                    setTimeout(()=> {   // mark as closed after transition and redraw
+                        node.state.expanded = Expansion.closed; 
+                        m.redraw();
+                    }, transition);
+                    break;
+                case Expansion.closed:
+                case Expansion.closing:
+                    node.state.expanded = Expansion.open;
+                    break;
+            }
         };
     }
+
     view(node:Vnode) {
         const css        = node.attrs.css;
         const components = node.attrs.components;
         const preArrow   = node.attrs.preArrow;
         const postArrow  = node.attrs.postArrow;
-        const maxHeight  = node.state.expanded?'1000px':'0';
+        const maxHeight  = (node.state.expanded===Expansion.closed || node.state.expanded===Expansion.closing)?'0' : `400px`;
         const title = [components[0]];
         if (preArrow) { title.unshift(m(`.hs-collapsible-pre .hs-collapsible-arrow-${node.state.expanded?'down' : 'right'}`)); }
         if (postArrow){ title.push(m(`.hs-collapsible-post .hs-collapsible-arrow-${node.state.expanded?'down' : 'left'}`)); }
         return m(`.hs-collapsible ${css}`, [
             m('.hs-collapsible-title', { onclick:node.state.toggle}, title),
-            components[1]? m(`.hs-collapsible-content`, {style:`max-height:${maxHeight}`}, components[1].map((c:any) =>m('',c)))
-                         : undefined
+            m(`.hs-collapsible-content.scrolly`, {style:`max-height:${maxHeight}; transition: max-height ${transition/1000}s ease-in-out`}, 
+            // if closed: prune the render tree by using empty content array
+            node.state.expanded===Expansion.closed? [] : components[1].map((c:any) =>m('',c)))
         ]);
     }
 }
