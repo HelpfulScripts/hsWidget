@@ -1,0 +1,37 @@
+
+.right { text-align:right; }
+.scrolly { overflow-y: scroll; }
+
+
+.pivot {
+    width: 100%;
+    border-bottom: 5px solid white;
+    // height: 100%;
+    & .mon_header {
+        height: 1.4em;
+        background-color: #66a;
+        color: white;
+    }
+    & .row {
+        width: 100%;
+        padding:0;
+        height: 1.4em;
+    }
+    & span {
+        &.name { 
+            width: 10%; 
+            white-space: nowrap;
+            padding-top: 3px;
+            padding-left: 4px;
+        }
+        display: inline-block;
+        width: 20%;
+        font-size: 80%;
+    }
+
+    .mon0   { background-color: #99b; color: white; }
+    .mon1   { background-color: #bbd; color: black; }
+    .mon2   { background-color: #ddf; color: black; }
+    .mon3   { background-color: #eee; color: black; }
+    .mon4   { background-color: #fff; color: black; }
+}

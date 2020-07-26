@@ -20,6 +20,7 @@ export * from './ToolbarButton';
 export * from './Collapsible'; 
 export * from './Modal'; 
 export * from './Popup'; 
+export * from './Pivot'; 
 export * from './TypeAhead'; 
 export * from './EditLabel'; 
 export * from './EditLabel'; 

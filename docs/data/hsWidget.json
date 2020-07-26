@@ -5877,6 +5877,2191 @@
 			]
 		},
 		{
+			"id": 576,
+			"name": "\"Pivot\"",
+			"kind": 1,
+			"kindString": "Module",
+			"flags": {
+				"isExported": true
+			},
+			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+			"comment": {
+				"shortText": "# Pivot table widget\nCreates a pivot view of a table. The view can be structured by providing several `by` headers.\nEach header can be viewed in context of the previous by expanding the collapsible rows.",
+				"text": "### Profile\ninvoked as `m(Pivot, {...attributes });`\n\n### Attributes (node.attrs):\n- `pivotName?:string`, optional, the top left name of the pivot\n- `pivotHeader?: PivotHeader`, optional, array of pivot table column headings\n- `table: {data: <string|number>[][], header:string[] }`, the source table data and header\n- `values:string`, the values table column to aggregate\n- `columns:<string|ColumnAccess>[]`, the table columns to translate into pivot columns.\n   These can be either the column header name, or a callback function `fn` of type {@link Pivot.ColumnAccess `ColumnAccess`}.\n   In the latter case, if `fn.col` is a header name, its column index will be passed into fn for convenience.\n- `by:string[]` the sequence of table headers to sort by:\n\n### Example\n<example>\n<file name='script.js'>\nconst headers = ['color', 'shape', 'Value', 'area'];\nconst table = [\n     ['blue',  'square',   17, 'NW'],\n     ['red',   'circle',   37, 'N'],\n     ['blue',  'triangle', 22, 'S'],\n     ['green', 'square',   18, 'NE'],\n     ['green', 'cone',      9, 'SE'],\n     ['blue',  'circle',   12, 'S']\n];\n\n// ColumnAccess function: calculates the sum per row\nconst sums = (rowData, valueAccess, namedColumns, col) => {\n     const colName = 'Sums';\n     namedColumns[colName] = (namedColumns[colName]||0) + rowData[col];\n     return namedColumns;\n}\nsums.col = 'Value';\n\nm.mount(root, {view: () => m('.hs-white', [\n   m(hsWidget.Pivot, {\n         pivotName: 'click to expand rows',\n         table: {data: table, header:headers},\n         values:'Value',\n         columns:['shape'],\n         by: ['color', 'area']\n   }),\n   m(hsWidget.Pivot, {\n         pivotName: 'by Area',\n         pivotHeaders: ['Sums', 'red', 'green', 'blue'],\n         table: {data: table, header:headers},\n         values:'Value',\n         columns:[sums, 'color'], // use `ColumnAccess` function and string column\n         by: ['area', 'shape']\n   }),\n])});\n</file>\n<file name='script.css'>\n.hs-execution span { width: 10%; }\n.hs-execution span.name { width: 30%; }\n</file>\n</example>\n\n"
+			},
+			"children": [
+				{
+					"id": 609,
+					"name": "Pivot",
+					"kind": 128,
+					"kindString": "Class",
+					"flags": {
+						"isExported": true
+					},
+					"children": [
+						{
+							"id": 610,
+							"name": "view",
+							"kind": 2048,
+							"kindString": "Method",
+							"flags": {
+								"isExported": true
+							},
+							"signatures": [
+								{
+									"id": 611,
+									"name": "view",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {
+										"isExported": true
+									},
+									"parameters": [
+										{
+											"id": 612,
+											"name": "node",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "reference",
+												"name": "Vnode"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "intrinsic",
+												"name": "any"
+											},
+											{
+												"type": "intrinsic",
+												"name": "any"
+											}
+										],
+										"name": "Vnode"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+									"line": 241,
+									"character": 8
+								}
+							]
+						}
+					],
+					"groups": [
+						{
+							"title": "Methods",
+							"kind": 2048,
+							"children": [
+								610
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 240,
+							"character": 18
+						}
+					]
+				},
+				{
+					"id": 587,
+					"name": "ColumnAccess",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 588,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 589,
+									"name": "rowData",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "number"
+												}
+											},
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "string"
+												}
+											}
+										]
+									}
+								},
+								{
+									"id": 590,
+									"name": "valueAccess",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 581,
+										"name": "ValueAccess"
+									}
+								},
+								{
+									"id": 591,
+									"name": "namedColumns",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 592,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"indexSignature": [
+												{
+													"id": 593,
+													"name": "__index",
+													"kind": 8192,
+													"kindString": "Index signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 594,
+															"name": "name",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "reference",
+														"id": 632,
+														"name": "Accumulator"
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+													"line": 105,
+													"character": 70
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 595,
+									"name": "col",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 596,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"indexSignature": [
+										{
+											"id": 597,
+											"name": "__index",
+											"kind": 8192,
+											"kindString": "Index signature",
+											"flags": {
+												"isExported": true
+											},
+											"parameters": [
+												{
+													"id": 598,
+													"name": "name",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"id": 632,
+												"name": "Accumulator"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+											"line": 105,
+											"character": 111
+										}
+									]
+								}
+							}
+						}
+					],
+					"children": [
+						{
+							"id": 599,
+							"name": "col",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+									"line": 106,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "intrinsic",
+										"name": "string"
+									}
+								]
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								599
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 104,
+							"character": 29
+						}
+					]
+				},
+				{
+					"id": 577,
+					"name": "PivotStruct",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 578,
+							"name": "name",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+									"line": 83,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							}
+						},
+						{
+							"id": 580,
+							"name": "tree",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+									"line": 85,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "reference",
+									"id": 577,
+									"name": "PivotStruct"
+								}
+							}
+						},
+						{
+							"id": 579,
+							"name": "values",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+									"line": 84,
+									"character": 10
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 600,
+								"name": "Values"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								578,
+								580,
+								579
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 82,
+							"character": 21
+						}
+					]
+				},
+				{
+					"id": 581,
+					"name": "ValueAccess",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"signatures": [
+						{
+							"id": 582,
+							"name": "__call",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {
+								"isExported": true
+							},
+							"parameters": [
+								{
+									"id": 583,
+									"name": "acc",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "reference",
+										"id": 632,
+										"name": "Accumulator"
+									}
+								},
+								{
+									"id": 584,
+									"name": "rowdata",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "number"
+												}
+											},
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "string"
+												}
+											}
+										]
+									}
+								},
+								{
+									"id": 585,
+									"name": "col",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {
+										"isExported": true
+									},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 632,
+								"name": "Accumulator"
+							}
+						}
+					],
+					"children": [
+						{
+							"id": 586,
+							"name": "col",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true,
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+									"line": 101,
+									"character": 7
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								586
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 99,
+							"character": 28
+						}
+					]
+				},
+				{
+					"id": 600,
+					"name": "Values",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {},
+					"children": [
+						{
+							"id": 601,
+							"name": "cols",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+									"line": 114,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 602,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"indexSignature": [
+										{
+											"id": 603,
+											"name": "__index",
+											"kind": 8192,
+											"kindString": "Index signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 604,
+													"name": "colVal",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"id": 632,
+												"name": "Accumulator"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+											"line": 114,
+											"character": 9
+										}
+									]
+								}
+							}
+						},
+						{
+							"id": 605,
+							"name": "rows",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+									"line": 115,
+									"character": 8
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 606,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"indexSignature": [
+										{
+											"id": 607,
+											"name": "__index",
+											"kind": 8192,
+											"kindString": "Index signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 608,
+													"name": "rowName",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"id": 600,
+												"name": "Values"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+											"line": 115,
+											"character": 9
+										}
+									]
+								}
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								601,
+								605
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 113,
+							"character": 16
+						}
+					]
+				},
+				{
+					"id": 632,
+					"name": "Accumulator",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {
+						"isExported": true
+					},
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 112,
+							"character": 23
+						}
+					],
+					"type": {
+						"type": "union",
+						"types": [
+							{
+								"type": "intrinsic",
+								"name": "number"
+							},
+							{
+								"type": "reflection",
+								"declaration": {
+									"id": 633,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"indexSignature": [
+										{
+											"id": 634,
+											"name": "__index",
+											"kind": 8192,
+											"kindString": "Index signature",
+											"flags": {
+												"isExported": true
+											},
+											"parameters": [
+												{
+													"id": 635,
+													"name": "name",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {
+														"isExported": true
+													},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "intrinsic",
+												"name": "number"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+											"line": 112,
+											"character": 34
+										}
+									]
+								}
+							}
+						]
+					}
+				},
+				{
+					"id": 627,
+					"name": "HeaderMap",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 96,
+							"character": 14
+						}
+					],
+					"type": {
+						"type": "array",
+						"elementType": {
+							"type": "intrinsic",
+							"name": "string"
+						}
+					}
+				},
+				{
+					"id": 623,
+					"name": "PivotHeader",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "array of pivot table column headings.\nArray elements take one of two forms:\n- <string>: a simple string to print; must match the title inferred from the table\n- {<oldKey>: <string>}: translate the inferred title to a new title"
+					},
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 94,
+							"character": 23
+						}
+					],
+					"type": {
+						"type": "reference",
+						"typeArguments": [
+							{
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "string"
+									},
+									{
+										"type": "reflection",
+										"declaration": {
+											"id": 624,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {
+												"isExported": true
+											},
+											"indexSignature": [
+												{
+													"id": 625,
+													"name": "__index",
+													"kind": 8192,
+													"kindString": "Index signature",
+													"flags": {
+														"isExported": true
+													},
+													"parameters": [
+														{
+															"id": 626,
+															"name": "oldkey",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {
+																"isExported": true
+															},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+													"line": 94,
+													"character": 40
+												}
+											]
+										}
+									}
+								]
+							}
+						],
+						"name": "Array"
+					}
+				},
+				{
+					"id": 613,
+					"name": "Vnode",
+					"kind": 4194304,
+					"kindString": "Type alias",
+					"flags": {},
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 68,
+							"character": 10
+						}
+					],
+					"type": {
+						"type": "reference",
+						"typeArguments": [
+							{
+								"type": "intrinsic",
+								"name": "any"
+							},
+							{
+								"type": "intrinsic",
+								"name": "any"
+							}
+						],
+						"name": "m.Vnode"
+					}
+				},
+				{
+					"id": 616,
+					"name": "format",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 80,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 617,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"signatures": [
+								{
+									"id": 618,
+									"name": "__call",
+									"kind": 4096,
+									"kindString": "Call signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 619,
+											"name": "n",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "union",
+												"types": [
+													{
+														"type": "intrinsic",
+														"name": "number"
+													},
+													{
+														"type": "reflection",
+														"declaration": {
+															"id": 620,
+															"name": "__type",
+															"kind": 65536,
+															"kindString": "Type literal",
+															"flags": {},
+															"children": [
+																{
+																	"id": 621,
+																	"name": "valueOf",
+																	"kind": 64,
+																	"kindString": "Function",
+																	"flags": {},
+																	"signatures": [
+																		{
+																			"id": 622,
+																			"name": "valueOf",
+																			"kind": 4096,
+																			"kindString": "Call signature",
+																			"flags": {},
+																			"type": {
+																				"type": "intrinsic",
+																				"name": "number"
+																			}
+																		}
+																	],
+																	"sources": [
+																		{
+																			"fileName": "Shared/Sites/staging/apps/hsDocs/node_modules/@types/d3/node_modules/@types/d3-format/index.d.ts",
+																			"line": 53,
+																			"character": 53
+																		}
+																	]
+																}
+															],
+															"groups": [
+																{
+																	"title": "Functions",
+																	"kind": 64,
+																	"children": [
+																		621
+																	]
+																}
+															],
+															"sources": [
+																{
+																	"fileName": "Shared/Sites/staging/apps/hsDocs/node_modules/@types/d3/node_modules/@types/d3-format/index.d.ts",
+																	"line": 53,
+																	"character": 43
+																}
+															]
+														}
+													}
+												]
+											}
+										}
+									],
+									"type": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							]
+						}
+					},
+					"defaultValue": "locale.format(',.0~f')"
+				},
+				{
+					"id": 615,
+					"name": "locale",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isExported": true,
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 73,
+							"character": 19
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "FormatLocaleObject"
+					},
+					"defaultValue": "formatLocale({\n    decimal: \".\",\n    thousands: \" \",\n    grouping: [3],\n    currency: ['','TEUR']\n})"
+				},
+				{
+					"id": 614,
+					"name": "log",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 69,
+							"character": 53
+						}
+					],
+					"type": {
+						"type": "reference",
+						"name": "Log"
+					},
+					"defaultValue": "new Log('Pivot')"
+				},
+				{
+					"id": 628,
+					"name": "pivots",
+					"kind": 32,
+					"kindString": "Variable",
+					"flags": {
+						"isConst": true
+					},
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 110,
+							"character": 12
+						}
+					],
+					"type": {
+						"type": "reflection",
+						"declaration": {
+							"id": 629,
+							"name": "__type",
+							"kind": 65536,
+							"kindString": "Type literal",
+							"flags": {},
+							"indexSignature": [
+								{
+									"id": 630,
+									"name": "__index",
+									"kind": 8192,
+									"kindString": "Index signature",
+									"flags": {},
+									"parameters": [
+										{
+											"id": 631,
+											"name": "name",
+											"kind": 32768,
+											"kindString": "Parameter",
+											"flags": {},
+											"type": {
+												"type": "intrinsic",
+												"name": "string"
+											}
+										}
+									],
+									"type": {
+										"type": "reference",
+										"id": 577,
+										"name": "PivotStruct"
+									}
+								}
+							],
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+									"line": 110,
+									"character": 13
+								}
+							]
+						}
+					}
+				},
+				{
+					"id": 659,
+					"name": "colAccess",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 660,
+							"name": "colAccess",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "call as `colAccess(rowData, col, valueAccess, result.cols)`"
+							},
+							"parameters": [
+								{
+									"id": 661,
+									"name": "rowData",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "number"
+												}
+											},
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "string"
+												}
+											}
+										]
+									}
+								},
+								{
+									"id": 662,
+									"name": "valueAccess",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 581,
+										"name": "ValueAccess"
+									}
+								},
+								{
+									"id": 663,
+									"name": "namedColumns",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"text": "\n"
+									},
+									"type": {
+										"type": "reflection",
+										"declaration": {
+											"id": 664,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"indexSignature": [
+												{
+													"id": 665,
+													"name": "__index",
+													"kind": 8192,
+													"kindString": "Index signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 666,
+															"name": "name",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "reference",
+														"id": 632,
+														"name": "Accumulator"
+													}
+												}
+											],
+											"sources": [
+												{
+													"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+													"line": 139,
+													"character": 84
+												}
+											]
+										}
+									}
+								},
+								{
+									"id": 667,
+									"name": "col",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 668,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {},
+									"indexSignature": [
+										{
+											"id": 669,
+											"name": "__index",
+											"kind": 8192,
+											"kindString": "Index signature",
+											"flags": {},
+											"parameters": [
+												{
+													"id": 670,
+													"name": "name",
+													"kind": 32768,
+													"kindString": "Parameter",
+													"flags": {},
+													"type": {
+														"type": "intrinsic",
+														"name": "string"
+													}
+												}
+											],
+											"type": {
+												"type": "reference",
+												"id": 632,
+												"name": "Accumulator"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+											"line": 139,
+											"character": 125
+										}
+									]
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 139,
+							"character": 18
+						}
+					]
+				},
+				{
+					"id": 651,
+					"name": "count",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isConst": true
+					},
+					"signatures": [
+						{
+							"id": 652,
+							"name": "count",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 653,
+									"name": "acc",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 632,
+										"name": "Accumulator"
+									}
+								},
+								{
+									"id": 654,
+									"name": "rowdata",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "number"
+												}
+											},
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "string"
+												}
+											}
+										]
+									}
+								},
+								{
+									"id": 655,
+									"name": "col",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "union",
+								"types": [
+									{
+										"type": "intrinsic",
+										"name": "number"
+									},
+									{
+										"type": "reflection",
+										"declaration": {
+											"id": 656,
+											"name": "__type",
+											"kind": 65536,
+											"kindString": "Type literal",
+											"flags": {},
+											"indexSignature": [
+												{
+													"id": 657,
+													"name": "__index",
+													"kind": 8192,
+													"kindString": "Index signature",
+													"flags": {},
+													"parameters": [
+														{
+															"id": 658,
+															"name": "name",
+															"kind": 32768,
+															"kindString": "Parameter",
+															"flags": {},
+															"type": {
+																"type": "intrinsic",
+																"name": "string"
+															}
+														}
+													],
+													"type": {
+														"type": "intrinsic",
+														"name": "number"
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 128,
+							"character": 11
+						}
+					]
+				},
+				{
+					"id": 677,
+					"name": "createPivot",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 678,
+							"name": "createPivot",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 679,
+									"name": "table",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "array",
+											"elementType": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									}
+								},
+								{
+									"id": 680,
+									"name": "header",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									}
+								},
+								{
+									"id": 681,
+									"name": "accumulator",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 581,
+										"name": "ValueAccess"
+									}
+								},
+								{
+									"id": 682,
+									"name": "byRows",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "number"
+										}
+									}
+								},
+								{
+									"id": 683,
+									"name": "colsAccess",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "reference",
+											"id": 587,
+											"name": "ColumnAccess"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 577,
+								"name": "PivotStruct"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 155,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 671,
+					"name": "getValues",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 672,
+							"name": "getValues",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 673,
+									"name": "table",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "array",
+											"elementType": {
+												"type": "intrinsic",
+												"name": "any"
+											}
+										}
+									}
+								},
+								{
+									"id": 674,
+									"name": "byRow",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 675,
+									"name": "valueAccess",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 581,
+										"name": "ValueAccess"
+									}
+								},
+								{
+									"id": 676,
+									"name": "colsAccess",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"typeArguments": [
+											{
+												"type": "reference",
+												"id": 587,
+												"name": "ColumnAccess"
+											}
+										],
+										"name": "Array"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 600,
+								"name": "Values"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 145,
+							"character": 18
+						}
+					]
+				},
+				{
+					"id": 684,
+					"name": "indexAggregator",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isConst": true
+					},
+					"comment": {
+						"shortText": "decodes an element of the `values` attribute in `Pivot` and returns an aggregator function for the\nspecified column in the `table` attribute."
+					},
+					"signatures": [
+						{
+							"id": 685,
+							"name": "indexAggregator",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"comment": {
+								"shortText": "decodes an element of the `values` attribute in `Pivot` and returns an aggregator function for the\nspecified column in the `table` attribute."
+							},
+							"parameters": [
+								{
+									"id": 686,
+									"name": "index",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"shortText": "the column name reference, as provided by `header`. `index` allows for a prefix that specifies\nthe type of aggregator function to use:\n- '<': calculates the minimum of all numeric values in the column\n- '>': calculates the maximum of all numeric values in the column\n- '@': calculates the count of all unique alphanumeric values in the column\n- otherwise: calculates the sum of all numeric values in the column\nAs an alternative, `index` may directly specifiy an {@link AggFn `AggFn`} in user code."
+									},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "intrinsic",
+												"name": "string"
+											},
+											{
+												"type": "reference",
+												"id": 581,
+												"name": "ValueAccess"
+											}
+										]
+									}
+								},
+								{
+									"id": 687,
+									"name": "header",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"comment": {
+										"shortText": "\n"
+									},
+									"type": {
+										"type": "array",
+										"elementType": {
+											"type": "intrinsic",
+											"name": "string"
+										}
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"id": 581,
+								"name": "ValueAccess"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 185,
+							"character": 21
+						}
+					]
+				},
+				{
+					"id": 688,
+					"name": "makeHeaders",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {},
+					"signatures": [
+						{
+							"id": 689,
+							"name": "makeHeaders",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 690,
+									"name": "pivot",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 577,
+										"name": "PivotStruct"
+									}
+								},
+								{
+									"id": 691,
+									"name": "pivotHeader",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 623,
+										"name": "PivotHeader"
+									}
+								}
+							],
+							"type": {
+								"type": "array",
+								"elementType": {
+									"type": "array",
+									"elementType": {
+										"type": "intrinsic",
+										"name": "string"
+									}
+								}
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 196,
+							"character": 20
+						}
+					]
+				},
+				{
+					"id": 692,
+					"name": "makeRow",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isConst": true
+					},
+					"signatures": [
+						{
+							"id": 693,
+							"name": "makeRow",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 694,
+									"name": "pivot",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 577,
+										"name": "PivotStruct"
+									}
+								},
+								{
+									"id": 695,
+									"name": "level",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 696,
+									"name": "colSequence",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 627,
+										"name": "HeaderMap"
+									}
+								}
+							],
+							"type": {
+								"type": "reference",
+								"typeArguments": [
+									{
+										"type": "intrinsic",
+										"name": "any"
+									},
+									{
+										"type": "intrinsic",
+										"name": "any"
+									}
+								],
+								"name": "Vnode"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 221,
+							"character": 13
+						}
+					]
+				},
+				{
+					"id": 646,
+					"name": "max",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isConst": true
+					},
+					"signatures": [
+						{
+							"id": 647,
+							"name": "max",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 648,
+									"name": "acc",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 632,
+										"name": "Accumulator"
+									}
+								},
+								{
+									"id": 649,
+									"name": "rowdata",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "number"
+												}
+											},
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "string"
+												}
+											}
+										]
+									}
+								},
+								{
+									"id": 650,
+									"name": "col",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 125,
+							"character": 9
+						}
+					]
+				},
+				{
+					"id": 641,
+					"name": "min",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isConst": true
+					},
+					"signatures": [
+						{
+							"id": 642,
+							"name": "min",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 643,
+									"name": "acc",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 632,
+										"name": "Accumulator"
+									}
+								},
+								{
+									"id": 644,
+									"name": "rowdata",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "number"
+												}
+											},
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "string"
+												}
+											}
+										]
+									}
+								},
+								{
+									"id": 645,
+									"name": "col",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 122,
+							"character": 9
+						}
+					]
+				},
+				{
+					"id": 697,
+					"name": "showByColumns",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isConst": true
+					},
+					"signatures": [
+						{
+							"id": 698,
+							"name": "showByColumns",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 699,
+									"name": "pivot",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 577,
+										"name": "PivotStruct"
+									}
+								},
+								{
+									"id": 700,
+									"name": "level",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								},
+								{
+									"id": 701,
+									"name": "colSequence",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 627,
+										"name": "HeaderMap"
+									}
+								},
+								{
+									"id": 702,
+									"name": "expanded",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "boolean"
+									},
+									"defaultValue": "false"
+								}
+							],
+							"type": {
+								"type": "reference",
+								"name": "Vnode"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 234,
+							"character": 19
+						}
+					]
+				},
+				{
+					"id": 636,
+					"name": "sum",
+					"kind": 64,
+					"kindString": "Function",
+					"flags": {
+						"isConst": true
+					},
+					"signatures": [
+						{
+							"id": 637,
+							"name": "sum",
+							"kind": 4096,
+							"kindString": "Call signature",
+							"flags": {},
+							"parameters": [
+								{
+									"id": 638,
+									"name": "acc",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "reference",
+										"id": 632,
+										"name": "Accumulator"
+									}
+								},
+								{
+									"id": 639,
+									"name": "rowdata",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "union",
+										"types": [
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "number"
+												}
+											},
+											{
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "string"
+												}
+											}
+										]
+									}
+								},
+								{
+									"id": 640,
+									"name": "col",
+									"kind": 32768,
+									"kindString": "Parameter",
+									"flags": {},
+									"type": {
+										"type": "intrinsic",
+										"name": "number"
+									}
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "number"
+							}
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+							"line": 119,
+							"character": 9
+						}
+					]
+				}
+			],
+			"groups": [
+				{
+					"title": "Classes",
+					"kind": 128,
+					"children": [
+						609
+					]
+				},
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
+						587,
+						577,
+						581,
+						600
+					]
+				},
+				{
+					"title": "Type aliases",
+					"kind": 4194304,
+					"children": [
+						632,
+						627,
+						623,
+						613
+					]
+				},
+				{
+					"title": "Variables",
+					"kind": 32,
+					"children": [
+						616,
+						615,
+						614,
+						628
+					]
+				},
+				{
+					"title": "Functions",
+					"kind": 64,
+					"children": [
+						659,
+						651,
+						677,
+						671,
+						684,
+						688,
+						692,
+						646,
+						641,
+						697,
+						636
+					]
+				}
+			],
+			"sources": [
+				{
+					"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Pivot.ts",
+					"line": 1,
+					"character": 0
+				}
+			]
+		},
+		{
 			"id": 175,
 			"name": "\"Popup\"",
 			"kind": 1,
@@ -12062,7 +14247,7 @@
 			]
 		},
 		{
-			"id": 576,
+			"id": 703,
 			"name": "\"TypeAhead\"",
 			"kind": 1,
 			"kindString": "Module",
@@ -12076,28 +14261,28 @@
 			},
 			"children": [
 				{
-					"id": 577,
+					"id": 704,
 					"name": "GetList",
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {},
 					"children": [
 						{
-							"id": 580,
+							"id": 707,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 585,
+									"id": 712,
 									"name": "new GetList",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 586,
+											"id": 713,
 											"name": "map",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -12107,21 +14292,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 587,
+													"id": 714,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 588,
+															"id": 715,
 															"name": "__call",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 589,
+																	"id": 716,
 																	"name": "item",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -12157,7 +14342,7 @@
 									],
 									"type": {
 										"type": "reference",
-										"id": 577,
+										"id": 704,
 										"name": "GetList"
 									}
 								}
@@ -12171,7 +14356,7 @@
 							]
 						},
 						{
-							"id": 579,
+							"id": 706,
 							"name": "list",
 							"kind": 1024,
 							"kindString": "Property",
@@ -12195,7 +14380,7 @@
 							"defaultValue": "[]"
 						},
 						{
-							"id": 581,
+							"id": 708,
 							"name": "map",
 							"kind": 1024,
 							"kindString": "Property",
@@ -12214,21 +14399,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 582,
+									"id": 709,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 583,
+											"id": 710,
 											"name": "__call",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 584,
+													"id": 711,
 													"name": "item",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -12262,7 +14447,7 @@
 							}
 						},
 						{
-							"id": 578,
+							"id": 705,
 							"name": "url",
 							"kind": 1024,
 							"kindString": "Property",
@@ -12282,7 +14467,7 @@
 							}
 						},
 						{
-							"id": 593,
+							"id": 720,
 							"name": "captureList",
 							"kind": 2048,
 							"kindString": "Method",
@@ -12291,14 +14476,14 @@
 							},
 							"signatures": [
 								{
-									"id": 594,
+									"id": 721,
 									"name": "captureList",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 595,
+											"id": 722,
 											"name": "list",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -12312,7 +14497,7 @@
 											}
 										},
 										{
-											"id": 596,
+											"id": 723,
 											"name": "map",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -12320,21 +14505,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 597,
+													"id": 724,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 598,
+															"id": 725,
 															"name": "__call",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 599,
+																	"id": 726,
 																	"name": "l",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -12383,7 +14568,7 @@
 							]
 						},
 						{
-							"id": 590,
+							"id": 717,
 							"name": "search",
 							"kind": 2048,
 							"kindString": "Method",
@@ -12392,14 +14577,14 @@
 							},
 							"signatures": [
 								{
-									"id": 591,
+									"id": 718,
 									"name": "search",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 592,
+											"id": 719,
 											"name": "list",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -12442,24 +14627,24 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								580
+								707
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								579,
-								581,
-								578
+								706,
+								708,
+								705
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								593,
-								590
+								720,
+								717
 							]
 						}
 					],
@@ -12472,7 +14657,7 @@
 					]
 				},
 				{
-					"id": 600,
+					"id": 727,
 					"name": "TypeAhead",
 					"kind": 128,
 					"kindString": "Class",
@@ -12481,7 +14666,7 @@
 					},
 					"children": [
 						{
-							"id": 601,
+							"id": 728,
 							"name": "gl",
 							"kind": 1024,
 							"kindString": "Property",
@@ -12497,13 +14682,13 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 577,
+								"id": 704,
 								"name": "GetList"
 							},
 							"defaultValue": "new GetList()"
 						},
 						{
-							"id": 602,
+							"id": 729,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -12512,7 +14697,7 @@
 							},
 							"signatures": [
 								{
-									"id": 603,
+									"id": 730,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -12521,7 +14706,7 @@
 									},
 									"parameters": [
 										{
-											"id": 604,
+											"id": 731,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -12549,7 +14734,7 @@
 							]
 						},
 						{
-							"id": 605,
+							"id": 732,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -12558,7 +14743,7 @@
 							},
 							"signatures": [
 								{
-									"id": 606,
+									"id": 733,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -12567,7 +14752,7 @@
 									},
 									"parameters": [
 										{
-											"id": 607,
+											"id": 734,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -12610,15 +14795,15 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								601
+								728
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								602,
-								605
+								729,
+								732
 							]
 						}
 					],
@@ -12631,7 +14816,7 @@
 					]
 				},
 				{
-					"id": 609,
+					"id": 736,
 					"name": "Vnode",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -12659,7 +14844,7 @@
 					}
 				},
 				{
-					"id": 608,
+					"id": 735,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -12680,14 +14865,14 @@
 					"defaultValue": "new Log('TypeAhead')"
 				},
 				{
-					"id": 614,
+					"id": 741,
 					"name": "autoComplete",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 615,
+							"id": 742,
 							"name": "autoComplete",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -12697,7 +14882,7 @@
 							},
 							"parameters": [
 								{
-									"id": 616,
+									"id": 743,
 									"name": "typed",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12711,7 +14896,7 @@
 									}
 								},
 								{
-									"id": 617,
+									"id": 744,
 									"name": "node",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12740,21 +14925,21 @@
 					]
 				},
 				{
-					"id": 610,
+					"id": 737,
 					"name": "emphasize",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 611,
+							"id": 738,
 							"name": "emphasize",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 612,
+									"id": 739,
 									"name": "item",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12765,7 +14950,7 @@
 									}
 								},
 								{
-									"id": 613,
+									"id": 740,
 									"name": "match",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -12806,30 +14991,30 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						577,
-						600
+						704,
+						727
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						609
+						736
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						608
+						735
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						614,
-						610
+						741,
+						737
 					]
 				}
 			],
@@ -12842,7 +15027,7 @@
 			]
 		},
 		{
-			"id": 618,
+			"id": 745,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "Module",
@@ -12860,7 +15045,17 @@
 			},
 			"children": [
 				{
-					"id": 631,
+					"id": 776,
+					"name": "Accumulator",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 632
+				},
+				{
+					"id": 758,
 					"name": "Button",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12870,7 +15065,7 @@
 					"target": 117
 				},
 				{
-					"id": 638,
+					"id": 765,
 					"name": "ButtonSymbols",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12880,7 +15075,7 @@
 					"target": 506
 				},
 				{
-					"id": 640,
+					"id": 767,
 					"name": "ButtonSymbols",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12890,7 +15085,7 @@
 					"target": 506
 				},
 				{
-					"id": 642,
+					"id": 769,
 					"name": "Collapsible",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12900,7 +15095,17 @@
 					"target": 149
 				},
 				{
-					"id": 652,
+					"id": 775,
+					"name": "ColumnAccess",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 587
+				},
+				{
+					"id": 785,
 					"name": "EditCheckbox",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12910,7 +15115,7 @@
 					"target": 159
 				},
 				{
-					"id": 647,
+					"id": 780,
 					"name": "EditDate",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12920,7 +15125,7 @@
 					"target": 230
 				},
 				{
-					"id": 649,
+					"id": 782,
 					"name": "EditDate",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12930,7 +15135,7 @@
 					"target": 230
 				},
 				{
-					"id": 646,
+					"id": 779,
 					"name": "EditLabel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12940,7 +15145,7 @@
 					"target": 207
 				},
 				{
-					"id": 648,
+					"id": 781,
 					"name": "EditLabel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12950,7 +15155,7 @@
 					"target": 207
 				},
 				{
-					"id": 650,
+					"id": 783,
 					"name": "EditList",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12960,7 +15165,7 @@
 					"target": 264
 				},
 				{
-					"id": 651,
+					"id": 784,
 					"name": "EditSelect",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12970,7 +15175,7 @@
 					"target": 287
 				},
 				{
-					"id": 653,
+					"id": 786,
 					"name": "EditTextarea",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12980,7 +15185,7 @@
 					"target": 304
 				},
 				{
-					"id": 633,
+					"id": 760,
 					"name": "Icon",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -12990,7 +15195,7 @@
 					"target": 334
 				},
 				{
-					"id": 632,
+					"id": 759,
 					"name": "Label",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13000,7 +15205,7 @@
 					"target": 415
 				},
 				{
-					"id": 619,
+					"id": 746,
 					"name": "Menu",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13010,7 +15215,7 @@
 					"target": 370
 				},
 				{
-					"id": 621,
+					"id": 748,
 					"name": "Menu",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13020,7 +15225,7 @@
 					"target": 370
 				},
 				{
-					"id": 620,
+					"id": 747,
 					"name": "MenuPanel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13030,7 +15235,7 @@
 					"target": 398
 				},
 				{
-					"id": 622,
+					"id": 749,
 					"name": "MenuPanel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13040,7 +15245,7 @@
 					"target": 398
 				},
 				{
-					"id": 643,
+					"id": 770,
 					"name": "Modal",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13050,7 +15255,7 @@
 					"target": 568
 				},
 				{
-					"id": 636,
+					"id": 763,
 					"name": "OptionsButton",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13060,7 +15265,27 @@
 					"target": 468
 				},
 				{
-					"id": 644,
+					"id": 777,
+					"name": "Pivot",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 609
+				},
+				{
+					"id": 773,
+					"name": "PivotHeader",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 623
+				},
+				{
+					"id": 771,
 					"name": "Popup",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13070,7 +15295,7 @@
 					"target": 176
 				},
 				{
-					"id": 635,
+					"id": 762,
 					"name": "RadioButton",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13080,7 +15305,7 @@
 					"target": 340
 				},
 				{
-					"id": 627,
+					"id": 754,
 					"name": "SelectableDesc",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13090,7 +15315,7 @@
 					"target": 18
 				},
 				{
-					"id": 630,
+					"id": 757,
 					"name": "Selector",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13100,7 +15325,7 @@
 					"target": 47
 				},
 				{
-					"id": 626,
+					"id": 753,
 					"name": "SelectorDesc",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13110,7 +15335,7 @@
 					"target": 2
 				},
 				{
-					"id": 629,
+					"id": 756,
 					"name": "SelectorState",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13120,7 +15345,7 @@
 					"target": 35
 				},
 				{
-					"id": 634,
+					"id": 761,
 					"name": "Slider",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13130,7 +15355,7 @@
 					"target": 421
 				},
 				{
-					"id": 637,
+					"id": 764,
 					"name": "ToggleButton",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13140,7 +15365,7 @@
 					"target": 90
 				},
 				{
-					"id": 639,
+					"id": 766,
 					"name": "ToolbarButton",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13150,7 +15375,7 @@
 					"target": 498
 				},
 				{
-					"id": 641,
+					"id": 768,
 					"name": "ToolbarButton",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13160,17 +15385,27 @@
 					"target": 498
 				},
 				{
-					"id": 645,
+					"id": 778,
 					"name": "TypeAhead",
 					"kind": 16777216,
 					"kindString": "Reference",
 					"flags": {
 						"isExported": true
 					},
-					"target": 600
+					"target": 727
 				},
 				{
-					"id": 624,
+					"id": 774,
+					"name": "ValueAccess",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 581
+				},
+				{
+					"id": 751,
 					"name": "anyItems",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13180,7 +15415,17 @@
 					"target": 82
 				},
 				{
-					"id": 623,
+					"id": 772,
+					"name": "locale",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 615
+				},
+				{
+					"id": 750,
 					"name": "oneOfItems",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13190,7 +15435,7 @@
 					"target": 78
 				},
 				{
-					"id": 625,
+					"id": 752,
 					"name": "renderSelectable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13200,7 +15445,7 @@
 					"target": 86
 				},
 				{
-					"id": 628,
+					"id": 755,
 					"name": "selectionModel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -13215,41 +15460,47 @@
 					"title": "References",
 					"kind": 16777216,
 					"children": [
-						631,
-						638,
-						640,
-						642,
-						652,
-						647,
-						649,
-						646,
-						648,
-						650,
-						651,
-						653,
-						633,
-						632,
-						619,
-						621,
-						620,
-						622,
-						643,
-						636,
-						644,
-						635,
-						627,
-						630,
-						626,
-						629,
-						634,
-						637,
-						639,
-						641,
-						645,
-						624,
-						623,
-						625,
-						628
+						776,
+						758,
+						765,
+						767,
+						769,
+						775,
+						785,
+						780,
+						782,
+						779,
+						781,
+						783,
+						784,
+						786,
+						760,
+						759,
+						746,
+						748,
+						747,
+						749,
+						770,
+						763,
+						777,
+						773,
+						771,
+						762,
+						754,
+						757,
+						753,
+						756,
+						761,
+						764,
+						766,
+						768,
+						778,
+						774,
+						751,
+						772,
+						750,
+						752,
+						755
 					]
 				}
 			],
@@ -13262,7 +15513,7 @@
 			]
 		},
 		{
-			"id": 654,
+			"id": 787,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "Module",
@@ -13300,15 +15551,16 @@
 				369,
 				567,
 				467,
+				576,
 				175,
 				339,
 				1,
 				420,
 				89,
 				497,
-				576,
-				618,
-				654
+				703,
+				745,
+				787
 			]
 		}
 	]

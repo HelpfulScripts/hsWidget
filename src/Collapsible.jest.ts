@@ -26,7 +26,7 @@ describe('Collapsible', () => {
         });
         it ('should respond to click', () => {
             out.click('.hs-collapsible-title'); 
-            expect(out.first('.hs-collapsible-content').attrs.style).toBe('max-height:1000px; transition: max-height 0.25s ease-in-out');
+            expect(out.first('.hs-collapsible-content').attrs.style).toBe('max-height:400px; transition: max-height 0.25s ease-in-out');
         });
     });
     describe('double arrows', () => {
