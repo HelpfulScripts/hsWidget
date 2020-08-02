@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Pivot should match snapshot 1`] = `
+exports[`Pivot count should match snapshot 1`] = `
 <div>
   <div
     class="hs-white"
@@ -14,27 +14,22 @@ exports[`Pivot should match snapshot 1`] = `
         <span
           class="name"
         >
-          click to expand rows
+          by Area
         </span>
         <span
           class="right"
         >
-          square
+          blue
         </span>
         <span
           class="right"
         >
-          circle
+          red
         </span>
         <span
           class="right"
         >
-          triangle
-        </span>
-        <span
-          class="right"
-        >
-          cone
+          green
         </span>
       </div>
       <div
@@ -54,22 +49,17 @@ exports[`Pivot should match snapshot 1`] = `
             <span
               class="right"
             >
-              35
+              3
             </span>
             <span
               class="right"
             >
-              49
+              1
             </span>
             <span
               class="right"
             >
-              22
-            </span>
-            <span
-              class="right"
-            >
-              9
+              2
             </span>
           </div>
         </div>
@@ -90,27 +80,22 @@ exports[`Pivot should match snapshot 1`] = `
                   <span
                     class="name"
                   >
-                    blue
+                    N
                   </span>
                   <span
                     class="right"
                   >
-                    17
+                    
                   </span>
                   <span
                     class="right"
                   >
-                    12
+                    1
                   </span>
                   <span
                     class="right"
                   >
-                    22
-                  </span>
-                  <span
-                    class="right"
-                  >
-                    0
+                    
                   </span>
                 </div>
               </div>
@@ -133,27 +118,22 @@ exports[`Pivot should match snapshot 1`] = `
                   <span
                     class="name"
                   >
-                    green
+                    NE
                   </span>
                   <span
                     class="right"
                   >
-                    18
+                    
                   </span>
                   <span
                     class="right"
                   >
-                    0
+                    
                   </span>
                   <span
                     class="right"
                   >
-                    0
-                  </span>
-                  <span
-                    class="right"
-                  >
-                    9
+                    1
                   </span>
                 </div>
               </div>
@@ -176,27 +156,98 @@ exports[`Pivot should match snapshot 1`] = `
                   <span
                     class="name"
                   >
-                    red
+                    NW
                   </span>
                   <span
                     class="right"
                   >
-                    0
+                    1
                   </span>
                   <span
                     class="right"
                   >
-                    37
+                    
                   </span>
                   <span
                     class="right"
                   >
-                    0
+                    
+                  </span>
+                </div>
+              </div>
+              <div
+                class="hs-collapsible-content scrolly"
+                style="max-height: 0; transition: max-height 0.25s ease-in-out;"
+              />
+            </div>
+          </div>
+          <div>
+            <div
+              class="hs-collapsible  pivot_row mon1"
+            >
+              <div
+                class="hs-collapsible-title"
+              >
+                <div
+                  class="row"
+                >
+                  <span
+                    class="name"
+                  >
+                    S
                   </span>
                   <span
                     class="right"
                   >
-                    0
+                    2
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                </div>
+              </div>
+              <div
+                class="hs-collapsible-content scrolly"
+                style="max-height: 0; transition: max-height 0.25s ease-in-out;"
+              />
+            </div>
+          </div>
+          <div>
+            <div
+              class="hs-collapsible  pivot_row mon1"
+            >
+              <div
+                class="hs-collapsible-title"
+              >
+                <div
+                  class="row"
+                >
+                  <span
+                    class="name"
+                  >
+                    SE
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    1
                   </span>
                 </div>
               </div>
@@ -209,6 +260,15 @@ exports[`Pivot should match snapshot 1`] = `
         </div>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`Pivot max and generator should match snapshot 1`] = `
+<div>
+  <div
+    class="hs-white"
+  >
     <div
       class="pivot"
     >
@@ -263,7 +323,7 @@ exports[`Pivot should match snapshot 1`] = `
             <span
               class="right"
             >
-              51
+              22
             </span>
             <span
               class="right"
@@ -273,7 +333,7 @@ exports[`Pivot should match snapshot 1`] = `
             <span
               class="right"
             >
-              27
+              18
             </span>
           </div>
         </div>
@@ -304,7 +364,7 @@ exports[`Pivot should match snapshot 1`] = `
                   <span
                     class="right"
                   >
-                    0
+                    
                   </span>
                   <span
                     class="right"
@@ -314,7 +374,7 @@ exports[`Pivot should match snapshot 1`] = `
                   <span
                     class="right"
                   >
-                    0
+                    
                   </span>
                 </div>
               </div>
@@ -347,12 +407,12 @@ exports[`Pivot should match snapshot 1`] = `
                   <span
                     class="right"
                   >
-                    0
+                    
                   </span>
                   <span
                     class="right"
                   >
-                    0
+                    
                   </span>
                   <span
                     class="right"
@@ -395,12 +455,12 @@ exports[`Pivot should match snapshot 1`] = `
                   <span
                     class="right"
                   >
-                    0
+                    
                   </span>
                   <span
                     class="right"
                   >
-                    0
+                    
                   </span>
                 </div>
               </div>
@@ -433,17 +493,17 @@ exports[`Pivot should match snapshot 1`] = `
                   <span
                     class="right"
                   >
-                    34
+                    22
                   </span>
                   <span
                     class="right"
                   >
-                    0
+                    
                   </span>
                   <span
                     class="right"
                   >
-                    0
+                    
                   </span>
                 </div>
               </div>
@@ -476,17 +536,519 @@ exports[`Pivot should match snapshot 1`] = `
                   <span
                     class="right"
                   >
-                    0
+                    
                   </span>
                   <span
                     class="right"
                   >
-                    0
+                    
                   </span>
                   <span
                     class="right"
                   >
                     9
+                  </span>
+                </div>
+              </div>
+              <div
+                class="hs-collapsible-content scrolly"
+                style="max-height: 0; transition: max-height 0.25s ease-in-out;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Pivot min should match snapshot 1`] = `
+<div>
+  <div
+    class="hs-white"
+  >
+    <div
+      class="pivot"
+    >
+      <div
+        class="row mon_header"
+      >
+        <span
+          class="name"
+        >
+          by Area
+        </span>
+        <span
+          class="right"
+        >
+          blue
+        </span>
+        <span
+          class="right"
+        >
+          red
+        </span>
+        <span
+          class="right"
+        >
+          green
+        </span>
+      </div>
+      <div
+        class="hs-collapsible  pivot_row mon0"
+      >
+        <div
+          class="hs-collapsible-title"
+        >
+          <div
+            class="row"
+          >
+            <span
+              class="name"
+            >
+               
+            </span>
+            <span
+              class="right"
+            >
+              12
+            </span>
+            <span
+              class="right"
+            >
+              37
+            </span>
+            <span
+              class="right"
+            >
+              9
+            </span>
+          </div>
+        </div>
+        <div
+          class="hs-collapsible-content scrolly"
+          style="max-height: 400px; transition: max-height 0.25s ease-in-out;"
+        >
+          <div>
+            <div
+              class="hs-collapsible  pivot_row mon1"
+            >
+              <div
+                class="hs-collapsible-title"
+              >
+                <div
+                  class="row"
+                >
+                  <span
+                    class="name"
+                  >
+                    N
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    37
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                </div>
+              </div>
+              <div
+                class="hs-collapsible-content scrolly"
+                style="max-height: 0; transition: max-height 0.25s ease-in-out;"
+              />
+            </div>
+          </div>
+          <div>
+            <div
+              class="hs-collapsible  pivot_row mon1"
+            >
+              <div
+                class="hs-collapsible-title"
+              >
+                <div
+                  class="row"
+                >
+                  <span
+                    class="name"
+                  >
+                    NE
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    18
+                  </span>
+                </div>
+              </div>
+              <div
+                class="hs-collapsible-content scrolly"
+                style="max-height: 0; transition: max-height 0.25s ease-in-out;"
+              />
+            </div>
+          </div>
+          <div>
+            <div
+              class="hs-collapsible  pivot_row mon1"
+            >
+              <div
+                class="hs-collapsible-title"
+              >
+                <div
+                  class="row"
+                >
+                  <span
+                    class="name"
+                  >
+                    NW
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    17
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                </div>
+              </div>
+              <div
+                class="hs-collapsible-content scrolly"
+                style="max-height: 0; transition: max-height 0.25s ease-in-out;"
+              />
+            </div>
+          </div>
+          <div>
+            <div
+              class="hs-collapsible  pivot_row mon1"
+            >
+              <div
+                class="hs-collapsible-title"
+              >
+                <div
+                  class="row"
+                >
+                  <span
+                    class="name"
+                  >
+                    S
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    12
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                </div>
+              </div>
+              <div
+                class="hs-collapsible-content scrolly"
+                style="max-height: 0; transition: max-height 0.25s ease-in-out;"
+              />
+            </div>
+          </div>
+          <div>
+            <div
+              class="hs-collapsible  pivot_row mon1"
+            >
+              <div
+                class="hs-collapsible-title"
+              >
+                <div
+                  class="row"
+                >
+                  <span
+                    class="name"
+                  >
+                    SE
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    9
+                  </span>
+                </div>
+              </div>
+              <div
+                class="hs-collapsible-content scrolly"
+                style="max-height: 0; transition: max-height 0.25s ease-in-out;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Pivot sum should match snapshot 1`] = `
+<div>
+  <div
+    class="hs-white"
+  >
+    <div
+      class="pivot"
+    >
+      <div
+        class="row mon_header"
+      >
+        <span
+          class="name"
+        >
+          click to expand rows
+        </span>
+        <span
+          class="right"
+        >
+          sums
+        </span>
+        <span
+          class="right"
+        >
+          square
+        </span>
+        <span
+          class="right"
+        >
+          circle
+        </span>
+        <span
+          class="right"
+        >
+          triangle
+        </span>
+        <span
+          class="right"
+        >
+          cone
+        </span>
+      </div>
+      <div
+        class="hs-collapsible  pivot_row mon0"
+      >
+        <div
+          class="hs-collapsible-title"
+        >
+          <div
+            class="row"
+          >
+            <span
+              class="name"
+            >
+               
+            </span>
+            <span
+              class="right"
+            >
+              37
+            </span>
+            <span
+              class="right"
+            >
+              35
+            </span>
+            <span
+              class="right"
+            >
+              49
+            </span>
+            <span
+              class="right"
+            >
+              22
+            </span>
+            <span
+              class="right"
+            >
+              9
+            </span>
+          </div>
+        </div>
+        <div
+          class="hs-collapsible-content scrolly"
+          style="max-height: 400px; transition: max-height 0.25s ease-in-out;"
+        >
+          <div>
+            <div
+              class="hs-collapsible  pivot_row mon1"
+            >
+              <div
+                class="hs-collapsible-title"
+              >
+                <div
+                  class="row"
+                >
+                  <span
+                    class="name"
+                  >
+                    blue
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    22
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    17
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    12
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    22
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                </div>
+              </div>
+              <div
+                class="hs-collapsible-content scrolly"
+                style="max-height: 0; transition: max-height 0.25s ease-in-out;"
+              />
+            </div>
+          </div>
+          <div>
+            <div
+              class="hs-collapsible  pivot_row mon1"
+            >
+              <div
+                class="hs-collapsible-title"
+              >
+                <div
+                  class="row"
+                >
+                  <span
+                    class="name"
+                  >
+                    green
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    18
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    18
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    9
+                  </span>
+                </div>
+              </div>
+              <div
+                class="hs-collapsible-content scrolly"
+                style="max-height: 0; transition: max-height 0.25s ease-in-out;"
+              />
+            </div>
+          </div>
+          <div>
+            <div
+              class="hs-collapsible  pivot_row mon1"
+            >
+              <div
+                class="hs-collapsible-title"
+              >
+                <div
+                  class="row"
+                >
+                  <span
+                    class="name"
+                  >
+                    red
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    37
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    37
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
+                  </span>
+                  <span
+                    class="right"
+                  >
+                    
                   </span>
                 </div>
               </div>

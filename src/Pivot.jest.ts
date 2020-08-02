@@ -1,8 +1,6 @@
 import m from "mithril";
-import { Pivot, Accumulator, ValueAccess }    from './Pivot';
+import { Pivot, Aggregator, PivotAttrs, ColumnGenerator }    from './Pivot';
 const root = window.document.createElement("div");
-
-const content1 = [''];
 
 const headers = ['color', 'shape', 'Value', 'area'];
 const table = [
@@ -15,36 +13,77 @@ const table = [
 ];
 
 // ColumnAccess function: calculates the sum per row
-const sums = (rowData:number[]|string[], valueAccess:ValueAccess, namedColumns:{[name:string]:Accumulator}, col:number):{[name:string]:Accumulator} => {
+const sums:ColumnGenerator = (namedColumns:{[name:string]:Aggregator}, value: number):void => {
      const colName = 'Sums';
-     namedColumns[colName] = (<number>namedColumns[colName]||0) + <number>rowData[col]; 
-     return namedColumns;
+     namedColumns[colName] = (<number>namedColumns[colName]||0) + value; 
 }
-sums.col = 'Value';
 
 describe('Pivot', () => {
-    beforeAll(()=>{
-        m.mount(root, { view: () => m('.hs-white', [
-            m(Pivot, { 
-                  pivotName: 'click to expand rows',
-                  table: {data: table, header:headers},
-                  values:'Value',
-                  columns:['shape'],
-                  by: ['color', 'area']
-            }),
-            m(Pivot, { 
-                  pivotName: 'by Area',
-                  pivotHeaders: ['Sums', 'red', 'green', 'blue'],
-                  table: {data: table, header:headers},
-                  values:'Value',
-                  columns:[sums, 'color'], // use `ColumnAccess` function and string column
-                  by: ['area', 'shape']
-            }),
-         ])});
+    describe('sum', () => {
+        beforeAll(()=>{
+            m.mount(root, { view: () => m('.hs-white', [
+                m(Pivot, <PivotAttrs>{ 
+                      pivotName: 'click to expand rows',
+                      table: {data: table, header:headers},
+                      columns:[{Value:'>sums'}, {Value:'shape'}],
+                      by: ['color', 'area']
+                }),
+             ])});
+        });
+    
+        it('should match snapshot', () => {
+            expect(root).toMatchSnapshot();
+        });    
     });
-
-    it('should match snapshot', () => {
-        expect(root).toMatchSnapshot();
+    describe('max and generator', () => {
+        beforeAll(()=>{
+            m.mount(root, { view: () => m('.hs-white', [
+                m(Pivot, <PivotAttrs>{ 
+                      pivotName: 'by Area',
+                      pivotHeaders: ['Sums', 'red', 'green', 'blue'],
+                      table: {data: table, header:headers},
+                      columns:[{'Value':sums}, {'Value':'>color'}], // use `ColumnAccess` function and string column
+                      by: ['area', 'shape']
+                }),
+             ])});
+        });
+    
+        it('should match snapshot', () => {
+            expect(root).toMatchSnapshot();
+        });    
+    });
+    describe('min', () => {
+        beforeAll(()=>{
+            m.mount(root, { view: () => m('.hs-white', [
+                m(Pivot, <PivotAttrs>{ 
+                      pivotName: 'by Area',
+                      pivotHeaders: ['Sums', 'red', 'green', 'blue'],
+                      table: {data: table, header:headers},
+                      columns:[{'Value':'<color'}], // use `ColumnAccess` function and string column
+                      by: ['area', 'shape']
+                }),
+             ])});
+        });
+    
+        it('should match snapshot', () => {
+            expect(root).toMatchSnapshot();
+        });    
+    });
+    describe('count', () => {
+        beforeAll(()=>{
+            m.mount(root, { view: () => m('.hs-white', [
+                m(Pivot, { 
+                      pivotName: 'by Area',
+                      table: {data: table, header:headers},
+                      columns:[{'Value':'@color'}], // use `ColumnAccess` function and string column
+                      by: ['area', 'shape']
+                }),
+             ])});
+        });
+    
+        it('should match snapshot', () => {
+            expect(root).toMatchSnapshot();
+        });    
     });
 });
 

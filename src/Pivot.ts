@@ -6,22 +6,24 @@
  * ### Profile
  * invoked as `m(Pivot, {...attributes });`
  * 
- * ### Attributes (node.attrs):
+ * ### Attributes (node.attrs): {@link Pivot.PivotAttrs PivotAttrs}
  * - `pivotName?:string`, optional, the top left name of the pivot 
  * - `pivotHeader?: PivotHeader`, optional, array of pivot table column headings
  * - `table: {data: <string|number>[][], header:string[] }`, the source table data and header 
- * - `values:string`, the values table column to aggregate
- * - `columns:<string|ColumnAccess>[]`, the table columns to translate into pivot columns.
- *    These can be either the column header name, or a callback function `fn` of type {@link Pivot.ColumnAccess `ColumnAccess`}.
- *    In the latter case, if `fn.col` is a header name, its column index will be passed into fn for convenience.
+ * - `columns:Array<{[tableValueCol:string]: string|ColumnGenerator}>`, the table columns to translate into pivot columns.
+ *    These are object literals that map a `tableValueCol` to either
+ *     - a column name for categories across which to show the pivot 
+ *     - or a {@link Pivot.ColumnGenerator `ColumnGenerator`} function that generates values for one or several pivot column. 
+ *       Table values from the `tableValueCol` will be provided to the `Valuator` function
  * - `by:string[]` the sequence of table headers to sort by:
  * 
  * ### Example
- * <example>
+ * <example height=400>
  * <file name='script.js'>
  * const headers = ['color', 'shape', 'Value', 'area'];
  * const table = [
  *      ['blue',  'square',   17, 'NW'],
+ *      ['blue',  'square',    7, 'NW'],
  *      ['red',   'circle',   37, 'N'],
  *      ['blue',  'triangle', 22, 'S'],
  *      ['green', 'square',   18, 'NE'],
@@ -30,30 +32,50 @@
  * ];
  * 
  * // ColumnAccess function: calculates the sum per row
- * const sums = (rowData, valueAccess, namedColumns, col) => {
+ * const sums = (namedColumns, value) => {
  *      const colName = 'Sums';
- *      namedColumns[colName] = (namedColumns[colName]||0) + rowData[col]; 
+ *      namedColumns[colName] = (namedColumns[colName]||0) + value; 
  *      return namedColumns;
  * }
- * sums.col = 'Value';
+ * sums.col = 'Value'; // provide 
  * 
  * m.mount(root, {view: () => m('.hs-white', [
+ *    m('h3', 'Simple pivot (click rows to expand)'),
  *    m(hsWidget.Pivot, { 
- *          pivotName: 'click to expand rows',
+ *          pivotName: 'Sum',
  *          table: {data: table, header:headers},
- *          values:'Value',
- *          columns:['shape'],
- *          by: ['color', 'area']
+ *          columns:[{Value: 'color'}, {Value: 'Sum'}],
+ *          by: ['shape', 'area', 'color']
  *    }),
+ *    m('h3', 'Simple pivot, defined headers'),
  *    m(hsWidget.Pivot, { 
- *          pivotName: 'by Area',
- *          pivotHeaders: ['Sums', 'red', 'green', 'blue'],
+ *          pivotName: 'Sum',
+ *          pivotHeader: ['Sum', 'red', 'green', 'blue'],
  *          table: {data: table, header:headers},
- *          values:'Value',
- *          columns:[sums, 'color'], // use `ColumnAccess` function and string column
- *          by: ['area', 'shape']
+ *          columns:[{Value: 'color'}, {Value: 'Sum'}],
+ *          by: ['shape', 'area']
+ *    }),
+ *    m('h3', 'Pivot using predefined aggregator functions'),
+ *    m(hsWidget.Pivot, { 
+ *          pivotName: 'Aggregator Values',
+ *          table: {data: table, header:headers},
+ *          columns:[{Value: sums}, {Value:'>Max'}, {Value:'<Min'}, {area:'@Unique'}, {area:'#Count'}],
+ *          by: ['shape', 'area']
+ *    }),
+ *    m('h3', m.trust('Pivot using `ColumnGenerator` functions')),
+ *    m(hsWidget.Pivot, { 
+ *          pivotName: 'Max Generator',
+ *          table: {data: table, header:headers},
+ *          columns:[{Value: sums}, {Value:maxAggregator}, {Value:'<Min'}, {area:'@Unique'}, {area:'#Count'}],
+ *          by: ['shape', 'area']
  *    }),
  * ])});
+ * 
+ * function maxAggregator(aggregators, value, col, rowData) {
+ *      aggregators['max'] = Math.max(aggregators['max'] || -1e99, value);
+ *      return aggregators;
+ * }
+ * 
  * </file>
  * <file name='script.css'>
  * .hs-execution span { width: 10%; }
@@ -70,7 +92,70 @@ import { Log }              from 'hsutil';  const log = new Log('Pivot');
 import { Collapsible }      from './Collapsible';
 import { formatLocale }     from 'd3';
 
-export const locale = formatLocale({
+
+export interface PivotAttrs {
+    pivotName:      string;
+    pivotHeaders?:  string[];
+    table:          {data: Array<string|number>[]; header:string[];};
+    columns:        ColumnSpec[];
+    by:             string[];
+}
+
+/** 
+ * A **key/value** pair specifying column contents in the pivot. 
+ * - The `tableValueCol` **key** determines the table column from which to provide values to a `Valuator` function. 
+ * - The **value** specifies the pivot column name, or a {@link Pivot.ColumnGenerator `ColumnGenerator`} function that generates values 
+ * for one or several pivot column. Three forms are supported:
+ *     - `string`: If the name exists in the table header, then values in the referenced table column are interpreted 
+ *                 as categories that will generate the columns in the pivot.
+ *     - `string`: if the name does not exist in the table header, then it will be used as a new pivot column name that aggregates 
+ *                 over all values of a pivot row.
+ *     - `ColumnGenerator`: returns a user-provided generator function that is called over all values of a pivot row.
+ * 
+ * The `string` form also takes an optional `prefix` (e.g. `>Month`) that can be used to specify a predefined aggregation function:
+ * - '' (no prefix): calculate the sum of encountered values.
+ * - '>': calculate the maximum of encountered values.
+ * - '<': calculate the minimnum of encountered values.
+ * - '@': calculate the count of uniquely encountered values.
+ */
+export interface ColumnSpec {[tableValueCol:string]: string|ColumnGenerator}
+
+/**
+ * A function that will be called for each row of data to produce values for one or several columns in the pivot table.
+ * The `ColumnGenerator` function is responsible to `name` those columns in the `aggregators` parameter.
+ * Call parameters:
+ * - `aggregators`: am Objet literal mapping pivot column names to an `Aggregator`. The generator can add new column mappings 
+ * that will show in the pivot table.
+ * - `value`: the value for the table row being processed, as specified by `tableValueCol` in the `ColumnSpec`
+ * - `col`: optional column index into the table row providing `value`.
+ * - `rowData`: optional complete table row being processed.
+ */
+export interface ColumnGenerator {
+    (aggregators:{[name:string]:Aggregator}, value:number|string, col?:number, rowData?:Array<number|string>):void;
+}
+
+/**
+ * Interface describing an Aggregator.
+ * Numeric aggregators accumulate on numbers, e.g. 'sum', 'min', or 'max'
+ * Categorical aggregators aggregate on an object literal, with each 
+ * category instance represented by a number, e.g. the number of occurrences.
+ */
+export type Aggregator = number | {[name:string]:number};
+
+
+
+/**
+ * array of pivot table column headings. 
+ * Array elements take one of two forms:
+ * - <string>: a simple string to print; must match the title inferred from the table
+ * - {<oldKey>: <string>}: translate the inferred title to a new title
+ */
+export type PivotHeader = Array<string | {[oldkey:string]:string}>;
+
+
+
+
+const locale = formatLocale({
     decimal: ".",
     thousands: " ",
     grouping: [3],
@@ -84,96 +169,58 @@ interface PivotStruct {
     values: Values,
     tree: PivotStruct[]
 }
-
-/**
- * array of pivot table column headings. 
- * Array elements take one of two forms:
- * - <string>: a simple string to print; must match the title inferred from the table
- * - {<oldKey>: <string>}: translate the inferred title to a new title
- */
-export type PivotHeader = Array<string | {[oldkey:string]:string}>;
-
 type HeaderMap = string[];
 
-
-export interface ValueAccess {
-    (acc:Accumulator, rowdata:number[]|string[], col:number): Accumulator;
-    col?: number;
+interface ColumnSpecifier {
+    gen: ColumnGenerator;
+    tableValueCol: number;
 }
 
-export interface ColumnAccess {
-    (rowData:number[]|string[], valueAccess:ValueAccess, namedColumns:{[name:string]:Accumulator}, col:number): {[name:string]:Accumulator};
-    col?: number|string;
+interface Valuator {
+    fn:ValuatorFn;
+    name:string;
 }
+
+interface ValuatorFn {
+    (acc:Aggregator, value:number|string, colIndex:number, rowdata?:number[]|string[]): Aggregator;
+}
+
 
 
 const pivots: {[name:string]:PivotStruct} = {};
 
-export type Accumulator = number | {[name:string]:number};
 interface Values {
-    cols: { [colVal:string]: Accumulator };
+    cols: { [colVal:string]: Aggregator };
     rows: { [rowName:string]: Values; };
 }
 
+/** sum of numeric values */
+const sum:ValuatorFn = (acc:number, value:number) => (acc===undefined? 0 : acc) + value;
 
-const sum:ValueAccess = (acc:Accumulator, rowdata:number[]|string[], col:number) => 
-    (<number>acc || 0) + <number>rowdata[col];
+/** min of numeric values */
+const min:ValuatorFn = (acc:number, value:number) => Math.min(acc===undefined? 1e99 : acc, value);
 
-const min:ValueAccess = (acc:Accumulator, rowdata:number[]|string[], col:number) =>
-    Math.min(<number>acc || 1e99, <number>rowdata[col]);
+/** max of numeric values */
+const max:ValuatorFn = (acc:number, value:number) => Math.max(acc===undefined? -1e99 : acc, value);
 
-const max:ValueAccess = (acc:Accumulator, rowdata:number[]|string[], col:number) =>
-    Math.max(<number>acc || -1e99, <number>rowdata[col]);
-
-const count:ValueAccess = (acc:Accumulator, rowdata:number[]|string[], col:number) => {
+/** count of unique categories */
+const count:ValuatorFn = (acc:Aggregator, value:string) => {
     acc = acc || {};
-    acc[rowdata[col]] = (acc[rowdata[col]] || 0) + 1;
+    acc[value] = (acc[value] || 0) + 1;
     return acc;
 }
 
-/**
- * call as `colAccess(rowData, col, valueAccess, result.cols)`
- * @param rowdata 
- * @param namedColumns 
- */
-function colAccess(rowData:number[]|string[], valueAccess:ValueAccess, namedColumns:{[name:string]:Accumulator}, col:number):{[name:string]:Accumulator} {
-    const colName = ''+rowData[col];
-    namedColumns[colName] = valueAccess(namedColumns[colName], rowData, valueAccess.col);
-    return namedColumns;
-}
-
-function getValues(table:any[][], byRow:number, valueAccess:ValueAccess, colsAccess:Array<ColumnAccess>):Values {
-    const result:Values = {cols:{}, rows:{}};
-    table.forEach(rowData => {
-        const rowName = rowData[byRow];
-        result.rows[rowName] = result.rows[rowName] || {cols:{}, rows:{}};
-        colsAccess.map(col => col(rowData, valueAccess, result.cols, <number>col.col));
-    });
-    return result;
-}
-
-function createPivot(table:any[][], header:string[], accumulator:ValueAccess, byRows:number[], colsAccess:ColumnAccess[]):PivotStruct {
-    const createColumns = (rowName:string, table:any[][], byRows:number[], accumulator:ValueAccess, colsAccess:ColumnAccess[]):PivotStruct => {
-        const byRow = byRows.shift();
-        const values = getValues(table, byRow, accumulator, colsAccess);
-        const filter = (by:string) => (row:any[]) => row[byRow]===by;
-        const rows = Object.keys(values.rows);
-        return {
-            name:rowName,
-            values: values,
-            tree: rows.length===0? undefined : rows.sort().map((by:string) =>
-                (!by || by==='undefined')? undefined :
-                    createColumns(by, table.filter(filter(by)), byRows.slice(), accumulator, colsAccess)
-            )
-        }
-    };
-    return (table.length===0 || header.length===0)? undefined : createColumns('&nbsp;', table, byRows.slice(), accumulator, colsAccess)
+/** count of unique categories */
+const unique:ValuatorFn = (acc:Aggregator, value:string) => {
+    acc = acc || {};
+    acc[value] = 1;
+    return acc;
 }
 
 /**
  * decodes an element of the `values` attribute in `Pivot` and returns an aggregator function for the 
  * specified column in the `table` attribute.
- * @param index the column name reference, as provided by `header`. `index` allows for a prefix that specifies
+ * @param tableValueCol the column name reference, as provided by `header`. `index` allows for a prefix that specifies
  * the type of aggregator function to use:
  * - '<': calculates the minimum of all numeric values in the column
  * - '>': calculates the maximum of all numeric values in the column
@@ -182,15 +229,77 @@ function createPivot(table:any[][], header:string[], accumulator:ValueAccess, by
  * As an alternative, `index` may directly specifiy an {@link AggFn `AggFn`} in user code.
  * @param header 
  */
-const indexAggregator = (index:string|ValueAccess, header:string[]):ValueAccess => {
-    let fn:ValueAccess;
-    if (typeof index === 'function') { return index; }
-    switch(index.charAt(0)) {
-        case '<': fn = min; fn.col = header.indexOf(index.slice(1)); return fn;
-        case '>': fn = max; fn.col = header.indexOf(index.slice(1)); return fn;
-        case '@': fn = count; fn.col = header.indexOf(index.slice(1)); return fn;
-        default:  fn = sum; fn.col = header.indexOf(index); return fn;
+// const getValueAccessFn = (tableValueCol:string):Valuator => {
+const getValueAccessFn = (tableValueCol:string):Valuator => {
+    try {
+    let fn:ValuatorFn;
+    let col:string;
+    switch(tableValueCol.charAt(0)) {
+        case '<': col = tableValueCol.slice(1); fn = min;    break;
+        case '>': col = tableValueCol.slice(1); fn = max;    break;
+        case '@': col = tableValueCol.slice(1); fn = unique; break;
+        case '#': col = tableValueCol.slice(1); fn = count;  break;
+        default:  col = tableValueCol; fn = sum;    break;
     }
+    // return fn;
+    return {fn:fn, name:col};
+} catch(e) { log.error(e); }
+}
+
+
+const getColAccessFn = (c:ColumnSpec, header:string[]):ColumnSpecifier => {
+    const [valColName, valueAccess] = Object.entries(c)[0];
+    const valCol = header.indexOf(valColName);
+    if (valCol<0) log.warn(`could not find valueCol '${valColName}' in [${header.join(', ')}]`);
+
+    const cs:ColumnSpecifier = { gen:undefined, tableValueCol:valCol};
+    if (typeof valueAccess ==='function') { // a ColumnGenerator
+        cs.gen = <ColumnGenerator>valueAccess; 
+    } else {                                // string reference to column; 
+        // const aggFn = typeof valueAccess ==='string'? getValueAccessFn(valueAccess) : valueAccess;
+        const aggFn = getValueAccessFn(valueAccess);
+        const pivotCol = header.indexOf(aggFn.name);
+        cs.gen = (aggregators:{[name:string]:Aggregator}, value:number|string, col:number, rowData:number[]|string[]):{[name:string]:Aggregator} => {
+            try {
+            const pivotValue = pivotCol<0? aggFn.name : rowData[pivotCol];
+            aggregators[pivotValue] = aggFn.fn(aggregators[pivotValue], value, col, rowData); 
+            return aggregators;
+            } catch(e) { 
+                log.error(e);
+            }
+        }
+    }
+    return cs;
+}
+
+function getValues(table:any[][], byRow:number, colsAccess:ColumnSpecifier[]):Values {
+    const result:Values = {cols:{}, rows:{}};
+    table.forEach(rowData => {
+        const rowName = rowData[byRow];
+        result.rows[rowName] = result.rows[rowName] || {cols:{}, rows:{}};
+        colsAccess.map(colAccess => colAccess.gen(result.cols, rowData[colAccess.tableValueCol], colAccess.tableValueCol, rowData));
+    });
+    return result;
+}
+
+function createPivot(table:any[][], header:string[], values:string|Valuator, by:string[], columns:Array<ColumnSpec>):PivotStruct {
+    const createColumns = (rowName:string, table:any[][], byRows:number[], colsAccess:ColumnSpecifier[]):PivotStruct => {
+        const byRow = byRows.shift();
+        const values = getValues(table, byRow, colsAccess);
+        const filter = (by:string) => (row:any[]) => row[byRow]===by;
+        const rows = Object.keys(values.rows);
+        return {
+            name:rowName,
+            values: values,
+            tree: rows.length===0? undefined : rows.sort().map((by:string) => (!by || by==='undefined')? undefined :
+                createColumns(by, table.filter(filter(by)), byRows.slice(), colsAccess)
+            )
+        }
+    };
+    // const valueAccess:ValueAccess = getValueAccessFn(values, header);
+    const colsAccess:ColumnSpecifier[] = columns.map((c:ColumnSpec) => getColAccessFn(c, header));
+    const byRows:number[] = by.map((c:string) => header.indexOf(c));
+    return (table.length===0 || header.length===0)? undefined : createColumns('&nbsp;', table, byRows.slice(), colsAccess)
 }
 
 function makeHeaders(pivot:PivotStruct, pivotHeader:PivotHeader) {
@@ -207,7 +316,7 @@ function makeHeaders(pivot:PivotStruct, pivotHeader:PivotHeader) {
                     oldHeaders[ni] = newKey; 
                     newHeaders[ni] = newKey;     
                 } else {
-                    oldHeaders[ni] = undefined; 
+                    oldHeaders[ni] = newKey; 
                     newHeaders[ni] = newKey;     
                 }
             }
@@ -220,14 +329,14 @@ function makeHeaders(pivot:PivotStruct, pivotHeader:PivotHeader) {
 
 const makeRow = (pivot:PivotStruct, level:number, colSequence:HeaderMap) => {
     const values = pivot.values;
-    const parts:Vnode[] = [m('span.name', m.trust(pivot.name))];    // trust in case name includes html
-    if (values) { 
-        parts.push(...colSequence.map(c => {
-            let val:any = values.cols[c];
-            val = val===undefined? '' : typeof val==='object'? Object.keys(val).length : <number>val;
-            return m('span.right', format(val)); 
-        }));
-    }
+    const parts:Vnode[] = !values? [] : colSequence.map(c => {
+        let val:any = values.cols[c];
+        val = val===undefined? '' : 
+            typeof val!=='object'? val : Object.keys(val).reduce((acc, v)=>
+                typeof val[v]==='string'? `${acc||val[v]}` : (acc||0)+val[v], undefined);
+        return m('span.right', typeof val==='number'?format(val):val); 
+    });
+    parts.unshift(m('span.name', m.trust(pivot.name)))  // trust in case name includes html
     return m(`.row`, parts);
 }
 
@@ -238,6 +347,9 @@ const showByColumns = (pivot:PivotStruct, level:number, colSequence:HeaderMap, e
     ]}); 
 
 export class Pivot {
+    oninit(node:Vnode) {
+        node.state.id = Math.floor(Math.random()*100000);   // create unique `pivots` hash
+    }
     view(node:Vnode) {
         const table:any  = node.attrs.table;
         const tableData:any[][] = table.data;
@@ -245,37 +357,11 @@ export class Pivot {
         const pivotName:string = node.attrs.pivotName || '';
         const pivotHeader:PivotHeader = <PivotHeader>node.attrs.pivotHeader;
 
-        if (!pivots[pivotName]) { 
-            const accumulator:ValueAccess = indexAggregator(node.attrs.values, tableHeader);
-            const colsAccess:ColumnAccess[]   = node.attrs.columns.map((c:any) => {
-                if (typeof c ==='function') { 
-                    if (typeof c.col === 'string') { 
-                        c.col = tableHeader.indexOf(c.col); 
-                        if (c.col<0) log.warn(`could not find ColumnAccess col`);
-                    }
-                    return c; 
-                } else { // string reference to column; should exist in `tableHeader`
-                    const ca:ColumnAccess = colAccess;
-                    ca.col = tableHeader.indexOf(c);
-                    if (ca.col<0) {
-                        log.warn(`no table header '${c}' found in [${tableHeader.join(',')}]`);
-                    }
-                    return ca;
-                }
-            });
-            const byRows:number[] = node.attrs.by.map((c:string) => tableHeader.indexOf(c));
-            pivots[pivotName] =createPivot(tableData, tableHeader, accumulator, byRows, colsAccess); 
-        }
-
-        const pivot = pivots[pivotName];
-        if (pivot) {
-            const [oldHeaders, newHeaders] = makeHeaders(pivot, pivotHeader);
-            return m('.pivot', [
-                m(`.row.mon_header`, [m('span.name', pivotName), ...newHeaders.map(h => m('span.right', h))]),
-                showByColumns(pivot, 0, oldHeaders, true)
-            ]);
-        } else {
-            return  m('', '...');
-        }
+        const pivot = pivots[node.state.id] = pivots[node.state.id] || createPivot(tableData, tableHeader, node.attrs.values, node.attrs.by, node.attrs.columns);
+        const [oldHeaders, newHeaders] = makeHeaders(pivot, pivotHeader);
+        return m('.pivot', [
+            m(`.row.mon_header`, [m('span.name', pivotName), ...newHeaders.map(h => m('span.right', h))]),
+            showByColumns(pivot, 0, oldHeaders, true)
+        ]);
     }
 }
