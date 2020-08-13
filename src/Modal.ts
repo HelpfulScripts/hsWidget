@@ -1,68 +1,46 @@
 /**
  * # Modal Widget
- * returns a Vnode that covers the entire window. 
+ * returns a modal Vnode with variable content. The `Modal's` background covers the entire window. 
  * 
  * ### Profile
- * invoked as `m(Modal, { <Attributes> })`
+ * invoked as `m(Modal, { <Attributes> }, content)`
  * 
- * ### Attributes (node.attrs):
- * - `width?:  string` the `px` or `%` of the window width to use, or 'auto' if omitted.
- * - `height?: string` the `px` or `%` of the window height to use, or 'auto' if omitted.
- * - `content: Vnode` the mithril node to show as content of the modal
- * - `dismiss: () => void` an optional function that is called when the modal box is dismissed.
- * - `setTrigger: (trigger:()=>void)=>void` required; a function that that receives a trigger function 
- *      to be called in order to trigger the modal box. See below for an implementation example.
+ * ### Attributes (node.attrs): {@link Modal.ModalAttrs `ModalAttrs`}
  * 
  * ### Example
  * <example>
  * <file name='script.js'>
  * let dismissals = 0;
- * let trigger;
+ * let modal = false;
  * m.mount(root, {view: () => m('.hs-white', [
- *      m('h4', {onclick:() => trigger()}, `click me (dismissed ${dismissals} times)`),
- *      m(hsWidget.Modal, { 
- *          setTrigger: (t) => trigger = t,
- *          width:  '300px',
- *          height: '200px',
- *          dismiss: () => dismissals++,
- *          content: m('', 'click border to release') 
- *      })
+ *      m('h4', {onclick:() => modal=true}, `click me (dismissed ${dismissals} times)`),
+ *      !modal? m('') : m(hsWidget.Modal, { 
+ *          dismiss: () => { dismissals++; modal = false; }
+ *      }, m('', 'click border to release'))
  *    ])
  * });
  * </file>
  * </example>
  */
 
- /** */
- import m from "mithril";
- type Vnode = m.Vnode<any, any>;
- import { ToolbarButton } from './ToolbarButton';
+/** */
+import m from "mithril";
+type Vnode = m.Vnode<any, any>;
+
+/** the attritbutes accepted by a {@link Modal.Modal `Modal`} dialog. */
+export interface ModalAttrs {
+    /** 
+     * a function that will be called to dismiss the modal dialog. 
+     * For example, clicking in the background will trigger a call to this function.
+     */
+    dismiss: ()=>void;
+}
 
 export class Modal {    
-    oninit(node:Vnode) {
-        node.state.id = Math.floor(Math.random()*1000);
-        node.state.showModal = false;
-    }
     view(node:Vnode) {
-        const trigger = () => {
-            node.state.showModal = true;
-            m.redraw();
-        };
-        const dismiss = () => {
-            node.state.showModal = false;
-            if (node.attrs.dismiss) { node.attrs.dismiss(); }
-        };
-        const w = node.attrs.width  || 'auto';
-        const h = node.attrs.height || 'auto';
-        const attrs = { style: `width:${w}; height:${h};`};
-        if (node.attrs.setTrigger) { node.attrs.setTrigger(trigger); }
-        else { console.log(`required attribute function 'setTrigger' is not defined`); }
-        return !node.state.showModal? m('span') : m('.hs-modal-frame', [
-            m('.hs-modal-background', { onclick: dismiss}, ''),
-            m('.hs-modal-foreground', attrs, !node.attrs.content? 'modal pane' : [
-                node.attrs.content,
-                m(ToolbarButton, { onclick: dismiss, symbols:ToolbarButton.getSymbol('cross') }) 
-            ])
+        return m('.hs-modal', [
+            m('.hs-modal-background', { onclick: node.attrs.dismiss }),
+            m('.hs-modal-foreground', [node.children])
         ]);
     }
 }

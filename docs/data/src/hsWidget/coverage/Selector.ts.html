@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.43% </span>
+                <span class="strong">91.67% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>64/70</span>
+                <span class='fraction'>66/72</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.3% </span>
+                <span class="strong">91.67% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>21/23</span>
+                <span class='fraction'>22/24</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.73% </span>
+                <span class="strong">92.86% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>51/55</span>
+                <span class='fraction'>52/56</span>
             </div>
         
             
@@ -284,7 +284,8 @@
 <a name='L225'></a><a href='#L225'>225</a>
 <a name='L226'></a><a href='#L226'>226</a>
 <a name='L227'></a><a href='#L227'>227</a>
-<a name='L228'></a><a href='#L228'>228</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L228'></a><a href='#L228'>228</a>
+<a name='L229'></a><a href='#L229'>229</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -473,6 +474,7 @@
 <span class="cline-any cline-yes">54x</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">13x</span>
+<span class="cline-any cline-yes">22x</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-yes">13x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -527,7 +529,7 @@
  * - desc: {@link Selector.SelectorDesc SelectorDesc}
  *     - items: string[];                // the items on the selector
  *     - defaultItem?: number|string;    // the initial selected item, by index or name
- *     - clicked: (item:string) =&gt; void; // called upon user selection
+ *     - clicked: (item:string, index?:number) =&gt; void; // called upon user selection
  *     - itemCss?:string[];              // css to apply to items;
  */
 &nbsp;
@@ -697,11 +699,12 @@ export abstract class Selector {
      * @param i index of item to render
      */
     protected renderItem(node: Vnode, i:number) {
-        const reactor = (callback:(itm:string)=&gt;void) =&gt; (title:string) =&gt; {
+        const reactor = (callback:(itm:string, index?:number)=&gt;void) =&gt; (title:string) =&gt; {
             node.state.updateModel(node.state.items, title); // internal state update
             title = node.state.itemClicked(title);
+            const index = (&lt;SelectableDesc[]&gt;node.state.items).findIndex(item =&gt; item.title===title);
             <span class="missing-if-branch" title="else path not taken" >E</span>if (typeof callback === 'function') { 
-                callback(title);  // trigger any external actions from the selection
+                callback(title, index);  // trigger any external actions from the selection
             }     
         }; 
         if (i&lt;0) { log.debug(<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >`illegal render index ${i} ${node.state.items.map(<span class="fstat-no" title="function not covered" >(i</span>:any)=&gt;<span class="cstat-no" title="statement not covered" >i.title)</span>.join('|')}`)</span>; i = 0; }
