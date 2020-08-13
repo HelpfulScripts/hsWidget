@@ -5046,12 +5046,12 @@
 			},
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
 			"comment": {
-				"shortText": "# Modal Widget\nreturns a Vnode that covers the entire window.",
-				"text": "### Profile\ninvoked as `m(Modal, { <Attributes> })`\n\n### Attributes (node.attrs):\n- `width?:  string` the `px` or `%` of the window width to use, or 'auto' if omitted.\n- `height?: string` the `px` or `%` of the window height to use, or 'auto' if omitted.\n- `content: Vnode` the mithril node to show as content of the modal\n- `dismiss: () => void` an optional function that is called when the modal box is dismissed.\n- `setTrigger: (trigger:()=>void)=>void` required; a function that that receives a trigger function\n     to be called in order to trigger the modal box. See below for an implementation example.\n\n### Example\n<example>\n<file name='script.js'>\nlet dismissals = 0;\nlet trigger;\nm.mount(root, {view: () => m('.hs-white', [\n     m('h4', {onclick:() => trigger()}, `click me (dismissed ${dismissals} times)`),\n     m(hsWidget.Modal, {\n         setTrigger: (t) => trigger = t,\n         width:  '300px',\n         height: '200px',\n         dismiss: () => dismissals++,\n         content: m('', 'click border to release')\n     })\n   ])\n});\n</file>\n</example>\n"
+				"shortText": "# Modal Widget\nreturns a modal Vnode with variable content. The `Modal's` background covers the entire window.",
+				"text": "### Profile\ninvoked as `m(Modal, { <Attributes> }, content)`\n\n### Attributes (node.attrs): {@link Modal.ModalAttrs `ModalAttrs`}\n\n### Example\n<example>\n<file name='script.js'>\nlet dismissals = 0;\nlet modal = false;\nm.mount(root, {view: () => m('.hs-white', [\n     m('h4', {onclick:() => modal=true}, `click me (dismissed ${dismissals} times)`),\n     !modal? m('') : m(hsWidget.Modal, {\n         dismiss: () => { dismissals++; modal = false; }\n     }, m('', 'click border to release'))\n   ])\n});\n</file>\n</example>\n"
 			},
 			"children": [
 				{
-					"id": 568,
+					"id": 572,
 					"name": "Modal",
 					"kind": 128,
 					"kindString": "Class",
@@ -5060,53 +5060,7 @@
 					},
 					"children": [
 						{
-							"id": 569,
-							"name": "oninit",
-							"kind": 2048,
-							"kindString": "Method",
-							"flags": {
-								"isExported": true
-							},
-							"signatures": [
-								{
-									"id": 570,
-									"name": "oninit",
-									"kind": 4096,
-									"kindString": "Call signature",
-									"flags": {
-										"isExported": true
-									},
-									"parameters": [
-										{
-											"id": 571,
-											"name": "node",
-											"kind": 32768,
-											"kindString": "Parameter",
-											"flags": {
-												"isExported": true
-											},
-											"type": {
-												"type": "reference",
-												"name": "Vnode"
-											}
-										}
-									],
-									"type": {
-										"type": "intrinsic",
-										"name": "void"
-									}
-								}
-							],
-							"sources": [
-								{
-									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
-									"line": 42,
-									"character": 10
-								}
-							]
-						},
-						{
-							"id": 572,
+							"id": 573,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5115,7 +5069,7 @@
 							},
 							"signatures": [
 								{
-									"id": 573,
+									"id": 574,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5124,7 +5078,7 @@
 									},
 									"parameters": [
 										{
-											"id": 574,
+											"id": 575,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5156,7 +5110,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
-									"line": 46,
+									"line": 40,
 									"character": 8
 								}
 							]
@@ -5167,21 +5121,103 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								569,
-								572
+								573
 							]
 						}
 					],
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
-							"line": 41,
+							"line": 39,
 							"character": 18
 						}
 					]
 				},
 				{
-					"id": 575,
+					"id": 568,
+					"name": "ModalAttrs",
+					"kind": 256,
+					"kindString": "Interface",
+					"flags": {
+						"isExported": true
+					},
+					"comment": {
+						"shortText": "the attritbutes accepted by a {@link Modal.Modal `Modal`} dialog."
+					},
+					"children": [
+						{
+							"id": 569,
+							"name": "dismiss",
+							"kind": 1024,
+							"kindString": "Property",
+							"flags": {
+								"isExported": true
+							},
+							"comment": {
+								"shortText": "a function that will be called to dismiss the modal dialog.\nFor example, clicking in the background will trigger a call to this function."
+							},
+							"sources": [
+								{
+									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
+									"line": 36,
+									"character": 11
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 570,
+									"name": "__type",
+									"kind": 65536,
+									"kindString": "Type literal",
+									"flags": {
+										"isExported": true
+									},
+									"signatures": [
+										{
+											"id": 571,
+											"name": "__call",
+											"kind": 4096,
+											"kindString": "Call signature",
+											"flags": {
+												"isExported": true
+											},
+											"type": {
+												"type": "intrinsic",
+												"name": "void"
+											}
+										}
+									],
+									"sources": [
+										{
+											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
+											"line": 36,
+											"character": 12
+										}
+									]
+								}
+							}
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"kind": 1024,
+							"children": [
+								569
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
+							"line": 31,
+							"character": 27
+						}
+					]
+				},
+				{
+					"id": 576,
 					"name": "Vnode",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -5189,8 +5225,8 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Modal.ts",
-							"line": 38,
-							"character": 11
+							"line": 28,
+							"character": 10
 						}
 					],
 					"type": {
@@ -5214,6 +5250,13 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
+						572
+					]
+				},
+				{
+					"title": "Interfaces",
+					"kind": 256,
+					"children": [
 						568
 					]
 				},
@@ -5221,7 +5264,7 @@
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						575
+						576
 					]
 				}
 			],
@@ -5877,7 +5920,7 @@
 			]
 		},
 		{
-			"id": 576,
+			"id": 577,
 			"name": "\"Pivot\"",
 			"kind": 1,
 			"kindString": "Module",
@@ -5891,7 +5934,7 @@
 			},
 			"children": [
 				{
-					"id": 623,
+					"id": 624,
 					"name": "Pivot",
 					"kind": 128,
 					"kindString": "Class",
@@ -5900,7 +5943,7 @@
 					},
 					"children": [
 						{
-							"id": 624,
+							"id": 625,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5909,7 +5952,7 @@
 							},
 							"signatures": [
 								{
-									"id": 625,
+									"id": 626,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5918,7 +5961,7 @@
 									},
 									"parameters": [
 										{
-											"id": 626,
+											"id": 627,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -5946,7 +5989,7 @@
 							]
 						},
 						{
-							"id": 627,
+							"id": 628,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -5955,7 +5998,7 @@
 							},
 							"signatures": [
 								{
-									"id": 628,
+									"id": 629,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -5964,7 +6007,7 @@
 									},
 									"parameters": [
 										{
-											"id": 629,
+											"id": 630,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -6007,8 +6050,8 @@
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								624,
-								627
+								625,
+								628
 							]
 						}
 					],
@@ -6021,7 +6064,7 @@
 					]
 				},
 				{
-					"id": 589,
+					"id": 590,
 					"name": "ColumnGenerator",
 					"kind": 256,
 					"kindString": "Interface",
@@ -6033,7 +6076,7 @@
 					},
 					"signatures": [
 						{
-							"id": 590,
+							"id": 591,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -6045,7 +6088,7 @@
 							},
 							"parameters": [
 								{
-									"id": 591,
+									"id": 592,
 									"name": "aggregators",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6055,7 +6098,7 @@
 									"type": {
 										"type": "reflection",
 										"declaration": {
-											"id": 592,
+											"id": 593,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -6064,7 +6107,7 @@
 											},
 											"indexSignature": [
 												{
-													"id": 593,
+													"id": 594,
 													"name": "__index",
 													"kind": 8192,
 													"kindString": "Index signature",
@@ -6073,7 +6116,7 @@
 													},
 													"parameters": [
 														{
-															"id": 594,
+															"id": 595,
 															"name": "name",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -6088,7 +6131,7 @@
 													],
 													"type": {
 														"type": "reference",
-														"id": 632,
+														"id": 633,
 														"name": "Aggregator"
 													}
 												}
@@ -6104,7 +6147,7 @@
 									}
 								},
 								{
-									"id": 595,
+									"id": 596,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6126,7 +6169,7 @@
 									}
 								},
 								{
-									"id": 596,
+									"id": 597,
 									"name": "col",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6140,7 +6183,7 @@
 									}
 								},
 								{
-									"id": 597,
+									"id": 598,
 									"name": "rowData",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6184,7 +6227,7 @@
 					]
 				},
 				{
-					"id": 586,
+					"id": 587,
 					"name": "ColumnSpec",
 					"kind": 256,
 					"kindString": "Interface",
@@ -6197,7 +6240,7 @@
 					},
 					"indexSignature": [
 						{
-							"id": 587,
+							"id": 588,
 							"name": "__index",
 							"kind": 8192,
 							"kindString": "Index signature",
@@ -6210,7 +6253,7 @@
 							},
 							"parameters": [
 								{
-									"id": 588,
+									"id": 589,
 									"name": "tableValueCol",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6232,7 +6275,7 @@
 									},
 									{
 										"type": "reference",
-										"id": 589,
+										"id": 590,
 										"name": "ColumnGenerator"
 									}
 								]
@@ -6248,14 +6291,14 @@
 					]
 				},
 				{
-					"id": 602,
+					"id": 603,
 					"name": "ColumnSpecifier",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 603,
+							"id": 604,
 							"name": "gen",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6269,12 +6312,12 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 589,
+								"id": 590,
 								"name": "ColumnGenerator"
 							}
 						},
 						{
-							"id": 604,
+							"id": 605,
 							"name": "tableValueCol",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6297,8 +6340,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								603,
-								604
+								604,
+								605
 							]
 						}
 					],
@@ -6311,7 +6354,7 @@
 					]
 				},
 				{
-					"id": 577,
+					"id": 578,
 					"name": "PivotAttrs",
 					"kind": 256,
 					"kindString": "Interface",
@@ -6320,7 +6363,7 @@
 					},
 					"children": [
 						{
-							"id": 585,
+							"id": 586,
 							"name": "by",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6343,7 +6386,7 @@
 							}
 						},
 						{
-							"id": 584,
+							"id": 585,
 							"name": "columns",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6361,13 +6404,13 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 586,
+									"id": 587,
 									"name": "ColumnSpec"
 								}
 							}
 						},
 						{
-							"id": 579,
+							"id": 580,
 							"name": "pivotHeaders",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6391,7 +6434,7 @@
 							}
 						},
 						{
-							"id": 578,
+							"id": 579,
 							"name": "pivotName",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6411,7 +6454,7 @@
 							}
 						},
 						{
-							"id": 580,
+							"id": 581,
 							"name": "table",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6428,7 +6471,7 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 581,
+									"id": 582,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -6437,7 +6480,7 @@
 									},
 									"children": [
 										{
-											"id": 582,
+											"id": 583,
 											"name": "data",
 											"kind": 32,
 											"kindString": "Variable",
@@ -6475,7 +6518,7 @@
 											}
 										},
 										{
-											"id": 583,
+											"id": 584,
 											"name": "header",
 											"kind": 32,
 											"kindString": "Variable",
@@ -6503,8 +6546,8 @@
 											"title": "Variables",
 											"kind": 32,
 											"children": [
-												582,
-												583
+												583,
+												584
 											]
 										}
 									],
@@ -6524,11 +6567,11 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
+								586,
 								585,
-								584,
+								580,
 								579,
-								578,
-								580
+								581
 							]
 						}
 					],
@@ -6541,14 +6584,14 @@
 					]
 				},
 				{
-					"id": 598,
+					"id": 599,
 					"name": "PivotStruct",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 599,
+							"id": 600,
 							"name": "name",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6566,7 +6609,7 @@
 							}
 						},
 						{
-							"id": 601,
+							"id": 602,
 							"name": "tree",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6582,13 +6625,13 @@
 								"type": "array",
 								"elementType": {
 									"type": "reference",
-									"id": 598,
+									"id": 599,
 									"name": "PivotStruct"
 								}
 							}
 						},
 						{
-							"id": 600,
+							"id": 601,
 							"name": "values",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6602,7 +6645,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 614,
+								"id": 615,
 								"name": "Values"
 							}
 						}
@@ -6612,9 +6655,9 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								599,
-								601,
-								600
+								600,
+								602,
+								601
 							]
 						}
 					],
@@ -6627,14 +6670,14 @@
 					]
 				},
 				{
-					"id": 605,
+					"id": 606,
 					"name": "Valuator",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 606,
+							"id": 607,
 							"name": "fn",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6648,12 +6691,12 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 608,
+								"id": 609,
 								"name": "ValuatorFn"
 							}
 						},
 						{
-							"id": 607,
+							"id": 608,
 							"name": "name",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6676,8 +6719,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								606,
-								607
+								607,
+								608
 							]
 						}
 					],
@@ -6690,33 +6733,33 @@
 					]
 				},
 				{
-					"id": 608,
+					"id": 609,
 					"name": "ValuatorFn",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 609,
+							"id": 610,
 							"name": "__call",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 610,
+									"id": 611,
 									"name": "acc",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 632,
+										"id": 633,
 										"name": "Aggregator"
 									}
 								},
 								{
-									"id": 611,
+									"id": 612,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6736,7 +6779,7 @@
 									}
 								},
 								{
-									"id": 612,
+									"id": 613,
 									"name": "colIndex",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6747,7 +6790,7 @@
 									}
 								},
 								{
-									"id": 613,
+									"id": 614,
 									"name": "rowdata",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -6777,7 +6820,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 632,
+								"id": 633,
 								"name": "Aggregator"
 							}
 						}
@@ -6791,14 +6834,14 @@
 					]
 				},
 				{
-					"id": 614,
+					"id": 615,
 					"name": "Values",
 					"kind": 256,
 					"kindString": "Interface",
 					"flags": {},
 					"children": [
 						{
-							"id": 615,
+							"id": 616,
 							"name": "cols",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6813,21 +6856,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 616,
+									"id": 617,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"indexSignature": [
 										{
-											"id": 617,
+											"id": 618,
 											"name": "__index",
 											"kind": 8192,
 											"kindString": "Index signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 618,
+													"id": 619,
 													"name": "colVal",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -6840,7 +6883,7 @@
 											],
 											"type": {
 												"type": "reference",
-												"id": 632,
+												"id": 633,
 												"name": "Aggregator"
 											}
 										}
@@ -6856,7 +6899,7 @@
 							}
 						},
 						{
-							"id": 619,
+							"id": 620,
 							"name": "rows",
 							"kind": 1024,
 							"kindString": "Property",
@@ -6871,21 +6914,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 620,
+									"id": 621,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"indexSignature": [
 										{
-											"id": 621,
+											"id": 622,
 											"name": "__index",
 											"kind": 8192,
 											"kindString": "Index signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 622,
+													"id": 623,
 													"name": "rowName",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -6898,7 +6941,7 @@
 											],
 											"type": {
 												"type": "reference",
-												"id": 614,
+												"id": 615,
 												"name": "Values"
 											}
 										}
@@ -6919,8 +6962,8 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								615,
-								619
+								616,
+								620
 							]
 						}
 					],
@@ -6933,7 +6976,7 @@
 					]
 				},
 				{
-					"id": 632,
+					"id": 633,
 					"name": "Aggregator",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -6960,7 +7003,7 @@
 							{
 								"type": "reflection",
 								"declaration": {
-									"id": 633,
+									"id": 634,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
@@ -6969,7 +7012,7 @@
 									},
 									"indexSignature": [
 										{
-											"id": 634,
+											"id": 635,
 											"name": "__index",
 											"kind": 8192,
 											"kindString": "Index signature",
@@ -6978,7 +7021,7 @@
 											},
 											"parameters": [
 												{
-													"id": 635,
+													"id": 636,
 													"name": "name",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -7010,7 +7053,7 @@
 					}
 				},
 				{
-					"id": 648,
+					"id": 649,
 					"name": "HeaderMap",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -7031,7 +7074,7 @@
 					}
 				},
 				{
-					"id": 636,
+					"id": 637,
 					"name": "PivotHeader",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -7061,7 +7104,7 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 637,
+											"id": 638,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
@@ -7070,7 +7113,7 @@
 											},
 											"indexSignature": [
 												{
-													"id": 638,
+													"id": 639,
 													"name": "__index",
 													"kind": 8192,
 													"kindString": "Index signature",
@@ -7079,7 +7122,7 @@
 													},
 													"parameters": [
 														{
-															"id": 639,
+															"id": 640,
 															"name": "oldkey",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -7114,7 +7157,7 @@
 					}
 				},
 				{
-					"id": 630,
+					"id": 631,
 					"name": "Vnode",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -7142,7 +7185,7 @@
 					}
 				},
 				{
-					"id": 641,
+					"id": 642,
 					"name": "format",
 					"kind": 32,
 					"kindString": "Variable",
@@ -7159,21 +7202,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 642,
+							"id": 643,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 643,
+									"id": 644,
 									"name": "__call",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 644,
+											"id": 645,
 											"name": "n",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7188,21 +7231,21 @@
 													{
 														"type": "reflection",
 														"declaration": {
-															"id": 645,
+															"id": 646,
 															"name": "__type",
 															"kind": 65536,
 															"kindString": "Type literal",
 															"flags": {},
 															"children": [
 																{
-																	"id": 646,
+																	"id": 647,
 																	"name": "valueOf",
 																	"kind": 64,
 																	"kindString": "Function",
 																	"flags": {},
 																	"signatures": [
 																		{
-																			"id": 647,
+																			"id": 648,
 																			"name": "valueOf",
 																			"kind": 4096,
 																			"kindString": "Call signature",
@@ -7227,7 +7270,7 @@
 																	"title": "Functions",
 																	"kind": 64,
 																	"children": [
-																		646
+																		647
 																	]
 																}
 															],
@@ -7255,7 +7298,7 @@
 					"defaultValue": "locale.format(',.0~f')"
 				},
 				{
-					"id": 640,
+					"id": 641,
 					"name": "locale",
 					"kind": 32,
 					"kindString": "Variable",
@@ -7276,7 +7319,7 @@
 					"defaultValue": "formatLocale({\n    decimal: \".\",\n    thousands: \" \",\n    grouping: [3],\n    currency: ['','TEUR']\n})"
 				},
 				{
-					"id": 631,
+					"id": 632,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -7297,7 +7340,7 @@
 					"defaultValue": "new Log('Pivot')"
 				},
 				{
-					"id": 649,
+					"id": 650,
 					"name": "pivots",
 					"kind": 32,
 					"kindString": "Variable",
@@ -7314,21 +7357,21 @@
 					"type": {
 						"type": "reflection",
 						"declaration": {
-							"id": 650,
+							"id": 651,
 							"name": "__type",
 							"kind": 65536,
 							"kindString": "Type literal",
 							"flags": {},
 							"indexSignature": [
 								{
-									"id": 651,
+									"id": 652,
 									"name": "__index",
 									"kind": 8192,
 									"kindString": "Index signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 652,
+											"id": 653,
 											"name": "name",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -7341,7 +7384,7 @@
 									],
 									"type": {
 										"type": "reference",
-										"id": 598,
+										"id": 599,
 										"name": "PivotStruct"
 									}
 								}
@@ -7357,7 +7400,7 @@
 					}
 				},
 				{
-					"id": 665,
+					"id": 666,
 					"name": "count",
 					"kind": 64,
 					"kindString": "Function",
@@ -7369,7 +7412,7 @@
 					},
 					"signatures": [
 						{
-							"id": 666,
+							"id": 667,
 							"name": "count",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -7379,19 +7422,19 @@
 							},
 							"parameters": [
 								{
-									"id": 667,
+									"id": 668,
 									"name": "acc",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 632,
+										"id": 633,
 										"name": "Aggregator"
 									}
 								},
 								{
-									"id": 668,
+									"id": 669,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7412,21 +7455,21 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 669,
+											"id": 670,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"indexSignature": [
 												{
-													"id": 670,
+													"id": 671,
 													"name": "__index",
 													"kind": 8192,
 													"kindString": "Index signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 671,
+															"id": 672,
 															"name": "name",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -7458,21 +7501,21 @@
 					]
 				},
 				{
-					"id": 691,
+					"id": 692,
 					"name": "createPivot",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 692,
+							"id": 693,
 							"name": "createPivot",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 693,
+									"id": 694,
 									"name": "table",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7489,7 +7532,7 @@
 									}
 								},
 								{
-									"id": 694,
+									"id": 695,
 									"name": "header",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7503,7 +7546,7 @@
 									}
 								},
 								{
-									"id": 695,
+									"id": 696,
 									"name": "values",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7517,14 +7560,14 @@
 											},
 											{
 												"type": "reference",
-												"id": 605,
+												"id": 606,
 												"name": "Valuator"
 											}
 										]
 									}
 								},
 								{
-									"id": 696,
+									"id": 697,
 									"name": "by",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7538,7 +7581,7 @@
 									}
 								},
 								{
-									"id": 697,
+									"id": 698,
 									"name": "columns",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7548,7 +7591,7 @@
 										"typeArguments": [
 											{
 												"type": "reference",
-												"id": 586,
+												"id": 587,
 												"name": "ColumnSpec"
 											}
 										],
@@ -7558,7 +7601,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 598,
+								"id": 599,
 								"name": "PivotStruct"
 							}
 						}
@@ -7572,7 +7615,7 @@
 					]
 				},
 				{
-					"id": 682,
+					"id": 683,
 					"name": "getColAccessFn",
 					"kind": 64,
 					"kindString": "Function",
@@ -7581,26 +7624,26 @@
 					},
 					"signatures": [
 						{
-							"id": 683,
+							"id": 684,
 							"name": "getColAccessFn",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 684,
+									"id": 685,
 									"name": "c",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 586,
+										"id": 587,
 										"name": "ColumnSpec"
 									}
 								},
 								{
-									"id": 685,
+									"id": 686,
 									"name": "header",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7616,7 +7659,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 602,
+								"id": 603,
 								"name": "ColumnSpecifier"
 							}
 						}
@@ -7630,7 +7673,7 @@
 					]
 				},
 				{
-					"id": 679,
+					"id": 680,
 					"name": "getValueAccessFn",
 					"kind": 64,
 					"kindString": "Function",
@@ -7642,7 +7685,7 @@
 					},
 					"signatures": [
 						{
-							"id": 680,
+							"id": 681,
 							"name": "getValueAccessFn",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -7652,7 +7695,7 @@
 							},
 							"parameters": [
 								{
-									"id": 681,
+									"id": 682,
 									"name": "tableValueCol",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7668,7 +7711,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 605,
+								"id": 606,
 								"name": "Valuator"
 							}
 						}
@@ -7682,21 +7725,21 @@
 					]
 				},
 				{
-					"id": 686,
+					"id": 687,
 					"name": "getValues",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 687,
+							"id": 688,
 							"name": "getValues",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 688,
+									"id": 689,
 									"name": "table",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7713,7 +7756,7 @@
 									}
 								},
 								{
-									"id": 689,
+									"id": 690,
 									"name": "byRow",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7724,7 +7767,7 @@
 									}
 								},
 								{
-									"id": 690,
+									"id": 691,
 									"name": "colsAccess",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7733,7 +7776,7 @@
 										"type": "array",
 										"elementType": {
 											"type": "reference",
-											"id": 602,
+											"id": 603,
 											"name": "ColumnSpecifier"
 										}
 									}
@@ -7741,7 +7784,7 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 614,
+								"id": 615,
 								"name": "Values"
 							}
 						}
@@ -7755,40 +7798,40 @@
 					]
 				},
 				{
-					"id": 698,
+					"id": 699,
 					"name": "makeHeaders",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 699,
+							"id": 700,
 							"name": "makeHeaders",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 700,
+									"id": 701,
 									"name": "pivot",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 598,
+										"id": 599,
 										"name": "PivotStruct"
 									}
 								},
 								{
-									"id": 701,
+									"id": 702,
 									"name": "pivotHeader",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 636,
+										"id": 637,
 										"name": "PivotHeader"
 									}
 								}
@@ -7814,7 +7857,7 @@
 					]
 				},
 				{
-					"id": 702,
+					"id": 703,
 					"name": "makeRow",
 					"kind": 64,
 					"kindString": "Function",
@@ -7823,26 +7866,26 @@
 					},
 					"signatures": [
 						{
-							"id": 703,
+							"id": 704,
 							"name": "makeRow",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 704,
+									"id": 705,
 									"name": "pivot",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 598,
+										"id": 599,
 										"name": "PivotStruct"
 									}
 								},
 								{
-									"id": 705,
+									"id": 706,
 									"name": "level",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7853,14 +7896,14 @@
 									}
 								},
 								{
-									"id": 706,
+									"id": 707,
 									"name": "colSequence",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 648,
+										"id": 649,
 										"name": "HeaderMap"
 									}
 								}
@@ -7890,7 +7933,7 @@
 					]
 				},
 				{
-					"id": 661,
+					"id": 662,
 					"name": "max",
 					"kind": 64,
 					"kindString": "Function",
@@ -7902,7 +7945,7 @@
 					},
 					"signatures": [
 						{
-							"id": 662,
+							"id": 663,
 							"name": "max",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -7912,7 +7955,7 @@
 							},
 							"parameters": [
 								{
-									"id": 663,
+									"id": 664,
 									"name": "acc",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7923,7 +7966,7 @@
 									}
 								},
 								{
-									"id": 664,
+									"id": 665,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7949,7 +7992,7 @@
 					]
 				},
 				{
-					"id": 657,
+					"id": 658,
 					"name": "min",
 					"kind": 64,
 					"kindString": "Function",
@@ -7961,7 +8004,7 @@
 					},
 					"signatures": [
 						{
-							"id": 658,
+							"id": 659,
 							"name": "min",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -7971,7 +8014,7 @@
 							},
 							"parameters": [
 								{
-									"id": 659,
+									"id": 660,
 									"name": "acc",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -7982,7 +8025,7 @@
 									}
 								},
 								{
-									"id": 660,
+									"id": 661,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8008,7 +8051,7 @@
 					]
 				},
 				{
-					"id": 707,
+					"id": 708,
 					"name": "showByColumns",
 					"kind": 64,
 					"kindString": "Function",
@@ -8017,26 +8060,26 @@
 					},
 					"signatures": [
 						{
-							"id": 708,
+							"id": 709,
 							"name": "showByColumns",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 709,
+									"id": 710,
 									"name": "pivot",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 598,
+										"id": 599,
 										"name": "PivotStruct"
 									}
 								},
 								{
-									"id": 710,
+									"id": 711,
 									"name": "level",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8047,19 +8090,19 @@
 									}
 								},
 								{
-									"id": 711,
+									"id": 712,
 									"name": "colSequence",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 648,
+										"id": 649,
 										"name": "HeaderMap"
 									}
 								},
 								{
-									"id": 712,
+									"id": 713,
 									"name": "expanded",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8086,7 +8129,7 @@
 					]
 				},
 				{
-					"id": 653,
+					"id": 654,
 					"name": "sum",
 					"kind": 64,
 					"kindString": "Function",
@@ -8098,7 +8141,7 @@
 					},
 					"signatures": [
 						{
-							"id": 654,
+							"id": 655,
 							"name": "sum",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -8108,7 +8151,7 @@
 							},
 							"parameters": [
 								{
-									"id": 655,
+									"id": 656,
 									"name": "acc",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8119,7 +8162,7 @@
 									}
 								},
 								{
-									"id": 656,
+									"id": 657,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8145,7 +8188,7 @@
 					]
 				},
 				{
-					"id": 672,
+					"id": 673,
 					"name": "unique",
 					"kind": 64,
 					"kindString": "Function",
@@ -8157,7 +8200,7 @@
 					},
 					"signatures": [
 						{
-							"id": 673,
+							"id": 674,
 							"name": "unique",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -8167,19 +8210,19 @@
 							},
 							"parameters": [
 								{
-									"id": 674,
+									"id": 675,
 									"name": "acc",
 									"kind": 32768,
 									"kindString": "Parameter",
 									"flags": {},
 									"type": {
 										"type": "reference",
-										"id": 632,
+										"id": 633,
 										"name": "Aggregator"
 									}
 								},
 								{
-									"id": 675,
+									"id": 676,
 									"name": "value",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -8200,21 +8243,21 @@
 									{
 										"type": "reflection",
 										"declaration": {
-											"id": 676,
+											"id": 677,
 											"name": "__type",
 											"kind": 65536,
 											"kindString": "Type literal",
 											"flags": {},
 											"indexSignature": [
 												{
-													"id": 677,
+													"id": 678,
 													"name": "__index",
 													"kind": 8192,
 													"kindString": "Index signature",
 													"flags": {},
 													"parameters": [
 														{
-															"id": 678,
+															"id": 679,
 															"name": "name",
 															"kind": 32768,
 															"kindString": "Parameter",
@@ -8251,59 +8294,59 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						623
+						624
 					]
 				},
 				{
 					"title": "Interfaces",
 					"kind": 256,
 					"children": [
-						589,
-						586,
-						602,
-						577,
-						598,
-						605,
-						608,
-						614
+						590,
+						587,
+						603,
+						578,
+						599,
+						606,
+						609,
+						615
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						632,
-						648,
-						636,
-						630
+						633,
+						649,
+						637,
+						631
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
+						642,
 						641,
-						640,
-						631,
-						649
+						632,
+						650
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						665,
-						691,
-						682,
-						679,
-						686,
-						698,
-						702,
-						661,
-						657,
-						707,
-						653,
-						672
+						666,
+						692,
+						683,
+						680,
+						687,
+						699,
+						703,
+						662,
+						658,
+						708,
+						654,
+						673
 					]
 				}
 			],
@@ -8951,7 +8994,7 @@
 					},
 					"comment": {
 						"shortText": "# Radio Button Widget\nA group of buttons with one or none selected",
-						"text": "### Profile\ninvoked as `m(RadioButton, {desc: { items:[<string>], clicked:<function>}});`\n\n### node attributes:\n- desc: see {@link Selector.SelectorDesc SelectorDesc}\n    - clicked: `(item:string) => void`   function to execute when button is selected\n    - defaultItem?: `number|string`      the currently selected item, by index or name\n    - items: `string[]`                  names to individual buttons to show\n    - itemCss?:`string[]`                css to apply to each item;\n- css?: `string`                         css class to assign to button group\n- style?: `string`                       style string to apply to button tag\n- sizes?: `string[]`                     optional width settings to pass to the menu `Layout`.\n"
+						"text": "### Profile\ninvoked as `m(RadioButton, {desc: { items:[<string>], clicked:<function>}});`\n\n### node attributes:\n- desc: see {@link Selector.SelectorDesc SelectorDesc}\n    - clicked: `(item:string, index?:number) => void`   function to execute when button is selected\n    - defaultItem?: `number|string`      the currently selected item, by index or name\n    - items: `string[]`                  names to individual buttons to show\n    - itemCss?:`string[]`                css to apply to each item;\n- css?: `string`                         css class to assign to button group\n- style?: `string`                       style string to apply to button tag\n- sizes?: `string[]`                     optional width settings to pass to the menu `Layout`.\n"
 					},
 					"children": [
 						{
@@ -9588,7 +9631,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
 			"comment": {
 				"shortText": "# Abstract Selector\nCreates a Selector with several Selectables.\nThe `updateModel` property determines how selecting an item affects\nthe `isSelected` status of all other items. Preconfigured options are\n-&nbsp; {@link Selector.oneOfItems oneOfItems} allows only one selection at a time\n-&nbsp; {@link Selector.anyItems   anyItems} allows mutliple selections",
-				"text": "### Invocation\nimplementation dependant\n\n### Attributes (node.attrs):\n- desc: {@link Selector.SelectorDesc SelectorDesc}\n    - items: string[];                // the items on the selector\n    - defaultItem?: number|string;    // the initial selected item, by index or name\n    - clicked: (item:string) => void; // called upon user selection\n    - itemCss?:string[];              // css to apply to items;\n"
+				"text": "### Invocation\nimplementation dependant\n\n### Attributes (node.attrs):\n- desc: {@link Selector.SelectorDesc SelectorDesc}\n    - items: string[];                // the items on the selector\n    - defaultItem?: number|string;    // the initial selected item, by index or name\n    - clicked: (item:string, index?:number) => void; // called upon user selection\n    - itemCss?:string[];              // css to apply to items;\n"
 			},
 			"children": [
 				{
@@ -9992,7 +10035,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-									"line": 210,
+									"line": 211,
 									"character": 17
 								}
 							]
@@ -11273,7 +11316,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Selector.ts",
-							"line": 219,
+							"line": 220,
 							"character": 32
 						}
 					]
@@ -14501,7 +14544,7 @@
 			]
 		},
 		{
-			"id": 713,
+			"id": 714,
 			"name": "\"TypeAhead\"",
 			"kind": 1,
 			"kindString": "Module",
@@ -14515,28 +14558,28 @@
 			},
 			"children": [
 				{
-					"id": 714,
+					"id": 715,
 					"name": "GetList",
 					"kind": 128,
 					"kindString": "Class",
 					"flags": {},
 					"children": [
 						{
-							"id": 717,
+							"id": 718,
 							"name": "constructor",
 							"kind": 512,
 							"kindString": "Constructor",
 							"flags": {},
 							"signatures": [
 								{
-									"id": 722,
+									"id": 723,
 									"name": "new GetList",
 									"kind": 16384,
 									"kindString": "Constructor signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 723,
+											"id": 724,
 											"name": "map",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -14546,21 +14589,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 724,
+													"id": 725,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 725,
+															"id": 726,
 															"name": "__call",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 726,
+																	"id": 727,
 																	"name": "item",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -14596,7 +14639,7 @@
 									],
 									"type": {
 										"type": "reference",
-										"id": 714,
+										"id": 715,
 										"name": "GetList"
 									}
 								}
@@ -14610,7 +14653,7 @@
 							]
 						},
 						{
-							"id": 716,
+							"id": 717,
 							"name": "list",
 							"kind": 1024,
 							"kindString": "Property",
@@ -14634,7 +14677,7 @@
 							"defaultValue": "[]"
 						},
 						{
-							"id": 718,
+							"id": 719,
 							"name": "map",
 							"kind": 1024,
 							"kindString": "Property",
@@ -14653,21 +14696,21 @@
 							"type": {
 								"type": "reflection",
 								"declaration": {
-									"id": 719,
+									"id": 720,
 									"name": "__type",
 									"kind": 65536,
 									"kindString": "Type literal",
 									"flags": {},
 									"signatures": [
 										{
-											"id": 720,
+											"id": 721,
 											"name": "__call",
 											"kind": 4096,
 											"kindString": "Call signature",
 											"flags": {},
 											"parameters": [
 												{
-													"id": 721,
+													"id": 722,
 													"name": "item",
 													"kind": 32768,
 													"kindString": "Parameter",
@@ -14701,7 +14744,7 @@
 							}
 						},
 						{
-							"id": 715,
+							"id": 716,
 							"name": "url",
 							"kind": 1024,
 							"kindString": "Property",
@@ -14721,7 +14764,7 @@
 							}
 						},
 						{
-							"id": 730,
+							"id": 731,
 							"name": "captureList",
 							"kind": 2048,
 							"kindString": "Method",
@@ -14730,14 +14773,14 @@
 							},
 							"signatures": [
 								{
-									"id": 731,
+									"id": 732,
 									"name": "captureList",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 732,
+											"id": 733,
 											"name": "list",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -14751,7 +14794,7 @@
 											}
 										},
 										{
-											"id": 733,
+											"id": 734,
 											"name": "map",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -14759,21 +14802,21 @@
 											"type": {
 												"type": "reflection",
 												"declaration": {
-													"id": 734,
+													"id": 735,
 													"name": "__type",
 													"kind": 65536,
 													"kindString": "Type literal",
 													"flags": {},
 													"signatures": [
 														{
-															"id": 735,
+															"id": 736,
 															"name": "__call",
 															"kind": 4096,
 															"kindString": "Call signature",
 															"flags": {},
 															"parameters": [
 																{
-																	"id": 736,
+																	"id": 737,
 																	"name": "l",
 																	"kind": 32768,
 																	"kindString": "Parameter",
@@ -14822,7 +14865,7 @@
 							]
 						},
 						{
-							"id": 727,
+							"id": 728,
 							"name": "search",
 							"kind": 2048,
 							"kindString": "Method",
@@ -14831,14 +14874,14 @@
 							},
 							"signatures": [
 								{
-									"id": 728,
+									"id": 729,
 									"name": "search",
 									"kind": 4096,
 									"kindString": "Call signature",
 									"flags": {},
 									"parameters": [
 										{
-											"id": 729,
+											"id": 730,
 											"name": "list",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -14881,24 +14924,24 @@
 							"title": "Constructors",
 							"kind": 512,
 							"children": [
-								717
+								718
 							]
 						},
 						{
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								716,
-								718,
-								715
+								717,
+								719,
+								716
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								730,
-								727
+								731,
+								728
 							]
 						}
 					],
@@ -14911,7 +14954,7 @@
 					]
 				},
 				{
-					"id": 737,
+					"id": 738,
 					"name": "TypeAhead",
 					"kind": 128,
 					"kindString": "Class",
@@ -14920,7 +14963,7 @@
 					},
 					"children": [
 						{
-							"id": 738,
+							"id": 739,
 							"name": "gl",
 							"kind": 1024,
 							"kindString": "Property",
@@ -14936,13 +14979,13 @@
 							],
 							"type": {
 								"type": "reference",
-								"id": 714,
+								"id": 715,
 								"name": "GetList"
 							},
 							"defaultValue": "new GetList()"
 						},
 						{
-							"id": 739,
+							"id": 740,
 							"name": "oninit",
 							"kind": 2048,
 							"kindString": "Method",
@@ -14951,7 +14994,7 @@
 							},
 							"signatures": [
 								{
-									"id": 740,
+									"id": 741,
 									"name": "oninit",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -14960,7 +15003,7 @@
 									},
 									"parameters": [
 										{
-											"id": 741,
+											"id": 742,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -14988,7 +15031,7 @@
 							]
 						},
 						{
-							"id": 742,
+							"id": 743,
 							"name": "view",
 							"kind": 2048,
 							"kindString": "Method",
@@ -14997,7 +15040,7 @@
 							},
 							"signatures": [
 								{
-									"id": 743,
+									"id": 744,
 									"name": "view",
 									"kind": 4096,
 									"kindString": "Call signature",
@@ -15006,7 +15049,7 @@
 									},
 									"parameters": [
 										{
-											"id": 744,
+											"id": 745,
 											"name": "node",
 											"kind": 32768,
 											"kindString": "Parameter",
@@ -15049,15 +15092,15 @@
 							"title": "Properties",
 							"kind": 1024,
 							"children": [
-								738
+								739
 							]
 						},
 						{
 							"title": "Methods",
 							"kind": 2048,
 							"children": [
-								739,
-								742
+								740,
+								743
 							]
 						}
 					],
@@ -15070,7 +15113,7 @@
 					]
 				},
 				{
-					"id": 746,
+					"id": 747,
 					"name": "Vnode",
 					"kind": 4194304,
 					"kindString": "Type alias",
@@ -15098,7 +15141,7 @@
 					}
 				},
 				{
-					"id": 745,
+					"id": 746,
 					"name": "log",
 					"kind": 32,
 					"kindString": "Variable",
@@ -15119,14 +15162,14 @@
 					"defaultValue": "new Log('TypeAhead')"
 				},
 				{
-					"id": 751,
+					"id": 752,
 					"name": "autoComplete",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 752,
+							"id": 753,
 							"name": "autoComplete",
 							"kind": 4096,
 							"kindString": "Call signature",
@@ -15136,7 +15179,7 @@
 							},
 							"parameters": [
 								{
-									"id": 753,
+									"id": 754,
 									"name": "typed",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15150,7 +15193,7 @@
 									}
 								},
 								{
-									"id": 754,
+									"id": 755,
 									"name": "node",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15179,21 +15222,21 @@
 					]
 				},
 				{
-					"id": 747,
+					"id": 748,
 					"name": "emphasize",
 					"kind": 64,
 					"kindString": "Function",
 					"flags": {},
 					"signatures": [
 						{
-							"id": 748,
+							"id": 749,
 							"name": "emphasize",
 							"kind": 4096,
 							"kindString": "Call signature",
 							"flags": {},
 							"parameters": [
 								{
-									"id": 749,
+									"id": 750,
 									"name": "item",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15204,7 +15247,7 @@
 									}
 								},
 								{
-									"id": 750,
+									"id": 751,
 									"name": "match",
 									"kind": 32768,
 									"kindString": "Parameter",
@@ -15245,30 +15288,30 @@
 					"title": "Classes",
 					"kind": 128,
 					"children": [
-						714,
-						737
+						715,
+						738
 					]
 				},
 				{
 					"title": "Type aliases",
 					"kind": 4194304,
 					"children": [
-						746
+						747
 					]
 				},
 				{
 					"title": "Variables",
 					"kind": 32,
 					"children": [
-						745
+						746
 					]
 				},
 				{
 					"title": "Functions",
 					"kind": 64,
 					"children": [
-						751,
-						747
+						752,
+						748
 					]
 				}
 			],
@@ -15281,7 +15324,7 @@
 			]
 		},
 		{
-			"id": 755,
+			"id": 756,
 			"name": "\"index\"",
 			"kind": 1,
 			"kindString": "Module",
@@ -15299,17 +15342,17 @@
 			},
 			"children": [
 				{
-					"id": 785,
+					"id": 787,
 					"name": "Aggregator",
 					"kind": 16777216,
 					"kindString": "Reference",
 					"flags": {
 						"isExported": true
 					},
-					"target": 632
+					"target": 633
 				},
 				{
-					"id": 768,
+					"id": 769,
 					"name": "Button",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15319,7 +15362,7 @@
 					"target": 117
 				},
 				{
-					"id": 775,
+					"id": 776,
 					"name": "ButtonSymbols",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15329,7 +15372,7 @@
 					"target": 506
 				},
 				{
-					"id": 777,
+					"id": 778,
 					"name": "ButtonSymbols",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15339,7 +15382,7 @@
 					"target": 506
 				},
 				{
-					"id": 779,
+					"id": 780,
 					"name": "Collapsible",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15349,27 +15392,27 @@
 					"target": 149
 				},
 				{
-					"id": 784,
+					"id": 786,
 					"name": "ColumnGenerator",
 					"kind": 16777216,
 					"kindString": "Reference",
 					"flags": {
 						"isExported": true
 					},
-					"target": 589
+					"target": 590
 				},
 				{
-					"id": 783,
+					"id": 785,
 					"name": "ColumnSpec",
 					"kind": 16777216,
 					"kindString": "Reference",
 					"flags": {
 						"isExported": true
 					},
-					"target": 586
+					"target": 587
 				},
 				{
-					"id": 795,
+					"id": 797,
 					"name": "EditCheckbox",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15377,16 +15420,6 @@
 						"isExported": true
 					},
 					"target": 159
-				},
-				{
-					"id": 790,
-					"name": "EditDate",
-					"kind": 16777216,
-					"kindString": "Reference",
-					"flags": {
-						"isExported": true
-					},
-					"target": 230
 				},
 				{
 					"id": 792,
@@ -15399,14 +15432,14 @@
 					"target": 230
 				},
 				{
-					"id": 789,
-					"name": "EditLabel",
+					"id": 794,
+					"name": "EditDate",
 					"kind": 16777216,
 					"kindString": "Reference",
 					"flags": {
 						"isExported": true
 					},
-					"target": 207
+					"target": 230
 				},
 				{
 					"id": 791,
@@ -15420,6 +15453,16 @@
 				},
 				{
 					"id": 793,
+					"name": "EditLabel",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 207
+				},
+				{
+					"id": 795,
 					"name": "EditList",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15429,7 +15472,7 @@
 					"target": 264
 				},
 				{
-					"id": 794,
+					"id": 796,
 					"name": "EditSelect",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15439,7 +15482,7 @@
 					"target": 287
 				},
 				{
-					"id": 796,
+					"id": 798,
 					"name": "EditTextarea",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15449,7 +15492,7 @@
 					"target": 304
 				},
 				{
-					"id": 770,
+					"id": 771,
 					"name": "Icon",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15459,7 +15502,7 @@
 					"target": 334
 				},
 				{
-					"id": 769,
+					"id": 770,
 					"name": "Label",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15469,7 +15512,17 @@
 					"target": 415
 				},
 				{
-					"id": 756,
+					"id": 757,
+					"name": "Menu",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 370
+				},
+				{
+					"id": 759,
 					"name": "Menu",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15480,16 +15533,6 @@
 				},
 				{
 					"id": 758,
-					"name": "Menu",
-					"kind": 16777216,
-					"kindString": "Reference",
-					"flags": {
-						"isExported": true
-					},
-					"target": 370
-				},
-				{
-					"id": 757,
 					"name": "MenuPanel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15499,7 +15542,7 @@
 					"target": 398
 				},
 				{
-					"id": 759,
+					"id": 760,
 					"name": "MenuPanel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15509,8 +15552,18 @@
 					"target": 398
 				},
 				{
-					"id": 780,
+					"id": 782,
 					"name": "Modal",
+					"kind": 16777216,
+					"kindString": "Reference",
+					"flags": {
+						"isExported": true
+					},
+					"target": 572
+				},
+				{
+					"id": 781,
+					"name": "ModalAttrs",
 					"kind": 16777216,
 					"kindString": "Reference",
 					"flags": {
@@ -15519,7 +15572,7 @@
 					"target": 568
 				},
 				{
-					"id": 773,
+					"id": 774,
 					"name": "OptionsButton",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15529,37 +15582,37 @@
 					"target": 468
 				},
 				{
-					"id": 787,
+					"id": 789,
 					"name": "Pivot",
 					"kind": 16777216,
 					"kindString": "Reference",
 					"flags": {
 						"isExported": true
 					},
-					"target": 623
+					"target": 624
 				},
 				{
-					"id": 782,
+					"id": 784,
 					"name": "PivotAttrs",
 					"kind": 16777216,
 					"kindString": "Reference",
 					"flags": {
 						"isExported": true
 					},
-					"target": 577
+					"target": 578
 				},
 				{
-					"id": 786,
+					"id": 788,
 					"name": "PivotHeader",
 					"kind": 16777216,
 					"kindString": "Reference",
 					"flags": {
 						"isExported": true
 					},
-					"target": 636
+					"target": 637
 				},
 				{
-					"id": 781,
+					"id": 783,
 					"name": "Popup",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15569,7 +15622,7 @@
 					"target": 176
 				},
 				{
-					"id": 772,
+					"id": 773,
 					"name": "RadioButton",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15579,7 +15632,7 @@
 					"target": 340
 				},
 				{
-					"id": 764,
+					"id": 765,
 					"name": "SelectableDesc",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15589,7 +15642,7 @@
 					"target": 18
 				},
 				{
-					"id": 767,
+					"id": 768,
 					"name": "Selector",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15599,7 +15652,7 @@
 					"target": 47
 				},
 				{
-					"id": 763,
+					"id": 764,
 					"name": "SelectorDesc",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15609,7 +15662,7 @@
 					"target": 2
 				},
 				{
-					"id": 766,
+					"id": 767,
 					"name": "SelectorState",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15619,7 +15672,7 @@
 					"target": 35
 				},
 				{
-					"id": 771,
+					"id": 772,
 					"name": "Slider",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15629,7 +15682,7 @@
 					"target": 421
 				},
 				{
-					"id": 774,
+					"id": 775,
 					"name": "ToggleButton",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15639,7 +15692,7 @@
 					"target": 90
 				},
 				{
-					"id": 776,
+					"id": 777,
 					"name": "ToolbarButton",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15649,7 +15702,7 @@
 					"target": 498
 				},
 				{
-					"id": 778,
+					"id": 779,
 					"name": "ToolbarButton",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15659,17 +15712,17 @@
 					"target": 498
 				},
 				{
-					"id": 788,
+					"id": 790,
 					"name": "TypeAhead",
 					"kind": 16777216,
 					"kindString": "Reference",
 					"flags": {
 						"isExported": true
 					},
-					"target": 737
+					"target": 738
 				},
 				{
-					"id": 761,
+					"id": 762,
 					"name": "anyItems",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15679,7 +15732,7 @@
 					"target": 82
 				},
 				{
-					"id": 760,
+					"id": 761,
 					"name": "oneOfItems",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15689,7 +15742,7 @@
 					"target": 78
 				},
 				{
-					"id": 762,
+					"id": 763,
 					"name": "renderSelectable",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15699,7 +15752,7 @@
 					"target": 86
 				},
 				{
-					"id": 765,
+					"id": 766,
 					"name": "selectionModel",
 					"kind": 16777216,
 					"kindString": "Reference",
@@ -15714,47 +15767,48 @@
 					"title": "References",
 					"kind": 16777216,
 					"children": [
+						787,
+						769,
+						776,
+						778,
+						780,
+						786,
 						785,
+						797,
+						792,
+						794,
+						791,
+						793,
+						795,
+						796,
+						798,
+						771,
+						770,
+						757,
+						759,
+						758,
+						760,
+						782,
+						781,
+						774,
+						789,
+						784,
+						788,
+						783,
+						773,
+						765,
 						768,
+						764,
+						767,
+						772,
 						775,
 						777,
 						779,
-						784,
-						783,
-						795,
 						790,
-						792,
-						789,
-						791,
-						793,
-						794,
-						796,
-						770,
-						769,
-						756,
-						758,
-						757,
-						759,
-						780,
-						773,
-						787,
-						782,
-						786,
-						781,
-						772,
-						764,
-						767,
-						763,
-						766,
-						771,
-						774,
-						776,
-						778,
-						788,
-						761,
-						760,
 						762,
-						765
+						761,
+						763,
+						766
 					]
 				}
 			],
@@ -15767,7 +15821,7 @@
 			]
 		},
 		{
-			"id": 797,
+			"id": 799,
 			"name": "\"overview\"",
 			"kind": 1,
 			"kindString": "Module",
@@ -15805,16 +15859,16 @@
 				369,
 				567,
 				467,
-				576,
+				577,
 				175,
 				339,
 				1,
 				420,
 				89,
 				497,
-				713,
-				755,
-				797
+				714,
+				756,
+				799
 			]
 		}
 	]

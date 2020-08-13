@@ -14,7 +14,7 @@
  * - desc: {@link Selector.SelectorDesc SelectorDesc}
  *     - items: string[];                // the items on the selector
  *     - defaultItem?: number|string;    // the initial selected item, by index or name
- *     - clicked: (item:string) => void; // called upon user selection
+ *     - clicked: (item:string, index?:number) => void; // called upon user selection
  *     - itemCss?:string[];              // css to apply to items;
  */
 
@@ -184,11 +184,12 @@ export abstract class Selector {
      * @param i index of item to render
      */
     protected renderItem(node: Vnode, i:number) {
-        const reactor = (callback:(itm:string)=>void) => (title:string) => {
+        const reactor = (callback:(itm:string, index?:number)=>void) => (title:string) => {
             node.state.updateModel(node.state.items, title); // internal state update
             title = node.state.itemClicked(title);
+            const index = (<SelectableDesc[]>node.state.items).findIndex(item => item.title===title);
             if (typeof callback === 'function') { 
-                callback(title);  // trigger any external actions from the selection
+                callback(title, index);  // trigger any external actions from the selection
             }     
         }; 
         if (i<0) { log.debug(()=>`illegal render index ${i} ${node.state.items.map((i:any)=>i.title).join('|')}`); i = 0; }
