@@ -1,0 +1,42 @@
+.myMenuMain { 
+   border:1px solid #ddd;
+   border-top: 0px solid #ddd;
+} 
+.myMenu .hs-selectable { 
+    background-color: #eef; 
+}
+.myMenu .hs-selected { 
+    background-color: #ddf; 
+    border-width:0px;
+}
+.myCollapsible {
+    margin-bottom: 5px;
+}
+.myCollapsible .hs-collapsible-title {
+    font-weight:bold;
+    background-color: #eee;
+}
+.myCollapsible .hs-collapsible-expanded {
+    margin-left: 10px;
+}
+.myCornerClicked { background-color: #efe; }
+.myCornerPositioned { 
+     position: relative; 
+     display: inline-block;
+     box-sizing: border-box;
+     background-color: #eee; 
+     text-align: center;
+     font-size: 70%;
+     margin:  2px;
+     padding-top: 20px;
+     height: 50px;
+     width:  50px;
+}
+.hs-corner-button { color: #008; }
+
+.hs-radio-buttons>.hs-column-layout>.hs-layout { border-color: transparent}
+
+.hsedit_label { 
+   background-color: #eee;
+}
+   
