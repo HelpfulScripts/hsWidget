@@ -24,13 +24,16 @@ export interface ModalAttrs {
      * For example, clicking in the background will trigger a call to this function.
      */
     dismiss: ()=>void;
+    /** optional way of hiding a `Modal` until it is needed: */
+    hideModal?: boolean
 }
 
 export class Modal {    
     view(node:Vnode) {
-        return m('.hs-modal', [
-            m('.hs-modal-background', { onclick: node.attrs.dismiss }),
-            m('.hs-modal-foreground', [node.children])
+        const hidden = typeof node.attrs.hideModal === 'function'? node.attrs.hideModal() : typeof node.attrs.hideModal;
+        return hidden? m('.hs_no_modal') : m('.hs_modal', [
+            m('.hs_modal_background', { onclick: node.attrs.dismiss }),
+            m('.hs_modal_foreground', [node.children])
         ]);
     }
 }

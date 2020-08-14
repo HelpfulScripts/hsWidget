@@ -113,7 +113,10 @@
 <a name='L54'></a><a href='#L54'>54</a>
 <a name='L55'></a><a href='#L55'>55</a>
 <a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,11 +164,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -200,9 +206,13 @@
  */
 &nbsp;
 /** */
-import m from "mithril";
+import m                        from "mithril";
 type Vnode = m.Vnode&lt;any, any&gt;;
-import { ToggleButton } from './ToggleButton';
+import { ToggleButton }         from './ToggleButton';
+import { ToggleButtonAttrs }    from './ToggleButton';
+&nbsp;
+&nbsp;
+export interface ButtonAttrs extends ToggleButtonAttrs {}
 &nbsp;
 /**
  * # Button Widget
@@ -221,7 +231,6 @@ export class Button extends ToggleButton {
     oninit(node: Vnode) {
         node.attrs.desc.items = [node.attrs.desc.name || 'button'];
         super.oninit(node);
-        // this.ensureSelected(node);
     }
 }
 &nbsp;

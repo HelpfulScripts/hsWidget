@@ -29,9 +29,13 @@
  */
 
 /** */
-import m from "mithril";
+import m                        from "mithril";
 type Vnode = m.Vnode<any, any>;
-import { ToggleButton } from './ToggleButton';
+import { ToggleButton }         from './ToggleButton';
+import { ToggleButtonAttrs }    from './ToggleButton';
+
+
+export interface ButtonAttrs extends ToggleButtonAttrs {}
 
 /**
  * # Button Widget
@@ -50,7 +54,6 @@ export class Button extends ToggleButton {
     oninit(node: Vnode) {
         node.attrs.desc.items = [node.attrs.desc.name || 'button'];
         super.oninit(node);
-        // this.ensureSelected(node);
     }
 }
 

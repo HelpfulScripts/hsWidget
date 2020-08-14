@@ -458,7 +458,7 @@ function make(grunt) {
                     changed = true;
                     grunt.log.writeln(`substituting ${match} = ${p1} for  ${f.cwd+f.src[i]}`);
                     const replacement = grunt.file.read(f.cwd+f.src[i]).replace(/\n/g, "\\n").replace(/\"/g, "\\\"");
-                    return '/*ximport*/' + replacement;
+                    return '/*ximport*/\\n' + replacement;
                 }
                 return '';
             });

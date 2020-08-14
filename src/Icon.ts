@@ -13,19 +13,8 @@
  * 
  * ### Example
  * <example>
- * <file name='script.js'> 
- * m.mount(root, {view: () => m(hsWidget.Label, {
- *      css: '.myLabel', 
- *      style: 'text-align: right;',
- *      text: 'This is a <b>label</b>',
- *      mdi: 'leaf'
- * })});
- * </file>
- * <file name='style.css'>
- * .myLabel {  
- *    background-color: white; 
- *    margin: 5px;
- * }
+ * <file name='script.js'>
+ * ximport='Icon.x.js'
  * </file>
  * </example>
  * 
@@ -34,6 +23,11 @@
 /** */
 import m from "mithril";
 type Vnode = m.Vnode<any, any>;
+
+export interface IconAttrs {
+    /** the `svg` string for the icon, as imported from `@mdi/js` */
+    mdiSvg:string;
+}
 
 /**
  * # Icon 
@@ -47,11 +41,6 @@ type Vnode = m.Vnode<any, any>;
  */
 export class Icon {
     view(node: Vnode): Vnode { 
-        const css = node.attrs.css || '';
-        const style = node.attrs.style || '';
-        const text  = node.attrs.text || 'unspecified';
-        const mdi   = node.attrs.mdi;
-        return m(`.hs-label ${css}`, { style:style }, m.trust(text)); 
+        return m(`svg.hs_icon}`, {viewBox:"0 0 24 24"}); 
     }
 }
-

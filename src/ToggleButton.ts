@@ -33,8 +33,15 @@
 /** */
 import m from "mithril";
 type Vnode = m.Vnode<any, any>;
-import { Selector, SelectableDesc } from './Selector';
+import { Selector, SelectableDesc, SelectorAttrs } from './Selector';
 
+
+export interface ToggleButtonAttrs extends SelectorAttrs {
+    /** the css style to apply */
+    css: string;
+    /** an explicit style string to apply */
+    style: string;
+}
 /**
  * # ToggleButton Widget
  * A button widget that toggle through a set of items, or states and 

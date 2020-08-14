@@ -23,6 +23,16 @@ import { Log }      from 'hsutil'; const log = new Log('Selector');
 import m from "mithril";
 type Vnode = m.Vnode<any, any>;
 
+export interface SelectorAttrs {
+    desc: {
+        items:          string[];
+        defaultItem:    number|string; 
+        mouseUp:        (item:string) => void;
+        mouseDown:      (item:string) => void;
+        clicked:        (item:string) => void;
+    }
+}
+
 /** passed into Menu from the calling application */
 export interface SelectorDesc {
     /** the items on the menu */
