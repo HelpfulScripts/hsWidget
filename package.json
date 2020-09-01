@@ -4,7 +4,7 @@
     "main": "./bin/cjs/index.js",
     "module": "./bin/esm/index.js",
     "files": [
-        "./"
+        "./bin"
     ],
     "types": "./bin/esm/index.d.ts",
     "type": "module",
@@ -64,7 +64,6 @@
     },
     "dependencies": {
         "mithril": "^2.0.4",
-        "hslayout": "2.x.x",
         "hsutil": "3.x.x",
         "showdown": "^1.9.1"
     }
