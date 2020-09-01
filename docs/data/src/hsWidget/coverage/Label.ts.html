@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -107,11 +107,7 @@
 <a name='L48'></a><a href='#L48'>48</a>
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
-<a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a>
-<a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L51'></a><a href='#L51'>51</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -141,10 +137,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -156,10 +150,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -170,21 +162,19 @@
  * Shows a text label
  * 
  * ### Profile
- * invoked as `m(Label, {text:&lt;string&gt;});`
+ * invoked as `m(Label, { &lt;LabelAttrs&gt; }, &lt;content&gt;)`.
  * 
- * ### Attributes (node.attrs):
- * - `name: string` name to show as button text
- * - `css: string` css class to assign to button tag
- * - `style: string` style string to apply to button tag
+ * See {@link Label.LabelAttrs LabelAttrs}
+ * `&lt;content&gt;`: the label content; supports embedded HTML code.
  * 
  * ### Example
  * &lt;example&gt;
  * &lt;file name='script.js'&gt; 
  * m.mount(root, {view: () =&gt; m(hsWidget.Label, {
- *      css: '.myLabel', 
+ *      class: 'myLabel', 
  *      style: 'text-align: right;',
- *      text: 'This is a &lt;b&gt;label&lt;/b&gt;'
- * })});
+ *    }, 'This is a &lt;b&gt;label&lt;/b&gt;')
+ * });
  * &lt;/file&gt;
  * &lt;file name='style.css'&gt;
  * .myLabel {  
@@ -197,25 +187,23 @@
  */
 &nbsp;
 /** */
-import m from "mithril";
-type Vnode = m.Vnode&lt;any, any&gt;;
+import m                from "mithril";
+import { Widget, ViewResult }       from "./Widget";
+import { WidgetAttrs }  from "./Widget";
+import { Vnode }        from "./Widget";
+&nbsp;
+&nbsp;
+export interface LabelAttrs extends WidgetAttrs {
+}
 &nbsp;
 /**
  * # Label 
  * A text label
- * 
- * ### Profile
- * invoked as `m(Label, {text:&lt;string&gt;});`
- * 
- * ### Attributes (node.attrs):
- * - `text?: string` the label text; 
  */
-export class Label {
-    view(node: Vnode): Vnode { 
-        const css = node.attrs.css || '';
-        const style = node.attrs.style || '';
-        const text  = node.attrs.text || 'unspecified';
-        return m(`.hs-label ${css}`, { style:style }, m.trust(text)); 
+export class Label extends Widget {
+    view(node: Vnode&lt;LabelAttrs, this&gt;):ViewResult { 
+        const text  = &lt;string&gt;node.children[0] || '';
+        return m(`.hs_label`, this.attrs(node.attrs), m.trust(text)); 
     }
 }
 &nbsp;

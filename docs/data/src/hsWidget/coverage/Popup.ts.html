@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">69.05% </span>
+                <span class="strong">69.77% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>29/42</span>
+                <span class='fraction'>30/43</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">76.47% </span>
+                <span class="strong">77.14% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>26/34</span>
+                <span class='fraction'>27/35</span>
             </div>
         
             
@@ -169,7 +169,14 @@
 <a name='L110'></a><a href='#L110'>110</a>
 <a name='L111'></a><a href='#L111'>111</a>
 <a name='L112'></a><a href='#L112'>112</a>
-<a name='L113'></a><a href='#L113'>113</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -210,28 +217,35 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">13x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -286,8 +300,8 @@
  * opens a popup on an armed Vnode. 
  * 
  * ### Profile
- * invoked as `m(Popup, {})`. `Popup` uses fixed positioning, so it can be added to the 
- * rendering tree anywhere except as a direct `content` element in `Layout` (where it would interfere with `Layout's` 
+ * invoked as `m(Popup)`. `Popup` uses fixed positioning, so it can be added to the 
+ * rendering tree anywhere except as a direct `content` element in a `Widget` (where it would interfere with some of `Widget's` 
  * rendering logic). Only a single `Popup` is needed per app.
  * 
  * To arm a vnode, call `Popup.arm` which will return a `Mithril` attribute object:
@@ -322,14 +336,21 @@
  */
 &nbsp;
  /** */
-import { Log }      from 'hsutil'; const log = new Log('Popup');
-import m from "mithril";
-type Vnode = m.Vnode&lt;any, any&gt;;
+import { Log }          from 'hsutil'; const log = new Log('Popup');
+import m                from "mithril";
+import { Widget }       from './Widget';
+import { WidgetAttrs }  from './Widget';
+import { Vnode }        from './Widget';
+&nbsp;
+&nbsp;
+export interface PoupAttrs extends WidgetAttrs {
+&nbsp;
+}
 &nbsp;
 /**
  * a `Mithril` node that shows a popup when triggered.
  */
-export class Popup {
+export class Popup extends Widget {
     /**
      * arms a `Mithril` node by adding mouse listeners to the `attrs` object. 
      * @param content a `VNode` that specifies the content to show in the popup.
@@ -369,11 +390,11 @@ export class Popup {
     private <span class="fstat-no" title="function not covered" >hide(</span>) {
 <span class="cstat-no" title="statement not covered" >        this.showPopup = false;</span>
     }
-    view(node:Vnode) {
+    view(node:Vnode&lt;PoupAttrs, this&gt;) {
         Popup.instance = this;
         const pos = xy(window.innerWidth, window.innerHeight, this.x, this.y);
-        const attrs = { style:`left:${pos[0]}px; top:${pos[1]}px; transform: translate(${pos[2]}%, ${pos[3]}%);`};
-        return !this.showPopup? m('span') : <span class="branch-1 cbranch-no" title="branch not covered" >m(`.hs_popup`, attrs, this.content);</span>
+        const style = `left:${pos[0]}px; top:${pos[1]}px; transform: translate(${pos[2]}%, ${pos[3]}%);`;
+        return !this.showPopup? m('span') : <span class="branch-1 cbranch-no" title="branch not covered" >m(`.hs_popup`, {style:style}, this.content);</span>
     }
 }
 &nbsp;

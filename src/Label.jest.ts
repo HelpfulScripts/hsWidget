@@ -8,10 +8,9 @@ describe('Label', () => {
     describe('should have DOM structure', () => {
         beforeAll(() => {
             m.mount(root, { view: () => m(Label, {
-                css: '.myLabel',
+                class: 'myLabel',
                 style: 'text-align: right;',
-                text: 'This is a label'
-            })});
+            }, 'This is a label')});
         });
         it ('matches', () => {
             expect(root).toMatchSnapshot();
@@ -19,8 +18,7 @@ describe('Label', () => {
     });
     describe('should work with defaults', () => {
         beforeAll(() => {
-            m.mount(root, { view: () => m(Label, {
-            })});
+            m.mount(root, { view: () => m(Label)});
         });
         it ('matches', () => {
             expect(root).toMatchSnapshot();

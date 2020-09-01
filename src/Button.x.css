@@ -1,0 +1,11 @@
+.icons { margin:0 0 0 10px; grid-template-columns: repeat(3, 1fr)}
+.icons .hs_button { padding:0; width:32px;}
+.icon2.state0 { background-color: #fcc; }
+.icon2.state1 { background-color: #ccf; }
+.toggle.state0 { background-color: #88c; }
+.toggle.state0:hover { background-color: #88f !important; }
+.toggle.state1 { background-color: #8c8; }
+.toggle.state1:hover { background-color: #4f4 !important; }
+.toggle.state2 { background-color: #c88; }
+.toggle.state2:hover { background-color: #f44 !important; }
+.toggle.state2.hs_button_pressed { background-color: #fcc !important; }

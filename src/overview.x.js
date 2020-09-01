@@ -1,39 +1,59 @@
-const render = () => m.mount(root, {view: () => 
-    m('.hs-white', m(hsLayout.Layout, {
-        rows:['100px', '400px', '180px', '180px', '250px', '340px', '320px', '340px', '250px', '180px', '180px', 'fill'], content: [m('',''),
+const render = () => m.mount(root, {view: () => m('.hs-white', { class: 'overview' }, [    
+    m('.topGap'),
 
     // Buttons:
-    m('',[
+    m('.myButtons',[
         m('h2', 'Buttons'),
         m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button'), `: Please click: (${clicked}-times clicked)`]),
-        m(hsWidget.Button, { desc: { name: 'click me', clicked: () => clicked++ }}),
-        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.RadioButton.RadioButton'}, 'RadioButton'), `: Select Station: ${radio}`]),
-        m(hsWidget.RadioButton, { desc: {
-            items: ['1st', '2nd','3rd'], clicked: (item) => radio = item
-        }}),
-        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.OptionsButton.OptionsButton'}, 'OptionsButton'), `: Select Option: '${Object.keys(options).map(k=>options[k]).join(" ")}'`]),
-        m(hsWidget.OptionsButton, { desc: {
-            items: ['1st', '2nd','3rd'], clicked: (item) => options[item] = options[item]? undefined : item
-        }}),
-        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.ToggleButton.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),
-        m(hsWidget.ToggleButton, { desc: {
-            items: ['1st', '2nd','3rd'], clicked: (item) => toggle = item
-        }}),
+        m(hsWidget.Button, { onclick: () => clicked++ }, 'click me'),
+        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),
+        m(hsWidget.ToggleButton, { 
+            onclick: (item, state) => toggle = state
+        }, content),
+        m(hsWidget.GridColumns, {style:'height: 100px;'}, [
+            m('', [
+                m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.IconButton'}, 'IconButton'), `: Power ${icon}`]),
+                m(hsWidget.IconButton, { 
+                    mdi:'power',
+                    onclick: (item) => icon = ['off', 'on'][item]
+                }),
+            ]),
+            m('', [
+                m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.IconButton'}, 'OnOffButton'), `: Power ${onOff}`]),
+                m(hsWidget.OnOffButton, { 
+                    onclick: (item, state) => onOff = state
+                }, 'power'),
+            ])
+        ]),
+        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Optionbuttons.RadioButtons'}, 'RadioButtons'), `: Select Station: ${radio}`]),
+        m(hsWidget.RadioButtons, { onclick: (item) => radio = content[item]
+        }, content),
+        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Optionbuttons.OptionButtons'}, 'OptionButtons'), `: Select Option: '${Object.keys(options).map(k=>options[k]).join(" ")}'`]),
+        m(hsWidget.OptionButtons, { 
+            onclick: (item) => options[content[item]] = options[content[item]]? undefined : content[item]
+        }, content),
+        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Optionbuttons.IconButtons'}, 'IconButtons'), `: Select Option: '${Object.keys(iconsSel).map(k=>iconsSel[k]).join(" ")}'`]),
+        m(hsWidget.IconButtons, { 
+            class: 'hsIconButtons',
+            onclick: (item) => iconsSel[icons[item]] = iconsSel[icons[item]]? undefined : icons[item]
+        }, ['power', 'info', 'warn', 'stop'].map(i => m(hsWidget.Icon,{mdi:i}))),
     ]),
 
+
+
     // Menus:
-    m('',[
+    m('.myMenus',[
         m('h2', 'Menus'),
-        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.Menu'}, 'Menu'), `: Please select:`]),
-        m(hsWidget.Menu, { css: '.myMenu', desc: {
-            items: menuItems,  defaultItem: 'Two',
-        clicked: (item) => theContent = content[menuItems.indexOf(item)]
-        }}),
-        m('myMenuMain', theContent),
+        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.Menu'}, 'Menu'), `: ${theContent} selected`]),
+        m(hsWidget.Menu, { class: 'myMenu',
+            initial: 1, // 0..2
+            onclick: (item) => theContent = content[item]
+        }, menuItems),
+        m('.myMenuMain', theContent)
     ]),
 
     // Modal Dialog Box:
-    m('',[
+    m('.myDialog',[
         m('h2.myGapModal', 'Modal Dialog Box'),
         m('h4', {onclick:() => showModal=true }, 
             [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box (previous dismissals: ${dismissals})`]),
@@ -44,34 +64,39 @@ const render = () => m.mount(root, {view: () =>
     ]),
 
     // Popup Box:
-    m('',[
+    m('.myPopup',[
         m('h2.myGapPopup', 'Popup Box'),
         m('h4', hsWidget.Popup.arm('!!Jack in the Box!!'), [
             m('a',{href:'#!/api/hsWidget/hsWidget.Popup.Popup'}, 'Popup'), `: Hover over me to open a popup`]),
             m(hsWidget.Popup, {})
     ]),
 
+
+
     // Collapsibles:
-    m('',[
+    m('.myColl',[
         m('h2', 'Collapsibles'),
         m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Collapsible.Collapsible'}, 'Collapsible'), ': ']),
-        m(hsWidget.Collapsible, { css:'.myCollapsible', components: [
-            m('.myTitle', 'click me to toggle - no arrows'), content 
-        ]}),
-        m(hsWidget.Collapsible, { css:'.myCollapsible', preArrow:true, components: [
-            m('.myTitle', 'click me to toggle - left arrow'), content 
-        ]}),
-        m(hsWidget.Collapsible, { css:'.myCollapsible', postArrow:true, components: [
-            m('.myTitle', 'click me to toggle - right arrow'), content 
-        ]}),
-        m(hsWidget.Collapsible, { css:'.myCollapsible', preArrow:true, postArrow:true, components: [
-            m('.myTitle', 'click me to toggle - both arrows'), content
-        ]}),
+        m(hsWidget.Collapsible, { 
+            class:'myCollapsible',
+            transition: 1000
+        }, [
+            m('.myTitle', 'click me to toggle - no arrows'), ...content 
+        ]),
+        m(hsWidget.Collapsible, { class:'myCollapsible', preArrow:true}, [
+            m('.myTitle', 'click me to toggle - left arrow'), ...content 
+        ]),
+        m(hsWidget.Collapsible, { class:'myCollapsible', postArrow:true}, [
+            m('.myTitle', 'click me to toggle - right arrow'), ...content 
+        ]),
+        m(hsWidget.Collapsible, { class:'myCollapsible', preArrow:true, postArrow:true}, [
+            m('.myTitle', 'click me to toggle - both arrows'), ...content
+        ]),
         m('', 'Background text, will be pushed down by the Collapsible')
     ]),
 
     // Typeahead Search:
-    m('',[
+    m('.myType',[
         m('h2.myGapTypeAhead', 'Typeahead Search'),
         m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: In-Memory List: ${hero.length? 'Selected1: ' + hero : 'Search for a Superhero'}`]),
         m(hsWidget.TypeAhead, { 
@@ -89,7 +114,7 @@ const render = () => m.mount(root, {view: () =>
     ]),
 
     // Corner Buttons:
-    m('',[
+    m('.myCorner',[
         m('h2.myGapCornerButtons', 'Corner Buttons'),
         m('', Object.keys(hsWidget.ButtonSymbols).map(
             b => m('.myCornerPositioned', [
@@ -105,7 +130,7 @@ const render = () => m.mount(root, {view: () =>
 
 
     // Slider:
-    m('',[
+    m('.mySlider',[
         m('h2.mySliders', 'Sliders'),
         m('h4', `Nominal Slider: ${nom}`),
         m(hsWidget.Slider, { 
@@ -120,46 +145,57 @@ const render = () => m.mount(root, {view: () =>
     ]),
 
     // EditLabel
-    m('',[
+    m('.myELabel',[
         m('h2.myEditLabel', `EditLabel: '${editLabelContent}'`),
         m(hsWidget.EditLabel, { 
             placeholder: 'Enter here...',
-            content: editLabelContent,
             update: newValue => editLabelContent = newValue
-        }),
+        }, editLabelContent),
     ]),
 
     // EditSelect
-    m('',[
+    m('.myESelect',[
         m('h2.myEditSelect', `EditSelect: ${esSelected}`),
         m(hsWidget.EditSelect, { 
-            from: ['first','second','third'],
             selected: esSelected,
             update: newValue => esSelected = newValue
-        }),
+        }, ['first','second','third']),
     ]),
 
     // EditList
-    m('',[
+    m('.myEList',[
         m('h2.myEditList', 'EditList'),
         m(hsWidget.EditList, { 
             header: 'List Header',
-            rows: elContent,
-        }),
+            isExpanded:true
+        }, elContent),
     ]),
-]}))});
+
+    // EditCheckbox
+    m('.myECheck',[
+        m('h2.myEditCheckbox', 'EditCheckbox'),
+        m(hsWidget.EditCheckbox, { 
+            update: newValue => checkbox = newValue
+        }, `${checkbox}: I am ${checkbox?'' : 'not '}a robot`),
+    ]),
+])})
+// ]))});
 
 
 //--------------------------------------
 // supporting variables:
 const menuItems = ['One', 'Two', 'Three'];
 const content   = ['1st', '2nd', '3rd'];
-let  theContent = content[1];
+let theContent = content[1];
 let clicked = 0;
 let radio = '';
 let option = '';
 let options = {};
+let icons = ['power', 'info', 'warn', 'stop'];
+let iconsSel = {};
 let toggle = '';
+let icon = '';
+let onOff = ''; 
 let added  = 0;
 let removed  = 0;
 const btnClicked = {};
@@ -172,6 +208,7 @@ let nom, con;
 let editLabelContent = '';
 let esSelected = '';
 let elContent = [''];
+let checkbox = false;
 
 const click = (button) => () => {
    lastCornerButton = '';

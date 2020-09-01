@@ -1,89 +1,74 @@
-@ButtonColor:    #48f;
+@ButtonColor:     #48f;
 @ButtonIdleColor: #dde;
 @ButtonRadius:      6px;
 @SelectedColor: lighten(@ButtonColor, 20%);
-@ButtonHeight: 30px;
 @DeselectColor: #dde;
 @BoxShadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+@buttonSmallSize: 30px;
 
-.hs-abstract-button-group {
-    position: relative;
+@iconButtonColor: @ButtonIdleColor;
+@iconStrokeColor: #443;
+@iconStrokeColorSelected: #fff;
+@iconBorderRadius: 3px;
+
+.hs_abstract_button_group {
+    user-select: none;
+    display: grid;
+    font-size: 1rem;
+    height: 2rem;
     margin:  0px;
     box-sizing: border-box;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.hs-abstract-button {
-    .hs-abstract-button-group;
-}
-
-.hs-button {
-    .hs-abstract-button;
-    margin-left:    5px;
-    margin-right:   5px;
-    height: @ButtonHeight;
-    border-radius: @ButtonRadius;
+    align-items: center;
+    justify-items: center;
     box-shadow: @BoxShadow;
+    border-radius: @ButtonRadius;
+}
+
+.hs_button {
+    .hs_abstract_button_group;
+    padding: 0 10px;
     color: white;
-    font-weight:bold;
     background-color: @ButtonColor;
     &:hover {
-        background-color: darken(@ButtonColor, 5%);
+        filter: brightness(95%);
     }
-    &.hs-button-pressed {
-        background-color: lighten(@ButtonColor, 20%);
+    &.hs_pressed {
+        filter: brightness(105%);
     }
     span {
         vertical-align: middle;
-        line-height: @ButtonHeight;
     }
 }
 
-.hs-button-group {
-    .hs-abstract-button-group;
-    overflow: hidden;
-    border-radius: @ButtonRadius;
-    box-shadow: @BoxShadow;
-    background-color: transparent;
-    height: @ButtonHeight;
-    .hs-selectable {
-        .hs-abstract-button;
-        line-height: @ButtonHeight;
-        background: linear-gradient(to bottom, #eee, #dde);
-        &.hs-selected {
-            background: initial;
-            background-color: @ButtonColor;    
-            font-weight:bold;
-            color: white;
-        }
+.hs_onoff_button {
+    &.state0 {   // off state
+        background-color: @ButtonIdleColor;
+        color: @iconStrokeColor;
     }
-    &>.hs-layout {
-        &>:first-child>.hs-selectable { 
-            border-left: none;  
-            border-top-left-radius: @ButtonRadius;
-            border-bottom-left-radius: @ButtonRadius;
-        }
-        &>:last-child>.hs-selectable  { 
-            border-right: none; 
-            border-top-right-radius: @ButtonRadius;
-            border-bottom-right-radius: @ButtonRadius;
-        }
+    &.state1 {   // on state
+        background-color: @ButtonColor;
     }
 }
 
-.hs-radio-buttons {
-    .hs-button-group;
-}
 
-.hs-options-buttons {
-    .hs-button-group;
-}
-
-.hs-toggle-button {
-    .hs-button;
-    span { 
-        vertical-align: middle; 
-        line-height: @ButtonHeight;
+.hs_icon_button {
+    padding: 0;
+    border: 1px solid #888;
+    border-radius: @iconBorderRadius;
+    width:  unit(@buttonSmallSize, px);
+    height: unit(@buttonSmallSize, px);
+    & .hs_icon {
+        fill: inherit;
+        stroke: inherit;
+    }
+    &.state0 { 
+        background-color: @iconButtonColor; 
+        fill: @iconStrokeColor;
+        stroke: @iconStrokeColor;
+    }
+    &.state1 { 
+        background-color: darken(@iconButtonColor, 20%); 
+        fill: @iconStrokeColorSelected;
+        stroke: @iconStrokeColorSelected;
     }
 }

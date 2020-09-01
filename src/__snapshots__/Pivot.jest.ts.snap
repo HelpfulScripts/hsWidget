@@ -6,7 +6,7 @@ exports[`Pivot count should match snapshot 1`] = `
     class="hs-white"
   >
     <div
-      class="pivot"
+      class="hs_pivot"
     >
       <div
         class="row mon_header"
@@ -64,7 +64,7 @@ exports[`Pivot count should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="hs-collapsible-content scrolly"
+          class="hs-collapsible-content hs_scrolly hs-collapsible-expanded"
           style="max-height: 400px; transition: max-height 0.25s ease-in-out;"
         >
           <div>
@@ -100,7 +100,7 @@ exports[`Pivot count should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -138,7 +138,7 @@ exports[`Pivot count should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -176,7 +176,7 @@ exports[`Pivot count should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -214,7 +214,7 @@ exports[`Pivot count should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -252,7 +252,7 @@ exports[`Pivot count should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -270,7 +270,7 @@ exports[`Pivot max and generator should match snapshot 1`] = `
     class="hs-white"
   >
     <div
-      class="pivot"
+      class="hs_pivot"
     >
       <div
         class="row mon_header"
@@ -338,7 +338,7 @@ exports[`Pivot max and generator should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="hs-collapsible-content scrolly"
+          class="hs-collapsible-content hs_scrolly hs-collapsible-expanded"
           style="max-height: 400px; transition: max-height 0.25s ease-in-out;"
         >
           <div>
@@ -379,7 +379,7 @@ exports[`Pivot max and generator should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -422,7 +422,7 @@ exports[`Pivot max and generator should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -465,7 +465,7 @@ exports[`Pivot max and generator should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -508,7 +508,7 @@ exports[`Pivot max and generator should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -551,7 +551,7 @@ exports[`Pivot max and generator should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -569,7 +569,7 @@ exports[`Pivot min should match snapshot 1`] = `
     class="hs-white"
   >
     <div
-      class="pivot"
+      class="hs_pivot"
     >
       <div
         class="row mon_header"
@@ -627,7 +627,7 @@ exports[`Pivot min should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="hs-collapsible-content scrolly"
+          class="hs-collapsible-content hs_scrolly hs-collapsible-expanded"
           style="max-height: 400px; transition: max-height 0.25s ease-in-out;"
         >
           <div>
@@ -663,7 +663,7 @@ exports[`Pivot min should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -701,7 +701,7 @@ exports[`Pivot min should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -739,7 +739,7 @@ exports[`Pivot min should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -777,7 +777,7 @@ exports[`Pivot min should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -815,7 +815,7 @@ exports[`Pivot min should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -833,7 +833,7 @@ exports[`Pivot sum should match snapshot 1`] = `
     class="hs-white"
   >
     <div
-      class="pivot"
+      class="hs_pivot"
     >
       <div
         class="row mon_header"
@@ -911,7 +911,7 @@ exports[`Pivot sum should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="hs-collapsible-content scrolly"
+          class="hs-collapsible-content hs_scrolly hs-collapsible-expanded"
           style="max-height: 400px; transition: max-height 0.25s ease-in-out;"
         >
           <div>
@@ -957,7 +957,7 @@ exports[`Pivot sum should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -1005,7 +1005,7 @@ exports[`Pivot sum should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -1053,7 +1053,7 @@ exports[`Pivot sum should match snapshot 1`] = `
                 </div>
               </div>
               <div
-                class="hs-collapsible-content scrolly"
+                class="hs-collapsible-content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>

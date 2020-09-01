@@ -3,7 +3,7 @@
 exports[`EditSelect should match snapshot 1`] = `
 <div>
   <select
-    class="hsedit_select mySelect"
+    class="hsedit_select  mySelect"
   >
     <option
       class="hsedit_select_option"

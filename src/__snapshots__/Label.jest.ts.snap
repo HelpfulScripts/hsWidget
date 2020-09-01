@@ -3,7 +3,7 @@
 exports[`Label should have DOM structure matches 1`] = `
 <div>
   <div
-    class="hs-label  myLabel"
+    class="hs_label  myLabel"
     style="text-align: right;"
   >
     This is a label
@@ -14,10 +14,7 @@ exports[`Label should have DOM structure matches 1`] = `
 exports[`Label should work with defaults matches 1`] = `
 <div>
   <div
-    class="hs-label "
-    style=""
-  >
-    unspecified
-  </div>
+    class="hs_label"
+  />
 </div>
 `;

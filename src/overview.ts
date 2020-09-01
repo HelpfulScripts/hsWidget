@@ -35,9 +35,8 @@ ___
 | &nbsp; {@link EditSelect EditSelect} | A text label with pulldown select capability. |
 | &nbsp; {@link EditList EditList} | An auto-extending list of editable rows. |
 
- * <example height=3500px>
+ * <example height=500px>
  * <file name='script.js'>ximport='overview.x.js'</file>
- *
  * <file name='style.css'>ximport='overview.x.css'</file>
  * </example>
 */

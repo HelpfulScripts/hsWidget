@@ -19,11 +19,10 @@
  *    m('div', [
  *      m('span', `current content: '${selected}'`),
  *      m(hsWidget.EditSelect, {
- *          css: '.mySelect',
- *          from: choices,
- *          selected: selected,
+ *          class: 'mySelect',
+ *          initial: selected,
  *          update: newValue => selected = newValue
- *      })
+ *      }, choices)
  *    ])
  * ])});
  * 
@@ -37,31 +36,36 @@
 
 /** */
 import m from "mithril";
-type Vnode = m.Vnode<any, any>;
-import { Log }      from 'hsutil';import { Popup } from './Popup';
-  const log = new Log('EditSelect');
+import { Log }      from 'hsutil';  const log = new Log('EditSelect');
+import { Popup }    from './Popup';
+import { Widget, WidgetAttrs, ViewResult }   from "./Widget";
+import { Vnode }    from "./Widget";
+  
 
 
-export class EditSelect {
-    update:(r:string) => void;
-    selectable = false;
+export interface EditSelectAttrs extends WidgetAttrs {
+    popup?: string;
+    update: (r:string) => void;
+    initial: string;
+}
 
-    click() {
-        this.selectable = true;
+export class EditSelect extends Widget {
+    selectable:boolean;
+    select: (e:Event)=>void
+    oninit(node:Vnode<EditSelectAttrs, this>) {
+        node.state.selectable = false;
+        node.state.select = (e:Event) => { 
+            node.attrs.update((<HTMLButtonElement>e.currentTarget).value);
+            node.state.selectable = false;
+        }
+        // node.state.makeSelectable = () => {
+        //     node.state.selectable = true;
+        // }
     }
-
-    select(e:any) { 
-        this.update(e.currentTarget.value);
-        this.selectable = false;
-    }
-
-    view(node:Vnode) {
-        const select = this;
-        const attrs = (popup:string) => popup? Popup.arm(popup, { onchange:select.select.bind(select)}) : { onchange:select.select.bind(select)};
-        this.update = node.attrs.update;
-        const css = node.attrs.css || '';
-        return m(`select.hsedit_select${css}`, attrs(node.attrs.popup), 
-            node.attrs.from.map((o:string) => node.attrs.selected===o?
+    view(node:Vnode<EditSelectAttrs, this>):ViewResult {
+        return m(`select.hsedit_select`, 
+            Popup.arm(node.attrs.popup, this.attrs(node.attrs, <any>{ onchange:node.state.select})),
+            (<string[]>node.children).map((o:string) => node.attrs.initial===o?
                 m('option.hsedit_select_option.selected', { value: o, selected:true }, o) :
                 m('option.hsedit_select_option', { value: o }, o)));
     }

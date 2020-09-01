@@ -1,14 +1,12 @@
+.overview>div  {
+    width: 100%;
+}
 .myMenuMain { 
    border:1px solid #ddd;
    border-top: 0px solid #ddd;
+   background-color: white;
 } 
-.myMenu .hs-selectable { 
-    background-color: #eef; 
-}
-.myMenu .hs-selected { 
-    background-color: #ddf; 
-    border-width:0px;
-}
+
 .myCollapsible {
     margin-bottom: 5px;
 }
@@ -40,3 +38,41 @@
    background-color: #eee;
 }
    
+.topGap     { height: 100px; }
+.myButtons  { height: 600px; }
+.myMenus    { height: 180px; }
+.myDialog   { height: 180px; }
+.myPopup    { height: 250px; }
+.myColl     { height: 340px; }
+.myType     { height: 320px; }
+.myCorner   { height: 250px; }
+.mySlider   { height: 230px; }
+.myELabel   { height: 180px; }
+.myESelect  { height: 180px; }
+.myEList    { height: 180px; }
+.myECheck   { height: 180px; }
+
+.hsIconButtons.hs_optionbutton {
+    width:0;
+}
+.hsIconButtons .hs_onoff_button {
+    padding:0;
+    width: 32px;
+}
+
+.hsIconButtons .hs_onoff_button.state0 {
+    background-color: #dde;
+}
+
+.hsIconButtons .hs_onoff_button.state1 {
+    background-color: #aab;
+}
+
+.hsIconButtons .hs_onoff_button.state1 .hs_icon {
+    filter: invert(100%) hue-rotate(180deg) brightness(2);
+}
+
+.hsIconButtons .hs_onoff_button .hs_icon {
+    width: 80%;
+    height:80%;
+}

@@ -11,11 +11,10 @@ describe('EditTextarea', () => {
            m('div', [
              m('span', `current content: '${content}'`),
              m(EditTextarea, {
-                 css: '.myLabel',
+                 class: 'myLabel',
                  placeholder: 'Enter Value',
-                 content: content,
                  update: (newValue:string) => content = newValue
-             })
+             }, content)
            ])
         ])});    });
 

@@ -1,5 +1,20 @@
+@iconStrokeColor: #443;
 
-svg.hs_icon {
-    width:24px;
-    height:24px
+.hs_icon {
+    height: 1.5em;
+    fill: @iconStrokeColor;
+    stroke: @iconStrokeColor;
+    .info { fill: blue; stroke-width: 0;}
+    .warn { fill: yellow; stroke:#cccc00; stroke-width: 0;}
+    .stop { fill: red; stroke-width: 0;}
+    .hs_icon_content {
+        padding-left: 5px;
+        height:100%;
+        line-height:100%;
+        position:relative;
+        bottom: 50%;
+        display: inline-block;
+        translate: 0 0.35em;
+        vertical-align: baseline;
+    }
 }

@@ -2,11 +2,17 @@
 
 exports[`EditCheckbox should match snapshot 1`] = `
 <div>
-  <input
-    class="hsedit_checkbox mySelect"
-    type="checkbox"
+  <div
+    class="hs_edit_checkbox  mySelect"
+    id="mySelect"
   >
-    
-  </input>
+    <input
+      id="mySelect"
+      type="checkbox"
+    />
+    <label
+      for="mySelect"
+    />
+  </div>
 </div>
 `;

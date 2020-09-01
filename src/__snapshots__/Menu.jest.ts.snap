@@ -3,65 +3,33 @@
 exports[`MenuPanel layout 1`] = `
 <div>
   <div
-    class="hs-layout  hs-row-layout "
+    class="hs_grid  hs_grid_row"
+    style="grid-template-rows: 30px auto;"
   >
     <div
-      class="hs-layout  "
-      style="width: 100%; top: 0px; height: 30px;"
+      class="hs_option_buttons  hs_radio_buttons  hs_menu"
+      style="grid-template-columns: repeat(3, 1fr);"
     >
       <div
-        class="hs-menu "
-        style=""
+        class="hs_button state0  hs_onoff_button index0"
       >
-        <div
-          class="hs-layout  hs-column-layout "
-        >
-          <div
-            class="hs-layout  "
-            style="height: 100%; left: 0%; right: 66.66666666666666%; width: auto;"
-          >
-            <div
-              class="hs-selectable  "
-            >
-              one
-            </div>
-          </div>
-          <div
-            class="hs-layout  "
-            style="height: 100%; left: 33.333333333333336%; right: 33.33333333333333%; width: auto;"
-          >
-            <div
-              class="hs-selectable  hs-selected"
-            >
-              two
-            </div>
-          </div>
-          <div
-            class="hs-layout  "
-            style="height: 100%; left: 66.66666666666667%; right: 0%; width: auto;"
-          >
-            <div
-              class="hs-selectable  "
-            >
-              three
-            </div>
-          </div>
-        </div>
+        one
+      </div>
+      <div
+        class="hs_button state1  hs_onoff_button index1"
+      >
+        two
+      </div>
+      <div
+        class="hs_button state0  hs_onoff_button index2"
+      >
+        three
       </div>
     </div>
     <div
-      class="hs-layout  "
-      style="width: 100%; top: 30px; bottom: 0px; height: auto;"
+      class="hs_grid_cell child1"
     >
-      <div
-        class="hs-layout   hs-menu-panel"
-      >
-        <div
-          class="hs-leaf"
-        >
-          2nd
-        </div>
-      </div>
+      1st
     </div>
   </div>
 </div>

@@ -1,25 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`EditList should match snapshot 1`] = `
+exports[`EditList Collapsible should match snapshot 1`] = `
 <div>
   <div
-    class="edit_list"
+    class="hs-collapsible  hs_edit_list"
   >
     <div
-      class="hsedit_list_content"
+      class="hs-collapsible-title"
     >
       <div
-        class="hs-layout  hs-column-layout  hsedit_list_row"
+        class="header"
       >
-        <span
-          class="hsedit_label default"
-        >
-          add...
-        </span>
+        list
       </div>
-      <div
-        class="hs-layout  hs-column-layout  hsedit_list_row"
-      >
+    </div>
+    <div
+      class="hs-collapsible-content hs_scrolly hs-collapsible-expanded"
+      style="max-height: 400px; transition: max-height 0.25s ease-in-out;"
+    >
+      <div>
         <span
           class="hsedit_label default"
         >
@@ -27,6 +26,42 @@ exports[`EditList should match snapshot 1`] = `
         </span>
       </div>
     </div>
+  </div>
+</div>
+`;
+
+exports[`EditList Non-Collapsible with header should match snapshot 1`] = `
+<div>
+  <div
+    class="hs_edit_list"
+  >
+    <div
+      class="header"
+    >
+      list
+    </div>
+    <span
+      class="hsedit_label default"
+    >
+      add...
+    </span>
+  </div>
+</div>
+`;
+
+exports[`EditList Non-Collapsible, no header should match snapshot 1`] = `
+<div>
+  <div
+    class="hs_edit_list"
+  >
+    <div
+      class="header"
+    />
+    <span
+      class="hsedit_label default"
+    >
+      add...
+    </span>
   </div>
 </div>
 `;

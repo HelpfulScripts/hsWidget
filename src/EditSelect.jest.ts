@@ -8,11 +8,10 @@ let selected = 'none';
 describe('EditSelect', () => {
     beforeAll(()=>{
         m.mount(root, { view: () => m(EditSelect, {
-            css: '.mySelect',
-            from: choices,
-            selected: selected,
+            class: 'mySelect',
+            initial: selected,
             update: (newValue:string) => selected = newValue
-        })});
+        }, choices)});
     });
 
     it('should match snapshot', () => {

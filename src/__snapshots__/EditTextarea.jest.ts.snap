@@ -11,7 +11,7 @@ exports[`EditTextarea should match snapshot 1`] = `
         current content: ''
       </span>
       <div
-        class="hsedit_textarea default myLabel"
+        class="hs_edit_textarea default  myLabel"
       >
         Enter Value
       </div>

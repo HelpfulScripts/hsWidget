@@ -1,0 +1,26 @@
+
+.hs_option_buttons {
+    .hs_abstract_button_group;
+    gap:0;
+    background-color: rgba(0, 0, 0, 0);
+    &>.hs_button {
+        border-left: none;  
+        border-right: 1px solid white;
+        border-radius: 0;
+        width: 100%;
+        box-shadow: none;
+    }
+    &> :first-child { 
+        border-top-left-radius: @ButtonRadius;
+        border-bottom-left-radius: @ButtonRadius;
+    }
+    &> :last-child  { 
+        border-right: none; 
+        border-top-right-radius: @ButtonRadius;
+        border-bottom-right-radius: @ButtonRadius;
+    }
+}
+
+.hs_icon_buttons {
+    width:0;
+}

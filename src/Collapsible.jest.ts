@@ -1,18 +1,21 @@
+import { Collapsible }  from './Collapsible';
+import m from "mithril";
+
 window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
 
-const content   = ['1st', '2nd', '3rd'];
 
 describe('Collapsible', () => {
-    const Collapsible = require('./').Collapsible;
     const mq = require('mithril-query');
-    const m = require("mithril");
+    const content   = ['1st', '2nd', '3rd'];
     
     describe('no arrows', () => {
         const out = mq(m(Collapsible, { 
-            css:'.myCollapsible', 
+            class:'myCollapsible', 
             isExpanded: false,
-            components: [m('.myTitle', 'click me to toggle - no arrows'), content]
-        })); 
+        },[
+            m('.myTitle', 'click me to toggle - no arrows'), 
+            ...content
+        ])); 
         it ('should have DOM structure', () => {
             // out.log('.hs-collapsible-content');
             out.should.have('.myTitle');
@@ -31,12 +34,14 @@ describe('Collapsible', () => {
     });
     describe('double arrows', () => {
         const out = mq(m(Collapsible, { 
-            css:'.myCollapsible', 
+            class:'myCollapsible', 
             preArrow:true, 
             postArrow:true, 
             isExpanded: false,
-            components: [m('.myTitle', 'click me to toggle - both arrows'), content]
-        })); 
+        },[
+            m('.myTitle', 'click me to toggle - both arrows'), 
+            ...content
+        ])); 
         
         it ('should have DOM structure', () => {
             out.should.have('.myTitle');

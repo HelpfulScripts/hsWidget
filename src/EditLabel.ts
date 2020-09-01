@@ -36,63 +36,78 @@
  */
 
 /** */
-import { Log }      from 'hsutil';  const log = new Log('EditLabel');
-import m from "mithril";
-type Vnode = m.Vnode<any, any>;
-import { Popup } from './Popup';
+import { Log }          from 'hsutil';  const log = new Log('EditLabel');
+import m                from "mithril";
+import { Popup }        from './Popup';
+import { WidgetAttrs, Widget, ViewResult }  from './Widget';
+import { Vnode }        from './Widget';
 
 
-export class EditLabel {
-    protected editable = false;
-    protected updateCB:(r:string) => void;
+export interface EditLabelAttrs extends WidgetAttrs {
+    popup?: m.Children;
+    placeholder?: string;
+    update:(r:string) => void;
+}
 
-    protected blur(e:any) {
-        this.editable = false;
-        this.update(e.target.value);
-    }
-
-    protected click = () => this.editable = true; 
-
-    protected keyup = (key:any) => key.which === 13? key.target.blur() : '';
-
-    update(newValue:string) { this.updateCB(newValue); }
-
-    onupdate(node:Vnode) {
-        if (this.editable && document.activeElement!==(<any>node).dom) {
-            (<any>node).dom.value = node.attrs.content || '';
-            (<any>node).dom.focus();
-            (<any>node).dom.select();
+export class EditLabel extends Widget {
+    editable: boolean;
+    blur: (e:Event)=> void;
+    makeEditable: ()=>void;
+    blurIfReturn: (key:UIEvent)=>void;
+    onupdate(node:m.VnodeDOM<EditLabelAttrs, this>):any {
+        const dom:any = node.dom;
+        if (dom && node.state.editable && document.activeElement!==(<any>node).dom) {
+            dom.value = node.children || '';
+            dom.focus();
+            dom.select();
         }
     }
 
-    view(node:Vnode) {
-        this.updateCB = node.attrs.update;
-        const css = node.attrs.css || '';
-        const content = ''+node.attrs.content;
-        return this.editable? m(`input.hsedit_label${css}`, { onblur:this.blur.bind(this), onkeyup:this.keyup.bind(this) }, 'yeah')
+    oninit(node:Vnode<EditLabelAttrs, this>) {
+        node.state.editable = false;
+        node.state.blur = (e:any) => {
+            node.state.editable = false;
+            node.attrs.update(e.target.value);
+        }
+        node.state.makeEditable = () => node.state.editable = true; 
+        node.state.blurIfReturn = (key:UIEvent) => {
+            key.which === 13? (<Window>key.target).blur() : '';
+        }
+    }
+    view(node:Vnode<EditLabelAttrs, this>):ViewResult {
+        const content = ''+node.children;
+        const attrs =  this.attrs(node.attrs, <any>{ onclick:node.state.makeEditable });
+        return node.state.editable? 
+                m(`input.hsedit_label`, this.attrs(node.attrs, <any>{ onblur:node.state.blur, onkeyup:node.state.blurIfReturn }), '')
             : ( content &&  content.length)? 
-            m(`span.hsedit_label${css}`, Popup.arm(node.attrs.popup, { onclick:()=>this.click() }), m.trust( content))
-            : m(`span.hsedit_label.default${css}`, Popup.arm(node.attrs.popup, { onclick:()=>this.click() }), ''+node.attrs.placeholder || 'click to enter');
+                m(`span.hsedit_label`, Popup.arm(node.attrs.popup, attrs), m.trust( content))
+              : m(`span.hsedit_label.default`, Popup.arm(node.attrs.popup, this.attrs(node.attrs, <any>{ onclick:node.state.makeEditable })), ''+node.attrs.placeholder || 'click to enter');
     }
 }
 
 
 /** an extension of `EditLabel` that pareses entries as dates. */
 export class EditDate extends EditLabel {
-    protected def = new Date().toDateString().slice(4);
-    update(newValue:string) {
-        if (newValue) {
-            const date = new Date(newValue);
-            const result = isNaN(date.getTime())? 'invalid date' : date.toDateString().slice(4);
-            this.updateCB(result);
-        } else {
-            this.updateCB(undefined);
+    update:(r:string)=>void;
+
+    oninit(node:Vnode<EditLabelAttrs, this>) {
+        super.oninit(node);
+        node.state.update = node.attrs.update;
+        node.attrs.update = (newValue:string) => {
+            if (newValue) {
+                const date = new Date(newValue);
+                const result = isNaN(date.getTime())? 'invalid date' : date.toDateString().slice(4);
+                node.state.update(result);
+            } else {
+                node.state.update(undefined);
+            }
         }
     }
-    public view(node:Vnode) {
-        if (this.editable && (!node.attrs.content || node.attrs.content === '')) {
-            node.attrs.content = new Date().toDateString();
-            node.attrs.content = node.attrs.content.slice(4);
+    public view(node:Vnode<EditLabelAttrs, this>) {
+        let content = node.children;
+        if (!content || content === '') {
+            content = new Date().toDateString();
+            content = content.slice(4);
         }
         return super.view(node);
     }

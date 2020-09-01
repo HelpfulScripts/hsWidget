@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.25% </span>
+                <span class="strong">83.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>13/16</span>
+                <span class='fraction'>10/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>3/6</span>
+                <span class='fraction'>1/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">66.67% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/6</span>
+                <span class='fraction'>3/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">78.57% </span>
+                <span class="strong">81.82% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>11/14</span>
+                <span class='fraction'>9/11</span>
             </div>
         
             
@@ -124,7 +124,11 @@
 <a name='L65'></a><a href='#L65'>65</a>
 <a name='L66'></a><a href='#L66'>66</a>
 <a name='L67'></a><a href='#L67'>67</a>
-<a name='L68'></a><a href='#L68'>68</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -161,32 +165,36 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
-<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,11 +220,10 @@
  *    m('div', [
  *      m('span', `current content: '${selected}'`),
  *      m(hsWidget.EditSelect, {
- *          css: '.mySelect',
- *          from: choices,
- *          selected: selected,
+ *          class: 'mySelect',
+ *          initial: selected,
  *          update: newValue =&gt; selected = newValue
- *      })
+ *      }, choices)
  *    ])
  * ])});
  * 
@@ -230,31 +237,36 @@
 &nbsp;
 /** */
 import m from "mithril";
-type Vnode = m.Vnode&lt;any, any&gt;;
-import { Log }      from 'hsutil';import { Popup } from './Popup';
-  const log = new Log('EditSelect');
+import { Log }      from 'hsutil';  const log = new Log('EditSelect');
+import { Popup }    from './Popup';
+import { Widget, WidgetAttrs, ViewResult }   from "./Widget";
+import { Vnode }    from "./Widget";
+  
 &nbsp;
 &nbsp;
-export class EditSelect {
-    update:(r:string) =&gt; void;
-    selectable = false;
+export interface EditSelectAttrs extends WidgetAttrs {
+    popup?: string;
+    update: (r:string) =&gt; void;
+    initial: string;
+}
 &nbsp;
-<span class="fstat-no" title="function not covered" >    click(</span>) {
-<span class="cstat-no" title="statement not covered" >        this.selectable = true;</span>
+export class EditSelect extends Widget {
+    selectable:boolean;
+    select: (e:Event)=&gt;void
+    oninit(node:Vnode&lt;EditSelectAttrs, this&gt;) {
+        node.state.selectable = false;
+        node.state.select = <span class="fstat-no" title="function not covered" >(e</span>:Event) =&gt; { 
+<span class="cstat-no" title="statement not covered" >            node.attrs.update((&lt;HTMLButtonElement&gt;e.currentTarget).value);</span>
+<span class="cstat-no" title="statement not covered" >            node.state.selectable = false;</span>
+        }
+        // node.state.makeSelectable = () =&gt; {
+        //     node.state.selectable = true;
+        // }
     }
-&nbsp;
-<span class="fstat-no" title="function not covered" >    select(</span>e:any) { 
-<span class="cstat-no" title="statement not covered" >        this.update(e.currentTarget.value);</span>
-<span class="cstat-no" title="statement not covered" >        this.selectable = false;</span>
-    }
-&nbsp;
-    view(node:Vnode) {
-        const select = this;
-        const attrs = (popup:string) =&gt; popup? <span class="branch-0 cbranch-no" title="branch not covered" >Popup.arm(popup, { onchange:select.select.bind(select)}) </span>: { onchange:select.select.bind(select)};
-        this.update = node.attrs.update;
-        const css = node.attrs.css || <span class="branch-1 cbranch-no" title="branch not covered" >'';</span>
-        return m(`select.hsedit_select${css}`, attrs(node.attrs.popup), 
-            node.attrs.from.map((o:string) =&gt; node.attrs.selected===o?
+    view(node:Vnode&lt;EditSelectAttrs, this&gt;):ViewResult {
+        return m(`select.hsedit_select`, 
+            Popup.arm(node.attrs.popup, this.attrs(node.attrs, &lt;any&gt;{ onchange:node.state.select})),
+            (&lt;string[]&gt;node.children).map((o:string) =&gt; node.attrs.initial===o?
 <span class="branch-0 cbranch-no" title="branch not covered" >                m('option.hsedit_select_option.selected', { value: o, selected:true }, o) </span>:
                 m('option.hsedit_select_option', { value: o }, o)));
     }

@@ -3,8 +3,8 @@
  * opens a popup on an armed Vnode. 
  * 
  * ### Profile
- * invoked as `m(Popup, {})`. `Popup` uses fixed positioning, so it can be added to the 
- * rendering tree anywhere except as a direct `content` element in `Layout` (where it would interfere with `Layout's` 
+ * invoked as `m(Popup)`. `Popup` uses fixed positioning, so it can be added to the 
+ * rendering tree anywhere except as a direct `content` element in a `Widget` (where it would interfere with some of `Widget's` 
  * rendering logic). Only a single `Popup` is needed per app.
  * 
  * To arm a vnode, call `Popup.arm` which will return a `Mithril` attribute object:
@@ -39,14 +39,21 @@
  */
 
  /** */
-import { Log }      from 'hsutil'; const log = new Log('Popup');
-import m from "mithril";
-type Vnode = m.Vnode<any, any>;
+import { Log }          from 'hsutil'; const log = new Log('Popup');
+import m                from "mithril";
+import { Widget }       from './Widget';
+import { WidgetAttrs }  from './Widget';
+import { Vnode }        from './Widget';
+
+
+export interface PoupAttrs extends WidgetAttrs {
+
+}
 
 /**
  * a `Mithril` node that shows a popup when triggered.
  */
-export class Popup {
+export class Popup extends Widget {
     /**
      * arms a `Mithril` node by adding mouse listeners to the `attrs` object. 
      * @param content a `VNode` that specifies the content to show in the popup.
@@ -86,11 +93,11 @@ export class Popup {
     private hide() {
         this.showPopup = false;
     }
-    view(node:Vnode) {
+    view(node:Vnode<PoupAttrs, this>) {
         Popup.instance = this;
         const pos = xy(window.innerWidth, window.innerHeight, this.x, this.y);
-        const attrs = { style:`left:${pos[0]}px; top:${pos[1]}px; transform: translate(${pos[2]}%, ${pos[3]}%);`};
-        return !this.showPopup? m('span') : m(`.hs_popup`, attrs, this.content);
+        const style = `left:${pos[0]}px; top:${pos[1]}px; transform: translate(${pos[2]}%, ${pos[3]}%);`;
+        return !this.showPopup? m('span') : m(`.hs_popup`, {style:style}, this.content);
     }
 }
 

@@ -35,11 +35,13 @@
  */
 
 /** */
-import { Log }      from 'hsutil';  const log = new Log('EditTextarea');
-import m from "mithril";
-type Vnode = m.Vnode<any, any>;
-import showdown     from 'showdown';
-import { Popup } from './Popup';
+import { Log }          from 'hsutil';  const log = new Log('EditTextarea');
+import m, { VnodeDOM }                from "mithril";
+import showdown         from 'showdown';
+import { Popup }        from './Popup';
+import { Widget, ViewResult }       from './Widget';
+import { WidgetAttrs }  from './Widget';
+import { Vnode }        from './Widget';
 
 const converter = new showdown.Converter({
     tables:                 true,   // enables |...| style tables; requires 2nd |---| line
@@ -49,69 +51,73 @@ const converter = new showdown.Converter({
     strikethrough:          true    // enables ~~text~~
 });
 
-export class EditTextarea {
-    protected editable = false;
-    protected hasFocus = false;
-    protected updateCB:(r:string) => void;
-    protected default = '';
 
-    protected adjustTextAreaHeight(dom:any) { 
-        if (dom && dom.classList) {
-            while (!dom.classList.contains('hsedit_textarea')) { dom = dom.parentElement; }
-            const scHeight = dom.scrollHeight;
-            const height = parseInt(window.getComputedStyle(dom).height);
-            const h = Math.max(height, scHeight);
-            dom.style.height = h>0? `${h}px` : 'auto';
+export interface EditTextareaAttrs extends WidgetAttrs {
+    update: (r:string) => void;
+    popup?: m.Children;
+    placeholder?: string;
+}
 
-            const listRow = dom.parentElement.parentElement;
-            if (listRow.classList.contains('hsedit_list_row')) {
-                listRow.style.height = h>0? `${h+ (this.editable? 4 : 0)}px` : 'auto';
+export class EditTextarea extends Widget {
+    editable: boolean;
+    hasFocus: boolean;
+    update:  (newValue:string) => void;
+    blur:    (e:Event) => void;
+    toggleEditable: ()=>void;
+    adjustTextAreaHeight: (dom:any) => void;
+    oninit(node:Vnode<EditTextareaAttrs, this>) {
+        node.state.editable = false;
+        node.state.hasFocus = false;
+        node.state.update = (newValue:string) => node.attrs.update(newValue);
+        node.state.blur = (e:Event) => {
+            node.state.editable = false;
+            node.state.hasFocus = false;
+            node.state.update((<HTMLButtonElement>e.target).value);
+        }
+        node.state.toggleEditable = () => node.state.editable = !node.state.editable; 
+        node.state.adjustTextAreaHeight = (dom:any) => { 
+            if (dom && dom.classList) {
+                while (!dom.classList.contains('hsedit_textarea')) { dom = dom.parentElement; }
+                const scHeight = dom.scrollHeight;
+                const height = parseInt(window.getComputedStyle(dom).height);
+                const h = Math.max(height, scHeight);
+                dom.style.height = h>0? `${h}px` : 'auto';
+    
+                const listRow = dom.parentElement.parentElement;
+                if (listRow.classList.contains('hsedit_list_row')) {
+                    listRow.style.height = h>0? `${h+ (node.state.editable? 4 : 0)}px` : 'auto';
+                }
             }
         }
     }
-    protected click(e:any) { 
-        this.editable = !this.editable; 
-    }
 
-    protected blur(e:any) {
-        this.editable = false;
-        this.hasFocus = false;
-        this.update(e.target.value);
-    }
-
-    protected update(newValue:string) {
-        this.updateCB(newValue);
-    }
-
-    public onupdate(node:Vnode) {
-        if (this.editable) {
-            if (!this.hasFocus) {
-                (<any>node).dom.value = node.attrs.content || this.default;
+    public onupdate(node:VnodeDOM<EditTextareaAttrs, this>) {
+        if (node.state.editable) {
+            if (!node.state.hasFocus) {
+                (<any>node).dom.value = node.children || '';
                 (<any>node).dom.focus();
                 (<any>node).dom.select();
-                this.hasFocus = true;
+                node.state.hasFocus = true;
             }
-            this.adjustTextAreaHeight((<any>node).dom);
+            node.state.adjustTextAreaHeight((<any>node).dom);
         }
     }
 
-    public view(node:Vnode) {
-        const area = this;
-        const onEvent = {
-            onclick: area.click.bind(area),
-            onupdate: (node:Vnode) => area.adjustTextAreaHeight.bind(area)((<any>node).dom)
-        };
-        this.updateCB = node.attrs.update;
-        const css = node.attrs.css || '';
+    public view(node:Vnode<EditTextareaAttrs, this>):ViewResult {
+        const onEvent = this.attrs(node.attrs, <any>{
+            onclick: node.state.toggleEditable,
+            onupdate: (node:VnodeDOM<EditTextareaAttrs, this>) => node.state.adjustTextAreaHeight((<any>node).dom)
+        });
         const attrs = () => node.attrs.popup? Popup.arm(node.attrs.popup, onEvent) : onEvent;
-        return this.editable? 
-            m(`textarea.hsedit_textarea${css}`, { 
+        const content = <string>node.children[0] || '';
+        return node.state.editable? 
+            m(`textarea.hs_edit_textarea$`, this.attrs(node.attrs, <any>{ 
                 wrap: 'physical',
-                onblur: this.blur.bind(this),
-            }, m.trust(node.attrs.content.replace(/\n/g,'<p>')))
-            : (node.attrs.content && node.attrs.content.length)? 
-                    m(`.hsedit_textarea${css}`, attrs(), m.trust(converter.makeHtml(node.attrs.content)))
-                : m(`.hsedit_textarea.default${css}`, attrs(), node.attrs.placeholder || 'click to enter');
+                onblur: node.state.blur,
+            }), m.trust(content.replace(/\n/g,'<p>')))
+            : (content && content.length)? 
+                  m(`.hs_edit_textarea`, attrs(), m.trust(converter.makeHtml(content)))
+                : m(`.hs_edit_textarea.default`, attrs(), node.attrs.placeholder || 'click to enter');
     }
 }
 
