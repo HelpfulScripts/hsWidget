@@ -5,7 +5,7 @@ const root = window.document.createElement("div");
 
 describe('EditCheckbox', () => {
     beforeAll(()=>{
-        m.mount(root, {view: () => m('.hs-white', [
+        m.mount(root, {view: () => m('.hs_white', [
             m('h4', Popup.arm(`popup content`), `hover over me`),
             m(Popup, {})
           ])

@@ -13,7 +13,7 @@
  * ### Example
  * <example>
  * <file name='script.js'>
- * m.mount(root, {view: () => m('.hs-white', [
+ * m.mount(root, {view: () => m('.hs_white', [
  *    m(hsWidget.Collapsible, { class:'.myExample' }, [
  *       m('.myTitle', 'click me to toggle'), 
  *       m('.myItem', 'body item1'), 
@@ -107,12 +107,13 @@ export class Collapsible extends Widget {
         const postArrow  = node.attrs.postArrow || false;
         const maxHeight  = (node.state.expanded===Expansion.closed || node.state.expanded===Expansion.closing)?'0' : `400px`;
         const title      = [components.shift()];
-        if (preArrow) { title.unshift(m(`.hs-collapsible-pre .hs-collapsible-arrow-${node.state.expanded?'down' : 'right'}`)); }
-        if (postArrow){ title.push(m(`.hs-collapsible-post .hs-collapsible-arrow-${node.state.expanded?'down' : 'left'}`)); }
-        return m(`.hs-collapsible`, this.attrs(node.attrs, {}), [
-            m('.hs-collapsible-title', { onclick:node.state.toggle}, title),
-            m(`.hs-collapsible-content.hs_scrolly`, {
-                class: node.state.expanded===Expansion.closed? undefined : 'hs-collapsible-expanded',
+        if (preArrow) { title.unshift(m(`.hs_collapsible_pre .hs_collapsible_arrow_${node.state.expanded?'down' : 'right'}`)); }
+        if (postArrow){ title.push(m(`.hs_collapsible_post .hs_collapsible_arrow_${node.state.expanded?'down' : 'left'}`)); }
+        return m(`.hs_collapsible`, this.attrs(node.attrs, {
+                class: node.state.expanded===Expansion.closed? undefined : 'hs_collapsible_expanded',
+        }), [
+            m('.hs_collapsible_title', { onclick:node.state.toggle}, title),
+            m(`.hs_collapsible_content.hs_scrolly`, {
                 style:`max-height:${maxHeight}; transition: max-height ${node.attrs.transition/1000}s ease-in-out`
             }, 
             // if closed: prune the render tree by using empty content array

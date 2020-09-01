@@ -39,17 +39,17 @@
 }
    
 .topGap     { height: 100px; }
-.myButtons  { height: 600px; }
+.myButtons  { height: 680px; }
 .myMenus    { height: 180px; }
 .myDialog   { height: 180px; }
-.myPopup    { height: 250px; }
+.myPopup    { height: 200px; }
 .myColl     { height: 340px; }
-.myType     { height: 320px; }
-.myCorner   { height: 250px; }
-.mySlider   { height: 230px; }
-.myELabel   { height: 180px; }
-.myESelect  { height: 180px; }
-.myEList    { height: 180px; }
+.myType     { height: 300px; }
+.myCorner   { height: 280px; }
+.mySlider   { height: 250px; }
+.myELabel   { height: 150px; }
+.myESelect  { height: 150px; }
+.myEList    { height: 150px; }
 .myECheck   { height: 180px; }
 
 .hsIconButtons.hs_optionbutton {

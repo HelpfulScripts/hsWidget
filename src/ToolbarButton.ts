@@ -67,7 +67,7 @@
  *      height: 50px;
  *      width:  70px;
  * }
- * .hs-corner-button { color: #008; }
+ * .hs_corner_button { color: #008; }
  * </file>
  * </example>
  */
@@ -116,12 +116,12 @@ export class ToolbarButton {
     }
     view(node:Vnode) {
         if (typeof node.attrs.symbols === 'string') {
-            return m('.hs-corner-button', 
+            return m('.hs_corner_button', 
                 { onclick: node.attrs.onclick }, 
                 m.trust(node.attrs.symbols)
             );
         } else {
-            return m('.hs-corner-button', 
+            return m('.hs_corner_button', 
                     { onclick: node.attrs.onclick }, 
                     node.attrs.symbols.map((sym:string) =>m.trust(sym))
             );

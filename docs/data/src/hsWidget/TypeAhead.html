@@ -44,7 +44,7 @@
 <p id=21 class="line"><span>&nbsp;&nbsp;21</span><comment>&nbsp;*&nbsp;<file&nbsp;name=<quote>'script.js'</quote>></comment></p>
 <p id=22 class="line"><span>&nbsp;&nbsp;22</span><comment>&nbsp;*&nbsp;let&nbsp;hero&nbsp;=&nbsp;<quote>''</quote>;</comment></p>
 <p id=23 class="line"><span>&nbsp;&nbsp;23</span><comment>&nbsp;*&nbsp;let&nbsp;friend&nbsp;=&nbsp;<quote>''</quote>;</comment></p>
-<p id=24 class="line"><span>&nbsp;&nbsp;24</span><comment>&nbsp;*&nbsp;m.mount(root,&nbsp;{view:&nbsp;()&nbsp;=>&nbsp;m(<quote>'.hs-white'</quote>,&nbsp;[</comment></p>
+<p id=24 class="line"><span>&nbsp;&nbsp;24</span><comment>&nbsp;*&nbsp;m.mount(root,&nbsp;{view:&nbsp;()&nbsp;=>&nbsp;m(<quote>'.hs_white'</quote>,&nbsp;[</comment></p>
 <p id=25 class="line"><span>&nbsp;&nbsp;25</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>'h4'</quote>,&nbsp;hero.length?&nbsp;`Selected:&nbsp;${hero}`&nbsp;:&nbsp;<quote>'Local&nbsp;List:&nbsp;Search&nbsp;for&nbsp;a&nbsp;Superhero'</quote>),</comment></p>
 <p id=26 class="line"><span>&nbsp;&nbsp;26</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(hsWidget.TypeAhead,&nbsp;{&nbsp;</comment></p>
 <p id=27 class="line"><span>&nbsp;&nbsp;27</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder:&nbsp;<quote>'favorite&nbsp;hero'</quote>,</comment></p>
@@ -173,9 +173,9 @@
 <p id=150 class="line"><span>&nbsp;150</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=151 class="line"><span>&nbsp;151</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};</p>
 <p id=152 class="line"><span>&nbsp;152</span></p>
-<p id=153 class="line"><span>&nbsp;153</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;selector&nbsp;=&nbsp;node.state.value?&nbsp;<quote>'.hs-typeahead-value'</quote>&nbsp;:&nbsp;<quote>'.hs-typeahead-placeholder'</quote>;&nbsp;&nbsp;&nbsp;&nbsp;</p>
-<p id=154 class="line"><span>&nbsp;154</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(<quote>'.hs-form'</quote>,&nbsp;[</p>
-<p id=155 class="line"><span>&nbsp;155</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`input.hs-typeahead-input${selector}`,&nbsp;{</p>
+<p id=153 class="line"><span>&nbsp;153</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;selector&nbsp;=&nbsp;node.state.value?&nbsp;<quote>'.hs_typeahead_value'</quote>&nbsp;:&nbsp;<quote>'.hs_typeahead_placeholder'</quote>;&nbsp;&nbsp;&nbsp;&nbsp;</p>
+<p id=154 class="line"><span>&nbsp;154</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(<quote>'.hs_form'</quote>,&nbsp;[</p>
+<p id=155 class="line"><span>&nbsp;155</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`input.hs_typeahead_input${selector}`,&nbsp;{</p>
 <p id=156 class="line"><span>&nbsp;156</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contenteditable:true,</p>
 <p id=157 class="line"><span>&nbsp;157</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;placeholder:&nbsp;&nbsp;&nbsp;&nbsp;node.attrs.placeholder,</p>
 <p id=158 class="line"><span>&nbsp;158</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;autofocus:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.attrs.autofocus&nbsp;||&nbsp;true,</p>
@@ -184,7 +184,7 @@
 <p id=161 class="line"><span>&nbsp;161</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;m.trust(node.state.value?node.state.value&nbsp;:&nbsp;node.attrs.placeholder)</p>
 <p id=162 class="line"><span>&nbsp;162</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;),</p>
 <p id=163 class="line"><span>&nbsp;163</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.state.hidePopdown?&nbsp;undefined&nbsp;:&nbsp;</p>
-<p id=164 class="line"><span>&nbsp;164</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>'.hs-typeahead-list'</quote>,&nbsp;node.state.typeAheadList.map((l:string)&nbsp;=>&nbsp;</p>
+<p id=164 class="line"><span>&nbsp;164</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>'.hs_typeahead_list'</quote>,&nbsp;node.state.typeAheadList.map((l:string)&nbsp;=>&nbsp;</p>
 <p id=165 class="line"><span>&nbsp;165</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>''</quote>,&nbsp;{&nbsp;onclick:&nbsp;select&nbsp;},&nbsp;emphasize(l,&nbsp;node.state.value))))</p>
 <p id=166 class="line"><span>&nbsp;166</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);</p>
 <p id=167 class="line"><span>&nbsp;167</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>

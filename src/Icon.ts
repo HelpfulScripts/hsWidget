@@ -16,8 +16,8 @@
  * <example>
  * <file name='script.js'>ximport='Icon.x.js'</file>
  * <file name='style.css'>
- * .hs-execution .hs_grid.hs_grid_row { height:100%; }
- * .hs-execution .hs_grid.hs_grid_col { width:100%; }
+ * .hs_execution .hs_grid.hs_grid_row { height:100%; }
+ * .hs_execution .hs_grid.hs_grid_col { width:100%; }
  * </file>
  * </example>
  * 

@@ -3,10 +3,10 @@
 exports[`EditList Collapsible should match snapshot 1`] = `
 <div>
   <div
-    class="hs-collapsible  hs_edit_list"
+    class="hs_collapsible hs_collapsible_expanded hs_edit_list"
   >
     <div
-      class="hs-collapsible-title"
+      class="hs_collapsible_title"
     >
       <div
         class="header"
@@ -15,7 +15,7 @@ exports[`EditList Collapsible should match snapshot 1`] = `
       </div>
     </div>
     <div
-      class="hs-collapsible-content hs_scrolly hs-collapsible-expanded"
+      class="hs_collapsible_content hs_scrolly"
       style="max-height: 400px; transition: max-height 0.25s ease-in-out;"
     >
       <div>

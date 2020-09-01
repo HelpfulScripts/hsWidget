@@ -75,7 +75,7 @@ export class Slider {
         const css = node.attrs.css || '';
         node.state.range = node.attrs.range || [];
         node.state.onchange = node.attrs.onchange;
-        return m(`.hs-slider ${css}`, {
+        return m(`.hs_slider ${css}`, {
             id:id,
             onmousedown:(e:any) => mousedown(e, node), 
             onmousemove:(e:any) => mousemove(e, node), 
@@ -89,20 +89,20 @@ export class Slider {
 }
 
 function renderSlider(node:Vnode): Vnode {
-    return m('.hs-slider-slot', [
-        m('.hs-slider-markers', node.state.range.map(renderMarker)), 
-        m('.hs-slider-handle', { style: `left:${100*node.state.value}%` })
+    return m('.hs_slider_slot', [
+        m('.hs_slider_markers', node.state.range.map(renderMarker)), 
+        m('.hs_slider_handle', { style: `left:${100*node.state.value}%` })
     ]);
 }
 
 function renderMarker(value: number|string, i:number, markers:SliderRange):Vnode {
     const share = i / (markers.length-1); // pos (0...1) of marker along slider
     const left = markers.length<2? 0 : 100*share;
-    return m('.hs-slider-marker', {style: `left: ${left}%`}, renderLabel(value));
+    return m('.hs_slider_marker', {style: `left: ${left}%`}, renderLabel(value));
 }
 
 function renderLabel(value: number|string):Vnode {
-    return m('.hs-slider-label', value);
+    return m('.hs_slider_label', value);
 }
 
 
@@ -128,7 +128,7 @@ function getValue(e:any, node:Vnode) {
 function mousedown(e:any, node:Vnode) { 
     const offset = getTargetOffset(e);
     node.state.mouse = e.clientX;
-    if (['hs-slider', 'hs-slider-slot'].indexOf(e.target.className.trim())>=0) { 
+    if (['hs_slider', 'hs_slider_slot'].indexOf(e.target.className.trim())>=0) { 
         const slotWidth = e.currentTarget.lastChild.clientWidth;
         const handleWidth = e.currentTarget.lastChild.lastChild.clientWidth;
         node.state.mouse -= handleWidth/2;
@@ -153,7 +153,7 @@ function mouseup(e:any, node:Vnode)   {
 }
 
 function mouseout(e:any, node:Vnode) {
-    if (node.state.mouse>0 && e.target.className.trim() === 'hs-slider') {
+    if (node.state.mouse>0 && e.target.className.trim() === 'hs_slider') {
         mouseup(e, node);
     }
 }

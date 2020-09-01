@@ -25,13 +25,13 @@ Object {
   "redraw": [Function],
   "rootNode": Object {
     "attrs": Object {
-      "className": "hs-form",
+      "className": "hs_form",
     },
     "children": Array [
       Object {
         "attrs": Object {
           "autofocus": true,
-          "className": "hs-typeahead-input hs-typeahead-value",
+          "className": "hs_typeahead_input hs_typeahead_value",
           "contenteditable": true,
           "oninput": [Function],
           "onkeydown": [Function],
@@ -91,7 +91,7 @@ Object {
       Object {
         "attrs": Object {
           "autofocus": true,
-          "className": "hs-typeahead-input hs-typeahead-value",
+          "className": "hs_typeahead_input hs_typeahead_value",
           "contenteditable": true,
           "oninput": [Function],
           "onkeydown": [Function],

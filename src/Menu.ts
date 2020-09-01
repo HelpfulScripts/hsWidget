@@ -55,10 +55,10 @@
  *    border:1px solid #ddd;
  *    border-top: 0px solid #ddd;
  * } 
- * .hs-selectable { 
+ * .hs_selectable { 
  *     background-color: #f4f4e8; 
  * }
- * .hs-selected { 
+ * .hs_selected { 
  *     background-color: #eed; 
  *     border-width:0px;
  * }
@@ -83,10 +83,10 @@
  * .hs_menu-panel { 
  *     background-color: #dde; 
  * } 
- * .hs-selectable { 
+ * .hs_selectable { 
  *     background-color: #f4f4e8; 
  * }
- * .hs-selected { 
+ * .hs_selected { 
  *     background-color: #eed; 
  *     border-width:0px;
  * }

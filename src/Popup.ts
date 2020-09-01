@@ -29,7 +29,7 @@
  * <file name='script.js'>
  * let dismissals = 0;
  * let trigger;
- * m.mount(root, {view: () => m('.hs-white', [
+ * m.mount(root, {view: () => m('.hs_white', [
  *      m('h4', hsWidget.Popup.arm(`popup content`), `hover over me`),
  *      m(hsWidget.Popup, {})
  *    ])

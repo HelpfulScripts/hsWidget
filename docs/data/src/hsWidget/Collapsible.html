@@ -36,7 +36,7 @@
 <p id=13 class="line"><span>&nbsp;&nbsp;13</span><comment>&nbsp;*&nbsp;###&nbsp;Example</comment></p>
 <p id=14 class="line"><span>&nbsp;&nbsp;14</span><comment>&nbsp;*&nbsp;<example></comment></p>
 <p id=15 class="line"><span>&nbsp;&nbsp;15</span><comment>&nbsp;*&nbsp;<file&nbsp;name=<quote>'script.js'</quote>></comment></p>
-<p id=16 class="line"><span>&nbsp;&nbsp;16</span><comment>&nbsp;*&nbsp;m.mount(root,&nbsp;{view:&nbsp;()&nbsp;=>&nbsp;m(<quote>'.hs-white'</quote>,&nbsp;[</comment></p>
+<p id=16 class="line"><span>&nbsp;&nbsp;16</span><comment>&nbsp;*&nbsp;m.mount(root,&nbsp;{view:&nbsp;()&nbsp;=>&nbsp;m(<quote>'.hs_white'</quote>,&nbsp;[</comment></p>
 <p id=17 class="line"><span>&nbsp;&nbsp;17</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;m(hsWidget.Collapsible,&nbsp;{&nbsp;class:<quote>'.myExample'</quote>&nbsp;},&nbsp;[</comment></p>
 <p id=18 class="line"><span>&nbsp;&nbsp;18</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>'.myTitle'</quote>,&nbsp;<quote>'click&nbsp;me&nbsp;to&nbsp;toggle'</quote>),&nbsp;</comment></p>
 <p id=19 class="line"><span>&nbsp;&nbsp;19</span><comment>&nbsp;*&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>'.myItem'</quote>,&nbsp;<quote>'body&nbsp;item1'</quote>),&nbsp;</comment></p>
@@ -130,19 +130,20 @@
 <p id=107 class="line"><span>&nbsp;107</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;postArrow&nbsp;&nbsp;=&nbsp;node.attrs.postArrow&nbsp;||&nbsp;false;</p>
 <p id=108 class="line"><span>&nbsp;108</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;maxHeight&nbsp;&nbsp;=&nbsp;(node.state.expanded===Expansion.closed&nbsp;||&nbsp;node.state.expanded===Expansion.closing)?<quote>'0'</quote>&nbsp;:&nbsp;`400px`;</p>
 <p id=109 class="line"><span>&nbsp;109</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;title&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;=&nbsp;[components.shift()];</p>
-<p id=110 class="line"><span>&nbsp;110</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(preArrow)&nbsp;{&nbsp;title.unshift(m(`.hs-collapsible-pre&nbsp;.hs-collapsible-arrow-${node.state.expanded?<quote>'down'</quote>&nbsp;:&nbsp;<quote>'right'</quote>}`));&nbsp;}</p>
-<p id=111 class="line"><span>&nbsp;111</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(postArrow){&nbsp;title.push(m(`.hs-collapsible-post&nbsp;.hs-collapsible-arrow-${node.state.expanded?<quote>'down'</quote>&nbsp;:&nbsp;<quote>'left'</quote>}`));&nbsp;}</p>
-<p id=112 class="line"><span>&nbsp;112</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(`.hs-collapsible`,&nbsp;this.attrs(node.attrs,&nbsp;{}),&nbsp;[</p>
-<p id=113 class="line"><span>&nbsp;113</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>'.hs-collapsible-title'</quote>,&nbsp;{&nbsp;onclick:node.state.toggle},&nbsp;title),</p>
-<p id=114 class="line"><span>&nbsp;114</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`.hs-collapsible-content.hs_scrolly`,&nbsp;{</p>
-<p id=115 class="line"><span>&nbsp;115</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class:&nbsp;node.state.expanded===Expansion.closed?&nbsp;undefined&nbsp;:&nbsp;<quote>'hs-collapsible-expanded'</quote>,</p>
-<p id=116 class="line"><span>&nbsp;116</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:`max-height:${maxHeight};&nbsp;transition:&nbsp;max-height&nbsp;${node.attrs.transition/1000}s&nbsp;ease-in-out`</p>
-<p id=117 class="line"><span>&nbsp;117</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;</p>
-<p id=118 class="line"><span>&nbsp;118</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;if&nbsp;closed:&nbsp;prune&nbsp;the&nbsp;render&nbsp;tree&nbsp;by&nbsp;using&nbsp;empty&nbsp;content&nbsp;array</comment></p>
-<p id=119 class="line"><span>&nbsp;119</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.state.expanded===Expansion.closed?&nbsp;[]&nbsp;:&nbsp;components.map(c&nbsp;=>&nbsp;m(<quote>''</quote>,c)))</p>
-<p id=120 class="line"><span>&nbsp;120</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);</p>
-<p id=121 class="line"><span>&nbsp;121</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
-<p id=122 class="line"><span>&nbsp;122</span>}</p>
-<p id=123 class="line"><span>&nbsp;123</span></p></code></div>
+<p id=110 class="line"><span>&nbsp;110</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(preArrow)&nbsp;{&nbsp;title.unshift(m(`.hs_collapsible_pre&nbsp;.hs_collapsible_arrow_${node.state.expanded?<quote>'down'</quote>&nbsp;:&nbsp;<quote>'right'</quote>}`));&nbsp;}</p>
+<p id=111 class="line"><span>&nbsp;111</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(postArrow){&nbsp;title.push(m(`.hs_collapsible_post&nbsp;.hs_collapsible_arrow_${node.state.expanded?<quote>'down'</quote>&nbsp;:&nbsp;<quote>'left'</quote>}`));&nbsp;}</p>
+<p id=112 class="line"><span>&nbsp;112</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;m(`.hs_collapsible`,&nbsp;this.attrs(node.attrs,&nbsp;{</p>
+<p id=113 class="line"><span>&nbsp;113</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class:&nbsp;node.state.expanded===Expansion.closed?&nbsp;undefined&nbsp;:&nbsp;<quote>'hs_collapsible_expanded'</quote>,</p>
+<p id=114 class="line"><span>&nbsp;114</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}),&nbsp;[</p>
+<p id=115 class="line"><span>&nbsp;115</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(<quote>'.hs_collapsible_title'</quote>,&nbsp;{&nbsp;onclick:node.state.toggle},&nbsp;title),</p>
+<p id=116 class="line"><span>&nbsp;116</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`.hs_collapsible_content.hs_scrolly`,&nbsp;{</p>
+<p id=117 class="line"><span>&nbsp;117</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;style:`max-height:${maxHeight};&nbsp;transition:&nbsp;max-height&nbsp;${node.attrs.transition/1000}s&nbsp;ease-in-out`</p>
+<p id=118 class="line"><span>&nbsp;118</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;},&nbsp;</p>
+<p id=119 class="line"><span>&nbsp;119</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<comment>//&nbsp;if&nbsp;closed:&nbsp;prune&nbsp;the&nbsp;render&nbsp;tree&nbsp;by&nbsp;using&nbsp;empty&nbsp;content&nbsp;array</comment></p>
+<p id=120 class="line"><span>&nbsp;120</span><comment></comment>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;node.state.expanded===Expansion.closed?&nbsp;[]&nbsp;:&nbsp;components.map(c&nbsp;=>&nbsp;m(<quote>''</quote>,c)))</p>
+<p id=121 class="line"><span>&nbsp;121</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]);</p>
+<p id=122 class="line"><span>&nbsp;122</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=123 class="line"><span>&nbsp;123</span>}</p>
+<p id=124 class="line"><span>&nbsp;124</span></p></code></div>
                 </body>
             

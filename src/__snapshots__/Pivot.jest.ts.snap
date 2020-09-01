@@ -3,7 +3,7 @@
 exports[`Pivot count should match snapshot 1`] = `
 <div>
   <div
-    class="hs-white"
+    class="hs_white"
   >
     <div
       class="hs_pivot"
@@ -17,26 +17,26 @@ exports[`Pivot count should match snapshot 1`] = `
           by Area
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           blue
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           red
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           green
         </span>
       </div>
       <div
-        class="hs-collapsible  pivot_row mon0"
+        class="hs_collapsible hs_collapsible_expanded pivot_row mon0"
       >
         <div
-          class="hs-collapsible-title"
+          class="hs_collapsible_title"
         >
           <div
             class="row"
@@ -47,32 +47,32 @@ exports[`Pivot count should match snapshot 1`] = `
                
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               3
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               1
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               2
             </span>
           </div>
         </div>
         <div
-          class="hs-collapsible-content hs_scrolly hs-collapsible-expanded"
+          class="hs_collapsible_content hs_scrolly"
           style="max-height: 400px; transition: max-height 0.25s ease-in-out;"
         >
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -83,34 +83,34 @@ exports[`Pivot count should match snapshot 1`] = `
                     N
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     1
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -121,34 +121,34 @@ exports[`Pivot count should match snapshot 1`] = `
                     NE
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     1
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -159,34 +159,34 @@ exports[`Pivot count should match snapshot 1`] = `
                     NW
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     1
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -197,34 +197,34 @@ exports[`Pivot count should match snapshot 1`] = `
                     S
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     2
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -235,24 +235,24 @@ exports[`Pivot count should match snapshot 1`] = `
                     SE
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     1
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -267,7 +267,7 @@ exports[`Pivot count should match snapshot 1`] = `
 exports[`Pivot max and generator should match snapshot 1`] = `
 <div>
   <div
-    class="hs-white"
+    class="hs_white"
   >
     <div
       class="hs_pivot"
@@ -281,31 +281,31 @@ exports[`Pivot max and generator should match snapshot 1`] = `
           by Area
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           Sums
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           blue
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           red
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           green
         </span>
       </div>
       <div
-        class="hs-collapsible  pivot_row mon0"
+        class="hs_collapsible hs_collapsible_expanded pivot_row mon0"
       >
         <div
-          class="hs-collapsible-title"
+          class="hs_collapsible_title"
         >
           <div
             class="row"
@@ -316,37 +316,37 @@ exports[`Pivot max and generator should match snapshot 1`] = `
                
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               115
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               22
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               37
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               18
             </span>
           </div>
         </div>
         <div
-          class="hs-collapsible-content hs_scrolly hs-collapsible-expanded"
+          class="hs_collapsible_content hs_scrolly"
           style="max-height: 400px; transition: max-height 0.25s ease-in-out;"
         >
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -357,39 +357,39 @@ exports[`Pivot max and generator should match snapshot 1`] = `
                     N
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     37
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     37
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -400,39 +400,39 @@ exports[`Pivot max and generator should match snapshot 1`] = `
                     NE
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     18
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     18
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -443,39 +443,39 @@ exports[`Pivot max and generator should match snapshot 1`] = `
                     NW
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     17
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     17
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -486,39 +486,39 @@ exports[`Pivot max and generator should match snapshot 1`] = `
                     S
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     34
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     22
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -529,29 +529,29 @@ exports[`Pivot max and generator should match snapshot 1`] = `
                     SE
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     9
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     9
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -566,7 +566,7 @@ exports[`Pivot max and generator should match snapshot 1`] = `
 exports[`Pivot min should match snapshot 1`] = `
 <div>
   <div
-    class="hs-white"
+    class="hs_white"
   >
     <div
       class="hs_pivot"
@@ -580,26 +580,26 @@ exports[`Pivot min should match snapshot 1`] = `
           by Area
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           blue
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           red
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           green
         </span>
       </div>
       <div
-        class="hs-collapsible  pivot_row mon0"
+        class="hs_collapsible hs_collapsible_expanded pivot_row mon0"
       >
         <div
-          class="hs-collapsible-title"
+          class="hs_collapsible_title"
         >
           <div
             class="row"
@@ -610,32 +610,32 @@ exports[`Pivot min should match snapshot 1`] = `
                
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               12
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               37
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               9
             </span>
           </div>
         </div>
         <div
-          class="hs-collapsible-content hs_scrolly hs-collapsible-expanded"
+          class="hs_collapsible_content hs_scrolly"
           style="max-height: 400px; transition: max-height 0.25s ease-in-out;"
         >
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -646,34 +646,34 @@ exports[`Pivot min should match snapshot 1`] = `
                     N
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     37
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -684,34 +684,34 @@ exports[`Pivot min should match snapshot 1`] = `
                     NE
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     18
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -722,34 +722,34 @@ exports[`Pivot min should match snapshot 1`] = `
                     NW
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     17
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -760,34 +760,34 @@ exports[`Pivot min should match snapshot 1`] = `
                     S
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     12
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -798,24 +798,24 @@ exports[`Pivot min should match snapshot 1`] = `
                     SE
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     9
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
@@ -830,7 +830,7 @@ exports[`Pivot min should match snapshot 1`] = `
 exports[`Pivot sum should match snapshot 1`] = `
 <div>
   <div
-    class="hs-white"
+    class="hs_white"
   >
     <div
       class="hs_pivot"
@@ -844,36 +844,36 @@ exports[`Pivot sum should match snapshot 1`] = `
           click to expand rows
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           sums
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           square
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           circle
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           triangle
         </span>
         <span
-          class="right"
+          class="hs_right"
         >
           cone
         </span>
       </div>
       <div
-        class="hs-collapsible  pivot_row mon0"
+        class="hs_collapsible hs_collapsible_expanded pivot_row mon0"
       >
         <div
-          class="hs-collapsible-title"
+          class="hs_collapsible_title"
         >
           <div
             class="row"
@@ -884,42 +884,42 @@ exports[`Pivot sum should match snapshot 1`] = `
                
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               37
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               35
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               49
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               22
             </span>
             <span
-              class="right"
+              class="hs_right"
             >
               9
             </span>
           </div>
         </div>
         <div
-          class="hs-collapsible-content hs_scrolly hs-collapsible-expanded"
+          class="hs_collapsible_content hs_scrolly"
           style="max-height: 400px; transition: max-height 0.25s ease-in-out;"
         >
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -930,44 +930,44 @@ exports[`Pivot sum should match snapshot 1`] = `
                     blue
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     22
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     17
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     12
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     22
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -978,44 +978,44 @@ exports[`Pivot sum should match snapshot 1`] = `
                     green
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     18
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     18
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     9
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>
           </div>
           <div>
             <div
-              class="hs-collapsible  pivot_row mon1"
+              class="hs_collapsible  pivot_row mon1"
             >
               <div
-                class="hs-collapsible-title"
+                class="hs_collapsible_title"
               >
                 <div
                   class="row"
@@ -1026,34 +1026,34 @@ exports[`Pivot sum should match snapshot 1`] = `
                     red
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     37
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     37
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                   <span
-                    class="right"
+                    class="hs_right"
                   >
                     
                   </span>
                 </div>
               </div>
               <div
-                class="hs-collapsible-content hs_scrolly"
+                class="hs_collapsible_content hs_scrolly"
                 style="max-height: 0; transition: max-height 0.25s ease-in-out;"
               />
             </div>

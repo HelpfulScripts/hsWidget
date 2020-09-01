@@ -30,7 +30,7 @@
  * }
  * sums.col = 'Value'; // provide 
  * 
- * m.mount(root, {view: () => m('.hs-white', [
+ * m.mount(root, {view: () => m('.hs_white', [
  *    m('h3', 'Simple pivot (click rows to expand)'),
  *    m(hsWidget.Pivot, { 
  *          pivotName: 'Sum',
@@ -69,8 +69,8 @@
  * 
  * </file>
  * <file name='script.css'>
- * .hs-execution span { width: 10%; }
- * .hs-execution span.name { width: 30%; }
+ * .hs_execution span { width: 10%; }
+ * .hs_execution span.name { width: 30%; }
  * </file>
  * </example>
  * 
@@ -331,7 +331,7 @@ const makeRow = (pivot:PivotStruct, level:number, colSequence:HeaderMap) => {
         val = val===undefined? '' : 
             typeof val!=='object'? val : Object.keys(val).reduce((acc, v)=>
                 typeof val[v]==='string'? `${acc||val[v]}` : (acc||0)+val[v], undefined);
-        return m('span.right', typeof val==='number'?format(val):val); 
+        return m('span.hs_right', typeof val==='number'?format(val):val); 
     });
     parts.unshift(m('span.name', m.trust(pivot.name)))  // trust in case name includes html
     return m(`.row`, parts);
@@ -359,7 +359,7 @@ export class Pivot extends Widget {
         const pivot = pivots[node.state.id] = pivots[node.state.id] || createPivot(tableData, tableHeader, node.attrs.by, node.attrs.columns);
         const [oldHeaders, newHeaders] = makeHeaders(pivot, pivotHeader);
         return m('.hs_pivot', this.attrs(node.attrs, {}), [
-            m(`.row.mon_header`, [m('span.name', pivotName), ...newHeaders.map(h => m('span.right', h))]),
+            m(`.row.mon_header`, [m('span.name', pivotName), ...newHeaders.map(h => m('span.hs_right', h))]),
             showByColumns(pivot, 0, oldHeaders, true)
         ]);
     }

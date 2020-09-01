@@ -21,7 +21,7 @@
  * <file name='script.js'>
  * let hero = '';
  * let friend = '';
- * m.mount(root, {view: () => m('.hs-white', [
+ * m.mount(root, {view: () => m('.hs_white', [
  *      m('h4', hero.length? `Selected: ${hero}` : 'Local List: Search for a Superhero'),
  *      m(hsWidget.TypeAhead, { 
  *         placeholder: 'favorite hero',
@@ -150,9 +150,9 @@ export class TypeAhead {
             }
         };
 
-        const selector = node.state.value? '.hs-typeahead-value' : '.hs-typeahead-placeholder';    
-        return m('.hs-form', [
-            m(`input.hs-typeahead-input${selector}`, {
+        const selector = node.state.value? '.hs_typeahead_value' : '.hs_typeahead_placeholder';    
+        return m('.hs_form', [
+            m(`input.hs_typeahead_input${selector}`, {
                 contenteditable:true,
                 placeholder:    node.attrs.placeholder,
                 autofocus:      node.attrs.autofocus || true,
@@ -161,7 +161,7 @@ export class TypeAhead {
             }, m.trust(node.state.value?node.state.value : node.attrs.placeholder)
             ),
             node.state.hidePopdown? undefined : 
-                m('.hs-typeahead-list', node.state.typeAheadList.map((l:string) => 
+                m('.hs_typeahead_list', node.state.typeAheadList.map((l:string) => 
                     m('', { onclick: select }, emphasize(l, node.state.value))))
         ]);
     }

@@ -1,4 +1,4 @@
-const render = () => m.mount(root, {view: () => m('.hs-white', { class: 'overview' }, [    
+const render = () => m.mount(root, {view: () => m('.hs_white', { class: 'overview' }, [    
     m('.topGap'),
 
     // Buttons:

@@ -3,7 +3,7 @@
 exports[`EditCheckbox should match snapshot 1`] = `
 <div>
   <div
-    class="hs-white"
+    class="hs_white"
   >
     <h4
       class="popup "

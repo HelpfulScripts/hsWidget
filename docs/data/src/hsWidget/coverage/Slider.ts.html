@@ -484,7 +484,7 @@ export class Slider {
         const css = node.attrs.css || '';
         node.state.range = node.attrs.range || [];
         node.state.onchange = node.attrs.onchange;
-        return m(`.hs-slider ${css}`, {
+        return m(`.hs_slider ${css}`, {
             id:id,
             onmousedown:(e:any) =&gt; mousedown(e, node), 
             onmousemove:(e:any) =&gt; mousemove(e, node), 
@@ -498,20 +498,20 @@ export class Slider {
 }
 &nbsp;
 function renderSlider(node:Vnode): Vnode {
-    return m('.hs-slider-slot', [
-        m('.hs-slider-markers', node.state.range.map(renderMarker)), 
-        m('.hs-slider-handle', { style: `left:${100*node.state.value}%` })
+    return m('.hs_slider_slot', [
+        m('.hs_slider_markers', node.state.range.map(renderMarker)), 
+        m('.hs_slider_handle', { style: `left:${100*node.state.value}%` })
     ]);
 }
 &nbsp;
 function renderMarker(value: number|string, i:number, markers:SliderRange):Vnode {
     const share = i / (markers.length-1); // pos (0...1) of marker along slider
     const left = markers.length&lt;2? <span class="branch-0 cbranch-no" title="branch not covered" >0 </span>: 100*share;
-    return m('.hs-slider-marker', {style: `left: ${left}%`}, renderLabel(value));
+    return m('.hs_slider_marker', {style: `left: ${left}%`}, renderLabel(value));
 }
 &nbsp;
 function renderLabel(value: number|string):Vnode {
-    return m('.hs-slider-label', value);
+    return m('.hs_slider_label', value);
 }
 &nbsp;
 &nbsp;
@@ -537,7 +537,7 @@ function getValue(e:any, node:Vnode) {
 function mousedown(e:any, node:Vnode) { 
     const offset = getTargetOffset(e);
     node.state.mouse = e.clientX;
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (['hs-slider', 'hs-slider-slot'].indexOf(e.target.className.trim())&gt;=0) { 
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (['hs_slider', 'hs_slider_slot'].indexOf(e.target.className.trim())&gt;=0) { 
         const slotWidth = e.currentTarget.lastChild.clientWidth;
         const handleWidth = e.currentTarget.lastChild.lastChild.clientWidth;
         node.state.mouse -= handleWidth/2;
@@ -562,7 +562,7 @@ function mouseup(e:any, node:Vnode)   {
 }
 &nbsp;
 function mouseout(e:any, node:Vnode) {
-    <span class="missing-if-branch" title="else path not taken" >E</span>if (node.state.mouse&gt;0 &amp;&amp; e.target.className.trim() === 'hs-slider') {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (node.state.mouse&gt;0 &amp;&amp; e.target.className.trim() === 'hs_slider') {
         mouseup(e, node);
     }
 }

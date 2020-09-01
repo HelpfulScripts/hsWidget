@@ -21,7 +21,7 @@ const sums:ColumnGenerator = (namedColumns:{[name:string]:Aggregator}, value: nu
 describe('Pivot', () => {
     describe('sum', () => {
         beforeAll(()=>{
-            m.mount(root, { view: () => m('.hs-white', [
+            m.mount(root, { view: () => m('.hs_white', [
                 m(Pivot, <PivotAttrs>{ 
                       pivotName: 'click to expand rows',
                       table: {data: table, header:headers},
@@ -37,7 +37,7 @@ describe('Pivot', () => {
     });
     describe('max and generator', () => {
         beforeAll(()=>{
-            m.mount(root, { view: () => m('.hs-white', [
+            m.mount(root, { view: () => m('.hs_white', [
                 m(Pivot, <PivotAttrs>{ 
                       pivotName: 'by Area',
                       pivotHeaders: ['Sums', 'red', 'green', 'blue'],
@@ -54,7 +54,7 @@ describe('Pivot', () => {
     });
     describe('min', () => {
         beforeAll(()=>{
-            m.mount(root, { view: () => m('.hs-white', [
+            m.mount(root, { view: () => m('.hs_white', [
                 m(Pivot, <PivotAttrs>{ 
                       pivotName: 'by Area',
                       pivotHeaders: ['Sums', 'red', 'green', 'blue'],
@@ -71,7 +71,7 @@ describe('Pivot', () => {
     });
     describe('count', () => {
         beforeAll(()=>{
-            m.mount(root, { view: () => m('.hs-white', [
+            m.mount(root, { view: () => m('.hs_white', [
                 m(Pivot, { 
                       pivotName: 'by Area',
                       table: {data: table, header:headers},

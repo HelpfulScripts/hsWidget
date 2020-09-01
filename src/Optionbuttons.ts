@@ -109,7 +109,7 @@ export class OptionButtons extends Widget {
         const a:OptionButtonsAttrs = node.attrs;
         const buttonConstraint = a.buttonConstraint || OptionButtons.constraints.none;
         return m(`.hs_option_buttons`, this.attrs(a, {
-                style:`grid-template-columns: repeat(${(<any>node.children).length}, 1fr);`
+                style:`grid-template-columns: repeat(${node?(<any[]>node.children).length : 0}, 1fr);`
             }), (<any>node.children).map((c:any, buttonIndex:number) => {
                 function clickResponse(newState:number) {
                     // get current state:

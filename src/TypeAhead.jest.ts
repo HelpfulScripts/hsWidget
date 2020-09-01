@@ -23,14 +23,14 @@ const myEvent = {
 
 describe('Type Ahead', () => { 
     it ('should have DOM structure', () => {
-        out.should.have('.hs-form');
-        out.should.have('.hs-form input.hs-typeahead-input');
+        out.should.have('.hs_form');
+        out.should.have('.hs_form input.hs_typeahead_input');
     });
     it('should type S', () => {
         myEvent.code = 83;
-        out.trigger('.hs-form input', 'oninput', myEvent);
+        out.trigger('.hs_form input', 'oninput', myEvent);
         myEvent.code = 'Enter';
-        out.keydown('.hs-form input', 'Enter', myEvent);
+        out.keydown('.hs_form input', 'Enter', myEvent);
         expect(hero).toBe('result');
     });
     it('should match', () => {
@@ -38,10 +38,10 @@ describe('Type Ahead', () => {
     });
     it('should Backspace ', () => {
         myEvent.code = 'Backspace';
-        out.keydown('.hs-form input', 'Enter', myEvent);
+        out.keydown('.hs_form input', 'Enter', myEvent);
         myEvent.code = 83;
 
-        out.trigger('.hs-form input', 'oninput', myEvent);
+        out.trigger('.hs_form input', 'oninput', myEvent);
         expect(hero).toBe('result');
     });
 });

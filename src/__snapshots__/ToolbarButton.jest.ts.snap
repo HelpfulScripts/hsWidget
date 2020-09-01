@@ -7,7 +7,7 @@ exports[`Toolbar creates 1`] = `
       class="myPositioned"
     >
       <div
-        class="hs-corner-button"
+        class="hs_corner_button"
       >
         ×
       </div>
@@ -16,7 +16,7 @@ exports[`Toolbar creates 1`] = `
       class="myPositioned"
     >
       <div
-        class="hs-corner-button"
+        class="hs_corner_button"
       >
         ×
         ∧

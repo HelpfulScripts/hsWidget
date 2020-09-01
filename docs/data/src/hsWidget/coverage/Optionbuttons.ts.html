@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">81.25% </span>
+                <span class="strong">77.78% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>13/16</span>
+                <span class='fraction'>14/18</span>
             </div>
         
             
@@ -564,7 +564,7 @@ export class OptionButtons extends Widget {
         const a:OptionButtonsAttrs = node.attrs;
         const buttonConstraint = a.buttonConstraint || OptionButtons.constraints.none;
         return m(`.hs_option_buttons`, this.attrs(a, {
-                style:`grid-template-columns: repeat(${(&lt;any&gt;node.children).length}, 1fr);`
+                style:`grid-template-columns: repeat(${node?(&lt;any[]&gt;node.children).length : <span class="branch-1 cbranch-no" title="branch not covered" >0}</span>, 1fr);`
             }), (&lt;any&gt;node.children).map((c:any, buttonIndex:number) =&gt; {
                 function clickResponse(newState:number) {
                     // get current state:
