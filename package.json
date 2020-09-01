@@ -4,7 +4,7 @@
     "main": "./bin/cjs/index.js",
     "module": "./bin/esm/index.js",
     "files": [
-        "./bin"
+        "bin/"
     ],
     "types": "./bin/esm/index.d.ts",
     "type": "module",
@@ -13,7 +13,7 @@
         "prepublishOnly": "npm run grunt",
         "postpublish": "npm version patch"
     },
-    "version": "2.5.0",
+    "version": "2.5.8",
     "keywords": [
         "UI",
         "widgets",
