@@ -12,7 +12,6 @@
  * 
  * See: {@link Icon.IconAttrs IconAttrs}
  * 
- * ### Example
  * <example>
  * <file name='script.js'>ximport='Icon.x.js'</file>
  * <file name='style.css'>
@@ -21,10 +20,6 @@
  * </file>
  * </example>
  * 
- * ### Predefined icons:
- * - 'info'
- * - 'warn'
- * - 'stop'
  */
 
 /** */

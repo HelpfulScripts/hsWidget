@@ -5,20 +5,14 @@ const mdiLeaf = "M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.
 
 m.mount(root, {view: () => 
     m(hsWidget.GridRows, {style:'background-color: white;'}, [
-        m(hsWidget.GridColumns, {
-            template:'repeat(3, 60px)'
-        }, [
-            m(hsWidget.Icon, { mdi:'power' }),
-            m(hsWidget.Icon, 'default'),
-            m(hsWidget.Icon, { class:'hui', mdi: mdiLeaf }, 'leaf'),
-            m(hsWidget.Icon, { mdi: 'stop', style:'height: 2em' }, '!Stop!'),
-            m(hsWidget.Icon, { mdi: 'warn', style:'height: 4em' }, m('', ['Warn?', 'Again'])),
-        ]),
-        m(hsWidget.GridColumns, {
-            template:'repeat(3, 60px)'
-        },
-            Object.keys(hsWidget.Icon.predefined).map(k => m(hsWidget.Icon, { mdi:k }, k))
-        )
+        m('h3', 'Examples:'),
+        m(hsWidget.Icon, { mdi:'power' }),
+        m(hsWidget.Icon, 'default'),
+        m(hsWidget.Icon, { class:'hui', mdi: mdiLeaf }, 'leaf'),
+        m(hsWidget.Icon, { mdi: 'stop', style:'height: 2em' }, '!Stop!'),
+        m(hsWidget.Icon, { mdi: 'warn', style:'height: 4em' }, m('', ['Warn?', 'Again'])),
+        m('h3', 'Predfined icons:'),
+        ...Object.keys(hsWidget.Icon.predefined).map(k => m(hsWidget.Icon, { mdi:k }, k))
     ])
 });
    

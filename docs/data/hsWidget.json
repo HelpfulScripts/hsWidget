@@ -10220,7 +10220,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
 			"comment": {
 				"shortText": "# Icon widget\nShows an [MDI](https://materialdesignicons.com/) icon with optional text label.\nThe icon will scale to fill the height of the element, which defaults to `1em`.\nThe content will vertically align centered if the icon is higher than the text.",
-				"text": "If a predefined icon is used, the provided `mdi` key will als be used as a css class\nselector for the icon. This allows for a semantic coloring of the icon via CSS.\n\n### Profile\ninvoked as `m(Icon, <IconAttrs>, <content>);`.\n\nSee: {@link Icon.IconAttrs IconAttrs}\n\n### Example\n<example>\n<file name='script.js'>\n/* use: import { mdiLeaf } from '@mdi/js';  */\nconst mdiLeaf = \"M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z\";\n\n\nm.mount(root, {view: () => \n    m(hsWidget.GridRows, {style:'background-color: white;'}, [\n        m(hsWidget.GridColumns, {\n            template:'repeat(3, 60px)'\n        }, [\n            m(hsWidget.Icon, { mdi:'power' }),\n            m(hsWidget.Icon, 'default'),\n            m(hsWidget.Icon, { class:'hui', mdi: mdiLeaf }, 'leaf'),\n            m(hsWidget.Icon, { mdi: 'stop', style:'height: 2em' }, '!Stop!'),\n            m(hsWidget.Icon, { mdi: 'warn', style:'height: 4em' }, m('', ['Warn?', 'Again'])),\n        ]),\n        m(hsWidget.GridColumns, {\n            template:'repeat(3, 60px)'\n        },\n            Object.keys(hsWidget.Icon.predefined).map(k => m(hsWidget.Icon, { mdi:k }, k))\n        )\n    ])\n});\n   </file>\n<file name='style.css'>\n.hs_execution .hs_grid.hs_grid_row { height:100%; }\n.hs_execution .hs_grid.hs_grid_col { width:100%; }\n</file>\n</example>\n\n### Predefined icons:\n- 'info'\n- 'warn'\n- 'stop'\n"
+				"text": "If a predefined icon is used, the provided `mdi` key will als be used as a css class\nselector for the icon. This allows for a semantic coloring of the icon via CSS.\n\n### Profile\ninvoked as `m(Icon, <IconAttrs>, <content>);`.\n\nSee: {@link Icon.IconAttrs IconAttrs}\n\n<example>\n<file name='script.js'>\n/* use: import { mdiLeaf } from '@mdi/js';  */\nconst mdiLeaf = \"M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C19,20 22,3 22,3C21,5 14,5.25 9,6.25C4,7.25 2,11.5 2,13.5C2,15.5 3.75,17.25 3.75,17.25C7,8 17,8 17,8Z\";\n\n\nm.mount(root, {view: () => \n    m(hsWidget.GridRows, {style:'background-color: white;'}, [\n        m('h3', 'Examples:'),\n        m(hsWidget.Icon, { mdi:'power' }),\n        m(hsWidget.Icon, 'default'),\n        m(hsWidget.Icon, { class:'hui', mdi: mdiLeaf }, 'leaf'),\n        m(hsWidget.Icon, { mdi: 'stop', style:'height: 2em' }, '!Stop!'),\n        m(hsWidget.Icon, { mdi: 'warn', style:'height: 4em' }, m('', ['Warn?', 'Again'])),\n        m('h3', 'Predfined icons:'),\n        ...Object.keys(hsWidget.Icon.predefined).map(k => m(hsWidget.Icon, { mdi:k }, k))\n    ])\n});\n   </file>\n<file name='style.css'>\n.hs_execution .hs_grid.hs_grid_row { height:100%; }\n.hs_execution .hs_grid.hs_grid_col { width:100%; }\n</file>\n</example>\n\n"
 			},
 			"children": [
 				{
@@ -10393,7 +10393,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-									"line": 76,
+									"line": 71,
 									"character": 8
 								}
 							],
@@ -10424,7 +10424,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-											"line": 71,
+											"line": 66,
 											"character": 19
 										}
 									],
@@ -10445,7 +10445,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-											"line": 72,
+											"line": 67,
 											"character": 19
 										}
 									],
@@ -10466,7 +10466,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-											"line": 73,
+											"line": 68,
 											"character": 20
 										}
 									],
@@ -10487,7 +10487,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-											"line": 70,
+											"line": 65,
 											"character": 17
 										}
 									],
@@ -10508,7 +10508,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-											"line": 74,
+											"line": 69,
 											"character": 12
 										}
 									],
@@ -10529,7 +10529,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-											"line": 64,
+											"line": 59,
 											"character": 12
 										}
 									],
@@ -10550,7 +10550,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-											"line": 69,
+											"line": 64,
 											"character": 13
 										}
 									],
@@ -10571,7 +10571,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-											"line": 68,
+											"line": 63,
 											"character": 12
 										}
 									],
@@ -10592,7 +10592,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-											"line": 67,
+											"line": 62,
 											"character": 13
 										}
 									],
@@ -10613,7 +10613,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-											"line": 66,
+											"line": 61,
 											"character": 12
 										}
 									],
@@ -10634,7 +10634,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-											"line": 65,
+											"line": 60,
 											"character": 12
 										}
 									],
@@ -10667,7 +10667,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-									"line": 63,
+									"line": 58,
 									"character": 21
 								}
 							],
@@ -10697,7 +10697,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-							"line": 62,
+							"line": 57,
 							"character": 17
 						}
 					],
@@ -10804,7 +10804,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-									"line": 53,
+									"line": 48,
 									"character": 7
 								}
 							],
@@ -10858,7 +10858,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Icon.ts",
-							"line": 47,
+							"line": 42,
 							"character": 26
 						}
 					],
