@@ -30,7 +30,7 @@
  * See {@link OptionButtons.OptionButtonsAttrs OptionButtonsAttrs}
  * 
  * ### Example
- * <example><file name='script.js'>ximport='OptionButtons.x.js'</file></example>
+ * <example><file name='script.js'>ximport='Optionbuttons.x.js'</file></example>
  * 
  */
 

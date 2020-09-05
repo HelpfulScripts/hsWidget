@@ -3,8 +3,7 @@
 exports[`MenuPanel layout 1`] = `
 <div>
   <div
-    class="hs_grid  hs_grid_row"
-    style="grid-template-rows: 30px auto;"
+    class="hs_menu_panel"
   >
     <div
       class="hs_option_buttons  hs_radio_buttons  hs_menu"
@@ -27,7 +26,7 @@ exports[`MenuPanel layout 1`] = `
       </div>
     </div>
     <div
-      class="hs_grid_cell child1"
+      class="hs_menu_content"
     >
       1st
     </div>

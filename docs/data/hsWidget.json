@@ -11288,7 +11288,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
 			"comment": {
 				"shortText": "# Menu Widget\nCreates a simple menu with several items.",
-				"text": "## Menu\nshows a group of menu items but does not manage display of content.\ninvoked as `m(Menu, <MenuAttrs>, <content>);`.\n`<content>`: a `string[]` or `Vnode[]` that determines the menu button number and content.\n\n### Profile\nWhen a button in the group is clicked, the `onclick` method is called with three parameters:\n- the index (0, n-1) of the button clicked,\n- the new state of that button,\n- the array of all button states\n\n## MenuPanel\nshows a group of menu items and manages the display of the corresponding children.\ninvoked as `m(MenuPanel, <MenuAttrs>, <content>);`.\n`<content>`: a `{button: }[]` array that determines the menu button number and content.\n\n### Profile\nWhen a button in the group is clicked, the `onclick` method is called with three parameters:\n- the index (0, n-1) of the button clicked,\n- the new state of that button,\n- the array of all button states\n\nSee {@link Menu.MenuAttrs MenuAttrs}\n\n### Menu Example\nCreates a menu of items with a callback for changes in the menu selection.\nThe calling program is responsible for acting on the changes, e.g. rendering them.\n<example>\n<file name='script.js'>\nconst items = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\nlet  theContent = `default content: ${content[1]}`;\n\nm.mount(root, {view: () => m('div', [\n     m('div.mySeparate', 'inline menu example:'),\n     m(hsWidget.Menu, {\n         onclick: index => theContent = content[index] + ' content',\n         initial: 1\n     }, items),\n     m('div.mySeparate', 'Content: not managed by `Menu`:'),\n     m('.myMenuContent', theContent)\n])});\n\n</file>\n<file name='style.css'>\n.mySeparate {\n   background-color: #eee;\n   padding: 5px;\n}\n.myMenuContent {\n   border:1px solid #ddd;\n   border-top: 0px solid #ddd;\n}\n.hs_selectable {\n    background-color: #f4f4e8;\n}\n.hs_selected {\n    background-color: #eed;\n    border-width:0px;\n}\n</file>\n</example>\n\n### MenuPanel Example\nSelf-contained `Menu` with content panel.\n<example>\n<file name='script.js'>\nm.mount(root, {view: () => m(hsWidget.MenuPanel, {\n   menu: [\"one\", \"two\", \"three\"],\n   defaultItem: \"two\",\n   content: ['1st', '2nd', '3rd'].map(c => `${c} managed by 'MenuPanel'`)\n})});\n\n</file>\n<file name='style.css'>\n.hs_menu {\n    background-color: #eef;\n}\n.hs_menu-panel {\n    background-color: #dde;\n}\n.hs_selectable {\n    background-color: #f4f4e8;\n}\n.hs_selected {\n    background-color: #eed;\n    border-width:0px;\n}\n</file>\n</example>\n"
+				"text": "## Menu\nshows a group of menu items but does not manage display of content.\n\ninvoked as `m(Menu, <MenuAttrs>, <content>);`.\nSee {@link Menu.MenuAttrs MenuAttrs}\n\n`<content>`: a `string[]` or `Vnode[]` that determines the menu button number and content.\n\n### Profile\nWhen a button in the group is clicked, the `onclick` method is called with three parameters:\n- the index (0, n-1) of the button clicked,\n- the new state of that button,\n- the array of all button states\n\n## MenuPanel\nshows a group of menu items and manages the display of the corresponding children.\n\ninvoked as `m(MenuPanel, <MenuPanelAttrs>, <content>);`.\nSee {@link Menu.MenuPanelAttrs MenuPanelAttrs}\n\n`<content>`: a `{button: }[]` array that determines the menu button number and content.\n\n### Profile\nWhen a button in the group is clicked, the `onclick` method is called with three parameters:\n- the index (0, n-1) of the button clicked,\n- the new state of that button,\n- the array of all button states\n\nSee {@link Menu.MenuAttrs MenuAttrs}\n\n### Menu Example\nCreates a menu of items with a callback for changes in the menu selection.\nThe calling program is responsible for acting on the changes, e.g. rendering them.\n<example>\n<file name='script.js'>\nconst items = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\nlet  theContent = `default content: ${content[1]}`;\n\nm.mount(root, {view: () => m('div', [\n     m('div.mySeparate', 'inline menu example:'),\n     m(hsWidget.Menu, {\n         onclick: index => theContent = content[index] + ' content',\n         initial: 1\n     }, items),\n     m('div.mySeparate', 'Independent Content. The next row is based on the menu selection.'),\n     m('.myMenuContent', theContent)\n])});\n\n</file>\n<file name='style.css'>\n.mySeparate {\n   background-color: #eee;\n   padding: 5px;\n}\n.myMenuContent {\n   border:1px solid #ddd;\n   border-top: 0px solid #ddd;\n   background: #ffd;\n   height: 50px;\n   vertical-align: middle;\n}\n</file>\n</example>\n\n### MenuPanel Example\nSelf-contained `Menu` with content panel.\n<example>\n<file name='script.js'>\nconst items = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\n\nm.mount(root, {view: () => m(hsWidget.MenuPanel, {\n   menuItems: items,\n   initial: 1,\n}, content.map(c => `${c} managed by 'MenuPanel'`))});\n\n</file>\n<file name='style.css'>\n.hs_menu {\n    background-color: #eef;\n}\n.hs_menu_content {\n    background-color: #d8d8e8;\n    height: 50px;\n    vertical-align:middle;\n}\n</file>\n</example>\n"
 			},
 			"children": [
 				{
@@ -11462,7 +11462,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-									"line": 121,
+									"line": 118,
 									"character": 8
 								}
 							],
@@ -11486,7 +11486,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-							"line": 120,
+							"line": 117,
 							"character": 17
 						}
 					],
@@ -11534,7 +11534,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-									"line": 145,
+									"line": 143,
 									"character": 10
 								}
 							],
@@ -11581,7 +11581,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-											"line": 145,
+											"line": 143,
 											"character": 11
 										}
 									]
@@ -11599,7 +11599,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-									"line": 144,
+									"line": 142,
 									"character": 12
 								}
 							],
@@ -11761,7 +11761,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-									"line": 146,
+									"line": 144,
 									"character": 10
 								}
 							]
@@ -11823,7 +11823,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-									"line": 150,
+									"line": 148,
 									"character": 8
 								}
 							],
@@ -11856,7 +11856,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-							"line": 143,
+							"line": 141,
 							"character": 22
 						}
 					],
@@ -11966,7 +11966,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-									"line": 113,
+									"line": 110,
 									"character": 11
 								}
 							],
@@ -11994,7 +11994,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-									"line": 110,
+									"line": 107,
 									"character": 11
 								}
 							],
@@ -12070,7 +12070,7 @@
 									"sources": [
 										{
 											"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-											"line": 110,
+											"line": 107,
 											"character": 12
 										}
 									]
@@ -12128,7 +12128,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-							"line": 108,
+							"line": 105,
 							"character": 26
 						}
 					],
@@ -12160,7 +12160,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-									"line": 130,
+									"line": 127,
 									"character": 11
 								}
 							],
@@ -12180,7 +12180,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-									"line": 129,
+									"line": 126,
 									"character": 8
 								}
 							],
@@ -12203,7 +12203,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-							"line": 128,
+							"line": 125,
 							"character": 25
 						}
 					]
@@ -12289,7 +12289,7 @@
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-									"line": 136,
+									"line": 134,
 									"character": 11
 								}
 							],
@@ -12300,18 +12300,21 @@
 						},
 						{
 							"id": 742,
-							"name": "menu",
+							"name": "menuItems",
 							"kind": 1024,
 							"kindString": "Property",
 							"flags": {
 								"isExported": true,
 								"isOptional": true
 							},
+							"comment": {
+								"shortText": "an array of menu items to show. If omitted, the item indeces will be used."
+							},
 							"sources": [
 								{
 									"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-									"line": 135,
-									"character": 8
+									"line": 133,
+									"character": 13
 								}
 							],
 							"type": {
@@ -12368,7 +12371,7 @@
 					"sources": [
 						{
 							"fileName": "sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Menu.ts",
-							"line": 134,
+							"line": 131,
 							"character": 31
 						}
 					],
@@ -13061,7 +13064,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/Optionbuttons.ts",
 			"comment": {
 				"shortText": "# Grouped button widgets",
-				"text": "## &nbsp; {@link Optionbuttons.OptionButtons OptionButtons}\nShows an group of {@link Button.OnOffButtons `OnOffButtons`} that are created from\nthe passed `node.children`. Any of the buttons can be `on` at the same time.\n\nInvoked as `m(OptionButtons, <OptionButtonsAttrs>, <content>);`.\n\nSee {@link Optionbuttons.OptionButtonsAttrs OptionButtonsAttrs}\n\n`<content>`: `m.Children` the text or Vnodes used to create the embedded `OnOffButtons`\n\n\n## &nbsp; {@link Optionbuttons.RadioButtons RadioButtons}\nShows an group of buttons, only one of which can be pressed at the same time.\n\ninvoked as `m(RadioButtons, <RadioButtonsAttrs>, <content>);`.\n\nSee {@link Optionbuttons.RadioButtonsAttrs RadioButtonsAttrs}\n\n`<content>`: `m.Children` the text or Vnodes used to create the embedded `OnOffButton\n\n### Profile\nWhen a button in the group is clicked, the `onclick` method is called with three parameters:\n- the index (0, n-1) of the button clicked,\n- the new state of that button,\n- the array of all button states\n\nSee {@link OptionButtons.OptionButtonsAttrs OptionButtonsAttrs}\n\n### Example\n<example><file name='script.js'></file></example>\n\n"
+				"text": "## &nbsp; {@link Optionbuttons.OptionButtons OptionButtons}\nShows an group of {@link Button.OnOffButtons `OnOffButtons`} that are created from\nthe passed `node.children`. Any of the buttons can be `on` at the same time.\n\nInvoked as `m(OptionButtons, <OptionButtonsAttrs>, <content>);`.\n\nSee {@link Optionbuttons.OptionButtonsAttrs OptionButtonsAttrs}\n\n`<content>`: `m.Children` the text or Vnodes used to create the embedded `OnOffButtons`\n\n\n## &nbsp; {@link Optionbuttons.RadioButtons RadioButtons}\nShows an group of buttons, only one of which can be pressed at the same time.\n\ninvoked as `m(RadioButtons, <RadioButtonsAttrs>, <content>);`.\n\nSee {@link Optionbuttons.RadioButtonsAttrs RadioButtonsAttrs}\n\n`<content>`: `m.Children` the text or Vnodes used to create the embedded `OnOffButton\n\n### Profile\nWhen a button in the group is clicked, the `onclick` method is called with three parameters:\n- the index (0, n-1) of the button clicked,\n- the new state of that button,\n- the array of all button states\n\nSee {@link OptionButtons.OptionButtonsAttrs OptionButtonsAttrs}\n\n### Example\n<example><file name='script.js'>let times = 0;\nlet index = 0;\n\nconst states = [\n    {text:`important`, icon:'info' },\n    {text:`urgent`,    icon:'warn' },\n    {text:`immediate`, icon:'stop' },\n];\n\nlet optionStates = [0,0,0];\nlet radioStates = [1,0,0];\n\nm.mount(root, {view: () => m('', { style:'background-color:white; padding:20px 20px;'}, [\n    m('h4', `OptionButtons: [${optionStates.join(', ')}]`),\n    m(hsWidget.OptionButtons, { \n            class:'simple',\n            onclick:(newIndex, newState, states) => {\n                times++;\n                index = newIndex;\n                optionStates = states;\n            }, \n        }, \n        // the button content to show\n        states.map(s => m(hsWidget.Icon, {mdi:s.icon}, s.text))\n    ),\n    m('h4', `RadioButtons: [${radioStates.join(', ')}]`),\n    m(hsWidget.RadioButtons, { \n            class:'simple',\n            onclick:(newIndex, newState, states) => {\n                times++;\n                index = newIndex;\n                radioStates = states;\n            }, \n        }, \n        // the button content to show\n        states.map(s => m(hsWidget.Icon, {mdi:s.icon}, s.text))\n    ),\n])});\n   \n</file></example>\n\n"
 			},
 			"children": [
 				{
@@ -25021,7 +25024,7 @@
 			"originalName": "/Users/sth1pal/Documents/Development/JavaScript/nodejs/ts6/dev/hsLibs/mithril/hsWidget/src/overview.ts",
 			"comment": {
 				"shortText": "# hsWidgets",
-				"text": "Helpful Scripts UI widgets.\n<a href=\"./data/src/hsWidget/coverage/\" target=\"_blank\">[Coverage Info]</a>\n\n[![npm version](https://badge.fury.io/js/hswidget.svg)](https://badge.fury.io/js/hswidget)\n[![GitHub](https://img.shields.io/badge/GitHub-hsWidget-blue.svg)](https://github.com/helpfulscripts/hswidget)\n[![docs](https://img.shields.io/badge/hsDocs-hsWidget-blue.svg)](https://helpfulscripts.github.io/hsWidget/#!/api/hsWidget/0)\n[![Build Status](https://travis-ci.org/HelpfulScripts/hsWidget.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsWidget)\n[![Dependencies Status](https://david-dm.org/helpfulscripts/hswidget.svg)](https://david-dm.org/helpfulscripts/hswidget)\n[![codecov](https://codecov.io/gh/HelpfulScripts/hsWidget/branch/master/graph/badge.svg)](https://codecov.io/gh/HelpfulScripts/hsWidget)\n[![Known Vulnerabilities](https://snyk.io/test/github/HelpfulScripts/hsWidget/badge.svg?targetFile=package.json)](https://snyk.io/test/github/HelpfulScripts/hsWidget?targetFile=package.json)\n[![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hswidget)\n\n___\n\n*hsWidgets** Provides various UI widgets for use with mithril:\n\n\n| Widget | Description |\n|========|=============|\n| &nbsp; {@link Menu.Menu Menu} | A group of horizontal menu items that can trigger actions |\n| &nbsp; {@link Button.Button Button} | A simple button widget |\n| &nbsp; {@link ToggleButton.ToggleButton ToggleButton} | A button widget that toggleds through a number of items |\n| &nbsp; {@link RadioButton.RadioButton RadioButton} | A radio button group widget: one selected at a time |\n| &nbsp; {@link OptionsButton.OptionsButton OptionsButton} | An options button group widget: independently selected |\n| &nbsp; {@link Collapsible Collapsible} | A panel that will expand znd collapse when the title is clicked |\n| &nbsp; {@link Modal Modal} | A modal panel that will cover the entire window until released. |\n| &nbsp; {@link AddRemove AddButton} | An  `+` button that will open a form for adding new elements. |\n| &nbsp; {@link AddRemove RemoveButton} | An  `-` button that will remove an item. |\n| &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |\n| &nbsp; {@link Slider Slider} | A simple nominal or continuous slider. |\n| &nbsp; {@link EditLabel EditLabel} | A text label that turns into a single-line input field when clicked on. |\n| &nbsp; {@link EditSelect EditSelect} | A text label with pulldown select capability. |\n| &nbsp; {@link EditList EditList} | An auto-extending list of editable rows. |\n\n<example height=500px>\n<file name='script.js'>const render = () => m.mount(root, {view: () => m('.hs_white', { class: 'overview' }, [    \n    m('.topGap'),\n\n    // Buttons:\n    m('.myButtons',[\n        m('h2', 'Buttons'),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button'), `: Please click: (${clicked}-times clicked)`]),\n        m(hsWidget.Button, { onclick: () => clicked++ }, 'click me'),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),\n        m(hsWidget.ToggleButton, { \n            onclick: (item, state) => toggle = state\n        }, content),\n        m(hsWidget.GridColumns, {style:'height: 100px;'}, [\n            m('', [\n                m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.IconButton'}, 'IconButton'), `: Power ${icon}`]),\n                m(hsWidget.IconButton, { \n                    mdi:'power',\n                    onclick: (item) => icon = ['off', 'on'][item]\n                }),\n            ]),\n            m('', [\n                m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.IconButton'}, 'OnOffButton'), `: Power ${onOff}`]),\n                m(hsWidget.OnOffButton, { \n                    onclick: (item, state) => onOff = state\n                }, 'power'),\n            ])\n        ]),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Optionbuttons.RadioButtons'}, 'RadioButtons'), `: Select Station: ${radio}`]),\n        m(hsWidget.RadioButtons, { onclick: (item) => radio = content[item]\n        }, content),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Optionbuttons.OptionButtons'}, 'OptionButtons'), `: Select Option: '${Object.keys(options).map(k=>options[k]).join(\" \")}'`]),\n        m(hsWidget.OptionButtons, { \n            onclick: (item) => options[content[item]] = options[content[item]]? undefined : content[item]\n        }, content),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Optionbuttons.IconButtons'}, 'IconButtons'), `: Select Option: '${Object.keys(iconsSel).map(k=>iconsSel[k]).join(\" \")}'`]),\n        m(hsWidget.IconButtons, { \n            class: 'hsIconButtons',\n            onclick: (item) => iconsSel[icons[item]] = iconsSel[icons[item]]? undefined : icons[item]\n        }, ['power', 'info', 'warn', 'stop'].map(i => m(hsWidget.Icon,{mdi:i}))),\n    ]),\n\n\n\n    // Menus:\n    m('.myMenus',[\n        m('h2', 'Menus'),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.Menu'}, 'Menu'), `: ${theContent} selected`]),\n        m(hsWidget.Menu, { class: 'myMenu',\n            initial: 1, // 0..2\n            onclick: (item) => theContent = content[item]\n        }, menuItems),\n        m('.myMenuMain', theContent)\n    ]),\n\n    // Modal Dialog Box:\n    m('.myDialog',[\n        m('h2.myGapModal', 'Modal Dialog Box'),\n        m('h4', {onclick:() => showModal=true }, \n            [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box (previous dismissals: ${dismissals})`]),\n            !showModal? '' : m(hsWidget.Modal, \n                { dismiss: () => { showModal=false; dismissals++; }},\n                m('', 'click on border or on the background to release')\n            ) \n    ]),\n\n    // Popup Box:\n    m('.myPopup',[\n        m('h2.myGapPopup', 'Popup Box'),\n        m('h4', hsWidget.Popup.arm('!!Jack in the Box!!'), [\n            m('a',{href:'#!/api/hsWidget/hsWidget.Popup.Popup'}, 'Popup'), `: Hover over me to open a popup`]),\n            m(hsWidget.Popup, {})\n    ]),\n\n\n\n    // Collapsibles:\n    m('.myColl',[\n        m('h2', 'Collapsibles'),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Collapsible.Collapsible'}, 'Collapsible'), ': ']),\n        m(hsWidget.Collapsible, { \n            class:'myCollapsible',\n            transition: 1000\n        }, [\n            m('.myTitle', 'click me to toggle - no arrows'), ...content \n        ]),\n        m(hsWidget.Collapsible, { class:'myCollapsible', preArrow:true}, [\n            m('.myTitle', 'click me to toggle - left arrow'), ...content \n        ]),\n        m(hsWidget.Collapsible, { class:'myCollapsible', postArrow:true}, [\n            m('.myTitle', 'click me to toggle - right arrow'), ...content \n        ]),\n        m(hsWidget.Collapsible, { class:'myCollapsible', preArrow:true, postArrow:true}, [\n            m('.myTitle', 'click me to toggle - both arrows'), ...content\n        ]),\n        m('', 'Background text, will be pushed down by the Collapsible')\n    ]),\n\n    // Typeahead Search:\n    m('.myType',[\n        m('h2.myGapTypeAhead', 'Typeahead Search'),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: In-Memory List: ${hero.length? 'Selected1: ' + hero : 'Search for a Superhero'}`]),\n        m(hsWidget.TypeAhead, { \n            placeholder: 'favorite hero',\n            onsubmit: item => hero = item,\n            list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n        }),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: Remote List: ${friend.length? 'Selected2: '+ friend : 'Search for a Friend'}`]),\n        m(hsWidget.TypeAhead, { \n            placeholder: 'best friend',\n            onsubmit: item => friend = item,\n            autofocus: true,\n            list: 'example/search.json'\n        })\n    ]),\n\n    // Corner Buttons:\n    m('.myCorner',[\n        m('h2.myGapCornerButtons', 'Corner Buttons'),\n        m('', Object.keys(hsWidget.ButtonSymbols).map(\n            b => m('.myCornerPositioned', [\n                btnClicked[b]? m('.myCornerClicked', 'Yayy!!') : m('', b),\n                m(hsWidget.ToolbarButton, { \n                    symbols:hsWidget.ToolbarButton.getSymbol(b), onclick:click(b) \n                })\n            ])\n        ))\n    ]),\n\n\n\n\n    // Slider:\n    m('.mySlider',[\n        m('h2.mySliders', 'Sliders'),\n        m('h4', `Nominal Slider: ${nom}`),\n        m(hsWidget.Slider, { \n            range: ['one', 'two', 'three'],\n            onchange: v => nom=v\n        }),\n        m('h4', `Continuous Slider: ${con}`),\n        m(hsWidget.Slider, {\n            range: [0, 100],\n            onchange: v => con=Math.floor(v*10)/10\n        })\n    ]),\n\n    // EditLabel\n    m('.myELabel',[\n        m('h2.myEditLabel', `EditLabel: '${editLabelContent}'`),\n        m(hsWidget.EditLabel, { \n            placeholder: 'Enter here...',\n            update: newValue => editLabelContent = newValue\n        }, editLabelContent),\n    ]),\n\n    // EditSelect\n    m('.myESelect',[\n        m('h2.myEditSelect', `EditSelect: ${esSelected}`),\n        m(hsWidget.EditSelect, { \n            selected: esSelected,\n            update: newValue => esSelected = newValue\n        }, ['first','second','third']),\n    ]),\n\n    // EditList\n    m('.myEList',[\n        m('h2.myEditList', 'EditList'),\n        m(hsWidget.EditList, { \n            header: 'List Header',\n            isExpanded:true\n        }, elContent),\n    ]),\n\n    // EditCheckbox\n    m('.myECheck',[\n        m('h2.myEditCheckbox', 'EditCheckbox'),\n        m(hsWidget.EditCheckbox, { \n            update: newValue => checkbox = newValue\n        }, `${checkbox}: I am ${checkbox?'' : 'not '}a robot`),\n    ]),\n])})\n// ]))});\n\n\n//--------------------------------------\n// supporting variables:\nconst menuItems = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\nlet theContent = content[1];\nlet clicked = 0;\nlet radio = '';\nlet option = '';\nlet options = {};\nlet icons = ['power', 'info', 'warn', 'stop'];\nlet iconsSel = {};\nlet toggle = '';\nlet icon = '';\nlet onOff = ''; \nlet added  = 0;\nlet removed  = 0;\nconst btnClicked = {};\nlet lastCornerButton = '';\nlet dismissals = 0;\nlet showModal = false;\nlet hero = '';\nlet friend = '';\nlet nom, con;\nlet editLabelContent = '';\nlet esSelected = '';\nlet elContent = [''];\nlet checkbox = false;\n\nconst click = (button) => () => {\n   lastCornerButton = '';\n   if (hsWidget.ButtonSymbols[button]) {\n      lastCornerButton = m.trust(`last button pressed: ${hsWidget.ButtonSymbols[button].sym}`);\n      btnClicked[button] = true;\n      setTimeout(reset(button), 800);\n   }\n};\n\nconst reset = (button) => () => {\n   btnClicked[button] = false;\n   m.redraw();\n}\n\nrender();\n   </file>\n<file name='style.css'>.overview>div  {\n    width: 100%;\n}\n.myMenuMain { \n   border:1px solid #ddd;\n   border-top: 0px solid #ddd;\n   background-color: white;\n} \n\n.myCollapsible {\n    margin-bottom: 5px;\n}\n.myCollapsible .hs-collapsible-title {\n    font-weight:bold;\n    background-color: #eee;\n}\n.myCollapsible .hs-collapsible-expanded {\n    margin-left: 10px;\n}\n.myCornerClicked { background-color: #efe; }\n.myCornerPositioned { \n     position: relative; \n     display: inline-block;\n     box-sizing: border-box;\n     background-color: #eee; \n     text-align: center;\n     font-size: 70%;\n     margin:  2px;\n     padding-top: 20px;\n     height: 50px;\n     width:  50px;\n}\n.hs-corner-button { color: #008; }\n\n.hs-radio-buttons>.hs-column-layout>.hs-layout { border-color: transparent}\n\n.hsedit_label { \n   background-color: #eee;\n}\n   \n.topGap     { height: 100px; }\n.myButtons  { height: 680px; }\n.myMenus    { height: 180px; }\n.myDialog   { height: 180px; }\n.myPopup    { height: 200px; }\n.myColl     { height: 340px; }\n.myType     { height: 300px; }\n.myCorner   { height: 280px; }\n.mySlider   { height: 250px; }\n.myELabel   { height: 150px; }\n.myESelect  { height: 150px; }\n.myEList    { height: 150px; }\n.myECheck   { height: 180px; }\n\n.hsIconButtons.hs_optionbutton {\n    width:0;\n}\n.hsIconButtons .hs_onoff_button {\n    padding:0;\n    width: 32px;\n}\n\n.hsIconButtons .hs_onoff_button.state0 {\n    background-color: #dde;\n}\n\n.hsIconButtons .hs_onoff_button.state1 {\n    background-color: #aab;\n}\n\n.hsIconButtons .hs_onoff_button.state1 .hs_icon {\n    filter: invert(100%) hue-rotate(180deg) brightness(2);\n}\n\n.hsIconButtons .hs_onoff_button .hs_icon {\n    width: 80%;\n    height:80%;\n}\n</file>\n</example>\n"
+				"text": "Helpful Scripts UI widgets.\n<a href=\"./data/src/hsWidget/coverage/\" target=\"_blank\">[Coverage Info]</a>\n\n[![npm version](https://badge.fury.io/js/hswidget.svg)](https://badge.fury.io/js/hswidget)\n[![GitHub](https://img.shields.io/badge/GitHub-hsWidget-blue.svg)](https://github.com/helpfulscripts/hswidget)\n[![docs](https://img.shields.io/badge/hsDocs-hsWidget-blue.svg)](https://helpfulscripts.github.io/hsWidget/#!/api/hsWidget/0)\n[![Build Status](https://travis-ci.org/HelpfulScripts/hsWidget.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsWidget)\n[![Dependencies Status](https://david-dm.org/helpfulscripts/hswidget.svg)](https://david-dm.org/helpfulscripts/hswidget)\n[![codecov](https://codecov.io/gh/HelpfulScripts/hsWidget/branch/master/graph/badge.svg)](https://codecov.io/gh/HelpfulScripts/hsWidget)\n[![Known Vulnerabilities](https://snyk.io/test/github/HelpfulScripts/hsWidget/badge.svg?targetFile=package.json)](https://snyk.io/test/github/HelpfulScripts/hsWidget?targetFile=package.json)\n[![NPM License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://www.npmjs.com/package/hswidget)\n\n___\n\n*hsWidgets** Provides various UI widgets for use with mithril:\n\n\n| Widget | Description |\n|========|=============|\n| &nbsp; {@link Menu.Menu Menu} | A group of horizontal menu items that can trigger actions |\n| &nbsp; {@link Button.Button Button} | A simple button widget |\n| &nbsp; {@link ToggleButton.ToggleButton ToggleButton} | A button widget that toggleds through a number of items |\n| &nbsp; {@link RadioButton.RadioButton RadioButton} | A radio button group widget: one selected at a time |\n| &nbsp; {@link OptionsButton.OptionsButton OptionsButton} | An options button group widget: independently selected |\n| &nbsp; {@link Collapsible Collapsible} | A panel that will expand znd collapse when the title is clicked |\n| &nbsp; {@link Modal Modal} | A modal panel that will cover the entire window until released. |\n| &nbsp; {@link AddRemove AddButton} | An  `+` button that will open a form for adding new elements. |\n| &nbsp; {@link AddRemove RemoveButton} | An  `-` button that will remove an item. |\n| &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |\n| &nbsp; {@link Slider Slider} | A simple nominal or continuous slider. |\n| &nbsp; {@link EditLabel EditLabel} | A text label that turns into a single-line input field when clicked on. |\n| &nbsp; {@link EditSelect EditSelect} | A text label with pulldown select capability. |\n| &nbsp; {@link EditList EditList} | An auto-extending list of editable rows. |\n\n<example height=500px>\n<file name='script.js'>const render = () => m.mount(root, {view: () => m('.hs_white', { class: 'overview' }, [    \n    m('.topGap'),\n\n    // Buttons:\n    m('.myButtons',[\n        m('h2', 'Buttons'),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button'), `: Please click: (${clicked}-times clicked)`]),\n        m(hsWidget.Button, { onclick: () => clicked++ }, 'click me'),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),\n        m(hsWidget.ToggleButton, { \n            onclick: (item, state) => toggle = state\n        }, content),\n        m(hsWidget.GridColumns, {style:'height: 100px;'}, [\n            m('', [\n                m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.IconButton'}, 'IconButton'), `: Power ${icon}`]),\n                m(hsWidget.IconButton, { \n                    mdi:'power',\n                    onclick: (item) => icon = ['off', 'on'][item]\n                }),\n            ]),\n            m('', [\n                m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.IconButton'}, 'OnOffButton'), `: Power ${onOff}`]),\n                m(hsWidget.OnOffButton, { \n                    onclick: (item, state) => onOff = state\n                }, 'power'),\n            ])\n        ]),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Optionbuttons.RadioButtons'}, 'RadioButtons'), `: Select Station: ${radio}`]),\n        m(hsWidget.RadioButtons, { onclick: (item) => radio = content[item]\n        }, content),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Optionbuttons.OptionButtons'}, 'OptionButtons'), `: Select Option: '${Object.keys(options).map(k=>options[k]).join(\" \")}'`]),\n        m(hsWidget.OptionButtons, { \n            onclick: (item) => options[content[item]] = options[content[item]]? undefined : content[item]\n        }, content),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Optionbuttons.IconButtons'}, 'IconButtons'), `: Select Option: '${Object.keys(iconsSel).map(k=>iconsSel[k]).join(\" \")}'`]),\n        m(hsWidget.IconButtons, { \n            class: 'hsIconButtons',\n            onclick: (item) => iconsSel[icons[item]] = iconsSel[icons[item]]? undefined : icons[item]\n        }, ['power', 'info', 'warn', 'stop'].map(i => m(hsWidget.Icon,{mdi:i}))),\n    ]),\n\n\n\n    // Menus:\n    m('.myMenus',[\n        m('h2', 'Menus'),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.Menu'}, 'Menu'), `: ${theContent} selected`]),\n        m(hsWidget.Menu, { class: 'myMenu',\n            initial: 1, // 0..2\n            onclick: (item) => theContent = content[item]\n        }, menuItems),\n        m('.myMenuMain', `${theContent} managed by the app`),\n\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.MenuPanel'}, 'MenuPanel'), `:`]),\n        m(hsWidget.MenuPanel, { class: 'myMenu',\n            initial: 1, // 0..2\n            menuItems: menuItems,\n        }, content.map(c => `${c} managed by 'MenuPanel'`)),\n    ]),\n\n    // Modal Dialog Box:\n    m('.myDialog',[\n        m('h2.myGapModal', 'Modal Dialog Box'),\n        m('h4', {onclick:() => showModal=true }, \n            [m('a',{href:'#!/api/hsWidget/hsWidget.Modal.Modal'}, 'Modal'), `: Click me to open a modal box (previous dismissals: ${dismissals})`]),\n            !showModal? '' : m(hsWidget.Modal, \n                { dismiss: () => { showModal=false; dismissals++; }},\n                m('', 'click on border or on the background to release')\n            ) \n    ]),\n\n    // Popup Box:\n    m('.myPopup',[\n        m('h2.myGapPopup', 'Popup Box'),\n        m('h4', hsWidget.Popup.arm('!!Jack in the Box!!'), [\n            m('a',{href:'#!/api/hsWidget/hsWidget.Popup.Popup'}, 'Popup'), `: Hover over me to open a popup`]),\n            m(hsWidget.Popup, {})\n    ]),\n\n\n\n    // Collapsibles:\n    m('.myColl',[\n        m('h2', 'Collapsibles'),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Collapsible.Collapsible'}, 'Collapsible'), ': ']),\n        m(hsWidget.Collapsible, { \n            class:'myCollapsible',\n            transition: 1000\n        }, [\n            m('.myTitle', 'click me to toggle - no arrows'), ...content \n        ]),\n        m(hsWidget.Collapsible, { class:'myCollapsible', preArrow:true}, [\n            m('.myTitle', 'click me to toggle - left arrow'), ...content \n        ]),\n        m(hsWidget.Collapsible, { class:'myCollapsible', postArrow:true}, [\n            m('.myTitle', 'click me to toggle - right arrow'), ...content \n        ]),\n        m(hsWidget.Collapsible, { class:'myCollapsible', preArrow:true, postArrow:true}, [\n            m('.myTitle', 'click me to toggle - both arrows'), ...content\n        ]),\n        m('', 'Background text, will be pushed down by the Collapsible')\n    ]),\n\n    // Typeahead Search:\n    m('.myType',[\n        m('h2.myGapTypeAhead', 'Typeahead Search'),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: In-Memory List: ${hero.length? 'Selected1: ' + hero : 'Search for a Superhero'}`]),\n        m(hsWidget.TypeAhead, { \n            placeholder: 'favorite hero',\n            onsubmit: item => hero = item,\n            list: ['Batman', 'Superman', 'Spiderman', 'Hulk']\n        }),\n        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.TypeAhead.TypeAhead'}, 'TypeAhead'), `: Remote List: ${friend.length? 'Selected2: '+ friend : 'Search for a Friend'}`]),\n        m(hsWidget.TypeAhead, { \n            placeholder: 'best friend',\n            onsubmit: item => friend = item,\n            autofocus: true,\n            list: 'example/search.json'\n        })\n    ]),\n\n    // Corner Buttons:\n    m('.myCorner',[\n        m('h2.myGapCornerButtons', 'Corner Buttons'),\n        m('', Object.keys(hsWidget.ButtonSymbols).map(\n            b => m('.myCornerPositioned', [\n                btnClicked[b]? m('.myCornerClicked', 'Yayy!!') : m('', b),\n                m(hsWidget.ToolbarButton, { \n                    symbols:hsWidget.ToolbarButton.getSymbol(b), onclick:click(b) \n                })\n            ])\n        ))\n    ]),\n\n\n\n\n    // Slider:\n    m('.mySlider',[\n        m('h2.mySliders', 'Sliders'),\n        m('h4', `Nominal Slider: ${nom}`),\n        m(hsWidget.Slider, { \n            range: ['one', 'two', 'three'],\n            onchange: v => nom=v\n        }),\n        m('h4', `Continuous Slider: ${con}`),\n        m(hsWidget.Slider, {\n            range: [0, 100],\n            onchange: v => con=Math.floor(v*10)/10\n        })\n    ]),\n\n    // EditLabel\n    m('.myELabel',[\n        m('h2.myEditLabel', `EditLabel: '${editLabelContent}'`),\n        m(hsWidget.EditLabel, { \n            placeholder: 'Enter here...',\n            update: newValue => editLabelContent = newValue\n        }, editLabelContent),\n    ]),\n\n    // EditSelect\n    m('.myESelect',[\n        m('h2.myEditSelect', `EditSelect: ${esSelected}`),\n        m(hsWidget.EditSelect, { \n            selected: esSelected,\n            update: newValue => esSelected = newValue\n        }, ['first','second','third']),\n    ]),\n\n    // EditList\n    m('.myEList',[\n        m('h2.myEditList', 'EditList'),\n        m(hsWidget.EditList, { \n            header: 'List Header',\n            isExpanded:true\n        }, elContent),\n    ]),\n\n    // EditCheckbox\n    m('.myECheck',[\n        m('h2.myEditCheckbox', 'EditCheckbox'),\n        m(hsWidget.EditCheckbox, { \n            update: newValue => checkbox = newValue\n        }, `${checkbox}: I am ${checkbox?'' : 'not '}a robot`),\n    ]),\n])})\n// ]))});\n\n\n//--------------------------------------\n// supporting variables:\nconst menuItems = ['One', 'Two', 'Three'];\nconst content   = ['1st', '2nd', '3rd'];\nlet theContent = content[1];\nlet clicked = 0;\nlet radio = '';\nlet option = '';\nlet options = {};\nlet icons = ['power', 'info', 'warn', 'stop'];\nlet iconsSel = {};\nlet toggle = '';\nlet icon = '';\nlet onOff = ''; \nlet added  = 0;\nlet removed  = 0;\nconst btnClicked = {};\nlet lastCornerButton = '';\nlet dismissals = 0;\nlet showModal = false;\nlet hero = '';\nlet friend = '';\nlet nom, con;\nlet editLabelContent = '';\nlet esSelected = '';\nlet elContent = [''];\nlet checkbox = false;\n\nconst click = (button) => () => {\n   lastCornerButton = '';\n   if (hsWidget.ButtonSymbols[button]) {\n      lastCornerButton = m.trust(`last button pressed: ${hsWidget.ButtonSymbols[button].sym}`);\n      btnClicked[button] = true;\n      setTimeout(reset(button), 800);\n   }\n};\n\nconst reset = (button) => () => {\n   btnClicked[button] = false;\n   m.redraw();\n}\n\nrender();\n   </file>\n<file name='style.css'>.overview>div  {\n    width: 100%;\n}\n.myMenuMain { \n   border:1px solid #ddd;\n   border-top: 0px solid #ddd;\n   background-color: white;\n} \n\n.myCollapsible {\n    margin-bottom: 5px;\n}\n.myCollapsible .hs-collapsible-title {\n    font-weight:bold;\n    background-color: #eee;\n}\n.myCollapsible .hs-collapsible-expanded {\n    margin-left: 10px;\n}\n.myCornerClicked { background-color: #efe; }\n.myCornerPositioned { \n     position: relative; \n     display: inline-block;\n     box-sizing: border-box;\n     background-color: #eee; \n     text-align: center;\n     font-size: 70%;\n     margin:  2px;\n     padding-top: 20px;\n     height: 50px;\n     width:  50px;\n}\n.hs-corner-button { color: #008; }\n\n.hs-radio-buttons>.hs-column-layout>.hs-layout { border-color: transparent}\n\n.hsedit_label { \n   background-color: #eee;\n}\n   \n.topGap     { height: 100px; }\n.myButtons  { height: 680px; }\n.myMenus    { height: 280px; }\n.myDialog   { height: 180px; }\n.myPopup    { height: 200px; }\n.myColl     { height: 340px; }\n.myType     { height: 300px; }\n.myCorner   { height: 280px; }\n.mySlider   { height: 250px; }\n.myELabel   { height: 150px; }\n.myESelect  { height: 150px; }\n.myEList    { height: 150px; }\n.myECheck   { height: 180px; }\n\n.hsIconButtons.hs_optionbutton {\n    width:0;\n}\n.hsIconButtons .hs_onoff_button {\n    padding:0;\n    width: 32px;\n}\n\n.hsIconButtons .hs_onoff_button.state0 {\n    background-color: #dde;\n}\n\n.hsIconButtons .hs_onoff_button.state1 {\n    background-color: #aab;\n}\n\n.hsIconButtons .hs_onoff_button.state1 .hs_icon {\n    filter: invert(100%) hue-rotate(180deg) brightness(2);\n}\n\n.hsIconButtons .hs_onoff_button .hs_icon {\n    width: 80%;\n    height:80%;\n}\n</file>\n</example>\n"
 			},
 			"sources": [
 				{

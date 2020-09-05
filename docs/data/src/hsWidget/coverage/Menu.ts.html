@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">92.31% </span>
+                <span class="strong">84.62% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/13</span>
+                <span class='fraction'>11/13</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/4</span>
+                <span class='fraction'>4/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">60% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/4</span>
+                <span class='fraction'>3/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">91.67% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>11/12</span>
             </div>
         
             
@@ -217,10 +217,7 @@
 <a name='L158'></a><a href='#L158'>158</a>
 <a name='L159'></a><a href='#L159'>159</a>
 <a name='L160'></a><a href='#L160'>160</a>
-<a name='L161'></a><a href='#L161'>161</a>
-<a name='L162'></a><a href='#L162'>162</a>
-<a name='L163'></a><a href='#L163'>163</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L161'></a><a href='#L161'>161</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -319,8 +316,6 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -361,6 +356,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -375,7 +371,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -387,7 +383,10 @@
  * 
  * ## Menu
  * shows a group of menu items but does not manage display of content. 
+ * 
  * invoked as `m(Menu, &lt;MenuAttrs&gt;, &lt;content&gt;);`.
+ * See {@link Menu.MenuAttrs MenuAttrs}
+ * 
  * `&lt;content&gt;`: a `string[]` or `Vnode[]` that determines the menu button number and content.
  * 
  * ### Profile
@@ -398,7 +397,10 @@
  * 
  * ## MenuPanel
  * shows a group of menu items and manages the display of the corresponding children. 
- * invoked as `m(MenuPanel, &lt;MenuAttrs&gt;, &lt;content&gt;);`.
+ * 
+ * invoked as `m(MenuPanel, &lt;MenuPanelAttrs&gt;, &lt;content&gt;);`.
+ * See {@link Menu.MenuPanelAttrs MenuPanelAttrs}
+ * 
  * `&lt;content&gt;`: a `{button: }[]` array that determines the menu button number and content.
  * 
  * ### Profile
@@ -424,7 +426,7 @@
  *          onclick: index =&gt; theContent = content[index] + ' content',
  *          initial: 1
  *      }, items),
- *      m('div.mySeparate', 'Content: not managed by `Menu`:'),
+ *      m('div.mySeparate', 'Independent Content. The next row is based on the menu selection.'),
  *      m('.myMenuContent', theContent)
  * ])});
  *
@@ -437,14 +439,10 @@
  * .myMenuContent { 
  *    border:1px solid #ddd;
  *    border-top: 0px solid #ddd;
+ *    background: #ffd;
+ *    height: 50px;
+ *    vertical-align: middle;
  * } 
- * .hs_selectable { 
- *     background-color: #f4f4e8; 
- * }
- * .hs_selected { 
- *     background-color: #eed; 
- *     border-width:0px;
- * }
  * &lt;/file&gt;
  * &lt;/example&gt;
  * 
@@ -452,27 +450,24 @@
  * Self-contained `Menu` with content panel. 
  * &lt;example&gt;
  * &lt;file name='script.js'&gt;
+ * const items = ['One', 'Two', 'Three'];
+ * const content   = ['1st', '2nd', '3rd'];
+ * 
  * m.mount(root, {view: () =&gt; m(hsWidget.MenuPanel, {
- *    menu: ["one", "two", "three"],  
- *    defaultItem: "two",
- *    content: ['1st', '2nd', '3rd'].map(c =&gt; `${c} managed by 'MenuPanel'`)
- * })});
+ *    menuItems: items,  
+ *    initial: 1,
+ * }, content.map(c =&gt; `${c} managed by 'MenuPanel'`))});
  *
  * &lt;/file&gt;
  * &lt;file name='style.css'&gt;
  * .hs_menu { 
  *     background-color: #eef; 
  * } 
- * .hs_menu-panel { 
- *     background-color: #dde; 
+ * .hs_menu_content { 
+ *     background-color: #d8d8e8; 
+ *     height: 50px;
+ *     vertical-align:middle;
  * } 
- * .hs_selectable { 
- *     background-color: #f4f4e8; 
- * }
- * .hs_selected { 
- *     background-color: #eed; 
- *     border-width:0px;
- * }
  * &lt;/file&gt;
  * &lt;/example&gt;
  */
@@ -484,8 +479,6 @@ import { RadioButtonsAttrs }    from './Optionbuttons';
 import { Vnode, ViewResult }    from './Widget';
 import { Widget }               from './Widget';
 import { WidgetAttrs }          from './Widget';
-import { GridRows }             from "./Grid";
-import { GridAttrs }            from "./Grid";
 &nbsp;
 /** the attritbutes accepted by a {@link Menu.Menu `Menu`} dialog. */
 export interface MenuAttrs extends RadioButtonsAttrs {
@@ -515,7 +508,8 @@ export interface MenuItem {
 &nbsp;
 /** the attritbutes accepted by a {@link Menu.MenuPanel `MenuPanel`} dialog. */
 export interface MenuPanelAttrs extends WidgetAttrs {
-    menu?: m.Child[];
+    /** an array of menu items to show. If omitted, the item indeces will be used. */
+    menuItems?: m.Child[];
     initial: number;
 }
 &nbsp;
@@ -527,19 +521,19 @@ export class MenuPanel extends Widget {
     selected: number;
     change: (index:number) =&gt; void;
     oninit(node: Vnode&lt;MenuPanelAttrs, this&gt;) {
-        node.state.selected = 0;
+        node.state.selected = node.attrs.initial || <span class="branch-1 cbranch-no" title="branch not covered" >0</span>
         node.state.change = <span class="fstat-no" title="function not covered" >(i</span>ndex:number) =&gt; <span class="cstat-no" title="statement not covered" >node.state.selected = index;</span>
     }
     view(node: Vnode&lt;MenuPanelAttrs, this&gt;):m.Children { 
         const children = &lt;m.Child[]&gt;node.children
-        return m(GridRows, this.attrs&lt;GridAttrs&gt;(node.attrs, { template:'30px auto' }),[
+        return m('.hs_menu_panel', [
             // the menu bar:
             m(Menu, &lt;MenuAttrs&gt;{
                 onclick:node.state.change, 
                 initial: node.attrs.initial || <span class="branch-1 cbranch-no" title="branch not covered" >0</span>
-            }, node.attrs.menu),
+            }, node.attrs.menuItems || <span class="branch-1 cbranch-no" title="branch not covered" >children.map(<span class="fstat-no" title="function not covered" >(c</span>,i) =&gt; <span class="cstat-no" title="statement not covered" >i)</span>)</span>,
             // and the attached panel:
-            children[node.state.selected]
+            m('.hs_menu_content', children[node.state.selected])
         ]);
     }
 }

@@ -49,7 +49,13 @@ const render = () => m.mount(root, {view: () => m('.hs_white', { class: 'overvie
             initial: 1, // 0..2
             onclick: (item) => theContent = content[item]
         }, menuItems),
-        m('.myMenuMain', theContent)
+        m('.myMenuMain', `${theContent} managed by the app`),
+
+        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Menu.MenuPanel'}, 'MenuPanel'), `:`]),
+        m(hsWidget.MenuPanel, { class: 'myMenu',
+            initial: 1, // 0..2
+            menuItems: menuItems,
+        }, content.map(c => `${c} managed by 'MenuPanel'`)),
     ]),
 
     // Modal Dialog Box:

@@ -26,7 +26,7 @@ const root = window.document.createElement("div");
 describe('MenuPanel', () => {
     beforeEach(() =>
         m.mount(root, {view: () => m(MenuPanel, {
-            menu: ["one", "two", "three"],  
+            menuItems: ["one", "two", "three"],  
             initial: 1
         }, ['1st', '2nd', '3rd'])})
     );
