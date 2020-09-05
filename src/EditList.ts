@@ -37,7 +37,6 @@ import m, { VnodeDOM } from "mithril";
 import { Log }          from 'hsutil';  const log = new Log('EditList');
 import { EditLabel }    from './EditLabel';
 import { Collapsible }  from './Collapsible';
-import { GridRows, GridColumns }     from "./Grid";
 import { GridAttrs }    from "./Grid";
 import { WidgetAttrs, Widget }  from "./Widget";
 import { Vnode }        from "./Widget";
@@ -136,7 +135,7 @@ export interface EditListAttrs extends WidgetAttrs {
      */
     expand?:(rows:any[], def:any, isEmpty:IsTest)=>void;
 
-    /** template for `GridColumns` within a row. Defaults to '' (equal-width columns) */
+    /** column template for `Grid` within a row. Defaults to '' (equal-width columns) */
     columnTemplate?: string;
 
     /** optional header row. If missing, no header row will be shown.  */

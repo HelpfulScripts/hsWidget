@@ -12,7 +12,7 @@ let text='';
 
 m.mount(root, {view: () => m('', { style:'background-color:white; padding:20px 0;'}, [
         m('h4', `${text}: pushed ${times} times`),
-        m(hsWidget.GridColumns, {style:'height:50px'}, [
+        m(hsWidget.Grid, { columns:'', style:'height:50px' }, [
             m(hsWidget.Button, { 
                     class:'icon1',
                     onclick: i => { times++; state=i; text='Stateless Pushbutton' },

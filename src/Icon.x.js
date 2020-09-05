@@ -4,7 +4,7 @@ const mdiLeaf = "M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.
 
 
 m.mount(root, {view: () => 
-    m(hsWidget.GridRows, {style:'background-color: white;'}, [
+    m(hsWidget.Grid, {style:'background-color: white;', rows:'' }, [
         m('h3', 'Examples:'),
         m(hsWidget.Icon, { mdi:'power' }),
         m(hsWidget.Icon, 'default'),

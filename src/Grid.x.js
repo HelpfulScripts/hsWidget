@@ -9,15 +9,15 @@ function update() {
 }
 update();
 
-m.mount(root, {view: () => m('.gridExample', m(hsWidget.GridColumns, { 
+m.mount(root, {view: () => m('.gridExample', m(hsWidget.Grid, { 
         class: 'colGrid',
         style:'background-color:#ffe; padding:20px 0;',
         gap:"5px 5px",
-        template:'50px auto auto 50px', 
+        columns:'50px auto auto 50px', 
     }, [
         '<',
-        m(hsWidget.GridRows, {class:'rowGrid'}, cells),
-        m(hsWidget.GridRows, {class:'rowGrid'}, cells),
+        m(hsWidget.Grid, {class:'rowGrid', rows:'' }, cells),
+        m(hsWidget.Grid, {class:'rowGrid', rows:'' }, cells),
         '>'
     ]),
 )});

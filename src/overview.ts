@@ -20,15 +20,18 @@ ___
 
 | Widget | Description |
 |========|=============|
-| &nbsp; {@link Menu.Menu Menu} | A group of horizontal menu items that can trigger actions |
-| &nbsp; {@link Button.Button Button} | A simple button widget |
-| &nbsp; {@link ToggleButton.ToggleButton ToggleButton} | A button widget that toggleds through a number of items |
-| &nbsp; {@link RadioButton.RadioButton RadioButton} | A radio button group widget: one selected at a time |
-| &nbsp; {@link OptionsButton.OptionsButton OptionsButton} | An options button group widget: independently selected |
+| &nbsp; {@link Grid Grid} | Widgets implementing CSS Grids |
+| &nbsp; {@link Menu Menu} | A group of horizontal menu items that can trigger actions |
+| &nbsp; {@link Icon Icon} | Shows an [MDI](https://materialdesignicons.com/) icon with optional text label. |
+| &nbsp; {@link Button Button} | A simple stateless button widget |
+| &nbsp; {@link Button.ToggleButton - ToggleButton} | A stateful button widget that toggles through its defined states |
+| &nbsp; {@link Button.OnOffButton - OnOffButton} | A two-state on/off button widget |
+| &nbsp; {@link Button.IconButton - IconButton} | An Icon button that can be `on` or `off` |
+| &nbsp; {@link Optionbuttons Button groups} | A button widget that toggleds through a number of items |
+| &nbsp; {@link Optionbuttons.OptionButtons - OptionButtons} | A group of `OnOffbuttons`, any of which can be `on` at any time |
+| &nbsp; {@link Optionbuttons.RadioButtons - RadioButtons} | A group of `OnOffbuttons`, only one of which can be `on` at any time |
 | &nbsp; {@link Collapsible Collapsible} | A panel that will expand znd collapse when the title is clicked |
 | &nbsp; {@link Modal Modal} | A modal panel that will cover the entire window until released. |
-| &nbsp; {@link AddRemove AddButton} | An  `+` button that will open a form for adding new elements. |
-| &nbsp; {@link AddRemove RemoveButton} | An  `-` button that will remove an item. |
 | &nbsp; {@link TypeAhead TypeAhead} | A TypeAhead search input form. |
 | &nbsp; {@link Slider Slider} | A simple nominal or continuous slider. |
 | &nbsp; {@link EditLabel EditLabel} | A text label that turns into a single-line input field when clicked on. |

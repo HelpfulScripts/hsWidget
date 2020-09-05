@@ -10,7 +10,7 @@ const render = () => m.mount(root, {view: () => m('.hs_white', { class: 'overvie
         m(hsWidget.ToggleButton, { 
             onclick: (item, state) => toggle = state
         }, content),
-        m(hsWidget.GridColumns, {style:'height: 100px;'}, [
+        m(hsWidget.Grid, {style:'height: 100px;', columns:'' }, [
             m('', [
                 m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.IconButton'}, 'IconButton'), `: Power ${icon}`]),
                 m(hsWidget.IconButton, { 
