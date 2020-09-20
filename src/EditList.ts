@@ -33,34 +33,34 @@
  */
 
 /** */
-import m, { VnodeDOM } from "mithril";
+import m from "mithril";
 import { Log }          from 'hsutil';  const log = new Log('EditList');
 import { EditLabel }    from './EditLabel';
 import { Collapsible }  from './Collapsible';
-import { GridAttrs }    from "./Grid";
-import { WidgetAttrs, Widget }  from "./Widget";
+import { Widget }       from "./Widget";
+import { WidgetAttrs }  from "./Widget";
 import { Vnode }        from "./Widget";
 
-interface IsTest { (val:Row): boolean; }
+interface IsTest { (val:ListRow): boolean; }
 
-interface RowRender { (row:Row, rowNum:number): m.Children; }
+export interface RowRender { (row:ListRow, rowNum:number): m.Children; }
 
 /** semantic type alias for the `row` data structure. */
-type Row = m.Children;
+export type ListRow = any | any[];      // m.Children;
 
 /** 
  * the default `isEmpty` test: returns true if either `row` is undefined, or if its length is 0 or undefined.
  * This test matches situations where the row is a simple `string`, or an `array` of `any`s.
  */
-const defIsEmpty:IsTest = (row:Row) => (!row || !row['length'] || row==='')? true : false;
+const defIsEmpty:IsTest = (row:ListRow) => (!row || !row.length || row==='')? true : false;
 
 /**
  * returns the default row-`render` function: 
  * - if `row` is an array or an object literal, turn each element into an `EditLabel`
  * - otherwise treat `row` as a primitive and turn it into an EditLabel.  
  */
-const defaultRender = (rows:Row[]):RowRender =>  {
-    return (row:Row, rowNum:number):m.Children => {
+const defaultRender = (rows:ListRow[]):RowRender =>  {
+    return (row:ListRow, rowNum:number):m.Children => {
         if ((<m.ChildArray>row).map) {
             return (<m.ChildArray>row).map((e:string, i:number) => m(EditLabel, {
                 placeholder: 'add...',
@@ -101,6 +101,9 @@ function expand(rows:any[], def:any, isEmpty:IsTest) {
 
 /** */
 export interface EditListAttrs extends WidgetAttrs {
+    /**  */
+    rows: any[];
+
     /** optional sorting function for rows; As a default, no sorting happens. */
     sort?: (a:any, b:any) => number;
 
@@ -108,7 +111,7 @@ export interface EditListAttrs extends WidgetAttrs {
      * function that attributes a row as 'empty'. The default defines empty as an undefined `row`, 
      * or a row with 0 length.
      */
-    isEmpty?: (row:Row) => boolean;
+    isEmpty?: (row:ListRow) => boolean;
 
     /** makes the list collapsible. This requires `header` to be set. Defaults to `true`. */
     collapsible?: boolean;
@@ -127,7 +130,7 @@ export interface EditListAttrs extends WidgetAttrs {
      * the default (empty) content row, defaults to `''` 
      * This will be added as last element to `node.attrs.rowElements` to ensure an empty row is available.
      */
-    defaultRow?: Row;
+    defaultRow?: ListRow;
 
     /** 
      * if truthy, prevents `EditList` from automatically adding new empty rows. 
@@ -139,17 +142,18 @@ export interface EditListAttrs extends WidgetAttrs {
     columnTemplate?: string;
 
     /** optional header row. If missing, no header row will be shown.  */
-    header?: string;
+    header?: m.Children;
 }
 
 export class EditList extends Widget {
     view(node:Vnode<EditListAttrs, this>) {
+        if ((<m.Child[]>node?.children)?.length>0) { log.warn('node.children is not supported by EditList')}
         const sort       = node.attrs.sort || (()=>0);
-        const rows:Row[] = <m.Child[][]>node.children;
+        const rows:ListRow[] = node.attrs.rows;
         const isEmpty    = node.attrs.isEmpty || defIsEmpty;
         const isExpanded = node.attrs.isExpanded || false;
         const render     = node.attrs.rowRender || defaultRender(rows);
-        const def:Row    = node.attrs.defaultRow===undefined? '' : node.attrs.defaultRow;
+        const def:ListRow    = node.attrs.defaultRow===undefined? '' : node.attrs.defaultRow;
         const expandRows = node.attrs.expand || expand;
         const collapsible= node.attrs.collapsible===undefined? true : node.attrs.collapsible;
 
@@ -159,15 +163,6 @@ export class EditList extends Widget {
         const content = rows.sort(sort).map((row:any, i:number) => render(row, i));
         content.unshift(m('.header', node.attrs.header));
 
-        // if (collapsible && node.attrs.header) {
-        //     return m(Collapsible, this.attrs(node.attrs, {
-        //         class: `hs_edit_list`,
-        //         isExpanded: isExpanded,
-        //     }), content);
-        // } 
-        // if (node.attrs.header) { 
-        //     content.unshift(m('.header', this.attrs(node.attrs, {}), node.attrs.header));
-        // }
         return collapsible? 
             m(Collapsible, this.attrs(node.attrs, {
                 class: `hs_edit_list`,

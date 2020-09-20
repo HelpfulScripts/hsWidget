@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">68.09% </span>
+                <span class="strong">67.35% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>32/47</span>
+                <span class='fraction'>33/49</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">62.22% </span>
+                <span class="strong">63.64% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>28/45</span>
+                <span class='fraction'>35/55</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">74.36% </span>
+                <span class="strong">75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>29/39</span>
+                <span class='fraction'>30/40</span>
             </div>
         
             
@@ -231,12 +231,7 @@
 <a name='L172'></a><a href='#L172'>172</a>
 <a name='L173'></a><a href='#L173'>173</a>
 <a name='L174'></a><a href='#L174'>174</a>
-<a name='L175'></a><a href='#L175'>175</a>
-<a name='L176'></a><a href='#L176'>176</a>
-<a name='L177'></a><a href='#L177'>177</a>
-<a name='L178'></a><a href='#L178'>178</a>
-<a name='L179'></a><a href='#L179'>179</a>
-<a name='L180'></a><a href='#L180'>180</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L175'></a><a href='#L175'>175</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -275,8 +270,8 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -380,6 +375,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
@@ -390,21 +388,13 @@
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -450,34 +440,34 @@
  */
 &nbsp;
 /** */
-import m, { VnodeDOM } from "mithril";
+import m from "mithril";
 import { Log }          from 'hsutil';  const log = new Log('EditList');
 import { EditLabel }    from './EditLabel';
 import { Collapsible }  from './Collapsible';
-import { GridAttrs }    from "./Grid";
-import { WidgetAttrs, Widget }  from "./Widget";
+import { Widget }       from "./Widget";
+import { WidgetAttrs }  from "./Widget";
 import { Vnode }        from "./Widget";
 &nbsp;
-interface IsTest { (val:Row): boolean; }
+interface IsTest { (val:ListRow): boolean; }
 &nbsp;
-interface RowRender { (row:Row, rowNum:number): m.Children; }
+export interface RowRender { (row:ListRow, rowNum:number): m.Children; }
 &nbsp;
 /** semantic type alias for the `row` data structure. */
-type Row = m.Children;
+export type ListRow = any | any[];      // m.Children;
 &nbsp;
 /** 
  * the default `isEmpty` test: returns true if either `row` is undefined, or if its length is 0 or undefined.
  * This test matches situations where the row is a simple `string`, or an `array` of `any`s.
  */
-const defIsEmpty:IsTest = (row:Row) =&gt; (!row || <span class="branch-1 cbranch-no" title="branch not covered" >!row['length'] </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >row==='')</span>? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
+const defIsEmpty:IsTest = (row:ListRow) =&gt; (!row || <span class="branch-1 cbranch-no" title="branch not covered" >!row.length </span>|| <span class="branch-2 cbranch-no" title="branch not covered" >row==='')</span>? true : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
 &nbsp;
 /**
  * returns the default row-`render` function: 
  * - if `row` is an array or an object literal, turn each element into an `EditLabel`
  * - otherwise treat `row` as a primitive and turn it into an EditLabel.  
  */
-const defaultRender = (rows:Row[]):RowRender =&gt;  {
-    return (row:Row, rowNum:number):m.Children =&gt; {
+const defaultRender = (rows:ListRow[]):RowRender =&gt;  {
+    return (row:ListRow, rowNum:number):m.Children =&gt; {
         <span class="missing-if-branch" title="if path not taken" >I</span>if ((&lt;m.ChildArray&gt;row).map) {
 <span class="cstat-no" title="statement not covered" >            return (&lt;m.ChildArray&gt;row).map(<span class="fstat-no" title="function not covered" >(e</span>:string, i:number) =&gt; <span class="cstat-no" title="statement not covered" >m(EditLabel, {</span></span>
                 placeholder: 'add...',
@@ -518,6 +508,9 @@ function expand(rows:any[], def:any, isEmpty:IsTest) {
 &nbsp;
 /** */
 export interface EditListAttrs extends WidgetAttrs {
+    /**  */
+    rows: any[];
+&nbsp;
     /** optional sorting function for rows; As a default, no sorting happens. */
     sort?: (a:any, b:any) =&gt; number;
 &nbsp;
@@ -525,7 +518,7 @@ export interface EditListAttrs extends WidgetAttrs {
      * function that attributes a row as 'empty'. The default defines empty as an undefined `row`, 
      * or a row with 0 length.
      */
-    isEmpty?: (row:Row) =&gt; boolean;
+    isEmpty?: (row:ListRow) =&gt; boolean;
 &nbsp;
     /** makes the list collapsible. This requires `header` to be set. Defaults to `true`. */
     collapsible?: boolean;
@@ -544,7 +537,7 @@ export interface EditListAttrs extends WidgetAttrs {
      * the default (empty) content row, defaults to `''` 
      * This will be added as last element to `node.attrs.rowElements` to ensure an empty row is available.
      */
-    defaultRow?: Row;
+    defaultRow?: ListRow;
 &nbsp;
     /** 
      * if truthy, prevents `EditList` from automatically adding new empty rows. 
@@ -556,17 +549,18 @@ export interface EditListAttrs extends WidgetAttrs {
     columnTemplate?: string;
 &nbsp;
     /** optional header row. If missing, no header row will be shown.  */
-    header?: string;
+    header?: m.Children;
 }
 &nbsp;
 export class EditList extends Widget {
     view(node:Vnode&lt;EditListAttrs, this&gt;) {
+        <span class="missing-if-branch" title="if path not taken" >I</span>if ((&lt;m.Child[]&gt;node<span class="branch-0 cbranch-no" title="branch not covered" >?.c</span>hildren)<span class="branch-0 cbranch-no" title="branch not covered" >?.l</span>ength&gt;0) { <span class="cstat-no" title="statement not covered" >log.warn('node.children is not supported by EditList')}</span>
         const sort       = node.attrs.sort || (<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >0)</span>;
-        const rows:Row[] = &lt;m.Child[][]&gt;node.children;
+        const rows:ListRow[] = node.attrs.rows;
         const isEmpty    = node.attrs.isEmpty || defIsEmpty;
         const isExpanded = node.attrs.isExpanded || false;
         const render     = node.attrs.rowRender || defaultRender(rows);
-        const def:Row    = node.attrs.defaultRow===undefined? '' : <span class="branch-1 cbranch-no" title="branch not covered" >node.attrs.defaultRow;</span>
+        const def:ListRow    = node.attrs.defaultRow===undefined? '' : <span class="branch-1 cbranch-no" title="branch not covered" >node.attrs.defaultRow;</span>
         const expandRows = node.attrs.expand || expand;
         const collapsible= node.attrs.collapsible===undefined? true : node.attrs.collapsible;
 &nbsp;
@@ -576,15 +570,6 @@ export class EditList extends Widget {
         const content = rows.sort(sort).map((row:any, i:number) =&gt; render(row, i));
         content.unshift(m('.header', node.attrs.header));
 &nbsp;
-        // if (collapsible &amp;&amp; node.attrs.header) {
-        //     return m(Collapsible, this.attrs(node.attrs, {
-        //         class: `hs_edit_list`,
-        //         isExpanded: isExpanded,
-        //     }), content);
-        // } 
-        // if (node.attrs.header) { 
-        //     content.unshift(m('.header', this.attrs(node.attrs, {}), node.attrs.header));
-        // }
         return collapsible? 
             m(Collapsible, this.attrs(node.attrs, {
                 class: `hs_edit_list`,

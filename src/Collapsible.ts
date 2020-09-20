@@ -69,7 +69,7 @@ export interface CollapsibleAttrs extends WidgetAttrs {
  * 
  * Invoked as `m(Collapsible, <CollapsibleAttrs>, <content>)`
  * 
- * See {@link Collapsible.Collapsible Collapsible}
+ * See {@link Collapsible.CollapsibleAttrs CollapsibleAttrs}
  * 
  * `<content>`: `m.Child[]` array of text or Vnodes to show in the button; 
  * <content>[0] deterimines the `title` to display, all remaining array elements 

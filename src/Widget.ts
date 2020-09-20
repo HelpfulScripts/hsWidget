@@ -23,8 +23,21 @@ interface WidgetState extends m.Lifecycle<WidgetAttrs, m.Lifecycle<WidgetAttrs, 
 
 export abstract class Widget implements m.ClassComponent<WidgetAttrs>{
     /** 
-     * returns a new objkect literal that can be used as a `node.attrs` object.
+     * returns a new object literal that can be used as a `node.attrs` object.
      * It merges any of the `WidgetsAttrs` from input `a` with fields provided in `others`.
+     * In an extended class, call as follow:
+     * ```
+     * return m(<selector>, this.attrs(node.attrs, {
+     *      param1: value1,
+     *      param2: value2
+     * }))
+     * ```
+     * If `others` contains elements of `WidgetAttrs`, then
+     * - `id` is used from `a`
+     * - `class` is added to any definition in `a`
+     * - `style` is added to any definition in `a`
+     * @param a the provided `attrs` object, e.g. from `node.attrs`
+     * @param others new attributes to add to the resulting `attrs` object. 
      */
     protected attrs<A extends WidgetAttrs>(a:WidgetAttrs, others?:A):A {
         const attrs:A = others || <A>{};

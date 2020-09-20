@@ -173,8 +173,9 @@ const render = () => m.mount(root, {view: () => m('.hs_white', { class: 'overvie
         m('h2.myEditList', 'EditList'),
         m(hsWidget.EditList, { 
             header: 'List Header',
-            isExpanded:true
-        }, elContent),
+            isExpanded:true,
+            rows: elContent
+        }),
     ]),
 
     // EditCheckbox

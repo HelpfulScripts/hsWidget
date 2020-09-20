@@ -24,14 +24,6 @@
  * 
  * `<content>`: a `{button: }[]` array that determines the menu button number and content.
  * 
- * ### Profile
- * When a button in the group is clicked, the `onclick` method is called with three parameters:
- * - the index (0, n-1) of the button clicked, 
- * - the new state of that button, 
- * - the array of all button states
- * 
- * See {@link Menu.MenuAttrs MenuAttrs}
- * 
  * ### Menu Example
  * Creates a menu of items with a callback for changes in the menu selection. 
  * The calling program is responsible for acting on the changes, e.g. rendering them.
