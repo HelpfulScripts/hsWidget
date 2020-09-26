@@ -303,23 +303,24 @@ function makeHeaders(pivot:PivotStruct, pivotHeader:PivotHeader) {
     const oldHeaders:HeaderMap = [];
     const newHeaders:HeaderMap = [];
     if (pivotHeader) { 
-        pivotHeader.map((newKey, ni) => {
-            if (typeof newKey === 'object') {
-                const oldKey = Object.keys(newKey)[0];
+        pivotHeader.map((key, ni) => {
+            if (typeof key === 'object') {
+                const oldKey = Object.keys(key)[0];
                 oldHeaders[ni] = oldKey; 
-                newHeaders[ni] = newKey[oldKey]; // substitute key 
+                newHeaders[ni] = key[oldKey]; // substitute key 
             } else {
-                if (pivot.values.cols[newKey]!==undefined) {
-                    oldHeaders[ni] = newKey; 
-                    newHeaders[ni] = newKey;     
-                } else {
-                    oldHeaders[ni] = newKey; 
-                    newHeaders[ni] = newKey;     
-                }
+                oldHeaders[ni] = newHeaders[ni] = key;     
+                // if (pivot.values.cols[key]!==undefined) {
+                //     oldHeaders[ni] = key; 
+                //     newHeaders[ni] = key;     
+                // } else {
+                //     oldHeaders[ni] = key; 
+                //     newHeaders[ni] = key;     
+                // }
             }
         });
     } else {
-        Object.keys(pivot.values.cols).map((oldKey, i) => oldHeaders[i] = newHeaders[i] = oldKey);
+        Object.keys(pivot.values.cols).map((key, ni) => oldHeaders[ni] = newHeaders[ni] = key);
     }
     return [oldHeaders, newHeaders];
 }
@@ -346,21 +347,20 @@ const showByColumns = (pivot:PivotStruct, level:number, colSequence:HeaderMap, e
 
 export class Pivot extends Widget {
     id: number;
+    oldHeaders:HeaderMap;
+    newHeaders:m.ChildArray;
+    pivot: PivotStruct;
     oninit(node:Vnode<PivotAttrs, this>) {
         node.state.id = Math.floor(Math.random()*100000);   // create unique `pivots` hash
+        node.state.pivot = pivots[node.state.id] = pivots[node.state.id] || createPivot(node.attrs.table.data, node.attrs.table.header, node.attrs.by, node.attrs.columns);
+        const [oldHeaders, newHeaders] = makeHeaders(node.state.pivot, node.attrs.pivotHeader);
+        node.state.oldHeaders = oldHeaders;
+        node.state.newHeaders = newHeaders.map(h => m('span.hs_right', h));
     }
     view(node:Vnode<PivotAttrs, this>) {
-        const table:any  = node.attrs.table;
-        const tableData:any[][] = table.data;
-        const tableHeader:string[] = table.header;
-        const pivotName:string = node.attrs.pivotName || '';
-        const pivotHeader:PivotHeader = <PivotHeader>node.attrs.pivotHeader;
-
-        const pivot = pivots[node.state.id] = pivots[node.state.id] || createPivot(tableData, tableHeader, node.attrs.by, node.attrs.columns);
-        const [oldHeaders, newHeaders] = makeHeaders(pivot, pivotHeader);
         return m('.hs_pivot', this.attrs(node.attrs, {}), [
-            m(`.row.mon_header`, [m('span.name', pivotName), ...newHeaders.map(h => m('span.hs_right', h))]),
-            showByColumns(pivot, 0, oldHeaders, true)
+            m(`.row.mon_header`, [m('span.name', node.attrs.pivotName), ...node.state.newHeaders]),
+            showByColumns(node.state.pivot, 0, node.state.oldHeaders, true)
         ]);
     }
 }
