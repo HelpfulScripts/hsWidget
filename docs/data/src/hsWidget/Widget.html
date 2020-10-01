@@ -65,8 +65,8 @@
 <p id=42 class="line"><span>&nbsp;&nbsp;42</span>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;attrs<A&nbsp;extends&nbsp;WidgetAttrs>(a:WidgetAttrs,&nbsp;others?:A):A&nbsp;{</p>
 <p id=43 class="line"><span>&nbsp;&nbsp;43</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;attrs:A&nbsp;=&nbsp;others&nbsp;||&nbsp;<A>{};</p>
 <p id=44 class="line"><span>&nbsp;&nbsp;44</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(a.id)&nbsp;&nbsp;&nbsp;&nbsp;{&nbsp;attrs.id&nbsp;=&nbsp;a.id;&nbsp;}</p>
-<p id=45 class="line"><span>&nbsp;&nbsp;45</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(a.class)&nbsp;{&nbsp;attrs.class&nbsp;=&nbsp;`${attrs.class||<quote>''</quote>}&nbsp;${a.class}`;&nbsp;}</p>
-<p id=46 class="line"><span>&nbsp;&nbsp;46</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(a.style)&nbsp;{&nbsp;attrs.style&nbsp;=&nbsp;`${attrs.style||<quote>''</quote>}&nbsp;${a.style}`;&nbsp;}</p>
+<p id=45 class="line"><span>&nbsp;&nbsp;45</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(a.class)&nbsp;{&nbsp;attrs.class&nbsp;=&nbsp;[attrs.class||<quote>''</quote>,&nbsp;a.class].join(<quote>'&nbsp;'</quote>);&nbsp;}</p>
+<p id=46 class="line"><span>&nbsp;&nbsp;46</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(a.style)&nbsp;{&nbsp;attrs.style&nbsp;=&nbsp;[attrs.style||<quote>''</quote>,&nbsp;a.style].join(<quote>'&nbsp;'</quote>);&nbsp;}</p>
 <p id=47 class="line"><span>&nbsp;&nbsp;47</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;attrs;</p>
 <p id=48 class="line"><span>&nbsp;&nbsp;48</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=49 class="line"><span>&nbsp;&nbsp;49</span>&nbsp;&nbsp;&nbsp;&nbsp;abstract&nbsp;view(node:&nbsp;Vnode<WidgetAttrs,&nbsp;this>):ViewResult;</p>
@@ -78,6 +78,20 @@
 <p id=55 class="line"><span>&nbsp;&nbsp;55</span>&nbsp;&nbsp;&nbsp;&nbsp;onclick?:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(event:Event)&nbsp;=>&nbsp;void;</p>
 <p id=56 class="line"><span>&nbsp;&nbsp;56</span>&nbsp;&nbsp;&nbsp;&nbsp;onmousedown?:&nbsp;(event:Event)&nbsp;=>&nbsp;void;</p>
 <p id=57 class="line"><span>&nbsp;&nbsp;57</span>&nbsp;&nbsp;&nbsp;&nbsp;onmouseup?:&nbsp;&nbsp;&nbsp;(event:Event)&nbsp;=>&nbsp;void;</p>
-<p id=58 class="line"><span>&nbsp;&nbsp;58</span>}</p></code></div>
+<p id=58 class="line"><span>&nbsp;&nbsp;58</span>}</p>
+<p id=59 class="line"><span>&nbsp;&nbsp;59</span></p>
+<p id=60 class="line"><span>&nbsp;&nbsp;60</span>export&nbsp;interface&nbsp;EnabledWidgetAtrrs&nbsp;extends&nbsp;WidgetAttrs&nbsp;{</p>
+<p id=61 class="line"><span>&nbsp;&nbsp;61</span>&nbsp;&nbsp;&nbsp;&nbsp;disable?:&nbsp;boolean;</p>
+<p id=62 class="line"><span>&nbsp;&nbsp;62</span>}</p>
+<p id=63 class="line"><span>&nbsp;&nbsp;63</span></p>
+<p id=64 class="line"><span>&nbsp;&nbsp;64</span>export&nbsp;abstract&nbsp;class&nbsp;EnabledWidget&nbsp;&nbsp;extends&nbsp;Widget&nbsp;{</p>
+<p id=65 class="line"><span>&nbsp;&nbsp;65</span>&nbsp;&nbsp;&nbsp;&nbsp;enabled&nbsp;=&nbsp;true;</p>
+<p id=66 class="line"><span>&nbsp;&nbsp;66</span>&nbsp;&nbsp;&nbsp;&nbsp;enable(set:boolean)&nbsp;{&nbsp;this.enabled&nbsp;=&nbsp;set;&nbsp;}</p>
+<p id=67 class="line"><span>&nbsp;&nbsp;67</span>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;attrs<A&nbsp;extends&nbsp;EnabledWidgetAtrrs>(a:EnabledWidgetAtrrs,&nbsp;others?:A):A&nbsp;{</p>
+<p id=68 class="line"><span>&nbsp;&nbsp;68</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;attrs&nbsp;=&nbsp;super.attrs(a,&nbsp;others);</p>
+<p id=69 class="line"><span>&nbsp;&nbsp;69</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attrs.class&nbsp;=&nbsp;[attrs.class,&nbsp;this.enabled?<quote>''</quote>&nbsp;:&nbsp;<quote>'hs_disabled'</quote>].join(<quote>'&nbsp;'</quote>);</p>
+<p id=70 class="line"><span>&nbsp;&nbsp;70</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;attrs;</p>
+<p id=71 class="line"><span>&nbsp;&nbsp;71</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+<p id=72 class="line"><span>&nbsp;&nbsp;72</span>}</p></code></div>
                 </body>
             

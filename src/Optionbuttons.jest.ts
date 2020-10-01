@@ -81,7 +81,7 @@ describe('RadioButtons', () => {
 
     const out = mq(m('', { style:'background-color:white; padding:20px 20px;'}, [
         m(RadioButtons, { 
-                class:'simple',
+                class:'simple',                
                 onclick:(newIndex, newState, states) => {
                     times++;
                     index = newIndex;

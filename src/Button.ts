@@ -11,30 +11,30 @@
  * 
  * `<content>`: `m.Children` the text or Vnodes to show in the button
  * 
- * ## &nbsp; {@link Button.ToggleButton ToggleButton}
- * Extends `Button` to keep a state. Pressing the `ToggleButton` will cycle through each of the states.
+ * ## &nbsp; {@link Button.Button Button}
+ * Extends `Button` to keep a state. Pressing the `Button` will cycle through each of the states.
  * 
- * Invoked as `m(ToggleButton, <ToggleButtonAttrs>, <content>);`.
+ * Invoked as `m(Button, <ButtonAttrs>, <content>);`.
  * 
- * See {@link Button.ToggleButtonAttrs ToggleButtonAttrs}
+ * See {@link Button.ButtonAttrs ButtonAttrs}
  * 
  * `<content>`: `m.Child[]` an array of states, one of which will be shown in the button
  * 
  * ## &nbsp; {@link Button.OnOffButton OnOffButton}
- * Extends `ToggleButton` for two states, 'on' and 'off'.
+ * Extends `Button` for two states, 'on' and 'off'.
  * 
- * invoked as `m(OnOffButton, <OnOffButtonAttrs>);`. `node.children` are ignored.
+ * invoked as `m(OnOffButton, <ButtonAttrs>);`. `node.children` are ignored.
  * 
- * See {@link Button.OnOffButtonAttrs OnOffButtonAttrs}
+ * See {@link Button.ButtonAttrs ButtonAttrs}
  * 
  * `<content>`: `Vnode` a Vnode to show as button content, e.g. an {@link Icon.Icon Icon}
  * 
  * ## &nbsp; {@link Button.IconButton IconButton}
- * Extends `ToggleButton` for two states, 'on' and 'off'.
+ * Extends `Button` for two states, 'on' and 'off'.
  * 
- * invoked as `m(OnOffButton, <OnOffButtonAttrs>);`. `node.children` are ignored.
+ * invoked as `m(OnOffButton, <ButtonAttrs>);`. `node.children` are ignored.
  * 
- * See {@link Button.OnOffButtonAttrs OnOffButtonAttrs}
+ * See {@link Button.ButtonAttrs ButtonAttrs}
  * 
  * `<content>`: `Vnode` a Vnode to show as button content, e.g. an {@link Icon.Icon Icon}
  * 
@@ -50,177 +50,140 @@
 /** */
 import m                from "mithril";
 import { Log }          from 'hsutil';  const log = new Log('Button');
-import { Vnode, ViewResult }        from './Widget';
-import { Widget }       from './Widget';
-import { WidgetAttrs }  from './Widget';
+import { Vnode, ViewResult, EnabledWidget, EnabledWidgetAtrrs } 
+                        from './Widget';
 import { Icon }         from "./Icon";
-import { State, StateSetter, Stateful, StateTransition } from "./State";
+import { State, Stateful, Transition } 
+                        from "./support/State";
 
 
-export interface ClickResponse { (s:number):number; }
-export const ClickResponses = {
-    advance: <ClickResponse>((s:number) => s+1),
-    on:      <ClickResponse>((s:number) => 1)
-}
+export interface ButtonAttrs extends EnabledWidgetAtrrs {
+    /** 
+     * a callback function, called when the button is clicked,
+     * informing the client on the new state value and  
+     */
+    onclick: (newValue:number)=>void;
 
+    /** 
+     * the number of values the `Button` state can take on. 
+     * If not specified, the button will use the number of elements in `<content>`
+     * as the number of values.
+     */
+    numValues?: number;
 
-export interface ButtonAttrs extends WidgetAttrs {
-    /** a function, called when the bitton is clicked */
-    onclick: (newStateIndex?:number, newState?:string)=>void;
-}
-
-/**
- * ## Button
- * Shows an simple stateless push button with a label
- * 
- * Invoked as `m(Button, <ButtonAttrs>, <content>);`.
- * 
- * See {@link Button.ButtonAttrs ButtonAttrs}
- * 
- * `<content>`: `m.Children` the text or Vnodes to show in the button
- */
-export class Button extends Widget {
-    /** `true` while the button is pressed down (between a `mousedown` and `mouseup` event. */
-    pressed: boolean;
-
-    /** changes the `pressed` state to the value of `down` */
-    pressing: (down:boolean) => void;
-
-    oninit(node:Vnode<ButtonAttrs, this>) {
-        const s:this = node.state;
-        s.pressed = false;
-        s.pressing = (down:boolean) => s.pressed = down;
-    }
-    view(node: Vnode<ButtonAttrs, this>):ViewResult { 
-        const s:this = node.state;
-        
-        return m(`.hs_button`, this.attrs(node.attrs, {
-            class: s.pressed? 'hs_pressed' : undefined,
-            onclick: node.attrs.onclick,
-            onmousedown: ()=>s.pressing(true),
-            onmouseup:   ()=>s.pressing(false)
-        }), node.children);
-    }
-}
-
-
-export interface ToggleButtonAttrs extends ButtonAttrs {
-    /** the initial state of the button */
+    /** the initial value of the button */
     initial?: number;
 
     /** returns a function that can be used to programmatically change the state of the button. */
     stateAccess?: (stateful:Stateful) => void;
 
     /** optional state transition function, defaults to `State.transitions.cycle` */
-    stateTransition?: StateTransition;
+    transition?: Transition;
 }
 
 
-
 /**
- * ## ToggleButton
- * Extends `Button` to keep a state. Pressing the `ToggleButton` will cycle through each of the states.
+ * ## Button
+ * Shows a button widget with the following features:
+ * - while the button is pressed it is classed as `.hs_pressed` to allow visual styling.
+ * - `Button` maintains an internal `State`. The number of allowed states in `State` is determined 
+ * byt the number of elements in `<content>`. Pressing the `Button` will advance the state 
+ * as defined by a `Transition` function. Per default, this function cycles through the numeric states.
+ * A custom `Transition` function can be specified via the `transition` attribute.
+ * The initial state can be set via the `initial` attribute.
  * 
- * Invoked as `m(ToggleButton, <ToggleButtonAttrs>, <content>);`.
+ * Invoked as `m(Button, <ButtonAttrs>, <content>);`.
  * 
- * See {@link Button.ToggleButtonAttrs ToggleButtonAttrs}
+ * See {@link Button.ButtonAttrs ButtonAttrs}
  * 
- * `<content>`: `m.Child[]` an array of states, one of which will be shown in the button
- * 
+ * `<content>`: either 
+ * - an array of state labels (`m.Child[]`), one of which will be shown in the button as determined by the state value
+ * - or a single label (`m.Child`) that is shown independent of the state value.
  */
-export class ToggleButton extends Button {
+export class Button extends EnabledWidget {
     /** the button's `State` object */
     state: State;
+    /** `true` while the button is pressed down (between a `mousedown` and `mouseup` event. */
+    pressed: boolean;
+    /** changes the `pressed` state to the value of `down` */
+    pressing: (down:boolean) => void;
 
-    numStates: number;
-
-    oninit(node:Vnode<ToggleButtonAttrs, this>) {
-        super.oninit(node);
-        if (this.numStates===undefined) { this.numStates = (<m.Child[]>node.children).length; }
-        const initial = node.attrs.initial||0;
-        const transition = node.attrs.stateTransition || State.transitions.cycle;
-        // set `State` to `cycle`, starting with `0`.
-        this.state = new State(this.numStates, initial, transition);
+    oninit(node:Vnode<ButtonAttrs, this>) {
+        node.state.pressed = false;
+        node.state.pressing = (down:boolean) => node.state.pressed = this.enabled? down : false;
+        if (!this.state) {
+            const numValues = node.attrs.numValues || (<m.Child[]>node.children).length || 1; 
+            const initial = node.attrs.initial ?? 0;
+            const transition = node.attrs.transition ?? State.transitions.cycle;
+            this.state = new State(numValues, initial, transition);
+        }
         // provide state access to client:
         if (node.attrs.stateAccess) { node.attrs.stateAccess(this.state); }
     }
 
-    view(node: Vnode<ToggleButtonAttrs, this>):ViewResult { 
+    view(node: Vnode<ButtonAttrs, this>):ViewResult { 
         const s:this = node.state;
+        this.enable(!node.attrs.disable);
         
-        return m(`.hs_button.state${s.state.getState()}`, this.attrs(node.attrs, {
+        return m(`.hs_button.state${s.state.getValue()}`, this.attrs(node.attrs, {
             class: s.pressed? 'hs_pressed' : undefined,
-            onclick: () => { 
-                const newState = s.state.advance(true);
-                // and inform the customer:
-                node.attrs.onclick(newState, (s.numStates && typeof node.children[newState]==='string')? 
-                    node.children[newState] : ''+newState
-                );        
-            },
+            onclick: () => { if (this.enabled) {
+                const newValue = s.state.advance(); // advance the state
+                node.attrs.onclick(newValue);       // and inform the client
+            }},
             onmousedown: ()=>s.pressing(true),
             onmouseup:   ()=>s.pressing(false)
-        }), (<m.Child[]>node.children).length>1? node.children[s.state.getState()] : node.children);
+        }), (<m.Child[]>node.children).length>1? node.children[s.state.getValue()] : node.children);
     }
 }
 
 
-export interface OnOffButtonAttrs extends ToggleButtonAttrs {
-}
-
 /**
  * ## OnOffButton
- * Extends `ToggleButton` for two states, 'on' and 'off'.
+ * Extends `Button` for two states, 'on' and 'off'.
  * 
- * invoked as `m(OnOffButton, <OnOffButtonAttrs>, <content>);`. 
+ * invoked as `m(OnOffButton, <ButtonAttrs>, <content>);`. 
  * 
- * See {@link Button.OnOffButtonAttrs OnOffButtonAttrs}
+ * See {@link Button.ButtonAttrs ButtonAttrs}
  * 
  * `<content>`: `Vnode` a Vnode to show as button content, e.g. an {@link Icon.Icon Icon}.
  * If `undefined`, the `children` will be set to `['off', 'on']`.
  */
-export class OnOffButton extends ToggleButton {
+export class OnOffButton extends Button {
     static states = ['off', 'on'];
-    oninit(node: Vnode<OnOffButtonAttrs, this>) { 
-        this.numStates = OnOffButton.states.length;
+    oninit(node: Vnode<ButtonAttrs, this>) { 
+        const initial = node.attrs.initial ?? 0;
+        this.state = new State(2, initial);   // will cycle through the 2 states
         super.oninit(node);
-        const onclick = node.attrs.onclick;
-        node.attrs.onclick = i => onclick(i, OnOffButton.states[i]);
     }
-    view(node: Vnode<OnOffButtonAttrs, this>):ViewResult { 
-        node.attrs.class = `hs_onoff_button ${node.attrs.class || ''}`;
-        node.children = node.children || OnOffButton.states;
+    view(node: Vnode<ButtonAttrs, this>):ViewResult { 
+        node.attrs.class = ['hs_onoff_button', node.attrs.class || ''].join(' ');
         return super.view(node);
     }
 }
 
 
-export interface IconButtonAttrs extends OnOffButtonAttrs {
+export interface IconButtonAttrs extends ButtonAttrs {
     /** an `mdi` icon svg string. See {@link Icon.IconAttrs IconAttrs} for details. */
-    mdi?: string;
+    mdi: string;
 }
 
 /**
  * ## IconButton
- * Extends `ToggleButton` for two states, 'on' and 'off'.
+ * Extends `Button`, showing an icon instead of text.
  * 
- * invoked as `m(OnOffButton, <OnOffButtonAttrs>);`. `node.children` are ignored.
+ * invoked as `m(IconButton, <IconButtonAttrs>);`. 
+ * `<content>` is ignored.
  * 
- * See {@link Button.OnOffButtonAttrs OnOffButtonAttrs}
- * 
- * `<content>`: is ignored
+ * See {@link Button.IconButtonAttrs IconButtonAttrs}
  */
-export class IconButton extends ToggleButton {
+export class IconButton extends Button {
     oninit(node: Vnode<IconButtonAttrs, this>) { 
-        this.numStates = 2;
-        this.state = new State((<m.Child[]>node.children).length, node.attrs.initial||0, State.transitions.cycle);
         super.oninit(node);
     }
     view(node: Vnode<IconButtonAttrs, this>):ViewResult { 
-        node.attrs.class = `hs_icon_button ${node.attrs.class || ''}`;
-        if (node.children===undefined) {
-            log.warn(' node.children is undefined');
-        }
-        node.children[0] = m(Icon, {mdi:node.attrs.mdi || 'power'});
+        node.attrs.class = ['hs_icon_button', node.attrs.class || ''].join(' ');
+        node.children[0] = m(Icon, {mdi:node.attrs.mdi});
         return super.view(node);
     }
 }

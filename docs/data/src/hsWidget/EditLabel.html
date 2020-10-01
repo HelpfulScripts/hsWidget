@@ -102,8 +102,8 @@
 <p id=79 class="line"><span>&nbsp;&nbsp;79</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;attrs&nbsp;=&nbsp;&nbsp;this.attrs(node.attrs,&nbsp;<any>{&nbsp;onclick:node.state.makeEditable&nbsp;});</p>
 <p id=80 class="line"><span>&nbsp;&nbsp;80</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;node.state.editable?&nbsp;</p>
 <p id=81 class="line"><span>&nbsp;&nbsp;81</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`input.hsedit_label`,&nbsp;this.attrs(node.attrs,&nbsp;<any>{&nbsp;onblur:node.state.blur,&nbsp;onkeyup:node.state.blurIfReturn&nbsp;}),&nbsp;<quote>''</quote>)</p>
-<p id=82 class="line"><span>&nbsp;&nbsp;82</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;(&nbsp;content&nbsp;&&&nbsp;&nbsp;content.length)?&nbsp;</p>
-<p id=83 class="line"><span>&nbsp;&nbsp;83</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`span.hsedit_label`,&nbsp;Popup.arm(node.attrs.popup,&nbsp;attrs),&nbsp;m.trust(&nbsp;content))</p>
+<p id=82 class="line"><span>&nbsp;&nbsp;82</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;content?&nbsp;</p>
+<p id=83 class="line"><span>&nbsp;&nbsp;83</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;m(`span.hsedit_label`,&nbsp;Popup.arm(node.attrs.popup,&nbsp;attrs),&nbsp;m.trust(&nbsp;<quote>''</quote>+content))</p>
 <p id=84 class="line"><span>&nbsp;&nbsp;84</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;m(`span.hsedit_label.default`,&nbsp;Popup.arm(node.attrs.popup,&nbsp;this.attrs(node.attrs,&nbsp;<any>{&nbsp;onclick:node.state.makeEditable&nbsp;})),&nbsp;<quote>''</quote>+node.attrs.placeholder&nbsp;||&nbsp;<quote>'click&nbsp;to&nbsp;enter'</quote>);</p>
 <p id=85 class="line"><span>&nbsp;&nbsp;85</span>&nbsp;&nbsp;&nbsp;&nbsp;}</p>
 <p id=86 class="line"><span>&nbsp;&nbsp;86</span>}</p>

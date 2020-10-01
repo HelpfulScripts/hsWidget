@@ -54,7 +54,7 @@ export class Grid extends Widget {
         // const isTmp = a.template!==undefined && a.template!=='';
         // const tmpRows = a.rows;
         // const tmpCols = a.columns || tmpRows? undefined : '';
-        const cl = (a.rows===undefined && a.columns===undefined)? `hs_grid_auto_col` : (a.rows===undefined? 'hs_grid_col' : 'hs_grid_row');
+        const cl = (a.rows===undefined && a.columns===undefined)? `hs_grid_col` : (a.rows===undefined? 'hs_grid_col' : 'hs_grid_row');
         const st = (a.gap? `gap:${a.gap};`:'') +
                    (a.rows===undefined?   '' : `grid-template-rows:${a.rows};`) +
                    (a.columns===undefined?'' : `grid-template-columns:${a.columns};`);

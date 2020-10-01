@@ -25,3 +25,5 @@ export * from './Slider';
 export * from './ToolbarButton'; 
 export * from './TypeAhead'; 
 export * from './Widget'; 
+export * from './support/Router'; 
+export * from './support/State'; 

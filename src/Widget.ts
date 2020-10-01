@@ -42,8 +42,8 @@ export abstract class Widget implements m.ClassComponent<WidgetAttrs>{
     protected attrs<A extends WidgetAttrs>(a:WidgetAttrs, others?:A):A {
         const attrs:A = others || <A>{};
         if (a.id)    { attrs.id = a.id; }
-        if (a.class) { attrs.class = `${attrs.class||''} ${a.class}`; }
-        if (a.style) { attrs.style = `${attrs.style||''} ${a.style}`; }
+        if (a.class) { attrs.class = [attrs.class||'', a.class].join(' '); }
+        if (a.style) { attrs.style = [attrs.style||'', a.style].join(' '); }
         return attrs;
     }
     abstract view(node: Vnode<WidgetAttrs, this>):ViewResult;
@@ -55,4 +55,18 @@ export interface MouseEventsAttrs {
     onclick?:     (event:Event) => void;
     onmousedown?: (event:Event) => void;
     onmouseup?:   (event:Event) => void;
+}
+
+export interface EnabledWidgetAtrrs extends WidgetAttrs {
+    disable?: boolean;
+}
+
+export abstract class EnabledWidget  extends Widget {
+    enabled = true;
+    enable(set:boolean) { this.enabled = set; }
+    protected attrs<A extends EnabledWidgetAtrrs>(a:EnabledWidgetAtrrs, others?:A):A {
+        const attrs = super.attrs(a, others);
+        attrs.class = [attrs.class, this.enabled?'' : 'hs_disabled'].join(' ');
+        return attrs;
+    }
 }

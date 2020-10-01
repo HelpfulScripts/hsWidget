@@ -4,10 +4,10 @@ const render = () => m.mount(root, {view: () => m('.hs_white', { class: 'overvie
     // Buttons:
     m('.myButtons',[
         m('h2', 'Buttons'),
-        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button'), `: Please click: (${clicked}-times clicked)`]),
+        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button, single-state'), `: Please click: (${clicked}-times clicked)`]),
         m(hsWidget.Button, { onclick: () => clicked++ }, 'click me'),
-        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.ToggleButton'}, 'ToggleButton'), `: Please Toggle between 1st, 2nd, and 3rd`]),
-        m(hsWidget.ToggleButton, { 
+        m('h4', [m('a',{href:'#!/api/hsWidget/hsWidget.Button.Button'}, 'Button, mutli-state'), `: Please Toggle between 1st, 2nd, and 3rd`]),
+        m(hsWidget.Button, { 
             onclick: (item, state) => toggle = state
         }, content),
         m(hsWidget.Grid, {style:'height: 100px;', columns:'' }, [

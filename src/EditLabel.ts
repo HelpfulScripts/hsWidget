@@ -79,8 +79,8 @@ export class EditLabel extends Widget {
         const attrs =  this.attrs(node.attrs, <any>{ onclick:node.state.makeEditable });
         return node.state.editable? 
                 m(`input.hsedit_label`, this.attrs(node.attrs, <any>{ onblur:node.state.blur, onkeyup:node.state.blurIfReturn }), '')
-            : ( content &&  content.length)? 
-                m(`span.hsedit_label`, Popup.arm(node.attrs.popup, attrs), m.trust( content))
+            : content? 
+                m(`span.hsedit_label`, Popup.arm(node.attrs.popup, attrs), m.trust( ''+content))
               : m(`span.hsedit_label.default`, Popup.arm(node.attrs.popup, this.attrs(node.attrs, <any>{ onclick:node.state.makeEditable })), ''+node.attrs.placeholder || 'click to enter');
     }
 }

@@ -1,8 +1,7 @@
 import m                from "mithril";
 import { Icon }         from './Icon';
-import { Button, IconButton }       from './Button';
-import { OnOffButton }  from './Button';
-import { ToggleButton } from "./Button";
+import { Button, IconButton, IconButtonAttrs, OnOffButton }       
+                        from './Button';
 
 window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
 const mq = require('mithril-query');
@@ -45,14 +44,14 @@ describe('Button', () => {
     });
 });
 
-describe('ToggleButton', () => {
+describe('Toggle Button', () => {
     let state = 0;
     let times = 0;
     const states = ['Alpha', 'Beta', 'Gamma'];
 
     const out = mq(m('', { style:'background-color:white; padding:20px 0;'}, [
-        m('h4', 'Simple Push Button:'),
-        m(ToggleButton, 
+        m('h4', 'Toggle Button:'),
+        m(Button, 
             { onclick:(newIndex) => { state = newIndex; times++;}},
             states.map(s => m(Icon, {mdi:'warn'}, `clicked ${times} times: ${states[state]}`))
         )
@@ -133,7 +132,7 @@ describe('OnOffButton', () => {
 });
    
 
-describe('IconButton', () => {
+describe('IconButton: single state', () => {
     let state = 0;
     let times = 0;
     const states = ['Alpha', 'Beta', 'Gamma'];
@@ -141,8 +140,46 @@ describe('IconButton', () => {
     const out = mq(m('', { style:'background-color:white; padding:20px 0;'}, [
         m('h4', 'IconButton:'),
         m(IconButton, {
-            onclick:(newIndex) => { state = newIndex; times++;},
-            mdi: 'stop'
+            mdi: 'stop',
+            onclick:(newValue) => { state = newValue; times++; },
+        })
+    ]));
+           
+    it('should have button', () => {
+        out.should.have('.hs_button.hs_icon_button');
+        out.should.have('.hs_button>.hs_icon');
+    });
+    it('should count clicks', () => {
+        expect(times).toBe(0);
+        expect(state).toBe(0);
+
+        out.click('.hs_icon_button');
+        expect(times).toBe(1);
+        expect(state).toBe(0);
+        out.should.have('.state0');
+        out.should.not.have('.state1');
+        out.should.not.have('.state2');
+
+        out.click('.hs_icon_button');
+        expect(times).toBe(2);
+        expect(state).toBe(0);
+        out.should.have('.state0');
+        out.should.not.have('.state1');
+        out.should.not.have('.state2');
+    });
+})
+
+describe('IconButton: multi-state', () => {
+    let state = 0;
+    let times = 0;
+    const states = ['Alpha', 'Beta', 'Gamma'];
+
+    const out = mq(m('', { style:'background-color:white; padding:20px 0;'}, [
+        m('h4', 'IconButton:'),
+        m(IconButton, <IconButtonAttrs>{
+            mdi: 'stop',
+            numValues: 2,
+            onclick:(newValue) => { state = newValue; times++; },
         })
     ]));
            

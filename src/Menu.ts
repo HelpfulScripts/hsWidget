@@ -87,7 +87,7 @@
 
  /** */
 import m                        from "mithril";
-import { RadioButtons }         from './Optionbuttons';
+import { OptionClick, RadioButtons }         from './Optionbuttons';
 import { RadioButtonsAttrs }    from './Optionbuttons';
 import { Vnode, ViewResult }    from './Widget';
 import { Widget }               from './Widget';
@@ -95,9 +95,6 @@ import { WidgetAttrs }          from './Widget';
 
 /** the attritbutes accepted by a {@link Menu.Menu `Menu`} dialog. */
 export interface MenuAttrs extends RadioButtonsAttrs {
-    /** a function, called when the bitton is clicked */
-    onclick: (buttonIndex:number, newState:number, states:number[])=>void;
-
     /** the initial state of the button */
     initial?: number;
 }
@@ -108,7 +105,7 @@ export interface MenuAttrs extends RadioButtonsAttrs {
  */
 export class Menu extends RadioButtons {
     view(node: Vnode<MenuAttrs, this>):ViewResult {
-        node.attrs.class = `${node.attrs.class? node.attrs.class:''} hs_menu`;
+        node.attrs.class = [node.attrs.class||'', `hs_menu`].join(' ');
         return super.view(node);
     }
 }

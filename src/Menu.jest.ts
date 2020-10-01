@@ -10,7 +10,8 @@ const mq = require('mithril-query');
 
 describe('Menu', () => {
     const out = mq(m(Menu, {
-        onclick: (item:number) => { console.log('selected'); }
+        onclick: (item:number) => { console.log('selected'); },
+        initial: 0
     }, items));
 
     test ('DOM structure', () => {

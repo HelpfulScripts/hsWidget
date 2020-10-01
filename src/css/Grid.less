@@ -3,19 +3,20 @@
     display:grid; 
     box-sizing: border-box;
     place-items: stretch;
-    &.hs_grid_col { 
-        // width:  100vw; 
-        grid-auto-flow: column; 
-    }
-    &.hs_grid_row { 
-        // height: 100vh; 
-        grid-auto-flow: row; 
-    }    
+    place-content: stretch;
+    min-height: 0;  /* NEW */
+    min-width: 0;   /* NEW; needed for Firefox */
+    &.hs_grid_col { grid-auto-flow: column; width:100%; }
+    &.hs_grid_row { grid-auto-flow: row; height:100%; }  
+    &>* { 
+        min-height: 0;  /* NEW */
+        min-width: 0;   /* NEW; needed for Firefox */
+    }  
 }
 
-.hs_grid_auto_col {
-    grid-auto-flow: column;
-}
-.hs_grid_auto_row {
-    grid-auto-flow: row;
-}
+// .hs_grid_auto_col {
+//     grid-auto-flow: column;
+// }
+// .hs_grid_auto_row {
+//     grid-auto-flow: row;
+// }

@@ -33,6 +33,7 @@ import { mdiAlertOctagon }  from '@mdi/js';
 import { mdiPower }         from '@mdi/js';
 import { mdiPlus }          from '@mdi/js';
 import { mdiMinus }         from '@mdi/js';
+import { mdiPlusMinusVariant }from '@mdi/js';
 import { mdiChevronUp }     from '@mdi/js';
 import { mdiChevronDown }   from '@mdi/js';
 import { mdiChevronLeft }   from '@mdi/js';
@@ -51,8 +52,8 @@ export interface IconAttrs extends WidgetAttrs {
 
 /**
  * # Icon 
- * An MDI icon with text, invoked as 
- * `m(Icon, <{@link Icon.IconAttrs `IconAttrs`}>, <content>);`
+ * An MDI icon with text, invoked as `m(Icon, <IconAttrs>, <content>);`
+ * See See: {@link Icon.IconAttrs IconAttrs}
  */
 export class Icon extends Widget {
     static predefined = {
@@ -62,6 +63,7 @@ export class Icon extends Widget {
         power:          mdiPower,
         plus:           mdiPlus,
         minus:          mdiMinus,
+        plusminus:      mdiPlusMinusVariant,
         chevronUp:      mdiChevronUp,
         chevronDown:    mdiChevronDown,
         chevronLeft:    mdiChevronLeft,

@@ -23,8 +23,7 @@ ___
 | &nbsp; {@link Grid Grid} | Widgets implementing CSS Grids |
 | &nbsp; {@link Menu Menu} | A group of horizontal menu items that can trigger actions |
 | &nbsp; {@link Icon Icon} | Shows an [MDI](https://materialdesignicons.com/) icon with optional text label. |
-| &nbsp; {@link Button Button} | A simple stateless button widget |
-| &nbsp; {@link Button.ToggleButton - ToggleButton} | A stateful button widget that toggles through its defined states |
+| &nbsp; {@link Button Button} | A simple stateful button widget |
 | &nbsp; {@link Button.OnOffButton - OnOffButton} | A two-state on/off button widget |
 | &nbsp; {@link Button.IconButton - IconButton} | An Icon button that can be `on` or `off` |
 | &nbsp; {@link Optionbuttons Button groups} | A button widget that toggleds through a number of items |

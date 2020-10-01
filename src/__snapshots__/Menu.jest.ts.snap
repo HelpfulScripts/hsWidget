@@ -6,21 +6,21 @@ exports[`MenuPanel layout 1`] = `
     class="hs_menu_panel"
   >
     <div
-      class="hs_option_buttons  hs_radio_buttons  hs_menu"
+      class="hs_option_buttons  hs_radio_buttons  hs_menu "
       style="grid-template-columns: repeat(3, 1fr);"
     >
       <div
-        class="hs_button state0  hs_onoff_button index0"
+        class="hs_button state0  hs_onoff_button index0 "
       >
         one
       </div>
       <div
-        class="hs_button state1  hs_onoff_button index1"
+        class="hs_button state1  hs_onoff_button index1 "
       >
         two
       </div>
       <div
-        class="hs_button state0  hs_onoff_button index2"
+        class="hs_button state0  hs_onoff_button index2 "
       >
         three
       </div>
