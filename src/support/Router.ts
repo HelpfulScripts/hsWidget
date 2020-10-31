@@ -63,7 +63,7 @@ export class Router<T> {
      */
     public setParts(attrs:T):T {
         Object.entries(this.defaults).map(([attr,def]:[string, any]) => {
-            if (!attrs[attr] || attrs[attr]==='none') { attrs[attr] = this.lastAttrs[attr]; }
+            if (attrs[attr]===undefined /*|| attrs[attr]==='none'*/) { attrs[attr] = this.lastAttrs[attr]; }
             this.lastAttrs[attr] = attrs[attr] || this.lastAttrs[attr] || def;
         });
         return this.lastAttrs;

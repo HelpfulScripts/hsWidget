@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/9</span>
+                <span class='fraction'>0/7</span>
             </div>
         
             
@@ -290,7 +290,7 @@ export class Router&lt;T&gt; {
      */
     public <span class="fstat-no" title="function not covered" >setParts(</span>attrs:T):T {
 <span class="cstat-no" title="statement not covered" >        Object.entries(this.defaults).map(<span class="fstat-no" title="function not covered" >([</span>attr,def]:[string, any]) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            if (!attrs[attr] || attrs[attr]==='none') { <span class="cstat-no" title="statement not covered" >attrs[attr] = this.lastAttrs[attr]; </span>}</span>
+<span class="cstat-no" title="statement not covered" >            if (attrs[attr]===undefined /*|| attrs[attr]==='none'*/) { <span class="cstat-no" title="statement not covered" >attrs[attr] = this.lastAttrs[attr]; </span>}</span>
 <span class="cstat-no" title="statement not covered" >            this.lastAttrs[attr] = attrs[attr] || this.lastAttrs[attr] || def;</span>
         });
 <span class="cstat-no" title="statement not covered" >        return this.lastAttrs;</span>
