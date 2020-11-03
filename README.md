@@ -3,7 +3,7 @@ hsWidget
 [![npm version](https://badge.fury.io/js/hswidget.svg)](https://badge.fury.io/js/hswidget)
 [![GitHub](https://img.shields.io/badge/GitHub-hsWidget-blue.svg)](https://github.com/helpfulscripts/hswidget)
 [![docs](https://img.shields.io/badge/hsDocs-hsWidget-blue.svg)](https://helpfulscripts.github.io/hsWidget/#!/api/hsWidget/0)
-[![Build Status](https://travis-ci.org/HelpfulScripts/hsWidget.svg?branch=master)](https://travis-ci.org/HelpfulScripts/hsWidget)
+[![Build Status](https://travis-ci.com/HelpfulScripts/hsWidget.svg?branch=master)](https://travis-ci.com/HelpfulScripts/hsWidget)
 [![Dependencies Status](https://david-dm.org/helpfulscripts/hswidget.svg)](https://david-dm.org/helpfulscripts/hswidget)
 [![codecov](https://codecov.io/gh/HelpfulScripts/hsWidget/branch/master/graph/badge.svg)](https://codecov.io/gh/HelpfulScripts/hsWidget)
 [![Known Vulnerabilities](https://snyk.io/test/github/HelpfulScripts/hsWidget/badge.svg?targetFile=package.json)](https://snyk.io/test/github/HelpfulScripts/hsWidget?targetFile=package.json)
