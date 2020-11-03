@@ -63,6 +63,7 @@
         "webpack": "^4.43.x"
     },
     "dependencies": {
+        "@mdi/js": "5.3.x",
         "mithril": "^2.0.4",
         "hsutil": "3.x.x",
         "showdown": "^1.9.1"
