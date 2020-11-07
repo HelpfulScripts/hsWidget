@@ -1,7 +1,6 @@
 import m from "mithril";
 import { EditLabel }    from './EditLabel';
 import { EditDate }     from './EditLabel';
-import { Log }          from 'hsnode';  const log = new Log('EditLabel.jest');
 
 window = Object.assign(require('mithril/test-utils/domMock.js')(), require('mithril/test-utils/pushStateMock')());
 const mq = require('mithril-query');
