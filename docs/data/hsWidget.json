@@ -16756,7 +16756,7 @@
 																	],
 																	"sources": [
 																		{
-																			"fileName": "Shared/Sites/staging/apps/hsDocs/node_modules/@types/d3-format/index.d.ts",
+																			"fileName": "Shared/Sites/staging/apps/hsDocs/node_modules/@types/d3/node_modules/@types/d3-format/index.d.ts",
 																			"line": 62,
 																			"character": 53
 																		}
@@ -16774,7 +16774,7 @@
 															],
 															"sources": [
 																{
-																	"fileName": "Shared/Sites/staging/apps/hsDocs/node_modules/@types/d3-format/index.d.ts",
+																	"fileName": "Shared/Sites/staging/apps/hsDocs/node_modules/@types/d3/node_modules/@types/d3-format/index.d.ts",
 																	"line": 62,
 																	"character": 43
 																}
