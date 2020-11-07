@@ -65,7 +65,7 @@
         "webpack": "5.x.x"
     },
     "dependencies": {
-        "@mdi/js": "5.3.x",
+        "@mdi/js": "^5.x.x",
         "d3": "^5.16.0",
         "mithril": "^2.0.4",
         "hsutil": "3.x.x",
