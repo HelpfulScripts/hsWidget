@@ -84,8 +84,8 @@ function make(grunt) {
     grunt.registerTask('build-css',     ['less']);
     grunt.registerTask('build-base',    ['clean:dist', 'clean:docs', 'build-html', 'build-css', 'copy:bin']);
     switch(type) {
-        case 'node':grunt.registerTask('buildMin', ['build-base', 'ts:cjs', 'doc', 'test', 'stage']);
-                    grunt.registerTask('buildDev', ['build-base', 'ts:cjs', 'stage']);
+        case 'node':grunt.registerTask('buildMin', ['build-base', 'ts:esm', 'ts:cjs', 'doc', 'test', 'stage']);
+                    grunt.registerTask('buildDev', ['build-base', 'ts:esm', 'ts:cjs', 'stage']);
                     break;
         case 'lib': grunt.registerTask('buildMin', ['build-base', 'ts:esm', 'ts:cjs', 'webpack:appDev', 'webpack:appProd', 'doc', 'test', 'stage']);
                     grunt.registerTask('buildDev', ['build-base', 'ts:esm', 'ts:cjs', 'webpack:appDev', 'stage']);
