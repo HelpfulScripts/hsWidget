@@ -13,7 +13,7 @@
         "prepublishOnly": "npm run grunt",
         "postpublish": "npm version patch"
     },
-    "version": "2.5.11",
+    "version": "2.5.12",
     "keywords": [
         "UI",
         "widgets",
