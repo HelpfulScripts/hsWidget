@@ -3,7 +3,9 @@
     "sideEffects": false,
     "main": "./bin/cjs/index.js",
     "module": "./bin/esm/index.js",
-    "files": ["bin/"],
+    "files": [
+        "bin/"
+    ],
     "types": "./bin/esm/index.d.ts",
     "type": "module",
     "scripts": {
@@ -11,7 +13,7 @@
         "prepublishOnly": "npm run grunt",
         "postpublish": "npm version patch"
     },
-    "version": "2.5.12",
+    "version": "2.5.13",
     "keywords": [
         "UI",
         "widgets",
