@@ -7,10 +7,9 @@ describe('EditList', () => {
         const content1 = [''];
             
         beforeAll(()=>{
-            m.mount(root, { view: () => m(EditList, {
-                header: 'list', isExpanded:true,
-                rows:content1
-            })});
+            m.mount(root, { view: () => 
+                m(EditList, {header: 'list', isExpanded:true}, content1)
+            });
         });
 
         it('should match snapshot', () => {
@@ -25,8 +24,7 @@ describe('EditList', () => {
             m.mount(root, { view: () => m(EditList, {
                 header: 'list',
                 collapsible: false,
-                rows: content1
-            })});
+            }, content1)});
         });
 
         it('should match snapshot', () => {
@@ -40,8 +38,7 @@ describe('EditList', () => {
         beforeAll(()=>{
             m.mount(root, { view: () => m(EditList, {
                 collapsible: false,
-                rows:content1
-            })});
+            }, content1)});
         });
 
         it('should match snapshot', () => {

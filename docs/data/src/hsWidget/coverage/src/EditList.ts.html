@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">67.35% </span>
+                <span class="strong">68.75% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>33/49</span>
+                <span class='fraction'>33/48</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">63.64% </span>
+                <span class="strong">64.71% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>35/55</span>
+                <span class='fraction'>33/51</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">75% </span>
+                <span class="strong">74.36% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>30/40</span>
+                <span class='fraction'>29/39</span>
             </div>
         
             
@@ -231,7 +231,8 @@
 <a name='L172'></a><a href='#L172'>172</a>
 <a name='L173'></a><a href='#L173'>173</a>
 <a name='L174'></a><a href='#L174'>174</a>
-<a name='L175'></a><a href='#L175'>175</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L175'></a><a href='#L175'>175</a>
+<a name='L176'></a><a href='#L176'>176</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -380,8 +381,9 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
@@ -509,7 +511,7 @@ function expand(rows:any[], def:any, isEmpty:IsTest) {
 /** */
 export interface EditListAttrs extends WidgetAttrs {
     /**  */
-    rows: any[];
+    // rows: any[];
 &nbsp;
     /** optional sorting function for rows; As a default, no sorting happens. */
     sort?: (a:any, b:any) =&gt; number;
@@ -554,9 +556,10 @@ export interface EditListAttrs extends WidgetAttrs {
 &nbsp;
 export class EditList extends Widget {
     view(node:Vnode&lt;EditListAttrs, this&gt;) {
-        <span class="missing-if-branch" title="if path not taken" >I</span>if ((&lt;m.Child[]&gt;node<span class="branch-0 cbranch-no" title="branch not covered" >?.c</span>hildren)<span class="branch-0 cbranch-no" title="branch not covered" >?.l</span>ength&gt;0) { <span class="cstat-no" title="statement not covered" >log.warn('node.children is not supported by EditList')}</span>
+        // if ((&lt;m.Child[]&gt;node?.children)?.length&gt;0) { log.warn('node.children is not supported by EditList')}
         const sort       = node.attrs.sort || (<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >0)</span>;
-        const rows:ListRow[] = node.attrs.rows;
+        // const rows:ListRow[] = node.attrs.rows;
+        const rows:ListRow[] = &lt;m.Child[]&gt;node<span class="branch-0 cbranch-no" title="branch not covered" >?.c</span>hildren;
         const isEmpty    = node.attrs.isEmpty || defIsEmpty;
         const isExpanded = node.attrs.isExpanded || false;
         const render     = node.attrs.rowRender || defaultRender(rows);
@@ -568,7 +571,7 @@ export class EditList extends Widget {
         <span class="missing-if-branch" title="if path not taken" >I</span>if (!rows || !rows.map) { <span class="cstat-no" title="statement not covered" >log.warn(`EditList rows must be an array`); </span>}
         expandRows(rows, def, isEmpty);
         const content = rows.sort(sort).map((row:any, i:number) =&gt; render(row, i));
-        content.unshift(m('.header', node.attrs.header));
+        if (node.attrs.header) { content.unshift(m('.header', node.attrs.header)); }
 &nbsp;
         return collapsible? 
             m(Collapsible, this.attrs(node.attrs, {

@@ -174,8 +174,7 @@ const render = () => m.mount(root, {view: () => m('.hs_white', { class: 'overvie
         m(hsWidget.EditList, { 
             header: 'List Header',
             isExpanded:true,
-            rows: elContent
-        }),
+        }, elContent),
     ]),
 
     // EditCheckbox
@@ -184,6 +183,15 @@ const render = () => m.mount(root, {view: () => m('.hs_white', { class: 'overvie
         m(hsWidget.EditCheckbox, { 
             update: newValue => checkbox = newValue
         }, `${checkbox}: I am ${checkbox?'' : 'not '}a robot`),
+    ]),
+
+    // EditTextarea
+    m('.myECheck',[
+        m('h2.myEditTextarea', 'EditTextarea'),
+        m(hsWidget.EditTextarea, {
+            placeholder: 'Enter Value',
+            update: newValue => textarea = newValue
+        }, textarea),
     ]),
 ])})
 // ]))});
@@ -216,6 +224,7 @@ let editLabelContent = '';
 let esSelected = '';
 let elContent = [''];
 let checkbox = false;
+let textarea = 'supports **markdown**';
 
 const click = (button) => () => {
    lastCornerButton = '';

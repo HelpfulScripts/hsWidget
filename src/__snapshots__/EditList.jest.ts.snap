@@ -54,9 +54,6 @@ exports[`EditList Non-Collapsible, no header should match snapshot 1`] = `
   <div
     class="hs_edit_list"
   >
-    <div
-      class="header"
-    />
     <span
       class="hsedit_label default"
     >

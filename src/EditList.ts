@@ -102,7 +102,7 @@ function expand(rows:any[], def:any, isEmpty:IsTest) {
 /** */
 export interface EditListAttrs extends WidgetAttrs {
     /**  */
-    rows: any[];
+    // rows: any[];
 
     /** optional sorting function for rows; As a default, no sorting happens. */
     sort?: (a:any, b:any) => number;
@@ -147,9 +147,10 @@ export interface EditListAttrs extends WidgetAttrs {
 
 export class EditList extends Widget {
     view(node:Vnode<EditListAttrs, this>) {
-        if ((<m.Child[]>node?.children)?.length>0) { log.warn('node.children is not supported by EditList')}
+        // if ((<m.Child[]>node?.children)?.length>0) { log.warn('node.children is not supported by EditList')}
         const sort       = node.attrs.sort || (()=>0);
-        const rows:ListRow[] = node.attrs.rows;
+        // const rows:ListRow[] = node.attrs.rows;
+        const rows:ListRow[] = <m.Child[]>node?.children;
         const isEmpty    = node.attrs.isEmpty || defIsEmpty;
         const isExpanded = node.attrs.isExpanded || false;
         const render     = node.attrs.rowRender || defaultRender(rows);
@@ -161,7 +162,7 @@ export class EditList extends Widget {
         if (!rows || !rows.map) { log.warn(`EditList rows must be an array`); }
         expandRows(rows, def, isEmpty);
         const content = rows.sort(sort).map((row:any, i:number) => render(row, i));
-        content.unshift(m('.header', node.attrs.header));
+        if (node.attrs.header) { content.unshift(m('.header', node.attrs.header)); }
 
         return collapsible? 
             m(Collapsible, this.attrs(node.attrs, {

@@ -37,6 +37,10 @@
 .hsedit_label { 
    background-color: #eee;
 }
+
+.hs_edit_textarea {
+    border: 1px solid #ccf;
+}
    
 .topGap     { height: 100px; }
 .myButtons  { height: 680px; }

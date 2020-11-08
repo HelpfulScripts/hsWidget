@@ -19,11 +19,10 @@
  *    m('div', [
  *      m('span', `current content: '${content}'`),
  *      m(hsWidget.EditLabel, {
- *          css: '.myLabel',
+ *          class: 'myLabel',
  *          placeholder: 'Enter Value',
- *          content: content,
  *          update: newValue => content = newValue
- *      })
+ *      }, content)
  *    ])
  * ])});
  * 
@@ -69,19 +68,24 @@ export class EditLabel extends Widget {
             node.state.editable = false;
             node.attrs.update(e.target.value);
         }
-        node.state.makeEditable = () => node.state.editable = true; 
+        node.state.makeEditable = () => {
+            m.redraw();
+            node.state.editable = true; 
+        }
         node.state.blurIfReturn = (key:UIEvent) => {
             key.which === 13? (<Window>key.target).blur() : '';
         }
     }
     view(node:Vnode<EditLabelAttrs, this>):ViewResult {
-        const content = ''+node.children;
-        const attrs =  this.attrs(node.attrs, <any>{ onclick:node.state.makeEditable });
+        const children = (<m.Child[]>node.children).join(',');
+        const html = makeHtml(''+children);
+        const content = children? m.trust(html) : node.attrs.placeholder ?? 'click to enter';
+        const spanAttrs =  this.attrs(node.attrs, <any>{ onclick:node.state.makeEditable });
+        const inputAttrs = this.attrs(node.attrs, <any>{ onblur:node.state.blur, onkeyup:node.state.blurIfReturn });
+        const def = children?'':'.default';
         return node.state.editable? 
-                m(`input.hsedit_label`, this.attrs(node.attrs, <any>{ onblur:node.state.blur, onkeyup:node.state.blurIfReturn }), '')
-            : content? 
-                m(`span.hsedit_label`, Popup.arm(node.attrs.popup, attrs), m.trust( ''+content))
-              : m(`span.hsedit_label.default`, Popup.arm(node.attrs.popup, this.attrs(node.attrs, <any>{ onclick:node.state.makeEditable })), ''+node.attrs.placeholder || 'click to enter');
+                m(`input.hsedit_label`, inputAttrs, '')
+              : m(`span.hsedit_label${def}`, Popup.arm(node.attrs.popup, spanAttrs), content)
     }
 }
 
@@ -110,5 +114,34 @@ export class EditDate extends EditLabel {
             content = content.slice(4);
         }
         return super.view(node);
+    }
+}
+
+let convert:(content:string)=>string;
+// let called = false;
+export function makeHtml(content:string) {
+    async function loadShowdown() { try {
+        // if (!called) {
+            log.info(`loading showdown...`);
+            // called = true;
+            const showdown =  await import('showdown');
+            log.info(`showdown loaded, creating converter...`);
+            const converter = new showdown.Converter({
+                tables:                 true,   // enables |...| style tables; requires 2nd |---| line
+                ghCompatibleHeaderId:   true,   // github-style dash-separated header IDs
+                smartIndentationFix:    true,   // fixes ES6 template indentations
+                takslists:              true,   // enable - [ ] task; doesn't seem to work.
+                strikethrough:          true    // enables ~~text~~
+            });
+            convert = converter.makeHtml.bind(converter);
+        // }
+    } catch(e) {
+        log.warn(`converting '${content}': ${e}`);
+    }}
+    if (convert) {
+        return convert(content);
+    } else {
+        loadShowdown();
+        return content;
     }
 }

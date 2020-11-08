@@ -20,9 +20,8 @@
  *      m(hsWidget.EditTextarea, {
  *          css: '.myLabel',
  *          placeholder: 'Enter Value',
- *          content: content,
  *          update: newValue => content = newValue
- *      })
+ *      }, content)
  *    ])
  * ])});
  * 
@@ -36,20 +35,11 @@
 
 /** */
 import { Log }          from 'hsutil';  const log = new Log('EditTextarea');
-import m, { VnodeDOM }                from "mithril";
-import showdown         from 'showdown';
+import m, { VnodeDOM }  from "mithril";
 import { Popup }        from './Popup';
-import { Widget, ViewResult }       from './Widget';
-import { WidgetAttrs }  from './Widget';
-import { Vnode }        from './Widget';
-
-const converter = new showdown.Converter({
-    tables:                 true,   // enables |...| style tables; requires 2nd |---| line
-    ghCompatibleHeaderId:   true,   // github-style dash-separated header IDs
-    smartIndentationFix:    true,   // fixes ES6 template indentations
-    takslists:              true,   // enable - [ ] task; doesn't seem to work.
-    strikethrough:          true    // enables ~~text~~
-});
+import { Widget, ViewResult, WidgetAttrs, Vnode }       
+                        from './Widget';
+import { makeHtml }     from './EditLabel';
 
 
 export interface EditTextareaAttrs extends WidgetAttrs {
@@ -72,7 +62,8 @@ export class EditTextarea extends Widget {
         node.state.blur = (e:Event) => {
             node.state.editable = false;
             node.state.hasFocus = false;
-            node.state.update((<HTMLButtonElement>e.target).value);
+            const content = (<HTMLButtonElement>e.target).value;
+            node.state.update(content);
         }
         node.state.toggleEditable = () => node.state.editable = !node.state.editable; 
         node.state.adjustTextAreaHeight = (dom:any) => { 
@@ -108,16 +99,17 @@ export class EditTextarea extends Widget {
             onclick: node.state.toggleEditable,
             onupdate: (node:VnodeDOM<EditTextareaAttrs, this>) => node.state.adjustTextAreaHeight((<any>node).dom)
         });
+        const children = (<m.Child[]>node.children).join(',');
+        const html = makeHtml(''+children).replace(/\n/g, '<p>');
+        const content = children? m.trust(html) : node.attrs.placeholder ?? 'click to enter';
         const attrs = () => node.attrs.popup? Popup.arm(node.attrs.popup, onEvent) : onEvent;
-        const content = <string>node.children[0] || '';
+        const def = children?'':'.default';
         return node.state.editable? 
-            m(`textarea.hs_edit_textarea$`, this.attrs(node.attrs, <any>{ 
+            m(`textarea.hs_edit_textarea`, this.attrs(node.attrs, <any>{ 
                 wrap: 'physical',
                 onblur: node.state.blur,
-            }), m.trust(content.replace(/\n/g,'<p>')))
-            : (content && content.length)? 
-                  m(`.hs_edit_textarea`, attrs(), m.trust(converter.makeHtml(content)))
-                : m(`.hs_edit_textarea.default`, attrs(), node.attrs.placeholder || 'click to enter');
+            }), content)
+          : m(`.hs_edit_textarea${def}`, attrs(), content)
     }
 }
 
