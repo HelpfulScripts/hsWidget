@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">23.33% </span>
+                <span class="strong">17.86% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>7/30</span>
+                <span class='fraction'>5/28</span>
             </div>
         
             
@@ -386,7 +386,7 @@ export class EditTextarea extends Widget {
     public view(node:Vnode&lt;EditTextareaAttrs, this&gt;):ViewResult {
         const onEvent = this.attrs(node.attrs, &lt;any&gt;{
             onclick: node.state.toggleEditable,
-            onupdate: <span class="fstat-no" title="function not covered" >(n</span>ode:VnodeDOM&lt;EditTextareaAttrs, this&gt;) =&gt; <span class="cstat-no" title="statement not covered" >node.state.adjustTextAreaHeight((&lt;any&gt;node).dom)</span>
+            onupdate: <span class="fstat-no" title="function not covered" >(n</span>:VnodeDOM&lt;EditTextareaAttrs, this&gt;) =&gt; <span class="cstat-no" title="statement not covered" >node.state.adjustTextAreaHeight((&lt;any&gt;n).dom)</span>
         });
         const children = (&lt;m.Child[]&gt;node.children).join(',');
         const html = makeHtml(''+children).replace(/\n/g, '&lt;p&gt;');

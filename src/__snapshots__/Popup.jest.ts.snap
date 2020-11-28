@@ -10,7 +10,9 @@ exports[`EditCheckbox should match snapshot 1`] = `
     >
       hover over me
     </h4>
-    <span />
+    <span
+      class="hs_popup idle"
+    />
   </div>
 </div>
 `;

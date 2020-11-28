@@ -4,8 +4,10 @@ exports[`Grid columns should have DOM structure 1`] = `
 Object {
   "attrs": Object {
     "class": null,
-    "className": "hs_grid hs_grid_col colGrid",
-    "style": "gap:5px 5px;grid-template-columns:50px auto 50px;",
+    "className": "hs_grid colGrid hs_grid_col",
+    "columns": "50px auto 50px",
+    "gap": "5px 5px",
+    "style": " gap:5px 5px;grid-template-columns:50px auto 50px;",
   },
   "children": Array [
     Object {
@@ -26,8 +28,9 @@ Object {
     },
     Object {
       "attrs": Object {
-        "class": "rowGrid",
+        "class": "rowGrid hs_grid_row",
         "rows": "",
+        "style": " grid-template-rows:;",
       },
       "children": Array [
         "1",
@@ -88,8 +91,9 @@ Object {
     Object {
       "attrs": Object {
         "class": null,
-        "className": "hs_grid hs_grid_row rowGrid",
-        "style": "grid-template-rows:;",
+        "className": "hs_grid rowGrid hs_grid_row",
+        "rows": "",
+        "style": " grid-template-rows:;",
       },
       "children": Array [
         Object {
@@ -293,8 +297,10 @@ exports[`Grid nested should have DOM structure 1`] = `
 Object {
   "attrs": Object {
     "class": null,
-    "className": "hs_grid hs_grid_col colGrid",
-    "style": "gap:5px 5px;grid-template-columns:50px auto auto 50px; background-color:#ffe; padding:20px 0;",
+    "className": "hs_grid colGrid hs_grid_col",
+    "columns": "50px auto auto 50px",
+    "gap": "5px 5px",
+    "style": "background-color:#ffe; padding:20px 0; gap:5px 5px;grid-template-columns:50px auto auto 50px;",
   },
   "children": Array [
     Object {
@@ -315,8 +321,9 @@ Object {
     },
     Object {
       "attrs": Object {
-        "class": "rowGrid",
+        "class": "rowGrid hs_grid_row",
         "rows": "",
+        "style": " grid-template-rows:;",
       },
       "children": Array [
         "1",
@@ -336,8 +343,9 @@ Object {
     },
     Object {
       "attrs": Object {
-        "class": "rowGrid",
+        "class": "rowGrid hs_grid_row",
         "rows": "",
+        "style": " grid-template-rows:;",
       },
       "children": Array [
         "1",
@@ -398,8 +406,9 @@ Object {
     Object {
       "attrs": Object {
         "class": null,
-        "className": "hs_grid hs_grid_row rowGrid",
-        "style": "grid-template-rows:;",
+        "className": "hs_grid rowGrid hs_grid_row",
+        "rows": "",
+        "style": " grid-template-rows:;",
       },
       "children": Array [
         Object {
@@ -579,8 +588,9 @@ Object {
     Object {
       "attrs": Object {
         "class": null,
-        "className": "hs_grid hs_grid_row rowGrid",
-        "style": "grid-template-rows:;",
+        "className": "hs_grid rowGrid hs_grid_row",
+        "rows": "",
+        "style": " grid-template-rows:;",
       },
       "children": Array [
         Object {
@@ -784,8 +794,10 @@ exports[`Grid rows should have DOM structure 1`] = `
 Object {
   "attrs": Object {
     "class": null,
-    "className": "hs_grid hs_grid_row colGrid",
-    "style": "gap:5px 5px;grid-template-rows:50px auto 50px;",
+    "className": "hs_grid colGrid hs_grid_row",
+    "gap": "5px 5px",
+    "rows": "50px auto 50px",
+    "style": " gap:5px 5px;grid-template-rows:50px auto 50px;",
   },
   "children": Array [
     Object {
@@ -806,8 +818,9 @@ Object {
     },
     Object {
       "attrs": Object {
-        "class": "rowGrid",
+        "class": "rowGrid hs_grid_row",
         "rows": "",
+        "style": " grid-template-rows:;",
       },
       "children": Array [
         "1",
@@ -868,8 +881,9 @@ Object {
     Object {
       "attrs": Object {
         "class": null,
-        "className": "hs_grid hs_grid_row rowGrid",
-        "style": "grid-template-rows:;",
+        "className": "hs_grid rowGrid hs_grid_row",
+        "rows": "",
+        "style": " grid-template-rows:;",
       },
       "children": Array [
         Object {

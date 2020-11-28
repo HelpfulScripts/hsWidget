@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">87.1% </span>
+                <span class="strong">92% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>27/31</span>
+                <span class='fraction'>23/25</span>
             </div>
         
             
@@ -548,8 +548,8 @@ export class Button extends EnabledWidget {
         node.state.pressing = (down:boolean) =&gt; node.state.pressed = this.enabled? down : <span class="branch-1 cbranch-no" title="branch not covered" >false;</span>
         if (!this.state) {
             const numValues = node.attrs.numValues || (&lt;m.Child[]&gt;node.children).length || 1; 
-            const initial = node.attrs.initial<span class="branch-0 cbranch-no" title="branch not covered" > ?? 0</span>;
-            const transition = node.attrs.transition<span class="branch-0 cbranch-no" title="branch not covered" > ?? S</span>tate.transitions.cycle;
+            const initial = node.attrs.initial ?? 0;
+            const transition = node.attrs.transition ?? State.transitions.cycle;
             this.state = new State(numValues, initial, transition);
         }
         // provide state access to client:

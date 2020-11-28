@@ -97,7 +97,7 @@ export class Popup extends Widget {
         Popup.instance = this;
         const pos = xy(window.innerWidth, window.innerHeight, this.x, this.y);
         const style = `left:${pos[0]}px; top:${pos[1]}px; transform: translate(${pos[2]}%, ${pos[3]}%);`;
-        return !this.showPopup? m('span') : m(`.hs_popup`, {style:style}, this.content);
+        return !this.showPopup? m('span.hs_popup.idle') : m(`.hs_popup`, {style:style}, this.content);
     }
 }
 

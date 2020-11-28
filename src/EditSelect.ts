@@ -46,26 +46,28 @@ import { Vnode }    from "./Widget";
 export interface EditSelectAttrs extends WidgetAttrs {
     popup?: string;
     update: (r:string) => void;
-    initial: string;
+    initial?: string;
 }
 
 export class EditSelect extends Widget {
     selectable:boolean;
     select: (e:Event)=>void
+    selected:string;
     oninit(node:Vnode<EditSelectAttrs, this>) {
         node.state.selectable = false;
+        const i = (<string[]>node.children).indexOf(node.attrs.initial);
+        node.state.selected = (<string[]>node.children)[i>=0? i : 0];
         node.state.select = (e:Event) => { 
-            node.attrs.update((<HTMLButtonElement>e.currentTarget).value);
+            const selection = (<HTMLButtonElement>e.currentTarget).value;
+            node.attrs.update(selection);
+            node.state.selected = selection;
             node.state.selectable = false;
         }
-        // node.state.makeSelectable = () => {
-        //     node.state.selectable = true;
-        // }
     }
     view(node:Vnode<EditSelectAttrs, this>):ViewResult {
         return m(`select.hsedit_select`, 
             Popup.arm(node.attrs.popup, this.attrs(node.attrs, <any>{ onchange:node.state.select})),
-            (<string[]>node.children).map((o:string) => node.attrs.initial===o?
+            (<string[]>node.children).map((o:string) => node.state.selected===o?
                 m('option.hsedit_select_option.selected', { value: o, selected:true }, o) :
                 m('option.hsedit_select_option', { value: o }, o)));
     }

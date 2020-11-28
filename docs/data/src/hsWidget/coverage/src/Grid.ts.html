@@ -297,7 +297,7 @@ export class Grid extends Widget {
         const a:GridAttrs = node.attrs;
         const [cl, st] = this.gridFormat(a);
         const childNodes = () =&gt; (&lt;any[]&gt;node.children).map((c,i) =&gt; typeof c==='string'? m(`.hs_grid_cell.child${i}`, c) : c);
-        return m(`.hs_grid`, this.attrs(node.attrs, { class: cl, style:st}), childNodes());
+        return m(`.hs_grid`, this.attrs({ class: cl, style:st}, node.attrs), childNodes());
     }
 }
 &nbsp;

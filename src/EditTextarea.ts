@@ -97,7 +97,7 @@ export class EditTextarea extends Widget {
     public view(node:Vnode<EditTextareaAttrs, this>):ViewResult {
         const onEvent = this.attrs(node.attrs, <any>{
             onclick: node.state.toggleEditable,
-            onupdate: (node:VnodeDOM<EditTextareaAttrs, this>) => node.state.adjustTextAreaHeight((<any>node).dom)
+            onupdate: (n:VnodeDOM<EditTextareaAttrs, this>) => node.state.adjustTextAreaHeight((<any>n).dom)
         });
         const children = (<m.Child[]>node.children).join(',');
         const html = makeHtml(''+children).replace(/\n/g, '<p>');

@@ -69,7 +69,6 @@ export class EditLabel extends Widget {
             node.attrs.update(e.target.value);
         }
         node.state.makeEditable = () => {
-            m.redraw();
             node.state.editable = true; 
         }
         node.state.blurIfReturn = (key:UIEvent) => {

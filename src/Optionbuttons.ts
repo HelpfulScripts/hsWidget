@@ -42,7 +42,6 @@ import { EnabledWidget, EnabledWidgetAtrrs, Vnode }        from './Widget';
 import { ViewResult }   from './Widget';
 import { OnOffButton }  from "./Button";
 import { Stateful }     from "./support/State";
-import { notDeepEqual } from "assert";
 
 export interface OptionClick {
     (buttonIndex:number, newValue:number, states:number[]): void;

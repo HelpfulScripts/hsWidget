@@ -69,6 +69,10 @@ export class Router<T> {
         return this.lastAttrs;
     }
 
+    public getParts() {
+        return this.lastAttrs;
+    }
+
     private route(viewComponent: WidgetClass, routePattern:string) {
         const parts = routePattern.split(':');
         const routes = {};

@@ -239,13 +239,13 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">7x</span>
+<span class="cline-any cline-yes">8x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -394,7 +394,7 @@ export class Popup extends Widget {
         Popup.instance = this;
         const pos = xy(window.innerWidth, window.innerHeight, this.x, this.y);
         const style = `left:${pos[0]}px; top:${pos[1]}px; transform: translate(${pos[2]}%, ${pos[3]}%);`;
-        return !this.showPopup? m('span') : <span class="branch-1 cbranch-no" title="branch not covered" >m(`.hs_popup`, {style:style}, this.content);</span>
+        return !this.showPopup? m('span.hs_popup.idle') : <span class="branch-1 cbranch-no" title="branch not covered" >m(`.hs_popup`, {style:style}, this.content);</span>
     }
 }
 &nbsp;

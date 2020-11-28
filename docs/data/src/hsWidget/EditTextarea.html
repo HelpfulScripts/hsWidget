@@ -120,7 +120,7 @@
 <p id=97 class="line"><span>&nbsp;&nbsp;97</span>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;view(node:Vnode&lt;EditTextareaAttrs,&nbsp;this&gt;):ViewResult&nbsp;{</p>
 <p id=98 class="line"><span>&nbsp;&nbsp;98</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;onEvent&nbsp;=&nbsp;this.attrs(node.attrs,&nbsp;&lt;any&gt;{</p>
 <p id=99 class="line"><span>&nbsp;&nbsp;99</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onclick:&nbsp;node.state.toggleEditable,</p>
-<p id=100 class="line"><span>&nbsp;100</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onupdate:&nbsp;(node:VnodeDOM&lt;EditTextareaAttrs,&nbsp;this&gt;)&nbsp;=&gt;&nbsp;node.state.adjustTextAreaHeight((&lt;any&gt;node).dom)</p>
+<p id=100 class="line"><span>&nbsp;100</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;onupdate:&nbsp;(n:VnodeDOM&lt;EditTextareaAttrs,&nbsp;this&gt;)&nbsp;=&gt;&nbsp;node.state.adjustTextAreaHeight((&lt;any&gt;n).dom)</p>
 <p id=101 class="line"><span>&nbsp;101</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;});</p>
 <p id=102 class="line"><span>&nbsp;102</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;children&nbsp;=&nbsp;(&lt;m.Child[]&gt;node.children).join(<quote>','</quote>);</p>
 <p id=103 class="line"><span>&nbsp;103</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const&nbsp;html&nbsp;=&nbsp;makeHtml(<quote>''</quote>+children).replace(/\n/g,&nbsp;<quote>'&lt;p&gt;'</quote>);</p>

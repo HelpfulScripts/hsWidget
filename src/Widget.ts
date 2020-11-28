@@ -16,6 +16,8 @@ export interface WidgetAttrs {
     
     /** an optional pre-computed CSS style string to add to the main widget */
     style?: string;
+
+    onclick?: (...args:any) => void;
 }
 
 interface WidgetState extends m.Lifecycle<WidgetAttrs, m.Lifecycle<WidgetAttrs, WidgetState>>  {

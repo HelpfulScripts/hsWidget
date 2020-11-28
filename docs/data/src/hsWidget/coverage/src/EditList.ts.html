@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">64.71% </span>
+                <span class="strong">63.83% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>33/51</span>
+                <span class='fraction'>30/47</span>
             </div>
         
             
@@ -559,7 +559,7 @@ export class EditList extends Widget {
         // if ((&lt;m.Child[]&gt;node?.children)?.length&gt;0) { log.warn('node.children is not supported by EditList')}
         const sort       = node.attrs.sort || (<span class="fstat-no" title="function not covered" >()=</span>&gt;<span class="cstat-no" title="statement not covered" >0)</span>;
         // const rows:ListRow[] = node.attrs.rows;
-        const rows:ListRow[] = &lt;m.Child[]&gt;node<span class="branch-0 cbranch-no" title="branch not covered" >?.c</span>hildren;
+        const rows:ListRow[] = &lt;m.Child[]&gt;node?.children;
         const isEmpty    = node.attrs.isEmpty || defIsEmpty;
         const isExpanded = node.attrs.isExpanded || false;
         const render     = node.attrs.rowRender || defaultRender(rows);
