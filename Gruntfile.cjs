@@ -39,6 +39,7 @@ module.exports = (grunt) => {
 
 
 const launchJest = () => require('child_process').spawnSync('./node_modules/.bin/jest',  ['-c=jest.config.json', '-i'], {stdio: 'inherit'});
+const commit     = () => require('child_process').spawnSync('git',  ['status'], {stdio: 'inherit'});
 
 function make(grunt) {
     const cfg = require('./gruntCfg.json');
@@ -73,6 +74,7 @@ function make(grunt) {
     //------ Add Test Tasks
     grunt.registerTask('ospec', () => { require('child_process').spawnSync('./node_modules/.bin/ospec', {stdio: 'inherit'}); });
     grunt.registerTask('jest',  () => launchJest().status===0)
+    grunt.registerTask('commit',  () => commit().status===0)
     grunt.registerTask('test', ['clean:cov', 'jest', 'copy:coverage', 'cleanupCoverage']); 
     
     //------ Add Coverage Reporting
@@ -97,6 +99,7 @@ function make(grunt) {
 
     //------ Entry-point MultiTasks
     grunt.registerTask('default',       ['product']);	
+    grunt.registerTask('publish',       ['product', 'commit']);	
     grunt.registerTask('dev',           ['buildDev']);
     grunt.registerTask('product',       ['buildMin']);	
     grunt.registerTask('ci',            ['build-base', 'ts:cjs', 'test', 'coverageReport']); 

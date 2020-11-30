@@ -80,14 +80,14 @@ const defaultRender = (rows:ListRow[]):RowRender =>  {
     };
 };
 
-function adjustListRowHeight(dom:any, indent='') { 
-    const height = Math.max(...Array.from(dom.childNodes).map((n:Element) => 
-        parseInt(window.getComputedStyle(n).height)
-    ));
-    if (dom && !dom.classList.contains('hsedit_list_content')) {
-        dom.style.height = height>0? `${height}px` : 'auto';
-    }
-}
+// function adjustListRowHeight(dom:any, indent='') { 
+//     const height = Math.max(...Array.from(dom.childNodes).map((n:Element) => 
+//         parseInt(window.getComputedStyle(n).height)
+//     ));
+//     if (dom && !dom.classList.contains('hsedit_list_content')) {
+//         dom.style.height = height>0? `${height}px` : 'auto';
+//     }
+// }
 
 /** expand rows to always show one empty row */
 function expand(rows:any[], def:any, isEmpty:IsTest) {
@@ -101,8 +101,11 @@ function expand(rows:any[], def:any, isEmpty:IsTest) {
 
 /** */
 export interface EditListAttrs extends WidgetAttrs {
-    /**  */
-    // rows: any[];
+    /** 
+     * an array of row elements used. If specified, `rows` takes precedent over 
+     * `<content>` children. Otherwise row elements must be specified as `<content>` children.
+     */
+    rows?: any[];
 
     /** optional sorting function for rows; As a default, no sorting happens. */
     sort?: (a:any, b:any) => number;
@@ -149,8 +152,7 @@ export class EditList extends Widget {
     view(node:Vnode<EditListAttrs, this>) {
         // if ((<m.Child[]>node?.children)?.length>0) { log.warn('node.children is not supported by EditList')}
         const sort       = node.attrs.sort || (()=>0);
-        // const rows:ListRow[] = node.attrs.rows;
-        const rows:ListRow[] = <m.Child[]>node?.children;
+        const rows:ListRow[] = node.attrs.rows ?? <m.Child[]>node?.children;
         const isEmpty    = node.attrs.isEmpty || defIsEmpty;
         const isExpanded = node.attrs.isExpanded || false;
         const render     = node.attrs.rowRender || defaultRender(rows);
