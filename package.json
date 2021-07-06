@@ -68,7 +68,7 @@
     },
     "dependencies": {
         "@mdi/js": "^5.x.x",
-        "d3": "6.x.x",
+        "d3": "7.0.0",
         "mithril": "^2.0.4",
         "hsutil": "3.x.x",
         "showdown": "^1.9.1"
